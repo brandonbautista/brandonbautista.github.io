@@ -143,17 +143,17 @@
     grid-column: span 4;                 /* 3 across on desktop; 5 cards will wrap 3 + 2 */
     background: var(--card);
     border-radius: var(--radius);
-    padding: 1rem;
+    padding: 1rem 1rem 0.75rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     border: 1px solid rgba(0,0,0,0.06);
   }
   .skill-card h3 {
-    margin: 0 0 .5rem 0;
+    margin: 0 0 .4rem 0;
     font-size: 1rem;
   }
-  .skill-muted { color: var(--muted); font-size: .95rem; margin: 0 0 .75rem 0; }
+  .skill-muted { color: var(--muted); font-size: .95rem; margin: 0 0 .6rem 0; }
 
-  .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 1rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: .25rem 0 .75rem; }
   .tag {
     display: inline-block;
     padding: .35rem .6rem;
@@ -164,27 +164,6 @@
     color: #8a3d00;
     font-weight: 600;
     white-space: nowrap;
-  }
-
-  /* Proficiency meters (accessible) */
-  .meter {
-    --val: 80%;
-    position: relative;
-    height: 10px;
-    background: #eef1f4;
-    border-radius: 999px;
-    overflow: hidden;
-    margin: .5rem 0 1rem;
-  }
-  .meter > span {
-    display: block;
-    height: 100%;
-    width: var(--val);
-    background: linear-gradient(90deg, #ff7a00, #ffa24d);
-  }
-  .meter-label {
-    display: flex; justify-content: space-between;
-    font-size: .85rem; color: var(--muted); margin-top: -.25rem;
   }
 
   /* Footer */
@@ -311,7 +290,7 @@
   </div>
 </section>
 
-<!-- Skills -->
+<!-- Skills (no proficiency bars, tags only) -->
 <section class="skills" aria-labelledby="skills-title">
   <h2 id="skills-title">Skills</h2>
 
@@ -327,8 +306,6 @@
         <span class="tag">Interviewing</span>
         <span class="tag">Narrative Structure</span>
       </div>
-      <div class="meter" style="--val: 95%;" role="meter" aria-label="Storytelling proficiency 95%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span></span></div>
-      <div class="meter-label"><span>Proficiency</span><span>95%</span></div>
     </article>
 
     <!-- Content Creation & Video Production -->
@@ -342,8 +319,6 @@
         <span class="tag">Voiceover</span>
         <span class="tag">Visual Storytelling</span>
       </div>
-      <div class="meter" style="--val: 90%;" role="meter" aria-label="Content & Video proficiency 90%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span></span></div>
-      <div class="meter-label"><span>Proficiency</span><span>90%</span></div>
     </article>
 
     <!-- Social Media Strategy -->
@@ -357,8 +332,6 @@
         <span class="tag">Audience Engagement</span>
         <span class="tag">Analytics</span>
       </div>
-      <div class="meter" style="--val: 85%;" role="meter" aria-label="Social Media proficiency 85%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85"><span></span></div>
-      <div class="meter-label"><span>Proficiency</span><span>85%</span></div>
     </article>
 
     <!-- HubSpot Mastery -->
@@ -372,8 +345,6 @@
         <span class="tag">Custom Reporting</span>
         <span class="tag">Integrations</span>
       </div>
-      <div class="meter" style="--val: 90%;" role="meter" aria-label="HubSpot proficiency 90%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span></span></div>
-      <div class="meter-label"><span>Proficiency</span><span>90%</span></div>
     </article>
 
     <!-- Customer Advocacy & Experience -->
@@ -387,8 +358,6 @@
         <span class="tag">Feedback Loops</span>
         <span class="tag">Empathy-Driven Design</span>
       </div>
-      <div class="meter" style="--val: 95%;" role="meter" aria-label="Customer Experience proficiency 95%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span></span></div>
-      <div class="meter-label"><span>Proficiency</span><span>95%</span></div>
     </article>
   </div>
 </section>
