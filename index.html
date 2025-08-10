@@ -7,37 +7,51 @@
   <meta name="description" content="Marketing leader specializing in story-driven strategy, campaigns, and content." />
   <meta name="theme-color" content="#111" />
   <style>
+    /* Color system tuned for contrast and readability */
     :root{
-      --bg:#ffffff; --text:#0a0a0a; --muted:#595959; --brand:#0e4f88; --card:#f4f5f7;
+      --bg:#faf9f6;              /* off‑white */
+      --text:#2b2b2b;            /* dark grey */
+      --muted:#5a5f66;           /* secondary text */
+      --brand:#0e4f88;           /* accent */
+      --card:#f0f2f5;            /* subtle surface */
       --radius-lg: 24px; --radius: 16px; --maxw: 1080px;
+      --ring: 2px solid #0e4f88; /* focus ring */
     }
     @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0f14; --text:#f5f7fb; --muted:#b8c2d1; --card:#101722; --brand:#7db6ff }
+      :root{ --bg:#0b0f14; --text:#f5f7fb; --muted:#b8c2d1; --card:#111827; --brand:#7db6ff }
     }
+
+    /* Base */
     *{box-sizing:border-box}
-    body{margin:0; font:17px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:var(--text)}
+    html:focus-within { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce){ html:focus-within { scroll-behavior: auto; } }
+    body{margin:0; font:18px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:var(--text)}
     img{max-width:100%; display:block}
     .container{width:min(100% - 2rem, var(--maxw)); margin-inline:auto}
     a{color:inherit}
+    a:focus-visible, button:focus-visible { outline: var(--ring); outline-offset: 2px; border-radius:8px }
+    .skip-link{ position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ left:1rem; top:1rem; width:auto; height:auto; background:#fff; color:#000; padding:.5rem .75rem; border-radius:8px; z-index:100 }
 
-    /* Nav (simple, optional sticky) */
+    /* Nav */
     header{position:sticky; top:0; z-index:40; backdrop-filter:blur(6px); background:color-mix(in srgb, var(--bg) 86%, transparent); border-bottom:1px solid rgba(0,0,0,.06)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0}
     .brand{font-weight:800; letter-spacing:.2px}
 
-    /* Banner hero matching your mock */
+    /* Banner hero */
     .hero{padding: 1.5rem 0 0}
     .hero-wrap{position:relative; border-radius: var(--radius-lg); overflow:hidden}
     .hero-img{width:100%; height: clamp(220px, 38vw, 420px); object-fit:cover}
     .hero-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45))}
-    .hero-content{position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:space-between; padding: clamp(1rem, 3vw, 2rem)}
+    .hero-content{position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; padding: clamp(1rem, 3vw, 2rem)}
     .hero-title{color:#fff; font-weight:900; font-size: clamp(1.6rem, 5vw, 3rem); margin:0; text-shadow:0 2px 10px rgba(0,0,0,.35)}
     .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.2rem; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:#111; color:#fff; text-decoration:none; font-weight:700}
 
-    /* Intro copy */
+    /* Intro — visually enhanced for readability */
     .intro{padding: 1.25rem 0 0}
-    .intro p{font-size: clamp(1.05rem, 1.4vw, 1.35rem); max-width: 70ch; margin: 1rem 0}
-    .intro p.emph{font-weight:900}
+    .lead{background: var(--card); border-left: 6px solid var(--brand); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.25rem; margin: .5rem 0 0;}
+    .lead p{font-size: clamp(1.05rem, 1.4vw, 1.35rem); max-width: 70ch; margin: .5rem 0;}
+    .lead p:last-child{ font-weight: 800; }
 
     /* Projects */
     section h2{font-size: clamp(1.5rem, 2.6vw, 2.25rem); margin: 2.25rem 0 .5rem}
@@ -54,44 +68,50 @@
   </style>
 </head>
 <body>
-  <header>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header role="banner">
     <div class="container nav">
       <div class="brand">Brandon Bautista</div>
-      <nav><a class="btn" href="https://www.linkedin.com/in/brandonbautista" target="_blank" rel="noopener">Connect on LinkedIn →</a></nav>
+      <nav aria-label="Primary">
+        <a class="btn" href="https://www.linkedin.com/in/brandonbautista" target="_blank" rel="noopener" aria-label="Connect on LinkedIn (opens in new tab)">Connect on LinkedIn →</a>
+      </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main" role="main">
     <!-- Banner Hero -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero-wrap">
           <img class="hero-img" src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=2000&auto=format&fit=crop" alt="Workspace with laptop and chair">
-          <div class="hero-overlay"></div>
+          <div class="hero-overlay" aria-hidden="true"></div>
           <div class="hero-content">
-            <h1 class="hero-title">Brandon Bautista</h1>
-            <a class="btn" href="https://www.linkedin.com/in/brandonbautista" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+            <h1 class="hero-title" id="hero-title">Brandon Bautista</h1>
+            <a class="btn" href="https://www.linkedin.com/in/brandonbautista" target="_blank" rel="noopener" aria-label="Connect with Brandon on LinkedIn (opens in new tab)">Connect on LinkedIn →</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Intro paragraphs -->
-    <section class="intro container" aria-label="intro">
-      <p>I’m a collaborative marketing leader with 25 years of experience in the online learning space.</p>
-      <p>I believe great marketing isn’t about outspending competitors; it’s about out‑connecting them, using storytelling to help people see themselves in what you offer.</p>
-      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high‑impact campaigns that resonate and endure.</p>
-      <p class="emph">Be kind. Work hard. Have fun.</p>
+    <section class="intro container" aria-label="Introduction">
+      <div class="lead" role="doc-introduction">
+        <p>I’m a collaborative marketing leader with 25 years of experience in the online learning space.</p>
+        <p>I believe great marketing isn’t about outspending competitors; it’s about out‑connecting them, using storytelling to help people see themselves in what you offer.</p>
+        <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high‑impact campaigns that resonate and endure.</p>
+        <p>Be kind. Work hard. Have fun.</p>
+      </div>
     </section>
 
     <!-- Projects grid -->
     <section class="container" id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title">Projects</h2>
-      <div class="grid">
+      <div class="grid" role="list">
         <!-- Card 1 -->
-        <article class="project">
+        <article class="project" role="listitem">
           <figure>
             <img class="thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" alt="BRIGHT: Stories of Hope & Innovation visuals" loading="lazy" />
+            <figcaption class="sr-only">Case study thumbnail for BRIGHT series</figcaption>
           </figure>
           <div class="cap">
             <div class="title">BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</div>
@@ -99,9 +119,10 @@
           </div>
         </article>
         <!-- Card 2 -->
-        <article class="project">
+        <article class="project" role="listitem">
           <figure>
             <img class="thumb" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop" alt="Writing sample thumbnail" loading="lazy" />
+            <figcaption class="sr-only">Writing sample cover image</figcaption>
           </figure>
           <div class="cap">
             <div class="title">Writing Sample: Why I Don’t Give (Hear Me Out)</div>
@@ -109,9 +130,10 @@
           </div>
         </article>
         <!-- Card 3 -->
-        <article class="project">
+        <article class="project" role="listitem">
           <figure>
             <img class="thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop" alt="Interview with Sandra Jones" loading="lazy" />
+            <figcaption class="sr-only">Interview thumbnail</figcaption>
           </figure>
           <div class="cap">
             <div class="title">Project Development Director Sandra Jones on Partnerships</div>
