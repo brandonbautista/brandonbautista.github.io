@@ -17,8 +17,8 @@
       --radius-lg: 24px; --radius: 16px; --maxw: 1080px;
       --ring: 2px solid #0e4f88; /* focus ring */
     }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0f14; --text:#f5f7fb; --muted:#b8c2d1; --card:#111827; --brand:#7db6ff }
+    /* Force a consistent light theme regardless of system setting */
+    html { color-scheme: light; }
     }
 
     /* Base */
@@ -73,7 +73,7 @@
     <div class="container nav">
       <div class="brand">Brandon Bautista</div>
       <nav aria-label="Primary">
-        <a class="btn" href="https://www.linkedin.com/in/brandonbautista" target="_blank" rel="noopener" aria-label="Connect on LinkedIn (opens in new tab)">Connect on LinkedIn →</a>
+        <!-- nav actions intentionally empty per request -->
       </nav>
     </div>
   </header>
