@@ -8,13 +8,19 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f9f8f6; /* off-white */
-      color: #333333; /* dark gray text */
+      background-color: #f9f8f6;
+      color: #333333;
       line-height: 1.6;
     }
 
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
     header {
-      padding: 1rem 2rem;
+      padding: 1rem 0;
       font-weight: bold;
     }
 
@@ -22,74 +28,67 @@
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      margin: 0 auto;
-      max-width: 1200px;
     }
 
     .hero img {
       width: 100%;
+      height: 300px; /* Reduced height */
+      object-fit: cover;
       display: block;
     }
 
-    .hero h1 {
+    .hero-content {
       position: absolute;
       bottom: 1rem;
-      left: 1rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .hero h1 {
       color: #fff;
       font-size: 2rem;
       font-weight: bold;
+      margin: 0;
     }
 
     .hero-button {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-      background-color: #222; /* softer black */
+      background-color: #222;
       color: #fff;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       border-radius: 12px;
       text-decoration: none;
-      display: inline-block;
       font-weight: 500;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
     .hero-button:hover {
-      background-color: #444; /* lighter hover */
-      color: #fff;
+      background-color: #444;
     }
 
     .intro {
-      max-width: 1200px;
-      margin: 2rem auto;
+      margin: 2rem 0;
       padding: 1.5rem;
       background-color: #f0efed;
       border-radius: 12px;
       font-size: 1.1rem;
     }
 
-    .intro p {
-      margin-bottom: 1rem;
-    }
-
-    .intro strong {
-      font-weight: bold;
-    }
-
     h2 {
-      max-width: 1200px;
-      margin: 2rem auto 1rem auto;
-      padding: 0 1rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
 
     .projects {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      max-width: 1200px;
-      margin: 0 auto 3rem auto;
-      padding: 0 1rem;
+      margin-bottom: 3rem;
     }
 
     .project {
@@ -98,7 +97,6 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -130,6 +128,9 @@
       .project {
         flex: 1 1 calc(50% - 1rem);
       }
+      .hero img {
+        height: 200px;
+      }
     }
 
     @media (max-width: 500px) {
@@ -140,46 +141,50 @@
   </style>
 </head>
 <body>
-  <header>
-    Brandon Bautista
-  </header>
+  <div class="container">
+    <header>
+      Brandon Bautista
+    </header>
 
-  <section class="hero">
-    <img src="images/hero.avif" alt="Laptop on desk with person typing">
-    <h1>Brandon Bautista</h1>
-    <a href="https://www.linkedin.com/in/your-linkedin" class="hero-button" target="_blank" rel="noopener noreferrer">
-      Connect on LinkedIn
-    </a>
-  </section>
+    <section class="hero">
+      <img src="images/hero.avif" alt="Laptop on desk with person typing">
+      <div class="hero-content">
+        <h1>Brandon Bautista</h1>
+        <a href="https://www.linkedin.com/in/your-linkedin" class="hero-button" target="_blank" rel="noopener noreferrer">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </section>
 
-  <section class="intro">
-    <p>I’m a collaborative marketing leader with 25 years of experience in the online learning space.</p>
-    <p>I believe great marketing isn’t about outspending competitors; it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
-    <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure.</p>
-    <p><strong>Be kind. Work hard. Have fun.</strong></p>
-  </section>
+    <section class="intro">
+      <p>I’m a collaborative marketing leader with 25 years of experience in the online learning space.</p>
+      <p>I believe great marketing isn’t about outspending competitors; it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
+      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure.</p>
+      <p><strong>Be kind. Work hard. Have fun.</strong></p>
+    </section>
 
-  <h2>Projects</h2>
+    <h2>Projects</h2>
 
-  <section class="projects">
-    <div class="project">
-      <a href="link-to-bright-case-study.html">
-        <img src="images/bright.jpg" alt="BRIGHT: Stories of Hope & Innovation in Michigan Classrooms">
-        <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
-      </a>
-    </div>
-    <div class="project">
-      <a href="link-to-writing-sample.html">
-        <img src="images/project2.jpg" alt="Writing Sample: Why I Don’t Give (Hear Me Out)">
-        <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
-      </a>
-    </div>
-    <div class="project">
-      <a href="link-to-partnership-article.html">
-        <img src="images/project3.jpg" alt="Project Development Director Sandra Jones shares her thoughts on partnerships">
-        <p>Project Development Director Sandra Jones shares her thoughts on partnerships</p>
-      </a>
-    </div>
-  </section>
+    <section class="projects">
+      <div class="project">
+        <a href="link-to-bright-case-study.html">
+          <img src="images/bright.jpg" alt="BRIGHT: Stories of Hope & Innovation in Michigan Classrooms">
+          <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="link-to-writing-sample.html">
+          <img src="images/project2.jpg" alt="Writing Sample: Why I Don’t Give (Hear Me Out)">
+          <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="link-to-partnership-article.html">
+          <img src="images/project3.jpg" alt="Project Development Director Sandra Jones shares her thoughts on partnerships">
+          <p>Project Development Director Sandra Jones shares her thoughts on partnerships</p>
+        </a>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
