@@ -13,6 +13,7 @@
     --muted:#6b7280;    /* secondary text */
     --card:#ffffff;     /* card background */
     --brand:#ff7a00;    /* accent (matches button) */
+    --footer:#333333;   /* footer background */
   }
 
   body {
@@ -140,7 +141,7 @@
     gap: 1rem;
   }
   .skill-card {
-    grid-column: span 4;                 /* 3 across on desktop; 5 cards will wrap 3 + 2 */
+    grid-column: span 4;                 /* 3 across on desktop; 5 cards wrap 3 + 2 */
     background: var(--card);
     border-radius: var(--radius);
     padding: 1rem 1rem 0.75rem;
@@ -166,17 +167,30 @@
     white-space: nowrap;
   }
 
+  /* Contact */
+  .contact {
+    max-width: var(--page-max);
+    margin: 3rem auto;
+    padding: 1.5rem;
+    background: #f2f0ee;
+    border-radius: var(--radius);
+  }
+  .contact h2 { margin-top: 0; font-size: 1.5rem; }
+  .contact a { color: var(--brand); font-weight: 700; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
   /* Footer */
   .site-footer {
-    background: #f2f0ee;
+    background: var(--footer);
+    color: #fff;
     padding: 1.5rem 1rem;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
   }
   .site-footer p {
     margin: 0.5rem 0;
     font-size: 0.95rem;
-    color: var(--text);
+    color: #fff;
   }
   .site-footer a {
     color: var(--brand);
@@ -189,7 +203,8 @@
   @media (max-width: 768px) {
     .hero,
     .projects,
-    .skills { padding-left: 1rem; padding-right: 1rem; }
+    .skills,
+    .contact { padding-left: 1rem; padding-right: 1rem; }
     .hero-content { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .project { flex: 1 1 100%; }
     .hero picture img { border-radius: var(--radius); }
@@ -290,7 +305,7 @@
   </div>
 </section>
 
-<!-- Skills (no proficiency bars, tags only) -->
+<!-- Skills (tags only) -->
 <section class="skills" aria-labelledby="skills-title">
   <h2 id="skills-title">Skills</h2>
 
@@ -360,6 +375,13 @@
       </div>
     </article>
   </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" aria-labelledby="contact-title">
+  <h2 id="contact-title">Get in Touch</h2>
+  <p>If you’d like to collaborate, discuss opportunities, or just connect, feel free to reach out directly.</p>
+  <p>Email: <a href="mailto:bbautista@michiganvirtual.org">bbautista@michiganvirtual.org</a></p>
 </section>
 
 <!-- Footer CTA -->
