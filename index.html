@@ -187,6 +187,25 @@
     font-size: .85rem; color: var(--muted); margin-top: -.25rem;
   }
 
+  /* Footer */
+  .site-footer {
+    background: #f2f0ee;
+    padding: 1.5rem 1rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .site-footer p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .site-footer a {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .site-footer a:hover { text-decoration: underline; }
+
   /* Mobile polish */
   @media (max-width: 768px) {
     .hero,
@@ -373,6 +392,12 @@
     </article>
   </div>
 </section>
+
+<!-- Footer CTA -->
+<footer class="site-footer">
+  <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
+  <p>© 2025 Brandon Bautista</p>
+</footer>
 
 <script>
   // Parallax (respect reduced motion)
