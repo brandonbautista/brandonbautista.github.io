@@ -1,103 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brandon Bautista</title>
 <style>
+  :root{
+    --page-max: 1200px;
+    --radius: 12px;
+    --bg: #f9f8f6;      /* off-white */
+    --text: #333333;    /* dark gray */
+  }
+
   body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f8f6;
-    color: #333333;
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
   }
 
   header {
-    max-width: 1200px;
+    max-width: var(--page-max);
     margin: 0 auto;
     padding: 1rem;
   }
+  header h2 { margin: 0; font-size: 1.2rem; }
 
-  header h2 {
-    margin: 0;
-    font-size: 1.2rem;
+  /* Hero with parallax */
+  .hero {
+    position: relative;
+    height: 450px;               /* your chosen height */
+    max-width: var(--page-max);
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
   }
 
-  /* Hero section */
-  .hero {
-    max-width: 1200px;
-    margin: 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    height: 450px; /* updated height */
+  /* The media layer that we move for parallax */
+  .hero-media {
+    position: absolute;
+    inset: -10% 0 -10% 0;       /* overscan to avoid empty edges on translate */
+    will-change: transform;
+    transform: translateY(var(--y, 0));
   }
 
   .hero picture,
   .hero img {
     width: 100%;
-    height: 100%;
+    height: 120%;               /* little extra height for safe parallax travel */
     object-fit: cover;
     display: block;
   }
 
   .hero-content {
     position: absolute;
-    bottom: 2rem; /* more breathing room */
     left: 1rem;
     right: 1rem;
+    bottom: 2rem;               /* breathing room inside the taller hero */
+    max-width: calc(var(--page-max) - 2rem); /* align with header edges */
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: calc(1200px - 2rem); /* aligns with header width */
-    margin: 0 auto;
+    pointer-events: none;       /* content stays clickable via child */
   }
 
   .hero-content h1 {
     margin: 0;
-    font-size: 2.2rem; /* larger name text */
+    font-size: 2.2rem;          /* larger name to balance larger CTA */
     color: #fff;
     font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
+    pointer-events: auto;
   }
 
   .hero-button {
     background-color: #000;
     color: #fff;
     text-decoration: none;
-    padding: 0.75rem 1.5rem; /* bigger click area */
-    border-radius: 12px;
-    font-size: 1rem; /* larger text */
+    padding: 0.75rem 1.5rem;    /* bigger click area */
+    border-radius: var(--radius);
+    font-size: 1rem;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    pointer-events: auto;
   }
+  .hero-button:hover { background-color: #444; transform: translateY(-2px); }
 
-  .hero-button:hover {
-    background-color: #444;
-    transform: translateY(-2px);
-  }
-
-  /* Intro section */
+  /* Intro */
   .intro {
-    max-width: 1200px;
+    max-width: var(--page-max);
     margin: 2rem auto;
     background-color: #f2f0ee;
     padding: 1.5rem;
-    border-radius: 12px;
+    border-radius: var(--radius);
     font-size: 1rem;
-    line-height: 1.6;
   }
 
-  /* Projects section */
-  .projects {
-    max-width: 1200px;
-    margin: 2rem auto;
-  }
-
-  .projects h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
+  /* Projects */
+  .projects { max-width: var(--page-max); margin: 2rem auto; }
+  .projects h2 { font-size: 1.5rem; margin: 0 0 1rem 0; padding: 0 0.25rem; }
 
   .project-list {
     display: flex;
@@ -108,48 +111,36 @@
   .project {
     flex: 1 1 calc(33.333% - 1rem);
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: var(--radius);
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s ease;
   }
-
-  .project:hover {
-    transform: translateY(-5px);
-  }
-
-  .project a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
+  .project:hover { transform: translateY(-5px); }
+  .project a { display: block; color: inherit; text-decoration: none; height: 100%; }
 
   .project img {
     width: 100%;
-    height: 200px;
+    height: 200px;       /* uniform height across cards */
     object-fit: cover;
   }
-
-  .project p {
-    padding: 0.75rem;
-    font-size: 0.95rem;
-    color: #333;
-  }
+  .project p { padding: 0.75rem; font-size: 0.95rem; }
 
   /* Responsive */
   @media (max-width: 768px) {
-    .hero {
-      height: 250px; /* smaller on mobile */
-    }
+    .hero { height: 250px; }
     .hero-content {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
     }
-    .project {
-      flex: 1 1 100%;
-    }
+    .project { flex: 1 1 100%; }
+  }
+
+  /* Respect reduced motion: we'll disable parallax in JS, but keep a safe default here */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-media { transform: none !important; }
   }
 </style>
 </head>
@@ -159,14 +150,17 @@
   <h2>Brandon Bautista</h2>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <picture>
-    <source srcset="images/hero.avif" type="image/avif">
-    <source srcset="images/hero.webp" type="image/webp">
-    <img src="images/hero.jpg" alt="Laptop on desk with person typing">
-  </picture>
-  <div class="hero-content">
+<!-- Hero with parallax -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <picture>
+      <source srcset="images/hero.avif" type="image/avif">
+      <source srcset="images/hero.webp" type="image/webp">
+      <img src="images/hero.jpg" alt="" />
+    </picture>
+  </div>
+
+  <div class="hero-content" aria-label="Introduction">
     <h1>Brandon Bautista</h1>
     <a href="https://www.linkedin.com/in/brandonbautista/" class="hero-button" target="_blank" rel="noopener noreferrer">
       Connect on LinkedIn →
@@ -175,7 +169,7 @@
 </section>
 
 <!-- Intro -->
-<section class="intro">
+<section class="intro" aria-label="About">
   <p>I’m a collaborative marketing leader with 25 years of experience in the online learning space.</p>
   <p>I believe great marketing isn’t about outspending competitors; it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
   <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure.</p>
@@ -183,8 +177,8 @@
 </section>
 
 <!-- Projects -->
-<section class="projects">
-  <h2>Projects</h2>
+<section class="projects" aria-labelledby="projects-title">
+  <h2 id="projects-title">Projects</h2>
   <div class="project-list">
     <div class="project">
       <a href="project1.html">
@@ -206,6 +200,41 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Parallax (progressive enhancement)
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return; // Respect user preference
+
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if (!hero || !media) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      const rect = hero.getBoundingClientRect();
+      // progress: 0 at top of viewport, 1 when hero scrolled out by its height
+      const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+      // Move background slightly slower than scroll (negative for upward movement)
+      const offset = (rect.top * 0.15); // tweak 0.10–0.25 for taste
+      media.style.setProperty('--y', offset + 'px');
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    updateParallax();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  })();
+</script>
 
 </body>
 </html>
