@@ -67,10 +67,22 @@
   /* Callout CTA */
   .callout{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center}
 
-  /* Excerpt – styled like your testimonial pulls */
-  .excerpt{max-width:var(--page-max);margin:var(--vr) auto;background:transparent;padding:0 1rem}
-  .excerpt-card{background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem}
-  .t-row{background:#fff4eb;border-left:4px solid var(--brand);padding:.65rem .75rem;border-radius:6px;margin:.55rem 0}
+/* Excerpt — match .section width/feel */
+.excerpt{
+  max-width: var(--page-max);
+  margin: var(--vr) auto;
+  background: #f2f0ee;          /* same as .section */
+  border-radius: var(--radius);  /* same as .section */
+  padding: 1.25rem;              /* same as .section */
+}
+
+.excerpt-card{
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
 
   /* Project bottom navigation (fixed layout) */
   .project-nav{
