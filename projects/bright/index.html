@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BRIGHT Podcast | Brandon Bautista</title>
 
-<!-- Social preview (optional—fill your live URL if you have it) -->
+<!-- Social preview -->
 <meta property="og:title" content="BRIGHT Podcast | Brandon Bautista">
 <meta property="og:description" content="Award-winning podcast highlighting innovative Michigan teachers; 217,000+ listens across YouTube and podcast platforms.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/projects/bright_hero.jpg">
+<meta property="og:image" content="/images/projects/bright_hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BRIGHT Podcast | Brandon Bautista">
 <meta name="twitter:description" content="Award-winning podcast highlighting innovative Michigan teachers; 217,000+ listens across YouTube and podcast platforms.">
-<meta name="twitter:image" content="images/projects/bright_hero.jpg">
+<meta name="twitter:image" content="/images/projects/bright_hero.jpg">
 
 <style>
   :root{
@@ -51,45 +51,30 @@
   .block p{margin:0 0 .5rem;}
 
   /* Improved bullet lists (Why & Impact) */
-  .block ul{
-    margin:.5rem 0 0;
-    padding:0;
-    list-style:none;
-  }
-  .block ul li{
-    position:relative;
-    padding-left:1.1rem;
-    margin-bottom:.45rem;
-  }
-  .block ul li::before{
-    content:"•";
-    color:var(--brand);
-    font-weight:700;
-    position:absolute;
-    left:0;
-    line-height:1;
-    top:0;
-  }
+  .block ul{margin:.5rem 0 0;padding:0;list-style:none;}
+  .block ul li{position:relative;padding-left:1.1rem;margin-bottom:.45rem;}
+  .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;line-height:1;top:0;}
 
-  /* CTA buttons */
-  .cta-wrap{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem;}
+  /* Callout (Listen links) */
+  .callout{max-width:var(--page-max);margin:2rem auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center;}
   .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
   .btn:hover{background:#e66b00;text-decoration:none;}
+  .cta-wrap{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-top:.5rem;}
 
   /* Video embed */
   .video{max-width:var(--page-max);margin:2rem auto;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
   .video-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06);}
-  .embed{position:relative;width:100%;padding-top:56.25%; /* 16:9 */ background:#000;}
+  .embed{position:relative;width:100%;padding-top:56.25%; background:#000;}
   .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
-  /* Simple nav */
+  /* Bottom nav */
   .proj-nav{max-width:var(--page-max);margin:2rem auto;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem;}
   footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
 
   /* Mobile */
   @media (max-width: 900px){ .block{grid-column:span 6;} }
   @media (max-width: 768px){
-    .hero,.section,.video{padding-left:1rem;padding-right:1rem;}
+    .hero,.section,.video,.callout{padding-left:1rem;padding-right:1rem;}
     .hero{height:240px;}
     .hero picture img{border-radius:var(--radius);}
     .block{grid-column:span 12;}
@@ -105,9 +90,10 @@
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-media" id="heroMedia" aria-hidden="true">
-   <picture>
-  <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1920&auto=format&fit=crop" alt="Podcast microphone with headphones on a desk">
-</picture>
+    <picture>
+      <!-- Temporary Unsplash placeholder; replace with your asset when ready -->
+      <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1920&auto=format&fit=crop" alt="Podcast microphone with headphones on a desk">
+    </picture>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
@@ -150,13 +136,12 @@
   </div>
 </section>
 
-<!-- About + Listen -->
-<section class="section" aria-labelledby="about-title">
-  <h2 id="about-title">About the Show</h2>
-  <p>Michigan is home to so many outstanding educators. In our podcast and blog series — <em>BRIGHT: Stories of Hope &amp; Innovation in Michigan Classrooms</em> — we talk to inspirational Michigan educators known for their innovative approach to learning and hear first-hand what their classrooms look like, how these changes impact students, and what advice they have for fellow teachers looking to try something new.</p>
-
+<!-- Listen callout -->
+<section class="callout" aria-labelledby="listen-title">
+  <h2 id="listen-title" style="margin:.2rem 0 0;">Listen to BRIGHT</h2>
+  <p class="muted" style="margin:.25rem 0 1rem;">Choose your preferred platform:</p>
   <div class="cta-wrap" aria-label="Listen links">
-    <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">Listen on YouTube →</a>
+    <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">YouTube →</a>
     <a class="btn" href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" rel="noopener">Apple Podcasts →</a>
     <a class="btn" href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" rel="noopener">Spotify →</a>
   </div>
