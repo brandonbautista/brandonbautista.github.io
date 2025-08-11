@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Michigan Cares Campaign | Brandon Bautista</title>
 
-<meta property="og:title" content="Michigan Cares Campaign | Brandon Bautista">
-<meta property="og:description" content="A $100,000 statewide SEL & mental health awareness campaign during COVID—multi-platform outreach across email, press, webinars, and inbound content.">
+<!-- Social preview -->
+<meta property="og:title" content="Michigan Cares Statewide SEL Campaign | Brandon Bautista">
+<meta property="og:description" content="State-funded SEL initiative during COVID lockdowns—email, blog, paid social/display, TV & radio, and webinar lead-gen drove statewide awareness and adoption.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop">
+<meta property="og:image" content="/images/projects/michigancares_hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Michigan Cares Campaign | Brandon Bautista">
-<meta name="twitter:description" content="A $100,000 statewide SEL & mental health awareness campaign during COVID—multi-platform outreach across email, press, webinars, and inbound content.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop">
+<meta name="twitter:title" content="Michigan Cares Statewide SEL Campaign | Brandon Bautista">
+<meta name="twitter:description" content="Multi-channel campaign to help schools support SEL & mental health for students and parents across Michigan.">
+<meta name="twitter:image" content="/images/projects/michigancares_hero.jpg">
 
 <style>
   :root{
@@ -23,172 +24,307 @@
     --muted:#6b7280;
     --card:#ffffff;
     --brand:#ff7a00;
-    --brand-hover:#e66b00;
+    --brand-dark:#e66b00;
     --footer:#333333;
-    --vr: 28px;
+    --vr: 1.5rem;           /* vertical rhythm — matches other project pages */
+    --shadow: 0 2px 8px rgba(0,0,0,.06);
+    --border: 1px solid rgba(0,0,0,.06);
+    --pill:#f2f0ee;
   }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  a{color:var(--brand);text-decoration:none}
-  a:hover{text-decoration:underline}
-  img{max-width:100%;display:block}
-
+  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  a{color:var(--brand);text-decoration:none;} a:hover{text-decoration:underline;}
   header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
 
+  /* Hero */
   .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden;}
-  .hero-media{position:absolute;inset:-10% 0 -10% 0;}
-  .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.5) 100%);}
-  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.35rem;}
-  .hero-title{margin:0;color:#fff;font-weight:800;font-size:clamp(1.6rem, 2.6vw, 2rem);text-shadow:0 2px 8px rgba(0,0,0,.35);}
-  .hero-sub{margin:0;color:#fff;opacity:.98}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
+  .hero picture,.hero img{width:100%;height:120%;object-fit:cover;display:block;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);z-index:1;}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.5rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.4rem;z-index:2;}
+  .hero-title{margin:0;color:#fff;font-weight:800;font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
+  .hero-sub{margin:0;color:#fff;opacity:.95;}
 
+  /* Sections */
   .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
-  .section h2{margin:0 0 .75rem;font-size:1.4rem}
-  .muted{color:var(--muted)}
+  .section h2{margin:0 0 .75rem;font-size:1.4rem;}
+  .muted{color:var(--muted);}
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem;}
+  .badge{background:var(--pill);border:var(--border);border-radius:999px;padding:.35rem .65rem;font-weight:700;font-size:.85rem;white-space:nowrap;}
 
-  .pills{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 1rem}
-  .pill{background:#fff;border:1px solid rgba(0,0,0,.06);padding:.4rem .65rem;border-radius:999px;font-weight:700;font-size:.9rem}
+  /* 3-up quick blocks */
+  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
+  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:var(--border);box-shadow:var(--shadow);}
+  .block h3{margin:.2rem 0 .5rem;font-size:1rem;}
+  .block p{margin:0 0 .5rem;}
+  .block ul{margin:.5rem 0 0;padding:0;list-style:none;}
+  .block ul li{position:relative;padding-left:1.1rem;margin-bottom:.45rem;}
+  .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;line-height:1;top:0;}
 
-  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
-  .block h3{margin:.2rem 0 .5rem;font-size:1rem}
-  .block ul{margin:.5rem 0 0;padding:0;list-style:none}
-  .block li{padding-left:1.1rem;margin-bottom:.45rem;position:relative}
-  .block li::before{content:"•";color:var(--brand);position:absolute;left:0}
+  /* Channels grid */
+  .channels{max-width:var(--page-max);margin:var(--vr) auto;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
+  .card{grid-column:span 6;background:var(--card);border:var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:1rem;}
+  .card h3{margin:0 0 .5rem;font-size:1.1rem;}
+  .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0 .75rem;}
+  .pill{background:#fff4eb;border:1px solid #ffd7b4;color:#8a3d00;border-radius:999px;padding:.3rem .55rem;font-size:.85rem;font-weight:700;white-space:nowrap;}
 
-  .stats{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.6rem}
-  .stat{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:.75rem 1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .stat b{font-size:1.1rem}
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;border:0;}
+  .btn:hover{background:var(--brand-dark);text-decoration:none;}
+  .btn.secondary{background:#fff;color:var(--text);border:1px solid rgba(0,0,0,.15);}
+  .btn.secondary:hover{background:#f7f7f7;}
 
-  .asset-list{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 0}
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.65rem 1rem;font-weight:700;text-decoration:none}
-  .btn:hover{background:var(--brand-hover)}
+  /* Metrics tables / callouts */
+  .metrics{max-width:var(--page-max);margin:var(--vr) auto;background:var(--card);border:var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:1rem;}
+  .metrics h3{margin:.25rem 0 .5rem;}
+  .kpis{display:flex;flex-wrap:wrap;gap:.75rem;margin:.25rem 0 .75rem;}
+  .kpi{background:var(--pill);border:var(--border);border-radius:10px;padding:.6rem .8rem;font-weight:700;font-size:.95rem;}
 
-  .cards{max-width:var(--page-max);margin:var(--vr) auto;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .card{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem}
-  .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:10px;overflow:hidden}
-  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  table{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:.95rem;}
+  th{text-align:left;color:var(--muted);font-weight:700;}
+  td,th{padding:.5rem .6rem;}
+  tbody tr{background:var(--pill);border-radius:8px;}
+  tbody tr td:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px;}
+  tbody tr td:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px;}
 
-  .nav-row{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:flex-start;}
-  .back{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:var(--radius);padding:.6rem 1rem;font-weight:700}
-  .back:hover{background:#f7f7f7}
+  /* Side-by-side cards */
+  .two-col{max-width:var(--page-max);margin:var(--vr) auto;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
+  .col{grid-column:span 6;background:var(--card);border:var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:1rem;}
+  .embed{position:relative;width:100%;padding-top:56.25%; background:#000;border-radius:8px;overflow:hidden;margin-top:.5rem;}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
-  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr)}
+  /* Back to Home + Footer */
+  .proj-nav{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:flex-start;}
+  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
 
-  @media (max-width:900px){.block{grid-column:span 6}}
-  @media (max-width:768px){.block{grid-column:span 12}.card{grid-column:span 12}.hero{height:240px}}
+  /* Mobile */
+  @media (max-width: 900px){
+    .block{grid-column:span 6;}
+    .card{grid-column:span 12;}
+    .col{grid-column:span 12;}
+  }
+  @media (max-width: 768px){
+    .hero,.section,.metrics,.channels,.two-col{padding-left:1rem;padding-right:1rem;}
+    .hero{height:240px;}
+    .hero picture img{border-radius:var(--radius);}
+    .block{grid-column:span 12;}
+  }
+  @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important;} }
 </style>
 </head>
 <body>
 
+<!-- Back to Home -->
 <header><a href="/">← Back to Home</a></header>
 
-<section class="hero">
-  <div class="hero-media">
-    <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1920&auto=format&fit=crop" alt="SEL and mental health campaign imagery">
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <picture>
+      <!-- Your asset (use if available) -->
+      <source srcset="/images/projects/michigancares_hero.avif" type="image/avif">
+      <source srcset="/images/projects/michigancares_hero.webp" type="image/webp">
+      <img src="/images/projects/michigancares_hero.jpg"
+           onerror="this.src='https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=1920&auto=format&fit=crop'"
+           alt="Michigan Cares: SEL and mental health support for schools">
+    </picture>
   </div>
-  <div class="hero-overlay"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1 class="hero-title">Michigan Cares: Statewide SEL & Mental Health Awareness</h1>
-    <p class="hero-sub">Funded $100,000 to help every district provide free SEL resources during COVID lockdowns — delivered through a robust, multi-platform outreach campaign.</p>
+    <h1 class="hero-title">Michigan Cares (Statewide SEL & Mental Health)</h1>
+    <p class="hero-sub">A state-funded, multi-channel campaign during COVID lockdowns to help districts launch free SEL portals for students and families.</p>
   </div>
 </section>
 
-<section class="section">
-  <h2>At a Glance</h2>
-  <div class="pills">
-    <span class="pill"><strong>$100,000</strong> funding</span>
-    <span class="pill">Statewide, district-wide access</span>
-    <span class="pill">Multi-platform campaign</span>
+<!-- At a Glance -->
+<section class="section" aria-labelledby="glance-title">
+  <h2 id="glance-title">At a Glance</h2>
+
+  <div class="badges" role="list">
+    <span class="badge">State funding: $100,000</span>
+    <span class="badge">49,658+ emails delivered</span>
+    <span class="badge">Facebook: 1,039,818 impressions</span>
+    <span class="badge">RTB Display: 19,100,654 impressions</span>
+    <span class="badge">TV & Radio: $30k media — $97k value</span>
   </div>
 
   <div class="quick">
-    <article class="block">
-      <h3>What</h3>
-      <p><em>Michigan Cares</em> provided free, evidence-based SEL and mental health content to all Michigan districts, parents, and students. The campaign deployed a coordinated mix of:</p>
-      <ul>
-        <li>Segmented email campaigns for administrators, educators, and parents</li>
-        <li>Press releases and targeted local media outreach</li>
-        <li>Inbound blog content for awareness</li>
-        <li>On-demand and live webinars for engagement</li>
-      </ul>
-      <div class="stats">
-        <div class="stat"><b>49,658</b><br><span class="muted">Emails delivered*</span></div>
-        <div class="stat"><b>35.92%</b><br><span class="muted">Open rate*</span></div>
-        <div class="stat"><b>2.89%</b><br><span class="muted">Click rate*</span></div>
-      </div>
-      <p class="muted" style="margin-top:.4rem">*Represents a large sample of campaign emails</p>
+    <!-- WHAT -->
+    <article class="block" aria-labelledby="what-title">
+      <h3 id="what-title">What</h3>
+      <p><em>Michigan Cares</em> provided every Michigan district with free, customizable SEL and mental health content for students and parents during COVID lockdowns. We built a statewide awareness campaign to help leaders launch portals quickly and support their communities when it mattered most.</p>
     </article>
 
-    <article class="block">
-      <h3>Why</h3>
-      <p>During the lockdown phase of COVID, SEL needs surged. This initiative supported districts in caring for their communities — reinforcing Michigan Virtual’s role as a <strong>partner</strong> to public schools, not a competitor.</p>
+    <!-- WHY -->
+    <article class="block" aria-labelledby="why-title">
+      <h3 id="why-title">Why</h3>
+      <p>Our mission was to reach educators and families where they already were and make adoption effortless. We blended service-first messaging with clear, practical steps to help districts stand up portals fast.</p>
       <ul>
-        <li>Provide meaningful, free resources in a time of need</li>
-        <li>Lift public perception through visible, positive action</li>
-        <li>Reach local communities via press mentions in educators’ hometowns</li>
+        <li>Emphasize access for <strong>every</strong> district—no cost barriers.</li>
+        <li>Reach admins, educators, and parents with tailored messages.</li>
+        <li>Use trusted channels (email, local media, and social) to build momentum.</li>
       </ul>
     </article>
 
-    <article class="block">
-      <h3>Impact</h3>
+    <!-- IMPACT -->
+    <article class="block" aria-labelledby="impact-title">
+      <h3 id="impact-title">Impact</h3>
+      <p>Meaningful reach and engagement across channels, strong email performance, and wide paid-media coverage helped districts adopt SEL resources quickly statewide.</p>
       <ul>
-        <li>Statewide reach with consistent messaging across multiple channels</li>
-        <li>Increased goodwill and strengthened relationships with districts</li>
-        <li>Highlighted educators and their work in a positive, human way</li>
-        <li>Robust engagement from email to webinars to press coverage</li>
+        <li><strong>49,658+ emails delivered</strong> to targeted segments.</li>
+        <li><strong>1.04M</strong> Facebook impressions; <strong>19.1M</strong> display impressions.</li>
+        <li><strong>$30k</strong> TV/Radio spend generated <strong>$97k+</strong> in value statewide.</li>
       </ul>
     </article>
   </div>
 </section>
 
-<section class="section">
-  <h2>Campaign Assets</h2>
-  <p class="muted">Sample touchpoints used to promote awareness and drive adoption.</p>
-  <div class="quick">
-    <article class="block" style="grid-column:span 6;">
-      <h3>Email CTAs</h3>
-      <div class="asset-list">
-        <a class="btn" target="_blank" href="https://app.hubspot.com/email/3943841/details/28548303455/performance">Email: Admin launch →</a>
-        <a class="btn" target="_blank" href="https://app.hubspot.com/email/3943841/details/28581937710/performance">Email: Educator focus →</a>
-        <a class="btn" target="_blank" href="https://app.hubspot.com/email/3943841/details/33901726406/performance">Email: Parent outreach →</a>
-      </div>
-    </article>
-
-    <article class="block" style="grid-column:span 6;">
-      <h3>Inbound Content</h3>
-      <a class="btn" target="_blank" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/">Blog: Cyberbullying signs →</a>
-      <p class="muted" style="margin-top:.6rem">Inbound articles connected relevant SEL topics to the free Michigan Cares program, capturing organic interest and moving readers toward action.</p>
-    </article>
-  </div>
-</section>
-
-<section class="cards">
-  <article class="card">
-    <h3>Watch the Live Webinar</h3>
-    <p class="muted">Our recorded program overview and Q&A — also used as a lead magnet during the campaign.</p>
-    <div class="embed">
-      <iframe src="https://www.youtube.com/embed/Py9zOlxslwU" title="Michigan Cares Live Webinar" allowfullscreen></iframe>
+<!-- Channels & Tactics -->
+<section class="channels" aria-label="Campaign channels and tactics">
+  <!-- Emails -->
+  <article class="card" aria-labelledby="email-title">
+    <h3 id="email-title">Email (Segmented Drip)</h3>
+    <p class="muted" style="margin:.25rem 0;">Admins, educators, and parents received targeted sequences with clear actions to launch or explore their district portal.</p>
+    <div class="meta">
+      <span class="pill">Segmented</span>
+      <span class="pill">Drip series</span>
+      <span class="pill">Action-oriented CTAs</span>
+      <span class="pill">HubSpot</span>
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <a class="btn" href="https://app.hubspot.com/email/3943841/details/28548303455/performance" target="_blank" rel="noopener">Email #1 →</a>
+      <a class="btn" href="https://app.hubspot.com/email/3943841/details/28581937710/performance" target="_blank" rel="noopener">Email #2 →</a>
+      <a class="btn" href="https://app.hubspot.com/email/3943841/details/33901726406/performance" target="_blank" rel="noopener">Email #3 →</a>
     </div>
   </article>
 
-  <article class="card">
-    <h3>Key Audiences & Messaging</h3>
-    <ul>
-      <li><strong>Administrators:</strong> grant eligibility and activation</li>
-      <li><strong>Educators:</strong> classroom-ready SEL supports</li>
-      <li><strong>Parents:</strong> at-home guidance and mental health resources</li>
-    </ul>
-    <p class="muted" style="margin-top:.6rem">Tone: empathetic, service-first, action-oriented — emphasizing "free access now" during lockdowns.</p>
+  <!-- Blog / Inbound -->
+  <article class="card" aria-labelledby="blog-title">
+    <h3 id="blog-title">Inbound Content (Blog)</h3>
+    <p class="muted" style="margin:.25rem 0;">Topic-aligned content offered value first and pointed readers to the free SEL portal—an inbound path into the program.</p>
+    <div class="meta">
+      <span class="pill">Thought leadership</span>
+      <span class="pill">SEO</span>
+      <span class="pill">Soft CTA</span>
+    </div>
+    <a class="btn" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" rel="noopener">Read the blog →</a>
+  </article>
+
+  <!-- Facebook -->
+  <article class="card" aria-labelledby="fb-title">
+    <h3 id="fb-title">Facebook Ads</h3>
+    <p class="muted" style="margin:.25rem 0;">Targeted creative for parents and educators drove awareness and clicks to the SEL portal information page.</p>
+    <div class="meta">
+      <span class="pill">1,039,818 impressions</span>
+      <span class="pill">6,346 clicks</span>
+      <span class="pill">0.61% CTR</span>
+    </div>
+    <p style="margin:0;">Geo- and interest-targeted with multiple creatives to reduce fatigue and sustain performance.</p>
+  </article>
+
+  <!-- RTB Display -->
+  <article class="card" aria-labelledby="rtb-title">
+    <h3 id="rtb-title">RTB Display</h3>
+    <p class="muted" style="margin:.25rem 0;">Broad statewide awareness across brand-safe inventory to support name recognition and coverage.</p>
+    <div class="meta">
+      <span class="pill">19,100,654 impressions</span>
+      <span class="pill">3,079 clicks</span>
+      <span class="pill">0.08% CTR</span>
+    </div>
+    <p style="margin:0;">Used for reach & frequency; complemented higher-CTR channels.</p>
+  </article>
+
+  <!-- TV & Radio -->
+  <article class="card" aria-labelledby="tv-title">
+    <h3 id="tv-title">TV & Radio</h3>
+    <p class="muted" style="margin:.25rem 0;">Statewide broadcast added credibility and scale, especially for audiences less active on digital channels.</p>
+    <div class="meta">
+      <span class="pill">$30,000 spend</span>
+      <span class="pill">$97,374 value</span>
+      <span class="pill">80% Radio / 20% TV</span>
+    </div>
+    <p style="margin:0;">Coordinated flighting aligned with email and paid-social bursts.</p>
+  </article>
+
+  <!-- Webinar Lead Magnet -->
+  <article class="card" aria-labelledby="webinar-title">
+    <h3 id="webinar-title">Webinar (Lead Magnet)</h3>
+    <p class="muted" style="margin:.25rem 0;">Live walkthrough for administrators: how the program works and how to launch fast—used for capture and nurture.</p>
+    <div class="embed" role="region" aria-label="Michigan Cares webinar">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/Py9zOlxslwU"
+        title="Michigan Cares Webinar"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
   </article>
 </section>
 
-<nav class="nav-row">
-  <a class="back" href="/">← Back to Home</a>
+<!-- Email Performance (rolled up from your screenshot) -->
+<section class="metrics" aria-labelledby="email-metrics-title">
+  <h2 id="email-metrics-title" style="margin:0 0 .25rem;">Email Performance</h2>
+  <p class="muted" style="margin:.25rem 0 .75rem;">Representative sends across key segments (admins, educators, parents).</p>
+
+  <div class="kpis">
+    <div class="kpi">Delivered: <strong>49,658+</strong></div>
+    <div class="kpi">Avg Open Rate (weighted): <strong>~36%</strong></div>
+    <div class="kpi">Avg Click Rate (weighted): <strong>~2.9%</strong></div>
+  </div>
+
+  <div style="overflow:auto;">
+    <table aria-label="Representative email sends and performance">
+      <thead>
+        <tr><th style="min-width:220px;">Email / Segment</th><th>Delivered</th><th>Open Rate</th><th>Click Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Admins (blast)</td><td>3,087</td><td>41.59%</td><td>2.56%</td></tr>
+        <tr><td>Parents (blast)</td><td>7,459</td><td>34.44%</td><td>2.68%</td></tr>
+        <tr><td>Educators (blast)</td><td>27,072</td><td>33.51%</td><td>3.15%</td></tr>
+        <tr><td>Drip emails (educators)</td><td>2,831–3,016</td><td>~38.5%</td><td>1.16–2.04%</td></tr>
+        <tr><td>Grant webinar (admins)</td><td>3,056</td><td>46.5%</td><td>4.84%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Two supporting cards -->
+<section class="two-col" aria-label="Additional resources">
+  <article class="col" aria-labelledby="cta-title">
+    <h3 id="cta-title">Explore the free SEL resource</h3>
+    <p class="muted" style="margin:.25rem 0 1rem;">Context-rich content guided readers to Michigan Cares with a helpful tone and a clear next step.</p>
+    <a class="btn" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" rel="noopener">Read the blog →</a>
+  </article>
+
+  <article class="col" aria-labelledby="emails-title">
+    <h3 id="emails-title">See example emails</h3>
+    <p class="muted" style="margin:.25rem 0 1rem;">Performance views for three representative sends in the series.</p>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <a class="btn" href="https://app.hubspot.com/email/3943841/details/28548303455/performance" target="_blank" rel="noopener">Email #1 →</a>
+      <a class="btn" href="https://app.hubspot.com/email/3943841/details/28581937710/performance" target="_blank" rel="noopener">Email #2 →</a>
+      <a class="btn" href="https://app.hubspot.com/email/3943841/details/33901726406/performance" target="_blank" rel="noopener">Email #3 →</a>
+    </div>
+  </article>
+</section>
+
+<!-- Back only (no project-to-project nav) -->
+<nav class="proj-nav" aria-label="Project navigation">
+  <a class="btn secondary" href="/">← Back to Home</a>
 </nav>
 
 <footer>© 2025 Brandon Bautista</footer>
+
+<script>
+  // Gentle hero parallax (respects reduced motion)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if(!hero || !media) return;
+    let ticking=false;
+    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
+  })();
+</script>
 
 </body>
 </html>
