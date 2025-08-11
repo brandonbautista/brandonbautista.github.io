@@ -68,53 +68,66 @@
   .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: .25rem 0 .75rem; }
   .tag { display: inline-block; padding: .35rem .6rem; font-size: .85rem; border-radius: 999px; background: #fff4eb; border: 1px solid #ffd7b4; color: #8a3d00; font-weight: 600; white-space: nowrap; }
 
-  /* Testimonial card (matches site’s card aesthetic) */
-  .testimonial-card{
+  /* Testimonial – editorial split card */
+  .testimonial-pro{
     max-width: var(--page-max);
     margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  .testimonial-pro h2{
+    margin: 0 0 .75rem 0;
+    font-size: 1.5rem;
+    padding-left: .25rem;
+  }
+  .t-card{
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.25rem;
     background: var(--card);
     border: 1px solid rgba(0,0,0,.06);
     border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,.06);
-    padding: 1rem 1rem 1.1rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    padding: 1.25rem;
   }
-  .testimonial-card h2{
-    font-size: 1.5rem;
-    margin: 0 0 .75rem 0;
-    padding: 0 .25rem;
-  }
-  .testimonial-body{
+  .t-aside{
     display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: .9rem;
-    align-items: start;
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: .75rem;
   }
-  .testimonial-body .avatar{
-    width: 72px; height: 72px; border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #fff;
+  .t-avatar{
+    width: 88px; height: 88px; border-radius: 50%;
+    object-fit: cover; border: 2px solid #fff;
     box-shadow: 0 1px 4px rgba(0,0,0,.12);
   }
-  .testimonial-card blockquote{
-    margin: 0;
+  .t-meta{
+    color: var(--muted);
+    display: grid;
+    gap: .2rem;
+  }
+  .t-meta strong{ color: var(--text); }
+
+  .t-quote{
     position: relative;
-    padding-left: 2.2rem;
-    line-height: 1.6;
+    margin: 0;
+    max-width: 70ch;
+    line-height: 1.7;
     font-size: 1.05rem;
   }
-  .testimonial-card blockquote::before{
-    content: "“";
+  .t-mark{
     position: absolute;
-    left: .2rem; top: -.2rem;
-    font-size: 2.6rem; line-height: 1;
-    color: var(--brand); opacity: .25;
+    left: -.6rem; top: -.6rem;
+    font-size: 3rem; line-height: 1;
+    color: var(--brand); opacity: .22;
+    pointer-events: none;
   }
-  .testimonial-card .byline{
+  .t-pull{
     margin-top: .6rem;
-    color: var(--muted);
-    display: flex; flex-direction: column;
+    background: #fff4eb;
+    border-left: 4px solid var(--brand);
+    padding: .5rem .75rem;
+    border-radius: 6px;
   }
-  .testimonial-card .byline strong{ color: var(--text); }
 
   /* Contact */
   .contact { max-width: var(--page-max); margin: 3rem auto; padding: 1.5rem; background: #f2f0ee; border-radius: var(--radius); text-align: center; }
@@ -126,7 +139,7 @@
 
   /* Mobile */
   @media (max-width: 768px) {
-    .hero, .projects, .skills, .contact, .testimonial-card { padding-left: 1rem; padding-right: 1rem; }
+    .hero, .projects, .skills, .contact, .testimonial-pro { padding-left: 1rem; padding-right: 1rem; }
     .hero { height: 300px; }
     .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); }
     .hero-content { bottom: 1rem; }
@@ -135,10 +148,12 @@
     .hero-button { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
     .project { flex: 1 1 100%; }
     .skill-card { grid-column: span 12; }
-    .testimonial-body{ grid-template-columns: 56px 1fr; gap: .75rem; }
-    .testimonial-body .avatar{ width: 56px; height: 56px; }
-    .testimonial-card blockquote{ font-size: 1.02rem; padding-left: 1.8rem; }
-    .testimonial-card blockquote::before{ font-size: 2.3rem; left: .1rem; }
+
+    .t-card{ grid-template-columns: 1fr; }
+    .t-aside{ grid-template-columns: 72px 1fr; grid-template-rows: auto; column-gap: .75rem; align-items: center; }
+    .t-avatar{ width: 72px; height: 72px; }
+    .t-quote{ font-size: 1.02rem; }
+    .t-mark{ font-size: 2.6rem; left: -.2rem; top: -.2rem; }
   }
 
   /* Touch devices: avoid hover lift */
@@ -155,7 +170,7 @@
 <section class="hero" id="hero">
   <div class="hero-media" id="heroMedia" aria-hidden="true">
     <picture>
-      <img src="images/hero.avif" alt="Modern workspace with laptop and notebook">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="Modern workspace with laptop and notebook">
     </picture>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -232,21 +247,27 @@
   </div>
 </section>
 
-<!-- Testimonial (card style) -->
-<section class="testimonial-card" aria-labelledby="testimonial-title">
+<!-- Testimonial (editorial split layout) -->
+<section class="testimonial-pro" aria-labelledby="testimonial-title">
   <h2 id="testimonial-title">What colleagues say</h2>
-  <div class="testimonial-body">
-    <img class="avatar" src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU" alt="Headshot of Nikki Herta">
-    <div class="text">
-      <blockquote>
-        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: Brandon is the real deal, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
-      </blockquote>
-      <div class="byline">
+
+  <figure class="t-card">
+    <div class="t-aside">
+      <img class="t-avatar"
+           src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
+           alt="Headshot of Nikki Herta">
+      <figcaption class="t-meta">
         <strong>Nikki Herta</strong>
         <span>Writer/Editor/Marketing Professional</span>
-      </div>
+      </figcaption>
     </div>
-  </div>
+
+    <blockquote class="t-quote">
+      <span class="t-mark" aria-hidden="true">“</span>
+      <p>In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair.</p>
+      <p class="t-pull"><em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!</p>
+    </blockquote>
+  </figure>
 </section>
 
 <!-- Contact -->
@@ -262,7 +283,7 @@
 <script>
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduce.matches) return; // keep it simple for now
+  if (reduce.matches) return; // simple preview; you can re-enable parallax later
   const hero = document.getElementById('hero');
   const media = document.getElementById('heroMedia');
   if (!hero || !media) return;
