@@ -10,13 +10,13 @@
 <meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://YOUR-GITHUB-PAGES-URL">
-<meta property="og:image" content="https://YOUR-GITHUB-PAGES-URL/images/hero.jpg">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Brandon Bautista | Marketing Portfolio">
 <meta name="twitter:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate.">
-<meta name="twitter:image" content="https://YOUR-GITHUB-PAGES-URL/images/hero.jpg">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
 
 <style>
   :root{
@@ -37,27 +37,16 @@
   .hero-media { position: absolute; inset: -10% 0 -10% 0; will-change: transform; transform: translateY(var(--y, 0)); }
   .hero picture, .hero img { width: 100%; height: 120%; object-fit: cover; display: block; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%); z-index: 1; }
-  .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; max-width: calc(var(--page-max) - 2rem); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; pointer-events: none; z-index: 2; gap: 1rem; }
+  .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; max-width: calc(var(--page-max) - 2rem); margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: .75rem; pointer-events: none; z-index: 2; }
   .hero-content h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); pointer-events: auto; }
-  .hero-actions { display: flex; gap: .6rem; pointer-events: auto; flex-wrap: wrap; }
-  .hero-button { background-color: var(--brand); color: #fff; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; transition: background-color 0.3s ease, transform 0.2s ease; white-space: nowrap; }
+  .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .hero-button { background-color: var(--brand); color: #fff; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; transition: background-color 0.3s ease, transform 0.2s ease; pointer-events: auto; white-space: nowrap; }
   .hero-button:hover { background-color: #e66b00; transform: translateY(-2px); }
   .hero-button.secondary { background:#ffffff; color:#333; border:1px solid rgba(0,0,0,.15); }
   .hero-button.secondary:hover { background:#f7f7f7; }
 
   /* Intro */
   .intro { max-width: var(--page-max); margin: 2rem auto; background-color: #f2f0ee; padding: 1.5rem; border-radius: var(--radius); font-size: 1rem; }
-
-  /* Highlights */
-  .highlights { max-width: var(--page-max); margin: 1.5rem auto 2rem; }
-  .highlights-list { display: grid; grid-template-columns: repeat(12,1fr); gap: 1rem; padding: 0; margin: 0; }
-  .highlights-list li {
-    grid-column: span 4; list-style: none; background: var(--card);
-    border: 1px solid rgba(0,0,0,.06); border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,.06); padding: .9rem 1rem; text-align: center;
-  }
-  .highlights-list li strong { display:block; font-size:1.05rem; }
-  .highlights-list li span { color: var(--muted); font-size:.95rem; }
 
   /* Projects */
   .projects { max-width: var(--page-max); margin: 2rem auto; }
@@ -79,15 +68,53 @@
   .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: .25rem 0 .75rem; }
   .tag { display: inline-block; padding: .35rem .6rem; font-size: .85rem; border-radius: 999px; background: #fff4eb; border: 1px solid #ffd7b4; color: #8a3d00; font-weight: 600; white-space: nowrap; }
 
-  /* Testimonials */
-  .testimonials{ max-width:var(--page-max); margin:2rem auto; }
-  .testimonials h2{ font-size:1.5rem; margin:0 0 1rem 0; padding:0 .25rem; }
-  .quotes{ display:grid; grid-template-columns:repeat(12,1fr); gap:1rem; }
-  .quotes blockquote{
-    grid-column:span 6; margin:0; background:#fff; border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius); box-shadow:0 2px 8px rgba(0,0,0,.06); padding:1rem;
+  /* Testimonial card (matches site’s card aesthetic) */
+  .testimonial-card{
+    max-width: var(--page-max);
+    margin: 2rem auto;
+    background: var(--card);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    padding: 1rem 1rem 1.1rem;
   }
-  .quotes cite{ display:block; margin-top:.5rem; color:var(--muted); font-style:normal; }
+  .testimonial-card h2{
+    font-size: 1.5rem;
+    margin: 0 0 .75rem 0;
+    padding: 0 .25rem;
+  }
+  .testimonial-body{
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: .9rem;
+    align-items: start;
+  }
+  .testimonial-body .avatar{
+    width: 72px; height: 72px; border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.12);
+  }
+  .testimonial-card blockquote{
+    margin: 0;
+    position: relative;
+    padding-left: 2.2rem;
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+  .testimonial-card blockquote::before{
+    content: "“";
+    position: absolute;
+    left: .2rem; top: -.2rem;
+    font-size: 2.6rem; line-height: 1;
+    color: var(--brand); opacity: .25;
+  }
+  .testimonial-card .byline{
+    margin-top: .6rem;
+    color: var(--muted);
+    display: flex; flex-direction: column;
+  }
+  .testimonial-card .byline strong{ color: var(--text); }
 
   /* Contact */
   .contact { max-width: var(--page-max); margin: 3rem auto; padding: 1.5rem; background: #f2f0ee; border-radius: var(--radius); text-align: center; }
@@ -97,27 +124,21 @@
   /* Footer */
   .site-footer { background: var(--footer); color: #fff; padding: 1rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.9rem; }
 
-  /* Utility */
-  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
-
-  /* Mobile tweaks for hero */
+  /* Mobile */
   @media (max-width: 768px) {
-    .hero, .projects, .skills, .contact, .highlights, .testimonials { padding-left: 1rem; padding-right: 1rem; }
-    .hero { height: 280px; border-radius: var(--radius); }
+    .hero, .projects, .skills, .contact, .testimonial-card { padding-left: 1rem; padding-right: 1rem; }
+    .hero { height: 300px; }
     .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); }
-    .hero-content { bottom: 1rem; gap: .75rem; align-items: flex-start; }
-    .hero-content h1 {
-      font-size: clamp(1.6rem, 7.5vw, 2.1rem);
-      line-height: 1.1;
-      max-width: 22ch;
-      text-wrap: balance;
-    }
-    .hero-actions { width: 100%; gap: .5rem; }
+    .hero-content { bottom: 1rem; }
+    .hero-content h1 { font-size: clamp(1.6rem, 7.5vw, 2.1rem); line-height: 1.1; max-width: 22ch; text-wrap: balance; }
+    .hero-buttons { width: 100%; gap: .5rem; }
     .hero-button { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
-    .highlights-list li { grid-column: span 12; }
     .project { flex: 1 1 100%; }
     .skill-card { grid-column: span 12; }
-    .quotes blockquote{ grid-column:span 12; }
+    .testimonial-body{ grid-template-columns: 56px 1fr; gap: .75rem; }
+    .testimonial-body .avatar{ width: 56px; height: 56px; }
+    .testimonial-card blockquote{ font-size: 1.02rem; padding-left: 1.8rem; }
+    .testimonial-card blockquote::before{ font-size: 2.3rem; left: .1rem; }
   }
 
   /* Touch devices: avoid hover lift */
@@ -134,21 +155,15 @@
 <section class="hero" id="hero">
   <div class="hero-media" id="heroMedia" aria-hidden="true">
     <picture>
-      <source srcset="images/hero.avif" type="image/avif">
-      <source srcset="images/hero.webp" type="image/webp">
-      <img src="images/hero.jpg" alt="Brandon Bautista marketing portfolio hero image">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="Modern workspace with laptop and notebook">
     </picture>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content" aria-label="Introduction">
     <h1>Brandon Bautista</h1>
-    <div class="hero-actions">
-      <a href="https://www.linkedin.com/in/brandonbautista/" class="hero-button" target="_blank" rel="noopener noreferrer">
-        Connect on LinkedIn →
-      </a>
-      <a href="/Brandon_Bautista_Resume.pdf" class="hero-button secondary" target="_blank" rel="noopener">
-        View Résumé →
-      </a>
+    <div class="hero-buttons">
+      <a href="https://www.linkedin.com/in/brandonbautista/" class="hero-button" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+      <a href="#" class="hero-button secondary">View Résumé →</a>
     </div>
   </div>
 </section>
@@ -160,63 +175,26 @@
   <p><strong>Be kind. Work hard. Have fun.</strong></p>
 </section>
 
-<!-- Highlights -->
-<section class="highlights" aria-labelledby="highlights-title">
-  <h2 id="highlights-title" class="sr-only">Highlights</h2>
-  <ul class="highlights-list" role="list">
-    <li>
-      <strong>217,000+</strong>
-      <span>podcast listens/views</span>
-    </li>
-    <li>
-      <strong>Award-winning</strong>
-      <span>Best Educational Podcast</span>
-    </li>
-    <li>
-      <strong>HubSpot</strong>
-      <span>automation, reporting, CRM</span>
-    </li>
-  </ul>
-</section>
-
 <!-- Projects -->
 <section class="projects">
   <h2>Projects</h2>
   <div class="project-list">
     <div class="project">
-      <a href="/projects/bright/">
-        <img src="images/bright.jpg" alt="Cover image for BRIGHT podcast project">
+      <a href="#">
+        <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1200&auto=format&fit=crop" alt="Podcast microphone and headphones on desk">
         <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
       </a>
     </div>
     <div class="project">
-      <a href="/projects/writing/">
-        <img src="images/qd.webp" alt="Cover image for writing sample about donor psychology">
+      <a href="#">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Professional workspace scene">
         <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
       </a>
     </div>
     <div class="project">
       <a href="#">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80&auto=format&fit=crop" alt="Placeholder project image of a modern workspace">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Developer desk with code on screen">
         <p>Placeholder Project 3</p>
-      </a>
-    </div>
-    <div class="project">
-      <a href="#">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&auto=format&fit=crop" alt="Placeholder project image of a team collaboration">
-        <p>Placeholder Project 4</p>
-      </a>
-    </div>
-    <div class="project">
-      <a href="#">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&auto=format&fit=crop" alt="Placeholder project image of abstract technology scene">
-        <p>Placeholder Project 5</p>
-      </a>
-    </div>
-    <div class="project">
-      <a href="#">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80&auto=format&fit=crop" alt="Placeholder project image of developer desk">
-        <p>Placeholder Project 6</p>
       </a>
     </div>
   </div>
@@ -254,18 +232,20 @@
   </div>
 </section>
 
-<!-- Testimonials (optional) -->
-<section class="testimonials" aria-labelledby="testimonials-title">
-  <h2 id="testimonials-title">What colleagues say</h2>
-  <div class="quotes">
-    <blockquote>
-      <p>“Brandon elevates ideas with customer empathy and clear strategy.”</p>
-      <cite>— Director, Marketing</cite>
-    </blockquote>
-    <blockquote>
-      <p>“A thoughtful leader who turns stories into measurable results.”</p>
-      <cite>— VP, Partnerships</cite>
-    </blockquote>
+<!-- Testimonial (card style) -->
+<section class="testimonial-card" aria-labelledby="testimonial-title">
+  <h2 id="testimonial-title">What colleagues say</h2>
+  <div class="testimonial-body">
+    <img class="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop" alt="Headshot of Nikki Herta">
+    <div class="text">
+      <blockquote>
+        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: Brandon is the real deal, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
+      </blockquote>
+      <div class="byline">
+        <strong>Nikki Herta</strong>
+        <span>Writer/Editor/Marketing Professional</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -282,9 +262,7 @@
 <script>
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  if (reduce.matches || isMobile) return; // disable parallax on mobile for smoothness
-
+  if (reduce.matches) return; // keep it simple for now
   const hero = document.getElementById('hero');
   const media = document.getElementById('heroMedia');
   if (!hero || !media) return;
