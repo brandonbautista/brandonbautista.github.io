@@ -7,9 +7,13 @@
 
 <!-- Social preview -->
 <meta property="og:title" content="Michigan Cares Campaign | Brandon Bautista">
-<meta property="og:description" content="Statewide SEL awareness & adoption campaign combining paid media, PR, and lifecycle emails — multi-million impression reach and measurable engagement.">
+<meta property="og:description" content="Statewide SEL & mental health awareness campaign during COVID—49,658 emails delivered with 35.92% opens and 2.89% clicks; multi-audience messaging and inbound content.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1600&auto=format&fit=crop">
+<meta property="og:image" content="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Michigan Cares Campaign | Brandon Bautista">
+<meta name="twitter:description" content="Statewide SEL & mental health awareness campaign during COVID—49,658 emails delivered with 35.92% opens and 2.89% clicks; multi-audience messaging and inbound content.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop">
 
 <style>
   :root{
@@ -20,73 +24,85 @@
     --muted:#6b7280;
     --card:#ffffff;
     --brand:#ff7a00;
+    --brand-hover:#e66b00;
     --footer:#333333;
-    --vr: 1.75rem; /* consistent vertical rhythm */
+    --vr: 28px; /* vertical rhythm spacing */
   }
-
   /* Base */
   *{box-sizing:border-box}
   html,body{overflow-x:hidden}
-  img{max-width:100%;display:block}
+  img{max-width:100%;display:block;height:auto}
   body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
+
   header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
 
   /* Hero */
-  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:12px;overflow:hidden;}
+  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden;}
   .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
   .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.55) 100%);z-index:1;}
-  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;z-index:2;display:flex;flex-direction:column;gap:.35rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;}
-  .hero-title{margin:0;color:#fff;font-weight:800;font-size:2rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
-  .hero-sub{margin:0;color:#fff;opacity:.95;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.5) 100%);z-index:1;}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.35rem;z-index:2;}
+  .hero-title{margin:0;color:#fff;font-weight:800;font-size:clamp(1.6rem, 2.6vw, 2rem);text-shadow:0 2px 8px rgba(0,0,0,.35);}
+  .hero-sub{margin:0;color:#fff;opacity:.98}
 
   /* Sections */
-  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:12px;padding:1.25rem;}
-  .section h2{margin:0 0 .75rem 0;font-size:1.4rem}
+  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
+  .section h2{margin:0 0 .75rem;font-size:1.4rem}
   .muted{color:var(--muted)}
 
-  /* Badges row */
-  .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 .75rem}
-  .badge{background:#fff;border:1px solid rgba(0,0,0,.08);padding:.45rem .6rem;border-radius:999px;font-weight:700;font-size:.85rem;white-space:nowrap}
+  /* Pills row */
+  .pills{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 1rem}
+  .pill{background:#fff;border:1px solid rgba(0,0,0,.06);padding:.4rem .65rem;border-radius:999px;font-weight:700;font-size:.9rem}
 
-  /* 3-up quick blocks */
+  /* Grid cards (What/Why/Impact) */
   .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .block{grid-column:span 4;background:var(--card);border-radius:12px;padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
   .block h3{margin:.2rem 0 .5rem;font-size:1rem}
   .block p{margin:0 0 .5rem}
   .block ul{margin:.5rem 0 0;padding:0;list-style:none}
-  .block li{position:relative;padding-left:1.1rem;margin:.45rem 0}
-  .block li::before{content:"•";position:absolute;left:0;top:0;color:var(--brand);font-weight:700;line-height:1}
+  .block li{position:relative;padding-left:1.1rem;margin-bottom:.45rem}
+  .block li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;top:0;line-height:1}
 
-  /* Duo cards */
-  .duo{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;max-width:var(--page-max);margin:var(--vr) auto;}
-  .card{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem;}
-  .card h3{margin:.2rem 0 .5rem}
-  .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:12px;padding:.6rem 1rem;font-weight:700;text-decoration:none}
-  .btn:hover{background:#e66b00;text-decoration:none}
+  /* Stats strip */
+  .stats{display:flex;gap:1rem;flex-wrap:wrap}
+  .stat{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:.75rem 1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .stat b{font-size:1.1rem}
 
-  /* Video embed (if you add one later) */
-  .embed{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-top:.5rem}
+  /* Two-up cards (Episode + Series) */
+  .cards{max-width:var(--page-max);margin:var(--vr) auto;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .card{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem}
+  .card h3{margin:.2rem 0 .6rem;font-size:1.1rem}
+  .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:10px;overflow:hidden}
   .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.65rem 1rem;font-weight:700;text-decoration:none}
+  .btn:hover{background:var(--brand-hover);text-decoration:none}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
 
-  /* Bottom nav (single button) */
-  .proj-nav{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;padding:0 .25rem;}
-  footer{background:#333;color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
+  /* Assets list */
+  .asset-list{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 0}
+  .asset-list .btn{background:var(--brand)}
+  .asset-list .btn:hover{background:var(--brand-hover)}
+
+  /* Back */
+  .nav-row{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem}
+  .back{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:var(--radius);padding:.6rem 1rem;font-weight:700}
+  .back:hover{background:#f7f7f7;text-decoration:none}
+
+  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr)}
 
   /* Mobile */
-  @media (max-width: 900px){ .block{grid-column:span 6;} }
+  @media (max-width: 900px){
+    .block{grid-column:span 6}
+  }
   @media (max-width: 768px){
-    .hero,.section,.duo{padding-left:1rem;padding-right:1rem}
-    .hero{height:240px}
+    .hero,.section{padding-left:1rem;padding-right:1rem}
     .block{grid-column:span 12}
     .card{grid-column:span 12}
-    .cta-row .btn{width:100%;text-align:center}
+    .hero{height:240px}
   }
-
-  @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
+  @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important;} }
 </style>
 </head>
 <body>
@@ -97,91 +113,118 @@
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-media" id="heroMedia" aria-hidden="true">
-    <!-- Placeholder; swap to your campaign creative if you prefer -->
-    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1920&auto=format&fit=crop" alt="Students and educators collaborating">
+    <!-- Placeholder image per your guidance -->
+    <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1920&auto=format&fit=crop" alt="Supportive classroom and SEL imagery">
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1 class="hero-title">Michigan Cares: Statewide SEL Awareness & Adoption</h1>
-    <p class="hero-sub">Multi-channel campaign to scale evidence-based SEL access, build goodwill, and drive usage across Michigan schools.</p>
+    <h1 class="hero-title">Michigan Cares: Statewide SEL & Mental Health Awareness</h1>
+    <p class="hero-sub">Funded $100,000 to help districts provide free SEL resources during COVID lockdowns — we delivered a multi-audience campaign to drive statewide adoption.</p>
   </div>
 </section>
 
 <!-- At a Glance -->
-<section class="section" aria-labelledby="glance-title">
-  <h2 id="glance-title">At a Glance</h2>
+<section class="section" aria-labelledby="glance">
+  <h2 id="glance">At a Glance</h2>
 
-  <div class="badges">
-    <span class="badge">1.04M FB impressions, 6,346 clicks</span>
-    <span class="badge">19.1M RTB impressions</span>
-    <span class="badge">2.145M broadcast impressions</span>
-    <span class="badge">4,086 users/lessons downloaded</span>
+  <div class="pills">
+    <span class="pill"><strong>$100,000</strong> program funding</span>
+    <span class="pill">Statewide, district-wide access</span>
+    <span class="pill">COVID lockdown support</span>
   </div>
 
   <div class="quick">
     <!-- WHAT -->
     <article class="block" aria-labelledby="what-title">
       <h3 id="what-title">What</h3>
-      <p>A statewide campaign to promote Michigan Cares — an SEL portal for students, families, and educators — using paid digital, broadcast, PR, and lifecycle email. Work spanned strategy and execution: creative, landing content, social video scripts, postcard + flyer, surveys, analytics, and a toolkit for partners.</p>
-      <ul>
-        <li>9 social video scripts, email drip content, parent flyer, partner postcard.</li>
-        <li>PR consultation and outreach support; user data analysis & reporting.</li>
-        <li>Always-on optimization across Facebook + RTB; broadcast via MAB.</li>
-      </ul>
+      <p><em>Michigan Cares</em> offered free, evidence-based SEL & mental health content for districts, parents, and students across the state. Our campaign mobilized email, webinars, and inbound content to drive awareness and sign-ups.</p>
+      <div class="stats" style="margin-top:.6rem">
+        <div class="stat"><b>49,658</b><br><span class="muted">Emails delivered*</span></div>
+        <div class="stat"><b>35.92%</b><br><span class="muted">Weighted open rate*</span></div>
+        <div class="stat"><b>2.89%</b><br><span class="muted">Weighted click rate*</span></div>
+      </div>
+      <p class="muted" style="margin:.4rem 0 0;">*Compiled from representative email sets (admins, parents, educators, grant/webinar notices).</p>
     </article>
 
     <!-- WHY -->
     <article class="block" aria-labelledby="why-title">
       <h3 id="why-title">Why</h3>
-      <p>Our intent was service over sell: expand access to SEL at scale and position Michigan Virtual as a partner to districts, not a competitor. We centered district needs and made it simple to adopt — including grant-driven access to premium features — while building goodwill with positive, educator-first storytelling.</p>
+      <p>During lockdowns, districts needed fast, credible SEL support. We sought to serve communities first — not sell — and reinforce Michigan Virtual as a <strong>partner</strong> to schools, not a competitor.</p>
       <ul>
-        <li>Reframed brand perception as collaborator to local schools.</li>
-        <li>Grant messaging to unlock premium, data-driven SEL for districts.</li>
-        <li>Direct outreach + press mentions to raise local community visibility.</li>
+        <li>Center families and educators with practical, free resources.</li>
+        <li>Align to district needs by segment (admins, educators, parents).</li>
+        <li>Build goodwill and reframe public perception through consistent, positive outreach.</li>
       </ul>
     </article>
 
     <!-- IMPACT -->
     <article class="block" aria-labelledby="impact-title">
       <h3 id="impact-title">Impact</h3>
-      <p>Strong paid reach and engagement; statewide broadcast coverage; thousands of lesson downloads; clear signals of growing awareness and adoption.</p>
       <ul>
-        <li><strong>Facebook:</strong> 1,039,818 impressions • 6,346 clicks (0.61% CTR).</li>
-        <li><strong>RTB:</strong> 19,100,654 impressions • 3,079 clicks (0.08% CTR).</li>
-        <li><strong>Broadcast:</strong> 2,145,000 impressions; $30k buy returned ~$97,374 value.</li>
-        <li><strong>Usage:</strong> 4,086 users/lessons downloaded to date.</li>
+        <li><strong>Statewide reach:</strong> multi-audience email series; on-demand webinars; clear admin activation path.</li>
+        <li><strong>High engagement:</strong> 49,658 sends with 35.92% opens and 2.89% clicks across representative sets.</li>
+        <li><strong>Goodwill lift:</strong> reinforced Michigan Virtual as a collaborator helping schools support SEL during a critical period.</li>
       </ul>
     </article>
   </div>
 </section>
 
-<!-- Experience cards -->
-<section class="duo" aria-label="Campaign Samples">
-  <!-- Left: Email series (all CTAs same color) -->
+<!-- Campaign Assets -->
+<section class="section" aria-labelledby="assets">
+  <h2 id="assets">Campaign Assets</h2>
+  <p class="muted" style="margin:0 0 .6rem">Sample touchpoints that supported awareness and adoption. CTA colors are unified for consistency.</p>
+
+  <div class="quick">
+    <article class="block" style="grid-column: span 6;">
+      <h3>Email CTAs</h3>
+      <p>Representative messages from the series:</p>
+      <div class="asset-list">
+        <a class="btn" target="_blank" rel="noopener" href="https://mail.michiganvirtual.org/customize-a-mental-health-sel-portal-for-only-1000">Email: Customize a free SEL portal →</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today">Email: Free SEL portal expires soon →</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today-1">Email: Follow-up reminder →</a>
+      </div>
+    </article>
+
+    <article class="block" style="grid-column: span 6;">
+      <h3>Inbound Content</h3>
+      <p>Top-of-funnel article aligned to the program theme to attract and educate audiences:</p>
+      <div class="asset-list">
+        <a class="btn" target="_blank" rel="noopener" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/">Blog: Cyberbullying signs (SEL awareness) →</a>
+      </div>
+      <p class="muted" style="margin:.6rem 0 0">We paired content like this with district-facing emails and webinars to meet audiences where they were and guide them into Michigan Cares.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Experience cards (optional highlight) -->
+<section class="cards" aria-labelledby="experience">
   <article class="card">
-    <h3>See the Email Series</h3>
-    <p class="muted">Lifecycle emails supported awareness, urgency, and premium-feature access via grant funds.</p>
-    <div class="cta-row">
-      <a class="btn" href="https://mail.michiganvirtual.org/customize-a-mental-health-sel-portal-for-only-1000" target="_blank" rel="noopener">Email 1 → Customize a SEL Portal</a>
-      <a class="btn" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today" target="_blank" rel="noopener">Email 2 → Free Portal Expires</a>
-      <a class="btn" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today-1" target="_blank" rel="noopener">Email 3 → Final Reminder</a>
+    <h3>Watch a Campaign Walkthrough</h3>
+    <p class="muted" style="margin:.1rem 0 .6rem">A quick overview of how districts activated and how the assets connected.</p>
+    <div class="embed" role="region" aria-label="Campaign overview video">
+      <iframe src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
+              title="Campaign Overview"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
     </div>
   </article>
 
-  <!-- Right: Related inbound + resources -->
   <article class="card">
-    <h3>Explore More</h3>
-    <p class="muted">Inbound content and assets that supported SEL awareness and adoption.</p>
-    <div class="cta-row">
-      <a class="btn" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" rel="noopener">Related Blog: Cyberbullying Signs →</a>
-      <a class="btn" href="#" onclick="alert('Link your toolkit or shared folder when ready.');return false;">Open Campaign Toolkit →</a>
-    </div>
+    <h3>Key Audiences & Messaging</h3>
+    <ul style="margin:.25rem 0 0;padding-left:1rem">
+      <li><strong>Administrators:</strong> activation, setup, grant/eligibility clarity.</li>
+      <li><strong>Educators:</strong> classroom-ready SEL lessons and supports.</li>
+      <li><strong>Parents:</strong> at-home guidance and mental health resources.</li>
+    </ul>
+    <p class="muted" style="margin:.6rem 0 0">Tone: service-first, empathetic, action-oriented; emphasize “free access now” during lockdowns.</p>
   </article>
 </section>
 
-<!-- Back to Home -->
-<nav class="proj-nav" aria-label="Project navigation">
-  <a class="btn" href="/">← Back to Home</a>
+<!-- Back -->
+<nav class="nav-row" aria-label="Back to Home">
+  <a class="back" href="/">← Back to Home</a>
+  <span></span>
 </nav>
 
 <footer>© 2025 Brandon Bautista</footer>
@@ -195,7 +238,7 @@
     const media = document.getElementById('heroMedia');
     if(!hero || !media) return;
     let ticking=false;
-    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y',(r.top*0.15)+'px'); ticking=false; }
+    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
     function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
     update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
   })();
