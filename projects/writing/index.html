@@ -9,11 +9,11 @@
 <meta property="og:title" content="Writing Sample: Why I Don’t Give (Hear Me Out) | Brandon Bautista">
 <meta property="og:description" content="Guest post for a fundraising Substack read by thousands of professionals — currently the #3 most popular article on the site.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/projects/writing_hero.jpg">
+<meta property="og:image" content="/images/projects/writing_hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Writing Sample: Why I Don’t Give (Hear Me Out) | Brandon Bautista">
 <meta name="twitter:description" content="Guest post for a fundraising Substack read by thousands of professionals — currently the #3 most popular article on the site.">
-<meta name="twitter:image" content="images/projects/writing_hero.jpg">
+<meta name="twitter:image" content="/images/projects/writing_hero.jpg">
 
 <style>
   :root{
@@ -50,6 +50,11 @@
   .block h3{margin:.2rem 0 .5rem;font-size:1rem;}
   .block p{margin:0 0 .5rem;}
 
+  /* Optional styled bullets (for future lists) */
+  .block ul{margin:.5rem 0 0;padding:0;list-style:none;}
+  .block ul li{position:relative;padding-left:1.1rem;margin-bottom:.45rem;}
+  .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;line-height:1;top:0;}
+
   /* Excerpt */
   .excerpt{max-width:var(--page-max);margin:2rem auto;background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;}
   blockquote{margin:0;padding:0 0 0 .9rem;border-left:4px solid var(--brand);color:#222;}
@@ -78,15 +83,16 @@
 </head>
 <body>
 
-<header><a href="index.html#projects-title">← Back to Projects</a></header>
+<!-- Back to Home -->
+<header><a href="/">← Back to Home</a></header>
 
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-media" id="heroMedia" aria-hidden="true">
     <picture>
-      <source srcset="images/projects/writing_hero.avif" type="image/avif">
-      <source srcset="images/projects/writing_hero.webp" type="image/webp">
-      <img src="images/projects/writing_hero.jpg" alt="Writing sample hero image">
+      <source srcset="/images/projects/writing_hero.avif" type="image/avif">
+      <source srcset="/images/projects/writing_hero.webp" type="image/webp">
+      <img src="/images/projects/writing_hero.jpg" alt="Writing sample hero image">
     </picture>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -109,13 +115,13 @@
     <!-- WHY -->
     <article class="block" aria-labelledby="why-title">
       <h3 id="why-title">Why</h3>
-      <p>I wrote this to advocate for **customer (donor) experience** in the nonprofit space: fewer pressure tactics, more trust and value. It’s grounded in personal lived context and a marketer’s lens on sustainable growth.</p>
+      <p>I wrote this to advocate for <strong>customer (donor) experience</strong> in the nonprofit space: fewer pressure tactics, more trust and value. It’s grounded in personal lived context and a marketer’s lens on sustainable growth.</p>
     </article>
 
     <!-- IMPACT -->
     <article class="block" aria-labelledby="impact-title">
       <h3 id="impact-title">Impact</h3>
-      <p>Published on a Substack newsletter by the VP of Fundraising (United Way of Central Maryland), read by **thousands** of fundraisers; currently **#3 most popular** article across the site.</p>
+      <p>Published on a Substack newsletter by the VP of Fundraising (United Way of Central Maryland), read by <strong>thousands</strong> of fundraisers; currently <strong>#3 most popular</strong> article across the site.</p>
     </article>
   </div>
 </section>
@@ -142,11 +148,11 @@
   <a class="btn" href="https://fundraisingforbreakfast.substack.com/p/why-i-dont-give-hear-me-out" target="_blank" rel="noopener">Read the Full Article →</a>
 </div>
 
-<!-- Simple nav -->
+<!-- Bottom nav -->
 <nav class="proj-nav" aria-label="Project navigation">
-  <a class="btn" href="index.html#projects-title">← Back to Projects</a>
+  <a class="btn" href="/">← Back to Home</a>
   <div>
-    <a class="btn" href="project-bright.html">Previous Project ←</a>
+    <a class="btn" href="/projects/bright/">Previous Project ←</a>
   </div>
 </nav>
 
