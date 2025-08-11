@@ -25,45 +25,33 @@
     --card:#ffffff;
     --brand:#ff7a00;
     --footer:#333333;
-    --vr: 1.25rem; /* tight, consistent vertical spacing */
+    --vr: 1.75rem; /* vertical rhythm spacing for consistent gaps */
   }
 
   /* Base */
   *{box-sizing:border-box}
-  html,body{overflow-x:hidden}
-  img{max-width:100%;display:block;height:auto}
   body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  img{max-width:100%;display:block}
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
+  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
 
-  /* Page grid wrapper: centers all .container children */
-  .page{display:grid;grid-template-columns:1fr min(var(--page-max),100%) 1fr}
-  .page > .container{grid-column:2}
-
-  /* Header */
-  header{font-weight:700;padding:1rem 0}
+  /* Buttons */
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.65rem 1.05rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .btn:hover{background:#e66b00;text-decoration:none}
+  .btn.secondary{background:#fff;color:var(--text);border:1px solid rgba(0,0,0,.12)}
 
   /* Hero */
-  .hero{position:relative;height:320px;border-radius:var(--radius);overflow:hidden;margin:0 0 var(--vr)}
+  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden}
   .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0))}
-  .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%)}
-  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;display:flex;flex-direction:column;gap:.5rem}
+  .hero picture,.hero img{width:100%;height:120%;object-fit:cover;display:block}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.52) 100%);z-index:1}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.4rem;z-index:2}
   .hero-title{margin:0;color:#fff;font-weight:800;font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.35)}
   .hero-sub{margin:0;color:#fff;opacity:.95}
 
-  /* Hero chip badge (matches BRIGHT award style) */
-  .hero-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
-  .chip{
-    display:inline-flex;align-items:center;gap:.5rem;
-    background:rgba(255,255,255,.92);color:#111;
-    border-radius:999px;padding:.45rem .75rem;font-weight:700;
-    box-shadow:0 2px 8px rgba(0,0,0,.15); border:1px solid rgba(0,0,0,.08);
-  }
-  .chip svg{width:16px;height:16px;flex:0 0 16px;fill:var(--brand);}
-
   /* Sections */
-  .section{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;margin:var(--vr) 0}
+  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
   .muted{color:var(--muted)}
 
@@ -74,125 +62,114 @@
   .block p{margin:0 0 .5rem}
   .block ul{margin:.5rem 0 0;padding:0;list-style:none}
   .block ul li{position:relative;padding-left:1.1rem;margin-bottom:.45rem}
-  .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;top:0;line-height:1}
+  .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;line-height:1;top:0}
 
   /* Callout CTA */
-  .callout{background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center;margin:var(--vr) 0}
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none}
-  .btn:hover{background:#e66b00}
+  .callout{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center}
 
-  /* Excerpt re-styled like testimonial pull-quotes */
-  .excerpt{background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;margin:var(--vr) 0}
-  .pull{
-    background:#fff4eb;
-    border-left:4px solid var(--brand);
-    padding:.65rem .8rem;
-    border-radius:6px;
-    margin:.6rem 0;
-    font-size:1.02rem;
+  /* Excerpt – styled like your testimonial pulls */
+  .excerpt{max-width:var(--page-max);margin:var(--vr) auto;background:transparent;padding:0 1rem}
+  .excerpt-card{background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem}
+  .t-row{background:#fff4eb;border-left:4px solid var(--brand);padding:.65rem .75rem;border-radius:6px;margin:.55rem 0}
+
+  /* Project bottom navigation (fixed layout) */
+  .project-nav{
+    max-width: var(--page-max);
+    margin: var(--vr) auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .75rem;
   }
-  .note{font-size:.9rem;color:var(--muted);margin-top:.5rem}
+  .project-nav .btn{position:static;inset:auto}
 
-  /* Bottom nav */
-  .proj-nav{display:flex;justify-content:space-between;align-items:center;padding:0 .25rem;margin:var(--vr) 0}
-
-  /* Footer (full width outside grid) */
+  /* Footer */
   footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr)}
 
   /* Mobile */
   @media (max-width: 900px){ .block{grid-column:span 6} }
   @media (max-width: 768px){
+    header,.section,.excerpt,.callout{padding-left:1rem;padding-right:1rem}
     .hero{height:240px}
-    .section, .excerpt, .callout, .container{padding-left:1rem;padding-right:1rem}
+    .hero picture img{border-radius:var(--radius)}
     .block{grid-column:span 12}
+    .project-nav{flex-direction:column;align-items:stretch}
+    .project-nav .btn{width:100%;text-align:center}
   }
   @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
 </style>
 </head>
 <body>
 
-<div class="page">
+<!-- Back to Home -->
+<header><a href="/">← Back to Home</a></header>
 
-  <!-- Back to Home -->
-  <header class="container"><a href="/">← Back to Home</a></header>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <picture>
+      <!-- Use your local hero if you have it; fallback to Unsplash -->
+      <source srcset="/images/projects/writing_hero.webp" type="image/webp">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920&auto=format&fit=crop" alt="Professional workspace with laptop and notebook">
+    </picture>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Why I Don’t Give (Hear Me Out)</h1>
+    <p class="hero-sub">Guest article on donor psychology and relationship-based fundraising — ranked #3 most-read by a newsletter for thousands of nonprofit professionals.</p>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <section class="container">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="/images/projects/writing_hero.jpg" alt="Professional workspace with notebook and pen">
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Why I Don’t Give (Hear Me Out)</h1>
-        <p class="hero-sub">Guest article on donor psychology and relationship-based fundraising.</p>
-        <div class="hero-badges" role="list" aria-label="Highlights">
-          <span class="chip" role="listitem" aria-label="#3 most-read article on the site">
-            <!-- star icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.9 6.26L22 9.27l-5 4.87L18.2 22 12 18.69 5.8 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
-            #3 most-read on site
-          </span>
-          <span class="chip" role="listitem" aria-label="Read by thousands of nonprofit professionals">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
-            Thousands of readers
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- At a Glance -->
+<section class="section" aria-labelledby="wwi-title">
+  <h2 id="wwi-title">At a Glance</h2>
+  <div class="quick">
+    <!-- WHAT -->
+    <article class="block" aria-labelledby="what-title">
+      <h3 id="what-title">What</h3>
+      <p>A guest essay examining how frequent, guilt-driven fundraising appeals can erode trust — and offering practical strategies to build durable donor relationships through empathy, transparency, and meaningful non-monetary engagement.</p>
+    </article>
 
-  <!-- At a Glance -->
-  <section class="container section" aria-labelledby="wwi-title">
-    <h2 id="wwi-title">At a Glance</h2>
-    <div class="quick">
-      <!-- WHAT -->
-      <article class="block" aria-labelledby="what-title">
-        <h3 id="what-title">What</h3>
-        <p>A guest essay examining how frequent, guilt-driven fundraising appeals can erode trust — and offering practical strategies to build durable donor relationships through empathy, transparency, and meaningful non-monetary engagement.</p>
-      </article>
+    <!-- WHY -->
+    <article class="block" aria-labelledby="why-title">
+      <h3 id="why-title">Why</h3>
+      <p>Written to champion the donor experience in nonprofit communications. Drawing on professional marketing expertise and personal context, the piece advocates for fewer pressure tactics and more authentic, trust-based interactions.</p>
+    </article>
 
-      <!-- WHY -->
-      <article class="block" aria-labelledby="why-title">
-        <h3 id="why-title">Why</h3>
-        <p>Written to champion the donor (customer) experience. Drawing on professional marketing expertise and personal context, the piece advocates for fewer pressure tactics and more authentic, trust-based interactions.</p>
-      </article>
+    <!-- IMPACT -->
+    <article class="block" aria-labelledby="impact-title">
+      <h3 id="impact-title">Impact</h3>
+      <p>Published on <em>Fundraising for Breakfast</em> (by the VP of Fundraising at the United Way of Central Maryland); reached thousands of fundraisers and rose to the site’s <strong>#3 most-read</strong> article.</p>
+    </article>
+  </div>
+</section>
 
-      <!-- IMPACT -->
-      <article class="block" aria-labelledby="impact-title">
-        <h3 id="impact-title">Impact</h3>
-        <p>Published on <em>Fundraising for Breakfast</em> (by the VP of Fundraising at the United Way of Central Maryland); reached thousands of practitioners and rose to the site’s <strong>#3 most-read</strong> article.</p>
-      </article>
-    </div>
-  </section>
+<!-- Read the full article callout -->
+<section class="callout" aria-labelledby="read-full-title">
+  <h2 id="read-full-title" style="margin:.2rem 0 0;">Want the full story and recommendations?</h2>
+  <p class="muted" style="margin:.25rem 0 1rem;">Includes tactics for pacing asks, balancing guilt with grace, and offering other ways to engage.</p>
+  <a class="btn" href="https://fundraisingforbreakfast.substack.com/p/why-i-dont-give-hear-me-out" target="_blank" rel="noopener">Read the full piece →</a>
+</section>
 
-  <!-- Read the full article callout -->
-  <section class="container callout" aria-labelledby="read-full-title">
-    <h2 id="read-full-title" style="margin:.2rem 0 0;">Want the full story and recommendations?</h2>
-    <p class="muted" style="margin:.25rem 0 1rem;">Includes tactics for pacing asks, balancing guilt with grace, and offering other ways to engage.</p>
-    <a class="btn" href="https://fundraisingforbreakfast.substack.com/p/why-i-dont-give-hear-me-out" target="_blank" rel="noopener">Read the full piece →</a>
-  </section>
-
-  <!-- Excerpt (styled like testimonial) -->
-  <section class="container excerpt" aria-labelledby="excerpt-title">
+<!-- Excerpt -->
+<section class="excerpt" aria-labelledby="excerpt-title">
+  <div class="excerpt-card">
     <h2 id="excerpt-title" style="margin:0 0 .5rem;">Excerpt</h2>
     <p class="muted" style="margin:.25rem 0 .5rem;">A few highlights that capture the tone and takeaway:</p>
-
-    <p class="pull">“I’m a good tipper. I really am! But not when I feel guilted into doing it… In my recent experience, guilt is starting to feel like it’s become a go-to fundraising tactic. But is it effective?”</p>
-    <p class="pull">“I’m not against giving. I want to help… But like tipping at Qdoba, I hate feeling pressured into it. Because I’m not just your donor. I’m your cause.”</p>
-    <p class="pull">“What I need is a relationship, not a drip campaign… Sometimes the most valuable support doesn’t come with a dollar sign… The most meaningful giving doesn’t come from being made to feel bad. It comes from feeling seen.”</p>
-
-    <p class="note">Excerpted for brevity; the full piece includes specific recommendations for pacing asks, balancing guilt with grace, and offering other ways to engage.</p>
-  </section>
+    <div class="t-row">“I’m a good tipper. I really am! But not when I feel guilted into doing it… In my recent experience, guilt is starting to feel like it’s become a go-to fundraising tactic. But is it effective?”</div>
+    <div class="t-row">“I’m not against giving. I want to help… But like tipping at Qdoba, I hate feeling pressured into it. Because I’m not just your donor. I’m your cause.”</div>
+    <div class="t-row">“What I need is a relationship, not a drip campaign… Sometimes the most valuable support doesn’t come with a dollar sign… The most meaningful giving doesn’t come from being made to feel bad. It comes from feeling seen.”</div>
+    <p class="muted" style="margin:.75rem 0 0;">Excerpted for brevity; the full piece includes specific recommendations for pacing asks, balancing guilt with grace, and offering other ways to engage.</p>
+  </div>
+</section>
 
 <!-- Project Navigation -->
-<nav class="project-nav">
+<nav class="project-nav" aria-label="Project navigation">
   <a class="btn secondary" href="/projects/bright/">← Previous Project</a>
   <a class="btn" href="/projects/michigancares/">Next Project →</a>
 </nav>
 
-</div> <!-- /.page -->
-
-<!-- Footer spans full width -->
 <footer>© 2025 Brandon Bautista</footer>
 
 <script>
