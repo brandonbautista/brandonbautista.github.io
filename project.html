@@ -47,8 +47,9 @@
   /* 3-up quick blocks */
   .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
   .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
-  .block h3{margin:.2rem 0 .4rem;font-size:1rem;}
-  .block p{margin:0;}
+  .block h3{margin:.2rem 0 .5rem;font-size:1rem;}
+  .block p{margin:0 0 .5rem;}
+  .block ul{margin:.25rem 0 0 1.2rem;}
 
   /* CTA buttons */
   .cta-wrap{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem;}
@@ -100,17 +101,32 @@
 <section class="section" aria-labelledby="wwi-title">
   <h2 id="wwi-title">At a Glance</h2>
   <div class="quick">
+    <!-- WHAT -->
     <article class="block" aria-labelledby="what-title">
       <h3 id="what-title">What</h3>
-      <p><em>BRIGHT</em> is a podcast spotlighting teachers doing innovative work in their classrooms. Each episode shares practical ideas and human stories educators can apply right away.</p>
+      <p><em>BRIGHT</em> is a podcast and blog series featuring Michigan teachers known for innovative classroom practices. Each episode shares practical ideas and first-hand stories other educators can adapt quickly.</p>
+      <p class="muted">Format: interview-driven storytelling with classroom examples and takeaways.</p>
     </article>
+
+    <!-- WHY -->
     <article class="block" aria-labelledby="why-title">
       <h3 id="why-title">Why</h3>
-      <p>Inspired by our inbound strategy, we set out to provide genuine value and build affinity for Michigan Virtual — not to sell. It’s storytelling and service first.</p>
+      <p>We wanted to provide genuine value to educators and build trust with the community by spotlighting great work — whether or not it involved Michigan Virtual. Guided by inbound marketing training, we focused on service, not selling.</p>
+      <ul>
+        <li>Champion educator voice and customer advocacy over brand promotion.</li>
+        <li>Create affinity and goodwill through consistent, useful content.</li>
+        <li>Model pedagogical best practices and technology in action.</li>
+      </ul>
     </article>
+
+    <!-- IMPACT -->
     <article class="block" aria-labelledby="impact-title">
       <h3 id="impact-title">Impact</h3>
-      <p><strong>217,000+ listens/views</strong> across YouTube and podcast platforms. Honored as <strong>Best Educational Podcast</strong> (37th Annual Educational Advertising Awards).</p>
+      <p><strong>217,000+ listens/views</strong> across YouTube and major podcast platforms, indicating strong resonance with our audience of Michigan educators interested in technology and pedagogy.</p>
+      <ul>
+        <li><strong>Recognition:</strong> Best Educational Podcast — 37th Annual Educational Advertising Awards.</li>
+        <li><strong>Community impact:</strong> Elevated teacher stories and strengthened goodwill toward Michigan Virtual.</li>
+      </ul>
     </article>
   </div>
 </section>
