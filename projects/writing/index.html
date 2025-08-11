@@ -81,10 +81,16 @@
   .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none}
   .btn:hover{background:#e66b00}
 
-  /* Excerpt */
+  /* Excerpt re-styled like testimonial pull-quotes */
   .excerpt{background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;margin:var(--vr) 0}
-  blockquote{margin:.25rem 0 0;padding:0 0 0 .9rem;border-left:4px solid var(--brand);color:#222}
-  blockquote p{margin:.4rem 0}
+  .pull{
+    background:#fff4eb;
+    border-left:4px solid var(--brand);
+    padding:.65rem .8rem;
+    border-radius:6px;
+    margin:.6rem 0;
+    font-size:1.02rem;
+  }
   .note{font-size:.9rem;color:var(--muted);margin-top:.5rem}
 
   /* Bottom nav */
@@ -166,15 +172,15 @@
     <a class="btn" href="https://fundraisingforbreakfast.substack.com/p/why-i-dont-give-hear-me-out" target="_blank" rel="noopener">Read the full piece →</a>
   </section>
 
-  <!-- Excerpt -->
+  <!-- Excerpt (styled like testimonial) -->
   <section class="container excerpt" aria-labelledby="excerpt-title">
     <h2 id="excerpt-title" style="margin:0 0 .5rem;">Excerpt</h2>
-    <p class="muted" style="margin:.25rem 0 0;">The article opens with a familiar moment that illustrates how subtle pressure can backfire — for diners and donors alike.</p>
-    <blockquote>
-      <p>“I’m a good tipper. I really am! But not when I feel guilted into doing it… In my recent experience, guilt is starting to feel like it’s become a go-to fundraising tactic. But is it effective?”</p>
-      <p>“I’m not against giving. I want to help… But like tipping at Qdoba, I hate feeling pressured into it. Because I’m not just your donor. I’m your cause.”</p>
-      <p>“What I need is a relationship, not a drip campaign… Sometimes the most valuable support doesn’t come with a dollar sign… The most meaningful giving doesn’t come from being made to feel bad. It comes from feeling seen.”</p>
-    </blockquote>
+    <p class="muted" style="margin:.25rem 0 .5rem;">A few highlights that capture the tone and takeaway:</p>
+
+    <p class="pull">“I’m a good tipper. I really am! But not when I feel guilted into doing it… In my recent experience, guilt is starting to feel like it’s become a go-to fundraising tactic. But is it effective?”</p>
+    <p class="pull">“I’m not against giving. I want to help… But like tipping at Qdoba, I hate feeling pressured into it. Because I’m not just your donor. I’m your cause.”</p>
+    <p class="pull">“What I need is a relationship, not a drip campaign… Sometimes the most valuable support doesn’t come with a dollar sign… The most meaningful giving doesn’t come from being made to feel bad. It comes from feeling seen.”</p>
+
     <p class="note">Excerpted for brevity; the full piece includes specific recommendations for pacing asks, balancing guilt with grace, and offering other ways to engage.</p>
   </section>
 
