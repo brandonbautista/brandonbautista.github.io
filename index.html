@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brandon Bautista</title>
 
-<!-- Social Preview -->
 <meta property="og:title" content="Brandon Bautista | Marketing Portfolio">
 <meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate.">
 <meta property="og:type" content="website">
@@ -23,18 +22,19 @@
     --footer:#333333;
   }
 
-  /* Global reset/safety */
-  * { box-sizing: border-box; }
-  html, body { overflow-x: hidden; }
-  img, video { max-width: 100%; height: auto; display: block; }
+  /* Safety/reset */
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  img,video{max-width:100%;height:auto;display:block}
 
-  /* Layout */
   body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  .container{
-    width: min(100%, var(--page-max));
-    margin-inline: auto;
-    padding-inline: 1rem;
+
+  /* HARD-CENTER EVERYTHING */
+  .page{
+    display:grid;
+    grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
   }
+  .page > .container{ grid-column: 2; }  /* force every section to the center column */
 
   header{font-weight:700; padding:1rem 0;}
 
@@ -88,6 +88,7 @@
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
   footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem;}
+  footer .container{grid-column:2;} /* keep footer centered too */
 
   /* Mobile */
   @media (max-width:768px){
@@ -107,128 +108,132 @@
 </head>
 <body>
 
-<!-- Header -->
-<header class="container">Brandon Bautista</header>
+<div class="page"><!-- EVERYTHING INSIDE THIS WRAPPER STAYS CENTERED -->
 
-<!-- Hero -->
-<section class="container">
-  <div class="hero" id="hero">
-    <div class="hero-media" id="heroMedia" aria-hidden="true">
-      <img src="images/hero.avif" alt="Modern workspace with laptop and notebook">
-    </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content" aria-label="Introduction">
-      <h1>Brandon Bautista</h1>
-      <div class="hero-buttons">
-        <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
-        <a class="btn secondary" href="#" target="_blank" rel="noopener">View Résumé →</a>
+  <!-- Header -->
+  <header class="container">Brandon Bautista</header>
+
+  <!-- Hero -->
+  <section class="container">
+    <div class="hero" id="hero">
+      <div class="hero-media" id="heroMedia" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="Modern workspace with laptop and notebook">
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content" aria-label="Introduction">
+        <h1>Brandon Bautista</h1>
+        <div class="hero-buttons">
+          <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+          <a class="btn secondary" href="#" target="_blank" rel="noopener">View Résumé →</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Intro -->
-<section class="container">
-  <div class="intro">
-    <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
-    <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
-    <p><strong>Be kind. Work hard. Have fun.</strong></p>
-  </div>
-</section>
-
-<!-- Projects -->
-<section class="container section">
-  <h2>Projects</h2>
-  <div class="project-list">
-    <div class="project">
-      <a href="#">
-        <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1200&auto=format&fit=crop" alt="Podcast microphone and headphones on desk">
-        <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
-      </a>
+  <!-- Intro -->
+  <section class="container">
+    <div class="intro">
+      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
+      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
+      <p><strong>Be kind. Work hard. Have fun.</strong></p>
     </div>
-    <div class="project">
-      <a href="#">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Professional workspace scene">
-        <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
-      </a>
+  </section>
+
+  <!-- Projects -->
+  <section class="container section">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project">
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1200&auto=format&fit=crop" alt="Podcast microphone and headphones on desk">
+          <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Professional workspace scene">
+          <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Developer desk with code on screen">
+          <p>Placeholder Project 3</p>
+        </a>
+      </div>
     </div>
-    <div class="project">
-      <a href="#">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Developer desk with code on screen">
-        <p>Placeholder Project 3</p>
-      </a>
+  </section>
+
+  <!-- Skills -->
+  <section class="container section">
+    <h2>Skills</h2>
+    <div class="skill-grid">
+      <article class="skill-card">
+        <h3>Storytelling</h3>
+        <p class="skill-muted">I craft narratives that connect emotionally and move audiences to act.</p>
+        <div class="tags"><span class="tag">Brand Voice</span><span class="tag">Long-form Writing</span><span class="tag">Copywriting</span><span class="tag">Interviewing</span><span class="tag">Narrative Structure</span></div>
+      </article>
+      <article class="skill-card">
+        <h3>Content Creation & Video Production</h3>
+        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
+        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
+      </article>
+      <article class="skill-card">
+        <h3>Social Media Strategy</h3>
+        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
+        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
+      </article>
+      <article class="skill-card">
+        <h3>HubSpot Mastery</h3>
+        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
+        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
+      </article>
+      <article class="skill-card">
+        <h3>Customer Advocacy & Experience</h3>
+        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
+        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Skills -->
-<section class="container section">
-  <h2>Skills</h2>
-  <div class="skill-grid">
-    <article class="skill-card">
-      <h3>Storytelling</h3>
-      <p class="skill-muted">I craft narratives that connect emotionally and move audiences to act.</p>
-      <div class="tags"><span class="tag">Brand Voice</span><span class="tag">Long-form Writing</span><span class="tag">Copywriting</span><span class="tag">Interviewing</span><span class="tag">Narrative Structure</span></div>
-    </article>
-    <article class="skill-card">
-      <h3>Content Creation & Video Production</h3>
-      <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
-      <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
-    </article>
-    <article class="skill-card">
-      <h3>Social Media Strategy</h3>
-      <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
-      <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
-    </article>
-    <article class="skill-card">
-      <h3>HubSpot Mastery</h3>
-      <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
-      <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
-    </article>
-    <article class="skill-card">
-      <h3>Customer Advocacy & Experience</h3>
-      <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
-      <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
-    </article>
-  </div>
-</section>
+  <!-- Testimonial -->
+  <section class="container testimonial-pro" aria-labelledby="testimonial-title">
+    <h2 id="testimonial-title">Testimonial</h2>
+    <figure class="t-card">
+      <div class="t-aside">
+        <img class="t-avatar"
+             src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
+             alt="Headshot of Nikki Herta">
+        <figcaption class="t-meta">
+          <strong>Nikki Herta</strong>
+          <span>Writer/Editor/Marketing Professional</span>
+        </figcaption>
+      </div>
 
-<!-- Testimonial -->
-<section class="container testimonial-pro" aria-labelledby="testimonial-title">
-  <h2 id="testimonial-title">Testimonial</h2>
-  <figure class="t-card">
-    <div class="t-aside">
-      <img class="t-avatar"
-           src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
-           alt="Headshot of Nikki Herta">
-      <figcaption class="t-meta">
-        <strong>Nikki Herta</strong>
-        <span>Writer/Editor/Marketing Professional</span>
-      </figcaption>
+      <blockquote class="t-quote">
+        <span class="t-mark" aria-hidden="true">“</span>
+        <p class="t-pull">
+          In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!
+        </p>
+      </blockquote>
+    </figure>
+  </section>
+
+  <!-- Contact -->
+  <section class="container">
+    <div class="contact">
+      <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
     </div>
+  </section>
 
-    <blockquote class="t-quote">
-      <span class="t-mark" aria-hidden="true">“</span>
-      <p class="t-pull">
-        In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!
-      </p>
-    </blockquote>
-  </figure>
-</section>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Brandon Bautista</p>
+    </div>
+  </footer>
 
-<!-- Contact -->
-<section class="container">
-  <div class="contact">
-    <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>© 2025 Brandon Bautista</p>
-  </div>
-</footer>
+</div><!-- /.page -->
 
 <script>
 (function () {
