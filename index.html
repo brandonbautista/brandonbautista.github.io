@@ -21,8 +21,7 @@
     --card:#ffffff;
     --brand:#ff7a00;
     --footer:#333333;
-    /* vertical rhythm */
-    --vr: 1.75rem;
+    --vr: 1.75rem; /* vertical rhythm */
   }
 
   /* Reset / base */
@@ -77,7 +76,7 @@
   /* Testimonial */
   .testimonial-pro{margin:var(--vr) 0;}
   .t-card{
-    margin: 0; /* ensure same width as other cards */
+    margin: 0;
     display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
     background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius);
     box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem;
@@ -86,13 +85,27 @@
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
   .t-meta{color:var(--muted); display:grid; gap:.2rem;}
   .t-meta strong{color:var(--text);}
-  .t-quote{margin:0; line-height:1.7; font-size:1.05rem; max-width:70ch;}
+
+  /* Restored pull-quote styling */
+  blockquote.t-quote{
+    margin:0;
+    background:#fff7ef;
+    border-left:4px solid var(--brand);
+    padding:.75rem 1rem;
+    border-radius:6px;
+    line-height:1.7;
+    font-size:1.05rem;
+    max-width:70ch;
+  }
   .t-quote p{margin:.4rem 0;}
 
   /* Contact + Footer */
   .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0; text-align:center;}
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
+
+  /* Make the footer span the full page grid */
+  .page > footer{ grid-column: 1 / -1; }
   footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
   footer .container{grid-column:2;}
 
