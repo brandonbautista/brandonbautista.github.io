@@ -6,10 +6,10 @@
 <title>Brandon Bautista</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Brandon Bautista | Marketing Portfolio">
-<meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:title" content="Brandon Bautista | Marketing Portfolio" />
+<meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" />
 
 <style>
   :root{
@@ -21,7 +21,8 @@
     --card:#ffffff;
     --brand:#ff7a00;
     --footer:#333333;
-    --vr: 1.75rem; /* vertical rhythm */
+    /* vertical rhythm */
+    --vr: 1.5rem;
   }
 
   /* Reset / base */
@@ -30,12 +31,12 @@
   img{max-width:100%;display:block;height:auto}
   body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-  /* Hard-center everything */
+  /* Page grid: center all main sections; footer spans full width */
   .page{
     display:grid;
     grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
   }
-  .page > .container{ grid-column: 2; }
+  .container{ grid-column: 2; }
 
   header { font-weight: 700; padding: 1rem 0; }
 
@@ -73,20 +74,20 @@
   .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
   .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
 
-  /* Testimonial */
-  .testimonial-pro{margin:var(--vr) 0;}
+  /* Testimonial / Colleague Feedback */
+  .feedback{margin:var(--vr) 0;}
+  .feedback h2{margin:0 0 1rem .25rem;}
   .t-card{
-    margin: 0;
     display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
-    background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius);
-    box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem;
+    background:var(--card); border:1px solid rgba(0,0,0,.06);
+    border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08);
+    padding:1.25rem;
   }
   .t-aside{display:grid; gap:.75rem; align-content:start;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
   .t-meta{color:var(--muted); display:grid; gap:.2rem;}
   .t-meta strong{color:var(--text);}
-
-  /* Restored pull-quote styling */
+  /* Full-width pull-quote inside the right column */
   blockquote.t-quote{
     margin:0;
     background:#fff7ef;
@@ -95,7 +96,8 @@
     border-radius:6px;
     line-height:1.7;
     font-size:1.05rem;
-    max-width:70ch;
+    max-width:none;
+    width:100%;
   }
   .t-quote p{margin:.4rem 0;}
 
@@ -104,14 +106,12 @@
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
 
-  /* Make the footer span the full page grid */
-  .page > footer{ grid-column: 1 / -1; }
-  footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
+  footer{grid-column:1 / -1; background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
   footer .container{grid-column:2;}
 
   /* Mobile */
   @media (max-width: 768px) {
-    .hero, .container.section, .container .intro, .container.testimonial-pro, .container .contact { padding-left: 1rem; padding-right: 1rem; }
+    .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
     .hero{height:300px}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
     .hero-content{bottom:1rem;}
@@ -142,7 +142,7 @@
   <section class="container">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="images/hero.avif" alt="Modern workspace with laptop and notebook">
+        <img src="images/hero.avif" alt="Modern workspace with laptop and notebook" />
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content" aria-label="Introduction">
@@ -171,7 +171,7 @@
       <!-- BRIGHT -->
       <div class="project">
         <a href="/projects/bright/">
-          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork">
+          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork" />
           <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
         </a>
       </div>
@@ -179,7 +179,7 @@
       <!-- Writing sample -->
       <div class="project">
         <a href="/projects/writing/">
-          <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail">
+          <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail" />
           <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
         </a>
       </div>
@@ -187,7 +187,8 @@
       <!-- Michigan Cares -->
       <div class="project">
         <a href="/projects/michigancares/">
-          <img class="thumb-parallax" src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1200&auto=format&fit=crop" alt="Michigan Cares campaign thumbnail">
+          <!-- Replace with a local thumbnail when ready -->
+          <img class="thumb-parallax" src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1200&auto=format&fit=crop" alt="Michigan Cares campaign thumbnail" />
           <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
         </a>
       </div>
@@ -234,14 +235,14 @@
     </div>
   </section>
 
-  <!-- Testimonial -->
-  <section class="container section testimonial-pro" aria-labelledby="testimonial-title">
-    <h2 id="testimonial-title">Colleague Feedback</h2>
+  <!-- Colleague Feedback -->
+  <section class="container feedback" aria-labelledby="feedback-title">
+    <h2 id="feedback-title">Colleague Feedback</h2>
     <figure class="t-card">
       <div class="t-aside">
         <img class="t-avatar"
              src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
-             alt="Headshot of Nikki Herta">
+             alt="Headshot of Nikki Herta" />
         <figcaption class="t-meta">
           <strong>Nikki Herta</strong>
           <span>Writer/Editor/Marketing Professional</span>
@@ -314,7 +315,7 @@
         const r = img.getBoundingClientRect();
         const vh = window.innerHeight || 1;
         const p = (r.top + r.height/2) / vh; // 0..1
-        const y = (p - 0.5) * -6; // small translate
+        const y = (p - 0.5) * -6; // subtle translate
         img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
       };
       onMove();
