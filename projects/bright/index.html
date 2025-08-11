@@ -30,17 +30,17 @@
   img,video{max-width:100%;height:auto;display:block}
   body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
 
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+
   /* Page grid wrapper (matches homepage) */
   .page{display:grid;grid-template-columns:1fr min(var(--page-max), 100%) 1fr;}
   .page > .container{grid-column:2;}
 
-  a{color:var(--brand);text-decoration:none}
-  a:hover{text-decoration:underline}
-
   /* Header */
   header{font-weight:700;padding:1rem 0}
 
-  /* Hero (match look/feel; slightly shorter than homepage) */
+  /* Hero (match look/feel) */
   .hero{position:relative;height:380px;border-radius:var(--radius);overflow:hidden}
   .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0))}
   .hero img{width:100%;height:120%;object-fit:cover}
@@ -83,7 +83,16 @@
 
   /* Bottom nav (consistent buttons) */
   .proj-nav{margin:2rem 0;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem}
-  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem}
+
+  /* Footer (full width; sits OUTSIDE .page) */
+  footer{
+    background:var(--footer);
+    color:#fff;
+    text-align:center;
+    padding:1rem;
+    font-size:.9rem;
+    margin-top:2rem;
+  }
 
   /* Mobile */
   @media (max-width: 900px){ .block{grid-column:span 6} }
@@ -93,7 +102,6 @@
     .hero-title{font-size:1.7rem}
     .block{grid-column:span 12}
   }
-
   @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
 </style>
 </head>
@@ -131,7 +139,7 @@
       <article class="block" aria-labelledby="what-title">
         <h3 id="what-title">What</h3>
         <p><em>BRIGHT</em> is a podcast and blog series highlighting innovative Michigan teachers. Every episode brings forward classroom-tested ideas and human stories that other educators can apply quickly.</p>
-        <p class="muted">Format: interview-driven storytelling with practical takeaways.</p>
+        <p class="muted">Format: interview-led storytelling with practical takeaways.</p>
       </article>
 
       <!-- WHY -->
@@ -148,11 +156,11 @@
       <!-- IMPACT -->
       <article class="block" aria-labelledby="impact-title">
         <h3 id="impact-title">Impact</h3>
-        <p><strong>217,000+ listens/views</strong> across YouTube and podcast platforms; strong subscriber growth and completion rates signaled true audience value.</p>
+        <p><strong>217,000+ listens/views</strong> across YouTube and podcast platforms; strong subscriber growth and completion rates indicated sustained value.</p>
         <ul>
           <li><strong>Awards:</strong> Best Educational Podcast (37th Educational Advertising Awards).</li>
-          <li><strong>Public perception:</strong> Notable shift toward seeing Michigan Virtual as a <em>partner</em> to local districts.</li>
-          <li><strong>Press & community:</strong> Targeted outreach to local media for each featured teacher drove consistent coverage and community engagement.</li>
+          <li><strong>Public perception:</strong> Clear shift toward seeing Michigan Virtual as a <em>partner</em> to local districts.</li>
+          <li><strong>Press & community:</strong> Targeted outreach to local media for each featured teacher generated steady coverage and community engagement.</li>
         </ul>
         <p class="muted">Personally, I’m most proud that we used our platform to celebrate educators — bringing more positive attention to a profession too often in the headlines for the wrong reasons.</p>
       </article>
@@ -195,9 +203,10 @@
     </div>
   </nav>
 
-  <!-- Footer -->
-  <footer>© 2025 Brandon Bautista</footer>
-</div>
+</div> <!-- /.page -->
+
+<!-- Footer spans full width -->
+<footer>© 2025 Brandon Bautista</footer>
 
 <script>
   // Gentle parallax for hero (mirrors homepage, respects reduced motion)
