@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Michigan Cares Campaign | Brandon Bautista</title>
+
+<!-- Social preview -->
+<meta property="og:title" content="Michigan Cares Campaign | Brandon Bautista">
+<meta property="og:description" content="Statewide SEL awareness & adoption campaign combining paid media, PR, and lifecycle emails — multi-million impression reach and measurable engagement.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1600&auto=format&fit=crop">
+
+<style>
+  :root{
+    --page-max: 1200px;
+    --radius: 12px;
+    --bg: #f9f8f6;
+    --text: #333333;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --brand:#ff7a00;
+    --footer:#333333;
+
+    /* vertical rhythm */
+    --vr: 1.75rem;
+  }
+
+  /* Base */
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  img{max-width:100%;display:block}
+  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
+
+  /* Hero */
+  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:12px;overflow:hidden;}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
+  .hero img{width:100%;height:120%;object-fit:cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.55) 100%);z-index:1;}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;z-index:2;display:flex;flex-direction:column;gap:.35rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;}
+  .hero-title{margin:0;color:#fff;font-weight:800;font-size:2rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
+  .hero-sub{margin:0;color:#fff;opacity:.95;}
+
+  /* Sections */
+  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:12px;padding:1.25rem;}
+  .section h2{margin:0 0 .75rem 0;font-size:1.4rem}
+  .muted{color:var(--muted)}
+
+  /* Badges row */
+  .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 .75rem}
+  .badge{background:#fff;border:1px solid rgba(0,0,0,.08);padding:.45rem .6rem;border-radius:999px;font-weight:700;font-size:.85rem;white-space:nowrap}
+
+  /* 3-up quick blocks */
+  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .block{grid-column:span 4;background:var(--card);border-radius:12px;padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .block h3{margin:.2rem 0 .5rem;font-size:1rem}
+  .block p{margin:0 0 .5rem}
+  .block ul{margin:.5rem 0 0;padding:0;list-style:none}
+  .block li{position:relative;padding-left:1.1rem;margin:.45rem 0}
+  .block li::before{content:"•";position:absolute;left:0;top:0;color:var(--brand);font-weight:700;line-height:1}
+
+  /* Dual cards (episode/series layout we liked) */
+  .duo{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;max-width:var(--page-max);margin:var(--vr) auto;}
+  .card{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem;}
+  .card h3{margin:.2rem 0 .5rem}
+  .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:12px;padding:.6rem 1rem;font-weight:700;text-decoration:none}
+  .btn:hover{background:#e66b00;text-decoration:none}
+
+  /* Video embed */
+  .embed{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-top:.5rem}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* Bottom nav + footer */
+  .proj-nav{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem;}
+  footer{background:#333;color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
+
+  /* Mobile */
+  @media (max-width: 900px){ .block{grid-column:span 6;} }
+  @media (max-width: 768px){
+    .hero,.section,.duo{padding-left:1rem;padding-right:1rem}
+    .hero{height:240px}
+    .block{grid-column:span 12}
+    .card{grid-column:span 12}
+  }
+
+  @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
+</style>
+</head>
+<body>
+
+<!-- Back to Home -->
+<header><a href="/">← Back to Home</a></header>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <!-- Placeholder; swap to your campaign creative if you prefer -->
+    <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1920&auto=format&fit=crop" alt="Students and educators collaborating">
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Michigan Cares: Statewide SEL Awareness & Adoption</h1>
+    <p class="hero-sub">Multi-channel campaign to scale evidence-based SEL access, build goodwill, and drive usage across Michigan schools.</p>
+  </div>
+</section>
+
+<!-- At a Glance -->
+<section class="section" aria-labelledby="glance-title">
+  <h2 id="glance-title">At a Glance</h2>
+
+  <div class="badges">
+    <span class="badge">1.04M FB impressions, 6,346 clicks</span>
+    <span class="badge">19.1M RTB impressions</span>
+    <span class="badge">2.145M broadcast impressions</span>
+    <span class="badge">4,086 users/lessons downloaded</span>
+  </div>
+
+  <div class="quick">
+    <!-- WHAT -->
+    <article class="block" aria-labelledby="what-title">
+      <h3 id="what-title">What</h3>
+      <p>A statewide campaign to promote Michigan Cares — an SEL portal for students, families, and educators — using paid digital, broadcast, PR, and lifecycle email. Work spanned strategy and execution: creative, landing content, social video scripts, postcard + flyer, surveys, analytics, and a toolkit for partners.</p>
+      <ul>
+        <li>9 social video scripts, email drip content, parent flyer, partner postcard.</li>
+        <li>PR consultation and outreach support; user data analysis & reporting.</li>
+        <li>Always-on optimization across Facebook + RTB; broadcast via MAB.</li>
+      </ul>
+    </article>
+
+    <!-- WHY -->
+    <article class="block" aria-labelledby="why-title">
+      <h3 id="why-title">Why</h3>
+      <p>Our intent was service over sell: expand access to SEL at scale and position Michigan Virtual as a partner to districts, not a competitor. We centered district needs and made it simple to adopt — including grant-driven access to premium features — while building goodwill with positive, educator-first storytelling.</p>
+      <ul>
+        <li>Reframed brand perception as collaborator to local schools.</li>
+        <li>Grant messaging to unlock premium, data-driven SEL for districts.</li>
+        <li>Direct outreach + press mentions to raise local community visibility.</li>
+      </ul>
+    </article>
+
+    <!-- IMPACT -->
+    <article class="block" aria-labelledby="impact-title">
+      <h3 id="impact-title">Impact</h3>
+      <p>Strong paid reach and engagement; statewide broadcast coverage; thousands of lesson downloads; clear signals of growing awareness and adoption.</p>
+      <ul>
+        <li><strong>Facebook:</strong> 1,039,818 impressions • 6,346 clicks (0.61% CTR).</li>
+        <li><strong>RTB:</strong> 19,100,654 impressions • 3,079 clicks (0.08% CTR).</li>
+        <li><strong>Broadcast:</strong> 2,145,000 impressions; $30k buy returned ~$97,374 value.</li>
+        <li><strong>Usage:</strong> 4,086 users/lessons downloaded to date.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- Experience cards -->
+<section class="duo" aria-label="Campaign Samples">
+  <!-- Left: sample asset—use a video or image if you have one -->
+  <article class="card">
+    <h3>See a Sample Email (Drip)</h3>
+    <p class="muted">Lifecycle messaging highlighted free access, premium feature grants, and urgency as program windows closed.</p>
+    <div class="cta-row">
+      <a class="btn" href="#" onclick="alert('Link this to a public preview or PDF when ready.');return false;">View Email →</a>
+    </div>
+  </article>
+
+  <!-- Right: series / resources -->
+  <article class="card">
+    <h3>Campaign Resources</h3>
+    <p class="muted">Toolkit, postcards, parent flyer, and social scripts used by partners to amplify reach and adoption.</p>
+    <div class="cta-row">
+      <a class="btn" href="#" onclick="alert('Hook this to your toolkit or a folder when ready.');return false;">Open Toolkit →</a>
+    </div>
+  </article>
+</section>
+
+<!-- Bottom nav -->
+<nav class="proj-nav" aria-label="Project navigation">
+  <a class="btn" href="/">← Back to Home</a>
+  <div>
+    <a class="btn" href="/projects/bright/">Previous Project ←</a>
+    <a class="btn" href="/projects/writing/">Next Project →</a>
+  </div>
+</nav>
+
+<footer>© 2025 Brandon Bautista</footer>
+
+<script>
+  // Gentle parallax for hero (respects reduced motion)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if(!hero || !media) return;
+    let ticking=false;
+    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y',(r.top*0.15)+'px'); ticking=false; }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
+  })();
+</script>
+
+</body>
+</html>
