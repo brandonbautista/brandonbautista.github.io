@@ -62,6 +62,12 @@
   .project:hover{transform:translateY(-5px);}
   .project a{color:inherit; text-decoration:none; display:block; height:100%;}
   .project img{width:100%; height:200px; object-fit:cover;}
+  /* Parallax thumbs (desktop only; JS controls transform) */
+  .project img.parallax-thumb{
+    will-change: transform;
+    transform: translateY(var(--p, 0px));
+    transition: transform 0.2s ease-out;
+  }
   .project p{padding:.75rem; font-size:.95rem;}
 
   /* Skills */
@@ -74,7 +80,7 @@
 
   /* Testimonial */
   .testimonial-pro{margin:2rem 0;}
-  .testimonial-pro figure{margin:0;}            /* ensure equal width as other sections */
+  .testimonial-pro figure{margin:0;}   /* match section width */
   .testimonial-pro .t-card{margin:0;}
   .t-card{
     display:grid;
@@ -85,7 +91,7 @@
     border-radius:var(--radius);
     box-shadow:0 6px 20px rgba(0,0,0,.08);
     padding:1.25rem;
-    align-items:center;
+    align-items:center; /* vertical centering */
   }
   .t-aside{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
@@ -162,40 +168,37 @@
   <!-- Projects -->
   <section class="container section">
     <h2>Projects</h2>
-   <div class="project-list">
-  <!-- BRIGHT -->
-  <div class="project">
-    <a href="/projects/bright/">
-      <img
-        src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1200&auto=format&fit=crop"
-        alt="Podcast microphone and headphones on a desk — production setup"
-      >
-      <p><strong>BRIGHT podcast</strong> — concept-to-launch series elevating Michigan educators (award-winning)</p>
-    </a>
-  </div>
+    <div class="project-list">
+      <!-- BRIGHT -->
+      <div class="project">
+        <a href="/projects/bright/">
+          <img class="parallax-thumb"
+               src="https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=1200&auto=format&fit=crop"
+               alt="Podcast microphone and headphones on a desk — production setup">
+          <p><strong>BRIGHT podcast</strong> — concept-to-launch series elevating Michigan educators (award-winning)</p>
+        </a>
+      </div>
 
-  <!-- Writing sample -->
-  <div class="project">
-    <a href="/projects/writing/">
-      <img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-        alt="Notebook and laptop on a table — writing workspace"
-      >
-      <p><strong>Writing: Why I Don’t Give (Hear Me Out)</strong> — guest essay on donor experience; a top-read article</p>
-    </a>
-  </div>
+      <!-- Writing sample -->
+      <div class="project">
+        <a href="/projects/writing/">
+          <img class="parallax-thumb"
+               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+               alt="Notebook and laptop on a table — writing workspace">
+          <p><strong>Writing: Why I Don’t Give (Hear Me Out)</strong> — guest essay on donor experience; a top-read article</p>
+        </a>
+      </div>
 
-  <!-- Placeholder / coming soon -->
-  <div class="project">
-    <a href="#">
-      <img
-        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
-        alt="Laptop with code on screen — project placeholder"
-      >
-      <p><strong>Integrated campaign</strong> — case study (coming soon)</p>
-    </a>
-  </div>
-</div>
+      <!-- Placeholder -->
+      <div class="project">
+        <a href="#">
+          <img class="parallax-thumb"
+               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+               alt="Laptop with code on screen — project placeholder">
+          <p><strong>Integrated campaign</strong> — case study (coming soon)</p>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- Skills -->
@@ -323,26 +326,78 @@
 <script>
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduce.matches) return;
-  const hero = document.getElementById('hero');
-  const media = document.getElementById('heroMedia');
-  if (!hero || !media) return;
-  let ticking = false;
-  function updateParallax() {
-    const rect = hero.getBoundingClientRect();
-    const offset = rect.top * 0.15;
-    media.style.setProperty('--y', offset + 'px');
-    ticking = false;
-  }
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
+  const desktop = window.matchMedia('(min-width: 769px)');
+
+  // HERO parallax (if allowed)
+  if (!reduce.matches) {
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    let tickingHero = false;
+
+    function updateHero() {
+      if (!hero || !media) return;
+      const rect = hero.getBoundingClientRect();
+      const offset = rect.top * 0.15;
+      media.style.setProperty('--y', offset + 'px');
+      tickingHero = false;
     }
+    function onScrollHero() {
+      if (!tickingHero) {
+        requestAnimationFrame(updateHero);
+        tickingHero = true;
+      }
+    }
+    updateHero();
+    window.addEventListener('scroll', onScrollHero, { passive: true });
+    window.addEventListener('resize', onScrollHero);
   }
-  updateParallax();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+
+  // PROJECT thumbnail parallax (desktop only)
+  const thumbs = Array.from(document.querySelectorAll('.parallax-thumb'));
+  if (!reduce.matches && desktop.matches && thumbs.length) {
+    let tickingThumbs = false;
+
+    function updateThumbs() {
+      const vh = window.innerHeight;
+      const midpoint = vh / 2;
+
+      thumbs.forEach(img => {
+        const r = img.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) return; // skip far offscreen
+        const center = r.top + r.height / 2;
+        const delta = (midpoint - center) / vh;  // ~ -0.5..0.5
+        const maxShift = 22;                     // subtle travel in px
+        const y = Math.max(-1, Math.min(1, delta)) * maxShift;
+        img.style.setProperty('--p', y.toFixed(2) + 'px');
+      });
+
+      tickingThumbs = false;
+    }
+
+    function onScrollThumbs() {
+      if (!tickingThumbs) {
+        requestAnimationFrame(updateThumbs);
+        tickingThumbs = true;
+      }
+    }
+
+    updateThumbs();
+    window.addEventListener('scroll', onScrollThumbs, { passive: true });
+    window.addEventListener('resize', onScrollThumbs);
+
+    // Toggle if viewport crosses desktop/mobile threshold
+    desktop.addEventListener('change', (e) => {
+      if (!e.matches) {
+        thumbs.forEach(img => img.style.removeProperty('--p'));
+        window.removeEventListener('scroll', onScrollThumbs);
+        window.removeEventListener('resize', onScrollThumbs);
+      } else {
+        updateThumbs();
+        window.addEventListener('scroll', onScrollThumbs, { passive: true });
+        window.addEventListener('resize', onScrollThumbs);
+      }
+    });
+  }
 })();
 </script>
 
