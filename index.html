@@ -100,15 +100,29 @@
   /* Utility */
   .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
 
-  /* Mobile */
+  /* Mobile tweaks for hero */
   @media (max-width: 768px) {
     .hero, .projects, .skills, .contact, .highlights, .testimonials { padding-left: 1rem; padding-right: 1rem; }
-    .hero-content { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-    .hero { height: 250px; }
+    .hero { height: 280px; border-radius: var(--radius); }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); }
+    .hero-content { bottom: 1rem; gap: .75rem; align-items: flex-start; }
+    .hero-content h1 {
+      font-size: clamp(1.6rem, 7.5vw, 2.1rem);
+      line-height: 1.1;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+    .hero-actions { width: 100%; gap: .5rem; }
+    .hero-button { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
     .highlights-list li { grid-column: span 12; }
     .project { flex: 1 1 100%; }
     .skill-card { grid-column: span 12; }
     .quotes blockquote{ grid-column:span 12; }
+  }
+
+  /* Touch devices: avoid hover lift */
+  @media (hover: none) {
+    .hero-button:hover { transform: none; }
   }
 </style>
 </head>
@@ -240,7 +254,7 @@
   </div>
 </section>
 
-<!-- Testimonials (optional - swap quotes when ready) -->
+<!-- Testimonials (optional) -->
 <section class="testimonials" aria-labelledby="testimonials-title">
   <h2 id="testimonials-title">What colleagues say</h2>
   <div class="quotes">
@@ -268,7 +282,9 @@
 <script>
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduce.matches) return;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (reduce.matches || isMobile) return; // disable parallax on mobile for smoothness
+
   const hero = document.getElementById('hero');
   const media = document.getElementById('heroMedia');
   if (!hero || !media) return;
