@@ -50,6 +50,11 @@
   .block h3{margin:.2rem 0 .4rem;font-size:1rem;}
   .block p{margin:0;}
 
+  /* CTA buttons */
+  .cta-wrap{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem;}
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
+  .btn:hover{background:#e66b00;text-decoration:none;}
+
   /* Video embed */
   .video{max-width:var(--page-max);margin:2rem auto;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
   .video-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06);}
@@ -58,9 +63,6 @@
 
   /* Simple nav */
   .proj-nav{max-width:var(--page-max);margin:2rem auto;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem;}
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
-  .btn:hover{background:#e66b00;text-decoration:none;}
-
   footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
 
   /* Mobile */
@@ -94,7 +96,7 @@
   </div>
 </section>
 
-<!-- What / Why / Impact -->
+<!-- At a Glance -->
 <section class="section" aria-labelledby="wwi-title">
   <h2 id="wwi-title">At a Glance</h2>
   <div class="quick">
@@ -110,6 +112,18 @@
       <h3 id="impact-title">Impact</h3>
       <p><strong>217,000+ listens/views</strong> across YouTube and podcast platforms. Honored as <strong>Best Educational Podcast</strong> (37th Annual Educational Advertising Awards).</p>
     </article>
+  </div>
+</section>
+
+<!-- About + Listen -->
+<section class="section" aria-labelledby="about-title">
+  <h2 id="about-title">About the Show</h2>
+  <p>Michigan is home to so many outstanding educators. In our podcast and blog series — <em>BRIGHT: Stories of Hope &amp; Innovation in Michigan Classrooms</em> — we talk to inspirational Michigan educators known for their innovative approach to learning and hear first-hand what their classrooms look like, how these changes impact students, and what advice they have for fellow teachers looking to try something new.</p>
+
+  <div class="cta-wrap" aria-label="Listen links">
+    <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">Listen on YouTube →</a>
+    <a class="btn" href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" rel="noopener">Apple Podcasts →</a>
+    <a class="btn" href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" rel="noopener">Spotify →</a>
   </div>
 </section>
 
