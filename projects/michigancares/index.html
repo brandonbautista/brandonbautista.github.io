@@ -21,9 +21,7 @@
     --card:#ffffff;
     --brand:#ff7a00;
     --footer:#333333;
-
-    /* vertical rhythm */
-    --vr: 1.75rem;
+    --vr: 1.75rem; /* consistent vertical rhythm */
   }
 
   /* Base */
@@ -62,20 +60,19 @@
   .block li{position:relative;padding-left:1.1rem;margin:.45rem 0}
   .block li::before{content:"•";position:absolute;left:0;top:0;color:var(--brand);font-weight:700;line-height:1}
 
-  /* Dual cards (episode/series layout) */
+  /* Duo cards */
   .duo{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;max-width:var(--page-max);margin:var(--vr) auto;}
   .card{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem;}
   .card h3{margin:.2rem 0 .5rem}
   .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
   .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:12px;padding:.6rem 1rem;font-weight:700;text-decoration:none}
   .btn:hover{background:#e66b00;text-decoration:none}
-  .btn.secondary{background:#fff;color:var(--text);border:1px solid rgba(0,0,0,.12)}
 
-  /* Video embed (optional if you add a spot) */
+  /* Video embed (if you add one later) */
   .embed{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-top:.5rem}
   .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-  /* Bottom nav + footer */
+  /* Bottom nav (single button) */
   .proj-nav{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;padding:0 .25rem;}
   footer{background:#333;color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
 
@@ -160,31 +157,31 @@
 
 <!-- Experience cards -->
 <section class="duo" aria-label="Campaign Samples">
-  <!-- Left: Email series -->
+  <!-- Left: Email series (all CTAs same color) -->
   <article class="card">
     <h3>See the Email Series</h3>
     <p class="muted">Lifecycle emails supported awareness, urgency, and premium-feature access via grant funds.</p>
     <div class="cta-row">
       <a class="btn" href="https://mail.michiganvirtual.org/customize-a-mental-health-sel-portal-for-only-1000" target="_blank" rel="noopener">Email 1 → Customize a SEL Portal</a>
-      <a class="btn secondary" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today" target="_blank" rel="noopener">Email 2 → Free Portal Expires</a>
-      <a class="btn secondary" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today-1" target="_blank" rel="noopener">Email 3 → Final Reminder</a>
+      <a class="btn" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today" target="_blank" rel="noopener">Email 2 → Free Portal Expires</a>
+      <a class="btn" href="https://mail.michiganvirtual.org/your-free-sel-portal-expires-soon.-get-evidence-based-sel-content-today-1" target="_blank" rel="noopener">Email 3 → Final Reminder</a>
     </div>
   </article>
 
-  <!-- Right: Campaign resources -->
+  <!-- Right: Related inbound + resources -->
   <article class="card">
-    <h3>Campaign Resources</h3>
-    <p class="muted">Toolkit, postcards, parent flyer, and social scripts used by partners to amplify reach and adoption.</p>
+    <h3>Explore More</h3>
+    <p class="muted">Inbound content and assets that supported SEL awareness and adoption.</p>
     <div class="cta-row">
-      <a class="btn" href="#" onclick="alert('Link to your toolkit or a shared folder when ready.');return false;">Open Toolkit →</a>
+      <a class="btn" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" rel="noopener">Related Blog: Cyberbullying Signs →</a>
+      <a class="btn" href="#" onclick="alert('Link your toolkit or shared folder when ready.');return false;">Open Campaign Toolkit →</a>
     </div>
   </article>
 </section>
 
-<!-- Bottom nav -->
+<!-- Back to Home -->
 <nav class="proj-nav" aria-label="Project navigation">
-  <a class="btn secondary" href="/projects/writing/">← Previous Project</a>
-  <a class="btn" href="/">Back to Home</a>
+  <a class="btn" href="/">← Back to Home</a>
 </nav>
 
 <footer>© 2025 Brandon Bautista</footer>
