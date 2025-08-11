@@ -74,6 +74,8 @@
 
   /* Testimonial */
   .testimonial-pro{margin:2rem 0;}
+  .testimonial-pro figure{margin:0;}            /* ensure equal width as other sections */
+  .testimonial-pro .t-card{margin:0;}
   .t-card{
     display:grid;
     grid-template-columns:280px 1fr;
@@ -83,7 +85,7 @@
     border-radius:var(--radius);
     box-shadow:0 6px 20px rgba(0,0,0,.08);
     padding:1.25rem;
-    align-items:center; /* vertical centering of both columns */
+    align-items:center;
   }
   .t-aside{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
@@ -102,19 +104,14 @@
   }
   .t-pull:hover{transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08);}
 
-  /* Contact */
+  /* Contact & Footer */
   .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:3rem 0; text-align:center;}
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
 
-  /* Footer (fixed width issue) */
   .page > footer{ grid-column: 1 / -1; } /* span full grid width */
   footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem;}
   footer .container{ max-width: var(--page-max); margin: 0 auto; padding: 0 1rem; }
-
-  /* Make testimonial as wide as other sections */
-.testimonial-pro figure { margin: 0; }     /* kill default 40px side margins */
-.testimonial-pro .t-card { margin: 0; }    /* belt-and-suspenders */
 
   /* Mobile */
   @media (max-width:768px){
@@ -191,30 +188,84 @@
   <section class="container section">
     <h2>Skills</h2>
     <div class="skill-grid">
+      <!-- Storytelling -->
       <article class="skill-card">
         <h3>Storytelling</h3>
-        <p class="skill-muted">I craft narratives that connect emotionally and move audiences to act.</p>
-        <div class="tags"><span class="tag">Brand Voice</span><span class="tag">Long-form Writing</span><span class="tag">Copywriting</span><span class="tag">Interviewing</span><span class="tag">Narrative Structure</span></div>
+        <p class="skill-muted">
+          I believe stories are the most powerful way to connect—helping people see themselves in what you offer, building trust, and creating lasting brand affinity. I craft narratives that spark emotion, reflect values, and keep audiences coming back.
+        </p>
+        <div class="tags">
+          <span class="tag">Brand Narrative</span>
+          <span class="tag">Audience Connection</span>
+          <span class="tag">Emotional Resonance</span>
+          <span class="tag">Voice Development</span>
+          <span class="tag">Creative Writing</span>
+          <span class="tag">Interviewing</span>
+        </div>
       </article>
+
+      <!-- Content & Video Production -->
       <article class="skill-card">
         <h3>Content Creation & Video Production</h3>
-        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
-        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
+        <p class="skill-muted">
+          From concept to final cut, I design content that blends creativity with strategy—scripted series, podcast/video production, and assets that can be repurposed across channels to extend reach and ROI.
+        </p>
+        <div class="tags">
+          <span class="tag">Scriptwriting</span>
+          <span class="tag">Producing</span>
+          <span class="tag">Editing</span>
+          <span class="tag">Motion Graphics</span>
+          <span class="tag">Voiceover</span>
+          <span class="tag">Content Repurposing</span>
+        </div>
       </article>
+
+      <!-- Social Media Strategy -->
       <article class="skill-card">
         <h3>Social Media Strategy</h3>
-        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
-        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
+        <p class="skill-muted">
+          I build channel-specific strategies that prioritize series programming, community, and iterative learning—so content performs, relationships grow, and insights compound over time.
+        </p>
+        <div class="tags">
+          <span class="tag">Channel Strategy</span>
+          <span class="tag">Content Series</span>
+          <span class="tag">Community Building</span>
+          <span class="tag">Paid/Organic Mix</span>
+          <span class="tag">KPI Dashboards</span>
+          <span class="tag">Social Listening</span>
+        </div>
       </article>
+
+      <!-- HubSpot -->
       <article class="skill-card">
         <h3>HubSpot Mastery</h3>
-        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
-        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
+        <p class="skill-muted">
+          I architect clean CRM foundations and automate the lifecycle—lead capture to nurture to attribution—so teams see what works, move faster, and prove impact with confidence.
+        </p>
+        <div class="tags">
+          <span class="tag">CRM Architecture</span>
+          <span class="tag">Workflow Automation</span>
+          <span class="tag">Lead Scoring</span>
+          <span class="tag">Lifecycle Nurtures</span>
+          <span class="tag">Attribution Reporting</span>
+          <span class="tag">Integrations</span>
+        </div>
       </article>
+
+      <!-- Customer Advocacy -->
       <article class="skill-card">
         <h3>Customer Advocacy & Experience</h3>
-        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
-        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
+        <p class="skill-muted">
+          I champion the customer’s voice—turning feedback into clear journeys, better content, and simpler experiences that earn trust and lift results across marketing and service.
+        </p>
+        <div class="tags">
+          <span class="tag">Voice of Customer</span>
+          <span class="tag">Journey Mapping</span>
+          <span class="tag">UX Writing</span>
+          <span class="tag">NPS/CSAT Loops</span>
+          <span class="tag">Experimentation</span>
+          <span class="tag">Stakeholder Alignment</span>
+        </div>
       </article>
     </div>
   </section>
