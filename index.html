@@ -20,7 +20,6 @@
     --muted:#6b7280;
     --card:#ffffff;
     --brand:#ff7a00;
-    --brand-dk:#e66b00;
     --footer:#333333;
     /* vertical rhythm */
     --vr: 1.75rem;
@@ -32,13 +31,12 @@
   img{max-width:100%;display:block;height:auto}
   body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-  /* Grid wrapper: hard-center all primary sections */
+  /* Hard-center everything */
   .page{
     display:grid;
     grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
   }
-  .page > .container{ grid-column: 2; }         /* center all standard sections */
-  .page > footer{ grid-column: 1 / -1; }         /* footer spans full width */
+  .page > .container{ grid-column: 2; }
 
   header { font-weight: 700; padding: 1rem 0; }
 
@@ -51,7 +49,7 @@
   .hero h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
   .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
   .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background;}
-  .btn:hover{background:var(--brand-dk); transform:translateY(-2px);}
+  .btn:hover{background:#e66b00; transform:translateY(-2px);}
   .btn.secondary{background:#fff; color:#333; border:1px solid rgba(0,0,0,.15);}
   .btn.secondary:hover{background:#f7f7f7;}
 
@@ -78,21 +76,25 @@
 
   /* Testimonial */
   .testimonial-pro{margin:var(--vr) 0;}
-  .t-card{display:grid; grid-template-columns:280px 1fr; gap:1.25rem; background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem;}
+  .t-card{
+    margin: 0; /* ensure same width as other cards */
+    display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
+    background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius);
+    box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem;
+  }
   .t-aside{display:grid; gap:.75rem; align-content:start;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
   .t-meta{color:var(--muted); display:grid; gap:.2rem;}
   .t-meta strong{color:var(--text);}
-  .t-quote{margin:0; line-height:1.7; font-size:1.05rem; max-width:70ch; background:#fff4eb; border-left:4px solid var(--brand); padding:.75rem .9rem; border-radius:8px;}
+  .t-quote{margin:0; line-height:1.7; font-size:1.05rem; max-width:70ch;}
   .t-quote p{margin:.4rem 0;}
 
   /* Contact + Footer */
   .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0; text-align:center;}
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
-
   footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
-  footer .inner{max-width:var(--page-max); margin:0 auto; padding:0 1rem;}
+  footer .container{grid-column:2;}
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -220,8 +222,8 @@
   </section>
 
   <!-- Testimonial -->
-  <section class="container testimonial-pro" aria-labelledby="testimonial-title">
-    <h2 id="testimonial-title">Testimonial</h2>
+  <section class="container section testimonial-pro" aria-labelledby="testimonial-title">
+    <h2 id="testimonial-title">Colleague Feedback</h2>
     <figure class="t-card">
       <div class="t-aside">
         <img class="t-avatar"
@@ -247,9 +249,9 @@
     </div>
   </section>
 
-  <!-- Footer (full-width background, centered inner content) -->
+  <!-- Footer -->
   <footer>
-    <div class="inner">
+    <div class="container">
       <p>© 2025 Brandon Bautista</p>
     </div>
   </footer>
@@ -272,7 +274,10 @@
     ticking = false;
   }
   function onScroll() {
-    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
   }
   updateParallax();
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -288,21 +293,21 @@
   const imgs = Array.from(document.querySelectorAll('.thumb-parallax'));
   if (!imgs.length) return;
 
-  const onMove = () => {
-    imgs.forEach(img=>{
-      const r = img.getBoundingClientRect();
-      const vh = window.innerHeight || 1;
-      const p = (r.top + r.height/2) / vh; // 0..1
-      const y = isDesktop() ? (p - 0.5) * -6 : 0; // tiny ease
-      img.style.transform = `translateY(${y}px)`;
-    });
-  };
-
   const io = new IntersectionObserver((entries)=>{
-    if (!entries.some(e=>e.isIntersecting)) return;
-    onMove();
-    window.addEventListener('scroll', onMove, {passive:true});
-    window.addEventListener('resize', onMove);
+    entries.forEach(e=>{
+      const img = e.target;
+      if (!e.isIntersecting) return;
+      const onMove = () => {
+        const r = img.getBoundingClientRect();
+        const vh = window.innerHeight || 1;
+        const p = (r.top + r.height/2) / vh; // 0..1
+        const y = (p - 0.5) * -6; // small translate
+        img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
+      };
+      onMove();
+      window.addEventListener('scroll', onMove, {passive:true});
+      window.addEventListener('resize', onMove);
+    });
   }, {threshold: 0.2});
   imgs.forEach(i => io.observe(i));
 })();
