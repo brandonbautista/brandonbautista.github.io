@@ -5,16 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BRIGHT Podcast | Brandon Bautista</title>
 
-<!-- Open Graph / Twitter -->
+<!-- Social preview (optional—fill your live URL if you have it) -->
 <meta property="og:title" content="BRIGHT Podcast | Brandon Bautista">
 <meta property="og:description" content="Award-winning podcast highlighting innovative Michigan teachers; 217,000+ listens across YouTube and podcast platforms.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://YOUR-GITHUB-PAGES-URL/project-bright.html">
-<meta property="og:image" content="https://YOUR-GITHUB-PAGES-URL/images/projects/bright_hero.jpg">
+<meta property="og:image" content="images/projects/bright_hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BRIGHT Podcast | Brandon Bautista">
 <meta name="twitter:description" content="Award-winning podcast highlighting innovative Michigan teachers; 217,000+ listens across YouTube and podcast platforms.">
-<meta name="twitter:image" content="https://YOUR-GITHUB-PAGES-URL/images/projects/bright_hero.jpg">
+<meta name="twitter:image" content="images/projects/bright_hero.jpg">
 
 <style>
   :root{
@@ -26,77 +25,51 @@
     --card:#ffffff;
     --brand:#ff7a00;
     --footer:#333333;
-    --shadow: 0 2px 8px rgba(0,0,0,.1);
   }
   body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
   a{color:var(--brand);text-decoration:none;} a:hover{text-decoration:underline;}
+  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
 
   /* Hero */
-  .hero{position:relative;height:360px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden;}
+  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden;}
   .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
   .hero picture,.hero img{width:100%;height:120%;object-fit:cover;display:block;}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.5) 100%);z-index:1;}
-  .hero-content{position:absolute;left:1rem;right:1rem;bottom:2rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.25rem;z-index:2;}
-  .hero-title{margin:0;color:#fff;font-weight:800;font-size:2rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);z-index:1;}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.5rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.4rem;z-index:2;}
+  .hero-title{margin:0;color:#fff;font-weight:800;font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
   .hero-sub{margin:0;color:#fff;opacity:.95;}
-
-  /* CTA buttons */
-  .cta-wrap{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;}
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
-  .btn:hover{text-decoration:none;background:#e66b00;}
 
   /* Sections */
   .section{max-width:var(--page-max);margin:2rem auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
-  .section h2{margin:0 0 .75rem 0;font-size:1.4rem;}
+  .section h2{margin:0 0 .75rem;font-size:1.4rem;}
   .muted{color:var(--muted);}
 
-  /* Snapshot grid */
-  .snapshot{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
-  .snap-card{grid-column:span 3;background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);}
-  .snap-card h3{margin:.25rem 0 .35rem;font-size:.95rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
-  .snap-card p{margin:0;}
+  /* 3-up quick blocks */
+  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
+  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .block h3{margin:.2rem 0 .4rem;font-size:1rem;}
+  .block p{margin:0;}
 
-  /* Two-up lists */
-  .list{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
-  .list > div{grid-column:span 6;background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);}
-  ul{padding-left:1.2rem;margin:.25rem 0 0 0;}
+  /* Video embed */
+  .video{max-width:var(--page-max);margin:2rem auto;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .video-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06);}
+  .embed{position:relative;width:100%;padding-top:56.25%; /* 16:9 */ background:#000;}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
-  /* Results */
-  .results{display:flex;gap:1rem;flex-wrap:wrap;}
-  .stat{flex:1 1 220px;background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);}
-  .stat strong{font-size:1.4rem;display:block;}
+  /* Simple nav */
+  .proj-nav{max-width:var(--page-max);margin:2rem auto;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem;}
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
+  .btn:hover{background:#e66b00;text-decoration:none;}
 
-  /* Gallery */
-  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
-  figure{grid-column:span 6;background:var(--card);border-radius:var(--radius);overflow:hidden;margin:0;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);}
-  figure img{width:100%;height:320px;object-fit:cover;display:block;}
-  figcaption{padding:.6rem .8rem;font-size:.9rem;color:var(--muted);}
-
-  /* Nav */
-  .proj-nav{max-width:var(--page-max);margin:2rem auto;display:flex;justify-content:space-between;align-items:center;padding:0 0.25rem;}
-
-  /* Lightbox */
-  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999;}
-  .lightbox[aria-hidden="false"]{display:flex;}
-  .lb-frame{position:relative;max-width:min(1000px,90vw);max-height:85vh;display:flex;flex-direction:column;gap:.5rem;outline:none;}
-  .lb-img{max-width:100%;max-height:70vh;object-fit:contain;border-radius:8px;}
-  .lb-cap{color:#fff;opacity:.9;font-size:.95rem;}
-  .lb-controls{position:absolute;top:.25rem;right:.25rem;display:flex;gap:.5rem;}
-  .lb-btn{background:#222;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;padding:.4rem .6rem;cursor:pointer;font-weight:700;}
-  .lb-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 .5rem;}
-  .lb-nav button{background:rgba(34,34,34,.7);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:.6rem .8rem;cursor:pointer;}
+  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem;}
 
   /* Mobile */
-  @media (max-width: 900px){
-    .snap-card{grid-column:span 6;}
-    figure{grid-column:span 12;}
-    .list > div{grid-column:span 12;}
-  }
+  @media (max-width: 900px){ .block{grid-column:span 6;} }
   @media (max-width: 768px){
-    .hero,.section{padding-left:1rem;padding-right:1rem;}
-    .hero{height:260px;}
+    .hero,.section,.video{padding-left:1rem;padding-right:1rem;}
+    .hero{height:240px;}
     .hero picture img{border-radius:var(--radius);}
+    .block{grid-column:span 12;}
   }
   @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important;} }
 </style>
@@ -111,164 +84,64 @@
     <picture>
       <source srcset="images/projects/bright_hero.avif" type="image/avif">
       <source srcset="images/projects/bright_hero.webp" type="image/webp">
-      <img src="images/projects/bright_hero.jpg" alt="BRIGHT podcast hero image featuring Michigan educators">
+      <img src="images/projects/bright_hero.jpg" alt="BRIGHT podcast artwork featuring Michigan educators">
     </picture>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <h1 class="hero-title">BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</h1>
-    <p class="hero-sub">Award-winning podcast highlighting educators who innovate — building goodwill, not pitching.</p>
-    <div class="cta-wrap">
-      <a class="btn" href="#" target="_blank" rel="noopener">Watch on YouTube →</a>
-      <a class="btn" href="#" target="_blank" rel="noopener">Listen on Apple Podcasts →</a>
-    </div>
+    <p class="hero-sub">Award-winning podcast celebrating Michigan educators — built for goodwill, not pitches.</p>
   </div>
 </section>
 
-<!-- Snapshot -->
-<section class="section" aria-labelledby="snapshot-title">
-  <h2 id="snapshot-title">Project Snapshot</h2>
-  <div class="snapshot" role="list">
-    <div class="snap-card" role="listitem">
-      <h3>Role</h3>
-      <p>Executive Producer & Marketing Lead</p>
-    </div>
-    <div class="snap-card" role="listitem">
-      <h3>Org/Client</h3>
-      <p>Michigan Virtual</p>
-    </div>
-    <div class="snap-card" role="listitem">
-      <h3>Timeline</h3>
-      <p>Launched YEAR — Ongoing</p>
-    </div>
-    <div class="snap-card" role="listitem">
-      <h3>Tools</h3>
-      <p>HubSpot, YouTube Studio, Premiere Pro, Descript, Spotify for Podcasters</p>
-    </div>
+<!-- What / Why / Impact -->
+<section class="section" aria-labelledby="wwi-title">
+  <h2 id="wwi-title">At a Glance</h2>
+  <div class="quick">
+    <article class="block" aria-labelledby="what-title">
+      <h3 id="what-title">What</h3>
+      <p><em>BRIGHT</em> is a podcast spotlighting teachers doing innovative work in their classrooms. Each episode shares practical ideas and human stories educators can apply right away.</p>
+    </article>
+    <article class="block" aria-labelledby="why-title">
+      <h3 id="why-title">Why</h3>
+      <p>Inspired by our inbound strategy, we set out to provide genuine value and build affinity for Michigan Virtual — not to sell. It’s storytelling and service first.</p>
+    </article>
+    <article class="block" aria-labelledby="impact-title">
+      <h3 id="impact-title">Impact</h3>
+      <p><strong>217,000+ listens/views</strong> across YouTube and podcast platforms. Honored as <strong>Best Educational Podcast</strong> (37th Annual Educational Advertising Awards).</p>
+    </article>
   </div>
 </section>
 
-<!-- Summary -->
-<section class="section" aria-labelledby="summary-title">
-  <h2 id="summary-title">Summary</h2>
-  <p>To provide thought leadership and genuine value to Michigan educators, we launched <em>BRIGHT</em>, a podcast that spotlights teachers doing innovative work in their classrooms — whether or not it involves Michigan Virtual.</p>
-  <p>Guided by inbound marketing principles, the intent was to create affinity and trust through storytelling rather than selling. Episodes focus on practical ideas, human stories, and pedagogical best practices.</p>
-  <p class="muted"><strong>Recognition & Reach:</strong> Winner, Best Educational Podcast (37th Annual Educational Advertising Awards). 217,000+ listens across YouTube and podcast platforms.</p>
-</section>
-
-<!-- Objectives & Audience -->
-<section class="section" aria-labelledby="goals-title">
-  <h2 id="goals-title">Objectives & Audience</h2>
-  <div class="list">
-    <div>
-      <h3>Objectives</h3>
-      <ul>
-        <li>Deliver non-promotional content that builds goodwill and brand affinity.</li>
-        <li>Highlight authentic classroom innovation to inspire peers.</li>
-        <li>Strengthen Michigan Virtual’s role as a trusted resource in the educator community.</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Primary Audience</h3>
-      <ul>
-        <li>Michigan educators exploring technology and pedagogy.</li>
-        <li>Leaders seeking real-world examples and repeatable practices.</li>
-      </ul>
-    </div>
+<!-- Impactful episode embed -->
+<section class="video" aria-labelledby="episode-title">
+  <div class="video-head">
+    <h2 id="episode-title" style="margin:0;">Watch a Standout Episode</h2>
+    <p class="muted" style="margin:.25rem 0 0;">A representative episode that captures the show’s tone and educator value.</p>
+  </div>
+  <div class="embed" role="region" aria-label="Embedded BRIGHT episode">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
+      title="BRIGHT Podcast Episode"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
   </div>
 </section>
 
-<!-- Strategy & Process -->
-<section class="section" aria-labelledby="process-title">
-  <h2 id="process-title">Strategy & Process</h2>
-  <p><strong>Insight:</strong> Educators value peer stories and practical takeaways more than polished product pitches. We centered the teacher’s voice and classroom context.</p>
-  <p><strong>Strategy:</strong> Narrative-first, platform-agnostic distribution (YouTube + podcast feeds), consistent cadence, and guest selection that reflects diverse subjects and grade levels.</p>
-  <p><strong>Execution:</strong> Interview prep and scripting, recording and post-production, HubSpot-powered promotion and nurture, social snippets, and episodic show notes optimized for search and shareability.</p>
-</section>
-
-<!-- Results & Impact -->
-<section class="section" aria-labelledby="results-title">
-  <h2 id="results-title">Results & Impact</h2>
-  <div class="results">
-    <div class="stat"><strong>217,000+</strong><span>Total listens/views</span></div>
-    <div class="stat"><strong>Award-winning</strong><span>Best Educational Podcast</span></div>
-    <div class="stat"><strong>Affinity > Ads</strong><span>Inbound content; no sales pitch</span></div>
-  </div>
-  <p class="muted">The series helped deepen goodwill toward Michigan Virtual while elevating the voices of Michigan educators.</p>
-</section>
-
-<!-- Gallery -->
-<section class="section" aria-labelledby="gallery-title">
-  <h2 id="gallery-title">Highlights</h2>
-  <div class="gallery" id="gallery">
-    <figure>
-      <img src="images/projects/bright_ep1_thumb.jpg"
-           data-full="images/projects/bright_ep1.jpg"
-           alt="Episode artwork and guest teacher portrait"
-           loading="lazy" decoding="async" />
-      <figcaption>Episode artwork and guest portrait.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/projects/bright_waveform_thumb.jpg"
-           data-full="images/projects/bright_waveform.jpg"
-           alt="Editing timeline and waveform during post-production"
-           loading="lazy" decoding="async" />
-      <figcaption>Post-production workflow snapshot.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/projects/bright_youtube_thumb.jpg"
-           data-full="images/projects/bright_youtube.jpg"
-           alt="YouTube channel page featuring BRIGHT episode"
-           loading="lazy" decoding="async" />
-      <figcaption>Cross-platform distribution on YouTube.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/projects/bright_award_thumb.jpg"
-           data-full="images/projects/bright_award.jpg"
-           alt="Educational Advertising Awards recognition"
-           loading="lazy" decoding="async" />
-      <figcaption>Recognition: Best Educational Podcast.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- Reflection -->
-<section class="section" aria-labelledby="reflection-title">
-  <h2 id="reflection-title">Reflection</h2>
-  <p>Centering the teacher’s voice — not the brand — proved that advocacy and storytelling can drive stronger, longer-lasting relationships than direct promotion. If iterating, I’d expand educator co-creation in planning and add short, classroom-ready resource links to each episode.</p>
-</section>
-
-<!-- Project Nav -->
+<!-- Simple nav -->
 <nav class="proj-nav" aria-label="Project navigation">
   <a class="btn" href="index.html#projects-title">← Back to Projects</a>
   <div>
-    <a class="btn" href="project2.html" aria-label="Previous project">← Previous</a>
-    <span style="margin:0 .5rem"></span>
-    <a class="btn" href="project3.html" aria-label="Next project">Next →</a>
+    <a class="btn" href="project2.html">Next Project →</a>
   </div>
 </nav>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
-  <div class="lb-frame" tabindex="-1">
-    <div class="lb-controls">
-      <button class="lb-btn" id="lbClose" aria-label="Close">✕</button>
-    </div>
-    <img class="lb-img" id="lbImg" alt="">
-    <div class="lb-nav">
-      <button id="lbPrev" aria-label="Previous image">‹</button>
-      <button id="lbNext" aria-label="Next image">›</button>
-    </div>
-    <div class="lb-cap" id="lbCap"></div>
-  </div>
-</div>
-
-<footer style="background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;">
-  © 2025 Brandon Bautista
-</footer>
+<footer>© 2025 Brandon Bautista</footer>
 
 <script>
-  // Parallax
+  // Gentle parallax for hero (respects reduced motion)
   (function(){
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (reduce.matches) return;
@@ -280,78 +153,6 @@
     function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
     update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
   })();
-
-  // Lightbox
-  (function(){
-    const dlg = document.getElementById('lightbox');
-    const frame = dlg.querySelector('.lb-frame');
-    const img = document.getElementById('lbImg');
-    const cap = document.getElementById('lbCap');
-    const btnClose = document.getElementById('lbClose');
-    const btnPrev = document.getElementById('lbPrev');
-    const btnNext = document.getElementById('lbNext');
-    const figures = Array.from(document.querySelectorAll('#gallery figure'));
-    const triggers = figures.map(f => f.querySelector('img'));
-    let index = 0; let lastFocus = null;
-
-    function open(i){
-      index = i;
-      const t = triggers[index];
-      img.src = t.dataset.full || t.src;
-      img.alt = t.alt || '';
-      const fc = t.closest('figure').querySelector('figcaption');
-      cap.textContent = fc ? fc.textContent : '';
-      dlg.setAttribute('aria-hidden','false');
-      lastFocus = document.activeElement; frame.focus();
-      document.addEventListener('keydown', onKey);
-    }
-    function close(){ dlg.setAttribute('aria-hidden','true'); img.src = ''; document.removeEventListener('keydown', onKey); if (lastFocus) lastFocus.focus(); }
-    function onKey(e){
-      if(e.key === 'Escape'){ close(); }
-      else if(e.key === 'ArrowRight'){ next(); }
-      else if(e.key === 'ArrowLeft'){ prev(); }
-      else if(e.key === 'Tab'){
-        const foc = [btnClose, btnPrev, btnNext];
-        const i = foc.indexOf(document.activeElement);
-        if (e.shiftKey) { if (i <= 0) { foc[foc.length-1].focus(); e.preventDefault(); } }
-        else { if (i === foc.length-1) { foc[0].focus(); e.preventDefault(); } }
-      }
-    }
-    function next(){ open((index+1) % triggers.length); }
-    function prev(){ open((index-1+triggers.length) % triggers.length); }
-
-    triggers.forEach((t,i)=>{
-      t.style.cursor='zoom-in';
-      t.addEventListener('click', ()=>open(i));
-      t.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); open(i);} });
-      t.setAttribute('tabindex','0');
-    });
-
-    btnClose.addEventListener('click', close);
-    btnNext.addEventListener('click', next);
-    btnPrev.addEventListener('click', prev);
-    dlg.addEventListener('click', (e)=>{ if(e.target===dlg) close(); });
-  })();
-</script>
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "BRIGHT: Stories of Hope & Innovation in Michigan Classrooms",
-  "alternateName": "BRIGHT Podcast",
-  "author": {
-    "@type": "Person",
-    "name": "Brandon Bautista",
-    "url": "https://YOUR-GITHUB-PAGES-URL"
-  },
-  "url": "https://YOUR-GITHUB-PAGES-URL/project-bright.html",
-  "image": "https://YOUR-GITHUB-PAGES-URL/images/projects/bright_hero.jpg",
-  "about": "Award-winning podcast highlighting innovative Michigan educators; 217,000+ listens across YouTube and podcast platforms.",
-  "inLanguage": "en",
-  "keywords": ["marketing","storytelling","podcast","video","social media","HubSpot","customer experience"]
-}
 </script>
 
 </body>
