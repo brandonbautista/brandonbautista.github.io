@@ -103,6 +103,11 @@
     .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
     .t-avatar{width:72px; height:72px;}
     .t-quote{font-size:1.02rem;}
+    /* 1) Remove the browser's default side-margins on <figure> */
+.t-card { margin: 0; }
+
+/* 2) Make the footer span the full page width (all grid columns) */
+.page > footer { grid-column: 1 / -1; }
   }
 </style>
 </head>
