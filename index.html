@@ -74,7 +74,7 @@
 
   /* Testimonial – editorial split card */
   .testimonial-pro{margin:2rem 0;}
-  .t-card{display:grid; grid-template-columns:280px 1fr; gap:1.25rem; background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem;}
+  .t-card{display:grid; grid-template-columns:280px 1fr; gap:1.25rem; background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem; margin: 0;}
   .t-aside{display:grid; gap:.75rem; align-content:start;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
   .t-meta{color:var(--muted); display:grid; gap:.2rem;}
@@ -87,8 +87,9 @@
   .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:3rem 0; text-align:center;}
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
-  footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem;}
-  footer .container{grid-column:2;} /* keep footer centered too */
+
+  footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; grid-column: 1 / -1;}
+  footer .container{grid-column:2;}
 
   /* Mobile */
   @media (max-width:768px){
@@ -103,17 +104,12 @@
     .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
     .t-avatar{width:72px; height:72px;}
     .t-quote{font-size:1.02rem;}
-    /* 1) Remove the browser's default side-margins on <figure> */
-.t-card { margin: 0; }
-
-/* 2) Make the footer span the full page width (all grid columns) */
-.page > footer { grid-column: 1 / -1; }
   }
 </style>
 </head>
 <body>
 
-<div class="page"><!-- EVERYTHING INSIDE THIS WRAPPER STAYS CENTERED -->
+<div class="page">
 
   <!-- Header -->
   <header class="container">Brandon Bautista</header>
@@ -238,7 +234,7 @@
     </div>
   </footer>
 
-</div><!-- /.page -->
+</div>
 
 <script>
 (function () {
