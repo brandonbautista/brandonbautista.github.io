@@ -40,7 +40,7 @@
   /* Header */
   header{font-weight:700;padding:1rem 0}
 
-  /* Hero (match look/feel) */
+  /* Hero */
   .hero{position:relative;height:380px;border-radius:var(--radius);overflow:hidden}
   .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0))}
   .hero img{width:100%;height:120%;object-fit:cover}
@@ -69,29 +69,22 @@
   .block ul li{position:relative;padding-left:1.1rem;margin-bottom:.45rem}
   .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;line-height:1;top:0}
 
-  /* Callout / unified Experience section */
+  /* Experience section (two-column focus) */
   .callout{margin:2rem 0;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem}
+  .exp-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.25rem;align-items:start}
+  .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .listen{display:flex;flex-direction:column;gap:.75rem}
+  .listen p{margin:0}
+  .cta-wrap{display:flex;flex-wrap:wrap;gap:.6rem}
   .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.65rem 1rem;font-weight:700;text-decoration:none}
   .btn:hover{background:#e66b00;text-decoration:none}
-  .cta-wrap{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
 
-  .experience-wrap{display:grid;grid-template-columns:2fr 1fr;gap:1.25rem;align-items:start}
-  .experience-wrap .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .experience-wrap .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .listen-options{display:flex;flex-direction:column;justify-content:center}
-
-  /* Bottom nav (consistent buttons) */
+  /* Bottom nav */
   .proj-nav{margin:2rem 0;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem}
 
-  /* Footer (full width; sits OUTSIDE .page) */
-  footer{
-    background:var(--footer);
-    color:#fff;
-    text-align:center;
-    padding:1rem;
-    font-size:.9rem;
-    margin-top:2rem;
-  }
+  /* Footer (full width; outside grid) */
+  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem}
 
   /* Mobile */
   @media (max-width: 900px){ .block{grid-column:span 6} }
@@ -100,9 +93,8 @@
     .hero{height:260px}
     .hero-title{font-size:1.7rem}
     .block{grid-column:span 12}
-    .experience-wrap{grid-template-columns:1fr}
+    .exp-grid{grid-template-columns:1fr}
   }
-
   @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
 </style>
 </head>
@@ -139,7 +131,7 @@
       <!-- WHAT -->
       <article class="block" aria-labelledby="what-title">
         <h3 id="what-title">What</h3>
-        <p><em>BRIGHT</em> is a podcast and blog series highlighting innovative Michigan teachers. Every episode brings forward classroom-tested ideas and human stories that other educators can apply quickly.</p>
+        <p><em>BRIGHT</em> is a podcast and blog series highlighting innovative Michigan teachers. Every episode brings forward classroom-tested ideas and human stories other educators can apply quickly.</p>
         <p class="muted">Format: interview-led storytelling with practical takeaways.</p>
       </article>
 
@@ -163,37 +155,42 @@
           <li><strong>Public perception:</strong> Clear shift toward seeing Michigan Virtual as a <em>partner</em> to local districts.</li>
           <li><strong>Press & community:</strong> Targeted outreach to local media for each featured teacher generated steady coverage and community engagement.</li>
         </ul>
-        <p class="muted">Personally, I’m most proud that we used our platform to celebrate educators — bringing more positive attention to a profession too often in the headlines for the wrong reasons.</p>
+        <p class="muted">I’m most proud that we used our platform to celebrate educators — bringing more positive attention to a profession too often in the headlines for the wrong reasons.</p>
       </article>
     </div>
   </section>
 
-  <!-- Experience BRIGHT (Unified watch + listen) -->
+  <!-- Experience BRIGHT (two-column focus) -->
   <section class="container callout" aria-labelledby="experience-title">
-    <h2 id="experience-title" style="margin:.2rem 0 0;">Experience BRIGHT</h2>
+    <h2 id="experience-title" style="margin:.2rem 0 0;">Listen to a sample episode</h2>
     <p class="muted" style="margin:.25rem 0 1.2rem;">
-      Watch a standout episode or listen on your favorite platform — see how we’ve celebrated Michigan educators.
+      Then explore the full series on your favorite platform.
     </p>
-    <div class="experience-wrap">
-      <!-- Video -->
-      <div class="embed" role="region" aria-label="Embedded BRIGHT episode">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
-          title="BRIGHT Podcast Episode"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+
+    <div class="exp-grid">
+      <!-- Left: Sample episode -->
+      <div>
+        <div class="embed" role="region" aria-label="Embedded BRIGHT episode">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
+            title="BRIGHT Podcast Episode"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
       </div>
-      <!-- Listen buttons -->
-      <div class="listen-options">
-        <p class="muted" style="margin:0 0 .5rem;">Prefer audio? Choose your platform:</p>
+
+      <!-- Right: Full series links -->
+      <aside class="listen" aria-labelledby="series-title">
+        <h3 id="series-title" style="margin:0;">Check out the entire series</h3>
+        <p class="muted">Watch or listen wherever you prefer:</p>
         <div class="cta-wrap" aria-label="Listen links">
           <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">YouTube →</a>
           <a class="btn" href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" rel="noopener">Apple Podcasts →</a>
           <a class="btn" href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" rel="noopener">Spotify →</a>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
@@ -204,14 +201,13 @@
       <a class="btn" href="/projects/writing/">Next Project →</a>
     </div>
   </nav>
-
 </div> <!-- /.page -->
 
 <!-- Footer spans full width -->
 <footer>© 2025 Brandon Bautista</footer>
 
 <script>
-  // Gentle parallax for hero (mirrors homepage, respects reduced motion)
+  // Gentle parallax for hero (respects reduced motion)
   (function(){
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (reduce.matches) return;
