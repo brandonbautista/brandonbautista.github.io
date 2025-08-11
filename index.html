@@ -112,6 +112,10 @@
   footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem;}
   footer .container{ max-width: var(--page-max); margin: 0 auto; padding: 0 1rem; }
 
+  /* Make testimonial as wide as other sections */
+.testimonial-pro figure { margin: 0; }     /* kill default 40px side margins */
+.testimonial-pro .t-card { margin: 0; }    /* belt-and-suspenders */
+
   /* Mobile */
   @media (max-width:768px){
     .hero{height:300px;}
