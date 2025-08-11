@@ -69,17 +69,16 @@
   .block ul li{position:relative;padding-left:1.1rem;margin-bottom:.45rem}
   .block ul li::before{content:"•";color:var(--brand);font-weight:700;position:absolute;left:0;line-height:1;top:0}
 
-  /* Callout (Listen links) */
-  .callout{margin:2rem 0;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center}
+  /* Callout / unified Experience section */
+  .callout{margin:2rem 0;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem}
   .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.65rem 1rem;font-weight:700;text-decoration:none}
   .btn:hover{background:#e66b00;text-decoration:none}
-  .cta-wrap{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+  .cta-wrap{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
 
-  /* Video embed */
-  .video{margin:2rem 0;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .video-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
-  .embed{position:relative;width:100%;padding-top:56.25%;background:#000}
-  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .experience-wrap{display:grid;grid-template-columns:2fr 1fr;gap:1.25rem;align-items:start}
+  .experience-wrap .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .experience-wrap .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .listen-options{display:flex;flex-direction:column;justify-content:center}
 
   /* Bottom nav (consistent buttons) */
   .proj-nav{margin:2rem 0;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem}
@@ -97,11 +96,13 @@
   /* Mobile */
   @media (max-width: 900px){ .block{grid-column:span 6} }
   @media (max-width: 768px){
-    .hero,.section,.callout,.video{padding-left:1rem;padding-right:1rem}
+    .hero,.section,.callout{padding-left:1rem;padding-right:1rem}
     .hero{height:260px}
     .hero-title{font-size:1.7rem}
     .block{grid-column:span 12}
+    .experience-wrap{grid-template-columns:1fr}
   }
+
   @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
 </style>
 </head>
@@ -167,31 +168,32 @@
     </div>
   </section>
 
-  <!-- Listen callout -->
-  <section class="container callout" aria-labelledby="listen-title">
-    <h2 id="listen-title" style="margin:.2rem 0 0;">Listen to BRIGHT</h2>
-    <p class="muted" style="margin:.25rem 0 1rem;">Choose your preferred platform:</p>
-    <div class="cta-wrap" aria-label="Listen links">
-      <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">YouTube →</a>
-      <a class="btn" href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" rel="noopener">Apple Podcasts →</a>
-      <a class="btn" href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" rel="noopener">Spotify →</a>
-    </div>
-  </section>
-
-  <!-- Impactful episode embed -->
-  <section class="container video" aria-labelledby="episode-title">
-    <div class="video-head">
-      <h2 id="episode-title" style="margin:0;">Watch a Standout Episode</h2>
-      <p class="muted" style="margin:.25rem 0 0;">Representative of the show’s tone and educator value.</p>
-    </div>
-    <div class="embed" role="region" aria-label="Embedded BRIGHT episode">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
-        title="BRIGHT Podcast Episode"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
+  <!-- Experience BRIGHT (Unified watch + listen) -->
+  <section class="container callout" aria-labelledby="experience-title">
+    <h2 id="experience-title" style="margin:.2rem 0 0;">Experience BRIGHT</h2>
+    <p class="muted" style="margin:.25rem 0 1.2rem;">
+      Watch a standout episode or listen on your favorite platform — see how we’ve celebrated Michigan educators.
+    </p>
+    <div class="experience-wrap">
+      <!-- Video -->
+      <div class="embed" role="region" aria-label="Embedded BRIGHT episode">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
+          title="BRIGHT Podcast Episode"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <!-- Listen buttons -->
+      <div class="listen-options">
+        <p class="muted" style="margin:0 0 .5rem;">Prefer audio? Choose your platform:</p>
+        <div class="cta-wrap" aria-label="Listen links">
+          <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">YouTube →</a>
+          <a class="btn" href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" rel="noopener">Apple Podcasts →</a>
+          <a class="btn" href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" rel="noopener">Spotify →</a>
+        </div>
+      </div>
     </div>
   </section>
 
