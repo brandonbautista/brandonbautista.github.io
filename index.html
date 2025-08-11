@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brandon Bautista</title>
 
+<!-- Social Preview -->
 <meta property="og:title" content="Brandon Bautista | Marketing Portfolio">
 <meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate.">
 <meta property="og:type" content="website">
@@ -20,106 +21,80 @@
     --card:#ffffff;
     --brand:#ff7a00;
     --footer:#333333;
+    /* vertical rhythm */
+    --vr: 1.75rem;
   }
 
-  /* Reset/Safety */
+  /* Reset / base */
   *{box-sizing:border-box}
   html,body{overflow-x:hidden}
-  img,video{max-width:100%;height:auto;display:block}
-  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  img{max-width:100%;display:block;height:auto}
+  body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-  /* Page grid wrapper */
+  /* Hard-center everything */
   .page{
     display:grid;
     grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
   }
   .page > .container{ grid-column: 2; }
 
-  /* Header */
-  header{font-weight:700; padding:1rem 0;}
+  header { font-weight: 700; padding: 1rem 0; }
 
   /* Hero */
-  .hero{position:relative; height:450px; border-radius:var(--radius); overflow:hidden;}
-  .hero-media{position:absolute; inset:-10% 0 -10% 0; will-change:transform; transform:translateY(var(--y,0));}
-  .hero img{width:100%; height:120%; object-fit:cover;}
-  .hero-overlay{position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.55) 100%);}
-  .hero-content{position:absolute; left:1rem; right:1rem; bottom:2rem; display:flex; flex-direction:column; gap:.75rem;}
-  .hero h1{margin:0; font-size:2.2rem; color:#fff; font-weight:800; text-shadow:0 2px 8px rgba(0,0,0,.35);}
-  .hero-buttons{display:flex; gap:.5rem; flex-wrap:wrap;}
+  .hero { position: relative; height: 450px; border-radius: var(--radius); overflow: hidden; }
+  .hero-media { position: absolute; inset: -10% 0 -10% 0; will-change: transform; transform: translateY(var(--y, 0)); }
+  .hero img { width: 100%; height: 120%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); }
+  .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; display: flex; flex-direction: column; gap: .75rem; }
+  .hero h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
+  .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
   .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background;}
   .btn:hover{background:#e66b00; transform:translateY(-2px);}
   .btn.secondary{background:#fff; color:#333; border:1px solid rgba(0,0,0,.15);}
   .btn.secondary:hover{background:#f7f7f7;}
 
   /* Sections */
-  .intro{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:2rem 0;}
-  .section{margin:2rem 0;}
+  .intro{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0;}
+  .section{margin:var(--vr) 0;}
   .section h2{font-size:1.5rem; margin:0 0 1rem .25rem;}
 
   /* Projects */
   .project-list{display:flex; flex-wrap:wrap; gap:1rem;}
-  .project{flex:1 1 calc(33.333% - 1rem); background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.1); transition:.25s transform;}
+  .project{flex:1 1 calc(33.333% - 1rem); background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:.25s transform; will-change:transform;}
   .project:hover{transform:translateY(-5px);}
   .project a{color:inherit; text-decoration:none; display:block; height:100%;}
-  .project img{width:100%; height:200px; object-fit:cover;}
-  /* Parallax thumbs (desktop only; JS controls transform) */
-  .project img.parallax-thumb{
-    will-change: transform;
-    transform: translateY(var(--p, 0px));
-    transition: transform 0.2s ease-out;
-  }
+  .project img{width:100%; height:200px; object-fit:cover; transform:translateY(0); transition:transform .35s ease;}
   .project p{padding:.75rem; font-size:.95rem;}
 
   /* Skills */
   .skill-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem;}
-  .skill-card{grid-column:span 4; background:var(--card); border-radius:var(--radius); padding:1rem 1rem .75rem; box-shadow:0 2px 8px rgba(0,0,0,.06); border:1px solid rgba(0,0,0,.06);}
+  .skill-card{grid-column:span 4; background:var(--card); border-radius:var(--radius); padding:1rem 1rem .75rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.06);}
   .skill-card h3{margin:0 0 .4rem;}
   .skill-muted{color:var(--muted); font-size:.95rem; margin:0 0 .6rem;}
   .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
   .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
 
-  /* Testimonial */
-  .testimonial-pro{margin:2rem 0;}
-  .testimonial-pro figure{margin:0;}
-  .t-card{
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:1.25rem;
-    background:var(--card);
-    border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius);
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
-    padding:1.25rem;
-    align-items:center;
-  }
-  .t-aside{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;}
+  /* Testimonial (consistent card width) */
+  .testimonial-pro{margin:var(--vr) 0;}
+  .t-card{display:grid; grid-template-columns:280px 1fr; gap:1.25rem; background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08); padding:1.25rem;}
+  .t-aside{display:grid; gap:.75rem; align-content:start;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
-  .t-meta{color:var(--muted); margin-top:.5rem;}
+  .t-meta{color:var(--muted); display:grid; gap:.2rem;}
   .t-meta strong{color:var(--text);}
-  .t-quote{margin:0; line-height:1.7; font-size:1.05rem; width:100%;}
-  .t-pull{
-    background:#fff4eb;
-    border-left:4px solid var(--brand);
-    padding:1rem 1.25rem;
-    border-radius:6px;
-    margin:0;
-    width:100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .t-pull:hover{transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08);}
+  .t-quote{margin:0; line-height:1.7; font-size:1.05rem; max-width:70ch;}
+  .t-quote p{margin:.4rem 0;} /* quotation rendered inline */
 
-  /* Contact & Footer */
-  .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:3rem 0; text-align:center;}
+  /* Contact + Footer */
+  .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0; text-align:center;}
   .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
-
-  .page > footer{ grid-column: 1 / -1; }
-  footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem;}
-  footer .container{ max-width: var(--page-max); margin: 0 auto; padding: 0 1rem; }
+  footer{background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
+  footer .container{grid-column:2;}
 
   /* Mobile */
-  @media (max-width:768px){
-    .hero{height:300px;}
+  @media (max-width: 768px) {
+    .hero, .container.section, .container .intro, .container.testimonial-pro, .container .contact { padding-left: 1rem; padding-right: 1rem; }
+    .hero{height:300px}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
     .hero-content{bottom:1rem;}
     .hero h1{font-size:clamp(1.6rem, 7.5vw, 2.1rem); line-height:1.1; text-wrap:balance;}
@@ -127,6 +102,14 @@
     .project{flex:1 1 100%;}
     .skill-card{grid-column:span 12;}
     .t-card{grid-template-columns:1fr;}
+    .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
+    .t-avatar{width:72px; height:72px;}
+    .t-quote{font-size:1.02rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-media{transform:none !important}
+    .project img{transition:none}
   }
 </style>
 </head>
@@ -165,35 +148,30 @@
 
   <!-- Projects -->
   <section class="container section">
-    <h2>Projects</h2>
-    <div class="project-list">
+    <h2 id="projects-title">Projects</h2>
+    <div class="project-list" id="projects">
       <!-- BRIGHT -->
       <div class="project">
         <a href="/projects/bright/">
-          <img class="parallax-thumb"
-               src="images/bright.jpg"
-               alt="Podcast microphone and headphones on a desk — production setup">
-          <p><strong>BRIGHT podcast</strong> — concept-to-launch series elevating Michigan educators (award-winning)</p>
+          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork">
+          <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
         </a>
       </div>
 
-      <!-- Writing sample (placeholder image) -->
+      <!-- Writing sample -->
       <div class="project">
         <a href="/projects/writing/">
-          <img class="parallax-thumb"
-               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-               alt="Notebook and laptop on a table — writing workspace">
-          <p><strong>Writing: Why I Don’t Give (Hear Me Out)</strong> — guest essay on donor experience; a top-read article</p>
+          <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail">
+          <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
         </a>
       </div>
 
-      <!-- Placeholder -->
+      <!-- Michigan Cares -->
       <div class="project">
-        <a href="#">
-          <img class="parallax-thumb"
-               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
-               alt="Laptop with code on screen — project placeholder">
-          <p><strong>Integrated campaign</strong> — case study (coming soon)</p>
+        <a href="/projects/michigancares/">
+          <!-- Swap this to a local thumbnail later, e.g., images/michigancares.jpg -->
+          <img class="thumb-parallax" src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1200&auto=format&fit=crop" alt="Michigan Cares campaign thumbnail">
+          <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
         </a>
       </div>
     </div>
@@ -203,84 +181,38 @@
   <section class="container section">
     <h2>Skills</h2>
     <div class="skill-grid">
-      <!-- Storytelling -->
       <article class="skill-card">
         <h3>Storytelling</h3>
-        <p class="skill-muted">
-          I believe stories are the most powerful way to connect—helping people see themselves in what you offer, building trust, and creating lasting brand affinity. I craft narratives that spark emotion, reflect values, and keep audiences coming back.
-        </p>
+        <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
         <div class="tags">
-          <span class="tag">Brand Narrative</span>
-          <span class="tag">Audience Connection</span>
-          <span class="tag">Emotional Resonance</span>
-          <span class="tag">Voice Development</span>
-          <span class="tag">Creative Writing</span>
-          <span class="tag">Interviewing</span>
+          <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
+          <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
+          <span class="tag">Editorial Judgment</span>
         </div>
       </article>
 
-      <!-- Content & Video Production -->
       <article class="skill-card">
         <h3>Content Creation & Video Production</h3>
-        <p class="skill-muted">
-          From concept to final cut, I design content that blends creativity with strategy—scripted series, podcast/video production, and assets that can be repurposed across channels to extend reach and ROI.
-        </p>
-        <div class="tags">
-          <span class="tag">Scriptwriting</span>
-          <span class="tag">Producing</span>
-          <span class="tag">Editing</span>
-          <span class="tag">Motion Graphics</span>
-          <span class="tag">Voiceover</span>
-          <span class="tag">Content Repurposing</span>
-        </div>
+        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
+        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
       </article>
 
-      <!-- Social Media Strategy -->
       <article class="skill-card">
         <h3>Social Media Strategy</h3>
-        <p class="skill-muted">
-          I build channel-specific strategies that prioritize series programming, community, and iterative learning—so content performs, relationships grow, and insights compound over time.
-        </p>
-        <div class="tags">
-          <span class="tag">Channel Strategy</span>
-          <span class="tag">Content Series</span>
-          <span class="tag">Community Building</span>
-          <span class="tag">Paid/Organic Mix</span>
-          <span class="tag">KPI Dashboards</span>
-          <span class="tag">Social Listening</span>
-        </div>
+        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
+        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
       </article>
 
-      <!-- HubSpot -->
       <article class="skill-card">
         <h3>HubSpot Mastery</h3>
-        <p class="skill-muted">
-          I architect clean CRM foundations and automate the lifecycle—lead capture to nurture to attribution—so teams see what works, move faster, and prove impact with confidence.
-        </p>
-        <div class="tags">
-          <span class="tag">CRM Architecture</span>
-          <span class="tag">Workflow Automation</span>
-          <span class="tag">Lead Scoring</span>
-          <span class="tag">Lifecycle Nurtures</span>
-          <span class="tag">Attribution Reporting</span>
-          <span class="tag">Integrations</span>
-        </div>
+        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
+        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
       </article>
 
-      <!-- Customer Advocacy -->
       <article class="skill-card">
         <h3>Customer Advocacy & Experience</h3>
-        <p class="skill-muted">
-          I champion the customer’s voice—turning feedback into clear journeys, better content, and simpler experiences that earn trust and lift results across marketing and service.
-        </p>
-        <div class="tags">
-          <span class="tag">Voice of Customer</span>
-          <span class="tag">Journey Mapping</span>
-          <span class="tag">UX Writing</span>
-          <span class="tag">NPS/CSAT Loops</span>
-          <span class="tag">Experimentation</span>
-          <span class="tag">Stakeholder Alignment</span>
-        </div>
+        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
+        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
       </article>
     </div>
   </section>
@@ -290,21 +222,23 @@
     <h2 id="testimonial-title">Testimonial</h2>
     <figure class="t-card">
       <div class="t-aside">
-        <img class="t-avatar" src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU" alt="Headshot of Nikki Herta">
+        <img class="t-avatar"
+             src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
+             alt="Headshot of Nikki Herta">
         <figcaption class="t-meta">
-          <strong>Nikki Herta</strong><br>
+          <strong>Nikki Herta</strong>
           <span>Writer/Editor/Marketing Professional</span>
         </figcaption>
       </div>
+
       <blockquote class="t-quote">
-        <p class="t-pull">
-          “In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!” 
-        </p>
+        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
+        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
       </blockquote>
     </figure>
   </section>
 
-  <!-- Contact (separate block above footer) -->
+  <!-- Contact -->
   <section class="container">
     <div class="contact">
       <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
@@ -318,82 +252,60 @@
     </div>
   </footer>
 
-</div>
+</div><!-- /.page -->
 
 <script>
+/* Hero parallax (respects reduced motion) */
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const desktop = window.matchMedia('(min-width: 769px)');
-
-  // HERO parallax (if allowed)
-  if (!reduce.matches) {
-    const hero = document.getElementById('hero');
-    const media = document.getElementById('heroMedia');
-    let tickingHero = false;
-
-    function updateHero() {
-      if (!hero || !media) return;
-      const rect = hero.getBoundingClientRect();
-      const offset = rect.top * 0.15;
-      media.style.setProperty('--y', offset + 'px');
-      tickingHero = false;
-    }
-    function onScrollHero() {
-      if (!tickingHero) {
-        requestAnimationFrame(updateHero);
-        tickingHero = true;
-      }
-    }
-    updateHero();
-    window.addEventListener('scroll', onScrollHero, { passive: true });
-    window.addEventListener('resize', onScrollHero);
+  if (reduce.matches) return;
+  const hero = document.getElementById('hero');
+  const media = document.getElementById('heroMedia');
+  if (!hero || !media) return;
+  let ticking = false;
+  function updateParallax() {
+    const rect = hero.getBoundingClientRect();
+    const offset = rect.top * 0.15;
+    media.style.setProperty('--y', offset + 'px');
+    ticking = false;
   }
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+  updateParallax();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+})();
 
-  // PROJECT thumbnail parallax (desktop only)
-  const thumbs = Array.from(document.querySelectorAll('.parallax-thumb'));
-  if (!reduce.matches && desktop.matches && thumbs.length) {
-    let tickingThumbs = false;
+/* Desktop-only subtle parallax on project thumbnails */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
+  if (reduce.matches) return;
 
-    function updateThumbs() {
-      const vh = window.innerHeight;
-      const midpoint = vh / 2;
+  const imgs = Array.from(document.querySelectorAll('.thumb-parallax'));
+  if (!imgs.length) return;
 
-      thumbs.forEach(img => {
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      const img = e.target;
+      if (!e.isIntersecting) return;
+      const onMove = () => {
         const r = img.getBoundingClientRect();
-        if (r.bottom < -100 || r.top > vh + 100) return;
-        const center = r.top + r.height / 2;
-        const delta = (midpoint - center) / vh;
-        const maxShift = 22;
-        const y = Math.max(-1, Math.min(1, delta)) * maxShift;
-        img.style.setProperty('--p', y.toFixed(2) + 'px');
-      });
-
-      tickingThumbs = false;
-    }
-
-    function onScrollThumbs() {
-      if (!tickingThumbs) {
-        requestAnimationFrame(updateThumbs);
-        tickingThumbs = true;
-      }
-    }
-
-    updateThumbs();
-    window.addEventListener('scroll', onScrollThumbs, { passive: true });
-    window.addEventListener('resize', onScrollThumbs);
-
-    desktop.addEventListener('change', (e) => {
-      if (!e.matches) {
-        thumbs.forEach(img => img.style.removeProperty('--p'));
-        window.removeEventListener('scroll', onScrollThumbs);
-        window.removeEventListener('resize', onScrollThumbs);
-      } else {
-        updateThumbs();
-        window.addEventListener('scroll', onScrollThumbs, { passive: true });
-        window.addEventListener('resize', onScrollThumbs);
-      }
+        const vh = window.innerHeight || 1;
+        const p = (r.top + r.height/2) / vh; // 0..1
+        const y = (p - 0.5) * -6; // small translate
+        img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
+      };
+      onMove();
+      window.addEventListener('scroll', onMove, {passive:true});
+      window.addEventListener('resize', onMove);
     });
-  }
+  }, {threshold: 0.2});
+  imgs.forEach(i => io.observe(i));
 })();
 </script>
 
