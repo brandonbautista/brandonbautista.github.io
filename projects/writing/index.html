@@ -110,6 +110,45 @@
   /* Footer */
   footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
 
+/* --- Mobile-only hero readability tweaks --- */
+@media (max-width: 768px){
+  .hero{ height: 240px; } /* a touch taller gives the text breathing room */
+  .hero-media img{ object-position: center 30%; } /* lift focal point slightly */
+  .hero-overlay{
+    /* stronger bottom gradient so white text pops */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%);
+  }
+  .hero-content{
+    bottom: .85rem;
+    /* keep the block narrow so lines are short and readable */
+    max-width: 36ch;
+  }
+  .hero-title{
+    /* smaller, tighter, balanced lines */
+    font-size: clamp(1.35rem, 7.2vw, 1.85rem);
+    line-height: 1.12;
+    text-wrap: balance;
+    margin-bottom: .15rem;
+  }
+  .hero-sub{
+    font-size: .98rem;
+    line-height: 1.35;
+    max-width: 38ch;
+    opacity: .96;
+  }
+
+  /* optional: soft “chip” behind text for contrast */
+  .hero-content::before{
+    content:"";
+    position:absolute;
+    inset: -0.4rem -0.6rem -0.4rem -0.6rem; /* small padding around text */
+    background: rgba(0,0,0,.18);
+    filter: blur(0.5px);
+    border-radius: 10px;
+    z-index:-1; /* sits behind the text */
+  }
+}
+  
   /* Mobile */
   @media (max-width: 900px){ .block{grid-column:span 6;} }
   @media (max-width: 768px){
