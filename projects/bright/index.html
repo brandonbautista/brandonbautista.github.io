@@ -76,57 +76,36 @@
   .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
   .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
   .btn:hover{background:#e66b00;text-decoration:none;}
+  .btn.outline{
+    background:#fff;
+    color:var(--brand);
+    border:1px solid var(--brand);
+  }
+  .btn.outline:hover{
+    background:#fff4eb;
+    color:#e66b00;
+    text-decoration:none;
+    transform:translateY(-1px);
+  }
   .cta-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;}
 
   /* Bottom nav */
   .proj-nav{max-width:var(--page-max);margin:var(--vr) auto;display:flex;justify-content:space-between;align-items:center;padding:0 .25rem;}
   footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
 
-/* --- Mobile-only hero readability tweaks --- */
-@media (max-width: 768px){
-  .hero{ height: 240px; } /* a touch taller gives the text breathing room */
-  .hero-media img{ object-position: center 30%; } /* lift focal point slightly */
-  .hero-overlay{
-    /* stronger bottom gradient so white text pops */
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%);
-  }
-  .hero-content{
-    bottom: .85rem;
-    /* keep the block narrow so lines are short and readable */
-    max-width: 36ch;
-  }
-  .hero-title{
-    /* smaller, tighter, balanced lines */
-    font-size: clamp(1.35rem, 7.2vw, 1.85rem);
-    line-height: 1.12;
-    text-wrap: balance;
-    margin-bottom: .15rem;
-  }
-  .hero-sub{
-    font-size: .98rem;
-    line-height: 1.35;
-    max-width: 38ch;
-    opacity: .96;
+  @media (max-width:900px){ .block,.card{grid-column:span 12;} }
+
+  /* --- Mobile-only hero readability tweaks --- */
+  @media (max-width: 768px){
+    .hero{ height: 240px; }
+    .hero-media img{ object-position: center 30%; }
+    .hero-overlay{ background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%); }
+    .hero-content{ bottom: .85rem; max-width: 36ch; }
+    .hero-title{ font-size: clamp(1.35rem, 7.2vw, 1.85rem); line-height: 1.12; text-wrap: balance; margin-bottom: .15rem; }
+    .hero-sub{ font-size: .98rem; line-height: 1.35; max-width: 38ch; opacity: .96; }
+    .hero-content::before{ content:""; position:absolute; inset: -0.4rem -0.6rem -0.4rem -0.6rem; background: rgba(0,0,0,.18); filter: blur(0.5px); border-radius: 10px; z-index:-1; }
   }
 
-  /* optional: soft “chip” behind text for contrast */
-  .hero-content::before{
-    content:"";
-    position:absolute;
-    inset: -0.4rem -0.6rem -0.4rem -0.6rem; /* small padding around text */
-    background: rgba(0,0,0,.18);
-    filter: blur(0.5px);
-    border-radius: 10px;
-    z-index:-1; /* sits behind the text */
-  }
-}
-  
-  /* Mobile */
-  @media (max-width:900px){ .block,.card{grid-column:span 12;} }
-  @media (max-width:768px){
-    .hero{height:240px;}
-    .hero picture img{border-radius:var(--radius);}
-  }
   @media (prefers-reduced-motion:reduce){ .hero-media{transform:none !important;} }
 </style>
 </head>
@@ -147,7 +126,6 @@
     <p class="hero-sub">Award-winning podcast celebrating Michigan educators — built for goodwill, not pitches.</p>
     <div class="hero-badges" role="list" aria-label="Awards">
       <span class="chip" role="listitem" aria-label="Best Educational Podcast — 37th Annual Educational Advertising Awards">
-        <!-- trophy icon -->
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h-1V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1H7a1 1 0 0 0-1 1v2a4 4 0 0 1-4 4 1 1 0 0 0 0 2 6 6 0 0 0 6-6V6h8v.99A6.01 6.01 0 0 0 22 13a1 1 0 1 0 0-2 4 4 0 0 1-4-4V4a1 1 0 0 0-1-1Zm-5 11a4 4 0 0 0 4-4H8a4 4 0 0 0 4 4Zm-2 2h4v3h3a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2h3v-3Z"/></svg>
         Best Educational Podcast — 37th Annual Educational Advertising Awards
       </span>
@@ -159,31 +137,26 @@
 <section class="section" aria-labelledby="glance-title">
   <h2 id="glance-title">At a Glance</h2>
   <div class="quick">
-    <!-- WHAT -->
     <article class="block" aria-labelledby="what-title">
       <h3 id="what-title">What</h3>
       <p><em>BRIGHT</em> is a podcast and blog series highlighting innovative Michigan teachers. Each episode shares classroom-tested ideas and human stories other educators can adapt quickly — and elevates Michigan Virtual as a collaborative partner to schools.</p>
       <p class="muted">We also activated regional pride by pitching local press for each featured educator, generating positive coverage across the state.</p>
     </article>
-
-    <!-- WHY -->
     <article class="block" aria-labelledby="why-title">
       <h3 id="why-title">Why</h3>
       <p>We set out to serve — not sell. By centering educator voices, we reframed Michigan Virtual from “competitor” to <strong>partner</strong> and built durable goodwill in the K-12 community.</p>
       <ul>
-        <li>Spotlighted teachers doing remarkable work (customer advocacy at the core).</li>
-        <li>Proactive outreach to newspapers, TV, and community press for every episode.</li>
-        <li>Clear alignment with inbound strategy: useful content first; trust follows.</li>
+        <li>Spotlighted teachers doing remarkable work.</li>
+        <li>Proactive outreach to newspapers, TV, and community press.</li>
+        <li>Aligned with inbound strategy: useful content first; trust follows.</li>
       </ul>
     </article>
-
-    <!-- IMPACT -->
     <article class="block" aria-labelledby="impact-title">
       <h3 id="impact-title">Impact</h3>
       <p><strong>217,000+ listens/views</strong> across YouTube and major podcast platforms.</p>
       <ul>
         <li><strong>Award:</strong> Best Educational Podcast — 37th Annual Educational Advertising Awards.</li>
-        <li>Measurable lift in public perception and stronger school partnerships statewide.</li>
+        <li>Lifted public perception; strengthened partnerships statewide.</li>
       </ul>
     </article>
   </div>
@@ -193,20 +166,14 @@
 <section class="two-col" aria-label="Experience BRIGHT">
   <div class="card">
     <h2>Check Out an Episode</h2>
-    <div class="embed" role="region" aria-label="Embedded BRIGHT episode">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA"
-        title="BRIGHT Podcast Episode"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen loading="lazy">
-      </iframe>
+    <div class="embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA" title="BRIGHT Podcast Episode" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
-
   <div class="card">
     <h2>Check Out the Whole Series</h2>
     <p class="muted">Watch or listen wherever you prefer:</p>
-    <div class="cta-wrap" aria-label="Listen links">
+    <div class="cta-wrap">
       <a class="btn" href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" rel="noopener">YouTube →</a>
       <a class="btn" href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" rel="noopener">Apple Podcasts →</a>
       <a class="btn" href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" rel="noopener">Spotify →</a>
@@ -214,7 +181,7 @@
   </div>
 </section>
 
-<!-- Back to Home link -->
+<!-- Back to Home -->
 <section class="pad" style="text-align:center; margin-top:2rem;">
   <a href="/" class="btn outline">← Back to Home</a>
 </section>
@@ -222,18 +189,17 @@
 <footer>© 2025 Brandon Bautista</footer>
 
 <script>
-  // Gentle parallax for hero (respects reduced motion)
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) return;
-    const hero = document.getElementById('hero');
-    const media = document.getElementById('heroMedia');
-    if(!hero || !media) return;
-    let ticking=false;
-    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
-    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
-    update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
-  })();
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduce.matches) return;
+  const hero = document.getElementById('hero');
+  const media = document.getElementById('heroMedia');
+  if(!hero || !media) return;
+  let ticking=false;
+  function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
+  function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+  update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
+})();
 </script>
 
 </body>
