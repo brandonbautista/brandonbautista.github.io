@@ -7,9 +7,9 @@
 
 <!-- Social preview -->
 <meta property="og:title" content="Yearlong Enrollment Cycle | Brandon Bautista">
-<meta property="og:description" content="Multi-channel awareness & enrollment campaign (Spring/Summer/Fall/Winter): Facebook ads at scale, high-performing email, and video storytelling.">
+<meta property="og:description" content="Always-on, multi-channel enrollment campaigns that consistently hit goals—out-connecting bigger budgets with smart creative and precise targeting.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1523246199603-9042fda3f855?q=80&w=1740&auto=format&fit=crop">
+<meta property="og:image" content="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop">
 
 <style>
   :root{
@@ -22,25 +22,22 @@
     --brand:#ff7a00;
     --brand-700:#e66b00;
     --footer:#333333;
-    --vr: 1.6rem;     /* vertical rhythm between sections */
-    --side-pad: 1rem; /* consistent inset to align with hero text */
+    --vr: 1.6rem;      /* vertical rhythm between sections */
+    --side-pad: 1rem;  /* match hero text inset */
   }
 
   /* Base */
   *{box-sizing:border-box}
   html,body{overflow-x:hidden}
-  img,video{max-width:100%;height:auto;display:block}
+  img{max-width:100%;height:auto;display:block}
   body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  /* Centered page grid */
-  .page{
-    display:grid;
-    grid-template-columns: 1fr minmax(0, var(--page-max)) 1fr;
-  }
-  .page > *{ grid-column: 2; }
-  .pad{ padding-left: var(--side-pad); padding-right: var(--side-pad); }
+  /* HARD-CENTER LAYOUT */
+  .page{display:grid;grid-template-columns:1fr minmax(0,var(--page-max)) 1fr}
+  .page > *{grid-column:2}
+  .pad{padding-left:var(--side-pad);padding-right:var(--side-pad)}
 
   /* Header */
   header{padding:1rem 0;font-weight:700;}
@@ -50,54 +47,48 @@
   .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
   .hero img{width:100%;height:120%;object-fit:cover}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.58) 100%)}
-  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.2rem;display:flex;flex-direction:column;gap:.4rem;color:#fff}
+  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.1rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
   .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-  .hero-sub{margin:0;opacity:.95}
+  .hero-sub{margin:0;opacity:.96}
 
   /* Sections */
   .section{margin:var(--vr) 0;}
-  .section-inner{
-    background:#f2f0ee;border-radius:var(--radius);
-    padding:1.25rem var(--side-pad);
-  }
+  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem var(--side-pad)}
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
   .muted{color:var(--muted)}
 
-  /* KPI pills */
-  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.3rem 0 .9rem}
-  .pill{display:inline-block;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem}
-
-  /* Intro grid (What / Why / Impact) */
+  /* “At a Glance” grid */
   .glance-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
   .g-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
   .g-card h3{margin:.2rem 0 .5rem;font-size:1rem}
-  .dotlist{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
+  .g-card p{margin:.25rem 0 .5rem}
+  .g-card ul{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
 
-  /* Spotlight metric callout */
-  .spotlight{
-    display:grid;gap:.5rem;align-items:start;
-    background:#fff;border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);
-    margin-top:1rem;
-  }
-  .spotlight .big{font-size:1.7rem;font-weight:800;line-height:1.2;margin:.15rem 0}
-  .spotlight .kpis{display:flex;flex-wrap:wrap;gap:.5rem}
-  .metric{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:.4rem .65rem;font-weight:700;font-size:.9rem}
+  /* RESULTS SPOTLIGHT (Facebook) */
+  .results{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .r-card{grid-column:span 12;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.08);padding:1rem}
+  .r-top{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.5rem}
+  .badge{display:inline-block;background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.45rem .7rem;font-weight:700;white-space:nowrap}
+  .mega{font-size:2rem;font-weight:800;line-height:1}
+  .r-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.75rem;margin-top:.75rem}
+  .metric{grid-column:span 3;background:#faf8f6;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:.75rem}
+  .metric h4{margin:0 0 .25rem;font-size:.95rem;color:#111}
+  .metric p{margin:0;font-weight:800;font-size:1.15rem}
 
-  /* Two-up cards (ads & email; videos) */
-  .two-up{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  /* Two-up showcase cards */
+  .twoup{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
   .card{grid-column:span 6;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
   .card-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
   .card-head h3{margin:0;font-size:1.1rem}
   .card-body{padding:1rem}
-
-  /* Ad sample media blocks */
-  .media-block{background:#faf8f6;border:1px dashed rgba(0,0,0,.12);border-radius:10px;padding:.75rem}
-  .media-caption{font-size:.9rem;color:var(--muted);margin:.35rem 0 0}
-
-  /* Video embed */
   .embed{position:relative;width:100%;padding-top:56.25%;background:#000}
-  .embed iframe, .embed video{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* Ad samples */
+  .ads{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .ad{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+  .ad figure{margin:0}
+  .ad figcaption{padding:.6rem .75rem;border-top:1px solid rgba(0,0,0,.06);font-size:.95rem}
 
   /* Buttons */
   .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
@@ -105,34 +96,21 @@
   .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
   .btn.outline:hover{background:#fff4eb}
 
-  /* Footer + Back to home */
-  .back-home{ text-align:center; }
+  /* Footer */
   footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
   footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  /* Mobile */
-  @media (max-width: 900px){
-    .g-card{grid-column:span 12}
-    .card{grid-column:span 12}
-    .hero{height:260px}
-  }
-
-  /* Mobile hero readability tweaks */
-  @media (max-width: 768px){
-    .hero{ height: 240px; }
-    .hero-media img{ object-position: center 30%; }
-    .hero-overlay{ background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%); }
-    .hero-content{ bottom:.9rem; max-width:36ch; }
-    .hero-title{ font-size:clamp(1.35rem,7.2vw,1.85rem); line-height:1.12; text-wrap:balance; margin-bottom:.15rem; }
-    .hero-sub{ font-size:.98rem; line-height:1.35; max-width:38ch; opacity:.96; }
-    .hero-content::before{
-      content:""; position:absolute; inset:-.4rem -.6rem; background:rgba(0,0,0,.18);
-      filter:blur(.5px); border-radius:10px; z-index:-1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .hero-media{transform:none !important}
+  /* Mobile hero readability */
+  @media (max-width:768px){
+    .hero{height:240px}
+    .hero-media img{object-position:center 30%}
+    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
+    .hero-content{bottom:.85rem;max-width:36ch}
+    .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
+    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
+    .hero-content::before{content:"";position:absolute;inset:-.4rem -.6rem; background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;z-index:-1}
+    .g-card,.card,.ad{grid-column:span 12}
+    .metric{grid-column:span 6}
   }
 </style>
 </head>
@@ -147,12 +125,14 @@
   <section class="pad">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1523246199603-9042fda3f855?q=80&w=1740&auto=format&fit=crop" alt="Educators collaborating with laptops and notebooks">
+        <!-- School / classroom Unsplash placeholder -->
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop"
+             alt="Classroom desks and chalkboard">
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
-        <h1 class="hero-title">Yearlong Enrollment Cycle</h1>
-        <p class="hero-sub">Spring • Summer • Fall • Winter — a sustained, multi-channel campaign that meets educators when they return from break, showcases unique courses, and drives on-time enrollments.</p>
+        <h1 class="hero-title">Yearlong Enrollment Cycle: Always-On, Always-Helpful</h1>
+        <p class="hero-sub">Seasonal campaigns (winter/spring/summer/fall) that combine email, social, and video to hit goals—by out-connecting, not outspending.</p>
       </div>
     </div>
   </section>
@@ -161,135 +141,158 @@
   <section class="section">
     <div class="section-inner">
       <h2>At a Glance</h2>
-
-      <div class="pill-row">
-        <span class="pill">Multi-channel: Facebook, Email, Video</span>
-        <span class="pill">Partner-first positioning</span>
-        <span class="pill">Awareness → Consideration → Action</span>
-      </div>
-
       <div class="glance-grid">
         <article class="g-card">
           <h3>What</h3>
-          <p>A yearlong enrollment engine aligned to school rhythms. Each term we sequenced three moments: (1) enrollment now open, (2) spotlights on surprising/valuable courses, and (3) closing soon urgency.</p>
+          <p>Always-on enrollment marketing across the school year—launch awareness, value spotlights (e.g., unique courses), and urgency messaging as deadlines approach.</p>
+          <ul>
+            <li>Email to school contacts responsible for virtual enrollments</li>
+            <li>Facebook campaigns to MI educators & families</li>
+            <li>Short videos to inform & disarm skepticism</li>
+          </ul>
         </article>
 
         <article class="g-card">
           <h3>Why</h3>
-          <p>We can’t outspend large competitors — so we out-connect. We speak educators’ language, show real value, and reinforce that Michigan Virtual is a <strong>partner</strong>, not a vendor.</p>
+          <p>We won’t outspend national competitors, but we can out-connect: speak educators’ language, position as partner (not vendor), and be remarkably useful.</p>
+          <ul>
+            <li>Align to school calendars and workload realities</li>
+            <li>Lift perception of Michigan Virtual as a collaborative ally</li>
+            <li>Meet or exceed enrollment targets consistently</li>
+          </ul>
         </article>
 
         <article class="g-card">
           <h3>Impact</h3>
-          <p>Consistently met ambitious enrollment goals through coherent, audience-first storytelling and channel orchestration across Facebook, targeted email, and video.</p>
+          <p>High-efficiency Facebook performance at modest budgets, strong email engagement, and repeatable semester wins.</p>
+          <ul>
+            <li>Compelling CTR/CPC vs. industry benchmarks</li>
+            <li>Creative that celebrates breadth of courses & student outcomes</li>
+          </ul>
         </article>
       </div>
+    </div>
+  </section>
 
-      <!-- Facebook spotlight -->
-      <div class="spotlight" aria-label="Facebook campaign performance">
-        <div>
-          <h3 style="margin:.1rem 0;">Facebook Campaign Results</h3>
-          <p class="muted" style="margin:.2rem 0 .2rem;">Statewide awareness on a modest budget.</p>
-          <div class="big">5,000,000+ impressions</div>
-          <div class="kpis">
-            <span class="metric">CTR: above industry average</span>
-            <span class="metric">CPC: below typical edu benchmarks</span>
-          </div>
-          <p class="muted" style="margin:.4rem 0 0;">Creative themes: term kickoffs, surprising course spotlights, and clear “enroll by” deadlines.</p>
+  <!-- RESULTS SPOTLIGHT (Facebook) -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Results Spotlight: Facebook Campaign</h2>
+      <div class="r-card">
+        <div class="r-top">
+          <span class="badge">Modest budget</span>
+          <span class="badge">Statewide targeting</span>
         </div>
+
+        <div class="mega">5,000,000+ impressions</div>
+        <p class="muted" style="margin:.25rem 0 1rem;">High-scale reach to Michigan educators & families with efficient performance.</p>
+
+        <!-- Replace the XX placeholders below with your exact figures -->
+        <div class="r-grid">
+          <div class="metric">
+            <h4>CTR</h4>
+            <p>XX%</p>
+          </div>
+          <div class="metric">
+            <h4>CPC</h4>
+            <p>$XX.XX</p>
+          </div>
+          <div class="metric">
+            <h4>CPM</h4>
+            <p>$XX.XX</p>
+          </div>
+          <div class="metric">
+            <h4>Reach</h4>
+            <p>~XX,XXX</p>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:.75rem">Note: I can drop in the precise CTR/CPC/CPM/Reach figures—you mentioned they outperform education benchmarks; this card is built to feature them prominently.</p>
       </div>
     </div>
   </section>
 
-  <!-- Ads & Email -->
+  <!-- Email Highlight -->
   <section class="section">
     <div class="section-inner">
-      <div class="two-up">
-        <!-- Ad Samples -->
-        <article class="card">
-          <div class="card-head"><h3>Ad Creative Samples</h3></div>
-          <div class="card-body">
-            <div class="media-block" style="margin-bottom:.75rem">
-              <!-- Animated GIF placeholder -->
-              <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RzYzJhZjZrdWhnN2Z4bGQ1bDBrYjZ6ZXl3bTV2YXF5eHRkcWl5NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qgQUggAC3Pfv687qPC/giphy.gif" alt="Animated GIF ad sample">
-              <div class="media-caption">Animated GIF — course carousel concept</div>
-            </div>
-
-            <div class="media-block" style="margin-bottom:.75rem">
-              <!-- Static image placeholder -->
-              <img src="https://images.unsplash.com/photo-1496302662116-25d04f2ee1e0?q=80&w=1400&auto=format&fit=crop" alt="Static ad creative sample">
-              <div class="media-caption">Static — “Enrollment now open” creative</div>
-            </div>
-
-            <div class="media-block">
-              <!-- MP4 placeholder -->
-              <div class="embed">
-                <video controls preload="metadata">
-                  <source src="sample-ad.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="media-caption">MP4 — motion-led cutdown</div>
-            </div>
-          </div>
+      <h2>Email Highlight</h2>
+      <p class="muted" style="margin:.25rem 0 .75rem;">Representative send with strong engagement—about double typical open rates for education.</p>
+      <div class="glance-grid">
+        <article class="g-card" style="grid-column:span 6;">
+          <h3>Key Metrics</h3>
+          <ul>
+            <li><strong>Open Rate:</strong> ~2× industry average</li>
+            <li><strong>Click Rate:</strong> Healthy CTR for a small, high-intent list</li>
+          </ul>
         </article>
-
-        <!-- Email Metrics -->
-        <article class="card">
-          <div class="card-head"><h3>Email Performance (Representative)</h3></div>
-          <div class="card-body">
-            <p class="muted" style="margin-top:0">Targeted sends to the educators responsible for virtual enrollments.</p>
-            <div class="pill-row" style="margin:.25rem 0 .75rem">
-              <span class="pill">Open rate ≈ 2× industry average</span>
-              <span class="pill">Clear next steps</span>
-              <span class="pill">Aligned to term timing</span>
-            </div>
-            <p style="margin:.25rem 0 .75rem">Example campaign email (full): <a href="https://mail.michiganvirtual.org/its-about-that-time-2" target="_blank" rel="noopener">It’s about that time →</a></p>
-            <div class="media-block">
-              <img src="https://images.unsplash.com/photo-1587614382346-4ec1d3b78e1d?q=80&w=1400&auto=format&fit=crop" alt="Email layout preview (placeholder)">
-              <div class="media-caption">Template structure emphasizing value, course highlights, and deadline clarity.</div>
-            </div>
-          </div>
+        <article class="g-card" style="grid-column:span 6;">
+          <h3>See the Email</h3>
+          <p>View “It’s About That Time” (timed to post-break planning):</p>
+          <p><a class="btn" href="https://mail.michiganvirtual.org/its-about-that-time-2" target="_blank" rel="noopener">Open Email →</a></p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Video Storytelling -->
+  <!-- Videos: Course breadth + Online learning explainer -->
   <section class="section">
     <div class="section-inner">
-      <h2>Video Storytelling</h2>
-      <p class="muted" style="margin:.25rem 0 .9rem">
-        We used video to (1) spotlight the breadth of our catalog — including courses people don’t expect online — and (2) demystify what online learning looks like at Michigan Virtual for any stakeholders with concerns.
-      </p>
-
-      <div class="two-up">
+      <h2>Short Videos</h2>
+      <p class="muted" style="margin:.25rem 0 1rem;">Purpose-built to (1) show the surprising breadth of courses—including “you can even take Guitar online!”—and (2) demystify what online learning looks like at Michigan Virtual.</p>
+      <div class="twoup">
         <article class="card">
-          <div class="card-head"><h3>Course Selection Video (“Guitar”)</h3></div>
-          <div class="embed" role="region" aria-label="Guitar course selection video">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/L6th1SR57Sg"
-              title="Course Selection: Guitar"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen loading="lazy"></iframe>
+          <div class="card-head"><h3>Course Selection (Guitar)</h3></div>
+          <div class="embed" role="region" aria-label="Course selection video">
+            <iframe src="https://www.youtube-nocookie.com/embed/L6th1SR57Sg"
+                    title="Guitar course video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen loading="lazy"></iframe>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-head"><h3>What Online Learning Looks Like</h3></div>
-          <div class="embed" role="region" aria-label="What online learning looks like at Michigan Virtual">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/CpGWsjcLZIM"
-              title="What Online Learning Looks Like"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen loading="lazy"></iframe>
+          <div class="card-head"><h3>How Online Learning Works</h3></div>
+          <div class="embed" role="region" aria-label="Explainer video">
+            <iframe src="https://www.youtube-nocookie.com/embed/CpGWsjcLZIM"
+                    title="How online learning works"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen loading="lazy"></iframe>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Samples (swap in your real assets when ready) -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Creative Samples</h2>
+      <div class="ads">
+        <figure class="ad">
+          <!-- Animated GIF sample (placeholder) -->
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" alt="Animated ad placeholder">
+          <figcaption>Animated GIF ad (placeholder) — swap with your exported .gif</figcaption>
+        </figure>
+
+        <figure class="ad">
+          <!-- Static image sample (placeholder) -->
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop" alt="Static ad placeholder">
+          <figcaption>Static image ad (placeholder) — swap with a real ad image</figcaption>
+        </figure>
+
+        <figure class="ad">
+          <!-- MP4 sample (placeholder frame with link) -->
+          <a href="#" onclick="return false;">
+            <img src="https://images.unsplash.com/photo-1523246191152-4c4fd08d6633?q=80&w=1200&auto=format&fit=crop" alt="Video ad placeholder">
+          </a>
+          <figcaption>Video ad (MP4) — embed or link your final file here</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <!-- Back to Home -->
-  <section class="pad back-home" style="margin-top:2rem;">
+  <section class="pad" style="text-align:center; margin-top:2rem;">
     <a href="/" class="btn outline">← Back to Home</a>
   </section>
 
