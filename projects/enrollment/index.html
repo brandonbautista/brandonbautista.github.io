@@ -61,6 +61,7 @@
   .card h3{margin:.2rem 0 .5rem;font-size:1.1rem}
   .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:var(--radius);overflow:hidden}
   .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .media{width:100%;border-radius:var(--radius);border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
 
   /* Metrics band */
   .pillrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
@@ -81,7 +82,7 @@
   /* Footer */
   footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr)}
 
-  /* Mobile hero readability tweaks (same pattern as other pages) */
+  /* Mobile hero readability tweaks */
   @media (max-width: 768px){
     .hero{height:240px}
     .hero img{object-position:center 30%}
@@ -135,7 +136,7 @@
       <ul class="dotlist">
         <li><strong>Email</strong> blasts & reminders to school contacts</li>
         <li><strong>Facebook</strong> ads targeted to MI educators</li>
-        <li><strong>Video</strong> that entertains (Guitar 🎸) and explains (How MV works)</li>
+        <li><strong>Video</strong> that entertains (course selection) and explains (how MV works)</li>
       </ul>
     </article>
 
@@ -202,14 +203,44 @@
   <p class="muted" style="margin-top:.6rem">Takeaway: helpful, timely emails to a well-curated list drove unusually high open rates, while paid social scaled awareness efficiently.</p>
 </section>
 
-<!-- Channel Samples -->
-<section class="two-col" aria-label="Channel Samples">
+<!-- Ad Creative Samples -->
+<section class="section" aria-labelledby="ads">
+  <h2 id="ads">Ad Creative Samples</h2>
+  <div class="grid12">
+    <!-- Animated GIF -->
+    <article class="card" style="grid-column:span 4">
+      <h3>Animated GIF — Awareness</h3>
+      <img class="media" src="images/winter25/ad1_animated.gif" alt="Animated awareness ad creative for Winter 2025 enrollment">
+      <p class="muted" style="margin:.6rem 0 0">Motion draws the eye in crowded feeds and quickly communicates “Enrollment is open.”</p>
+    </article>
+
+    <!-- Static image -->
+    <article class="card" style="grid-column:span 4">
+      <h3>Static — Course Highlight</h3>
+      <img class="media" src="images/winter25/ad2_static.jpg" alt="Static course highlight ad creative featuring a popular course">
+      <p class="muted" style="margin:.6rem 0 0">Simple, high-contrast creative used in the mid-flight value-prop phase to feature interesting courses.</p>
+    </article>
+
+    <!-- MP4 video -->
+    <article class="card" style="grid-column:span 4">
+      <h3>MP4 — Urgency / Last Chance</h3>
+      <video class="media" controls playsinline preload="metadata" poster="images/winter25/ad3_teaser_poster.jpg">
+        <source src="images/winter25/ad3_teaser.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="muted" style="margin:.6rem 0 0">Short motion cut with countdown copy to drive final-week enrollments.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Video Samples -->
+<section class="two-col" aria-label="Video Samples">
   <div class="card">
-    <h3>Entertaining teaser: “Guitar”</h3>
-    <p class="muted" style="margin-top:0">A light, memorable spot to remind educators how broad the catalog is (yes, even Guitar online!).</p>
-    <div class="embed" role="region" aria-label="Guitar Video">
+    <h3>Course Selection Video: “Guitar”</h3>
+    <p class="muted" style="margin-top:0">Designed to entertain while signaling our <em>vast</em> catalog—including classes educators may not expect to be available online (like Guitar). The goal: spark curiosity and click-through to the catalog.</p>
+    <div class="embed" role="region" aria-label="Course selection video: Guitar">
       <iframe src="https://www.youtube-nocookie.com/embed/L6th1SR57Sg"
-              title="Michigan Virtual Guitar spot"
+              title="Michigan Virtual course selection video: Guitar"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               loading="lazy" allowfullscreen></iframe>
     </div>
@@ -217,8 +248,8 @@
 
   <div class="card">
     <h3>Explainer: How Online Learning Works</h3>
-    <p class="muted" style="margin-top:0">Addresses common concerns and helps administrators reassure families and staff.</p>
-    <div class="embed" role="region" aria-label="Explainer Video">
+    <p class="muted" style="margin-top:0">A clear, reassuring walkthrough of online learning at Michigan Virtual—created to address common concerns and equip admins & counselors to advocate with confidence.</p>
+    <div class="embed" role="region" aria-label="Explainer: How online learning works at Michigan Virtual">
       <iframe src="https://www.youtube-nocookie.com/embed/CpGWsjcLZIM"
               title="How Michigan Virtual works"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -227,7 +258,7 @@
   </div>
 </section>
 
-<!-- Process card (optional narrative) -->
+<!-- How We Sequenced the Campaign -->
 <section class="section" aria-labelledby="process">
   <h2 id="process">How We Sequenced the Campaign</h2>
   <div class="grid12">
@@ -236,7 +267,7 @@
       <p>Announce enrollment and nudge returning districts to act quickly after break.</p>
       <ul class="dotlist">
         <li>Facebook awareness + email announcement</li>
-        <li>Conference chatter & partner outreach reinforce message</li>
+        <li>Partner outreach & conference presence reinforce message</li>
       </ul>
     </article>
 
