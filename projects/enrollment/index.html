@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Winter Semester 2025 Enrollment Campaign | Brandon Bautista</title>
+
+<!-- Social preview -->
+<meta property="og:title" content="Winter Semester 2025 Enrollment Campaign | Brandon Bautista">
+<meta property="og:description" content="Multi-channel winter enrollment push: awareness → value props → urgency. Paid social at low CPC and high-engagement email—~2× typical open rates.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=1740&auto=format&fit=crop">
+
+<style>
+  :root{
+    --page-max: 1200px;
+    --radius: 12px;
+    --bg: #f9f8f6;
+    --text: #333333;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --brand:#ff7a00;
+    --brand-700:#e66b00;
+    --footer:#333333;
+    --vr: 1.25rem; /* consistent vertical rhythm */
+  }
+
+  /* Base */
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  img{max-width:100%;display:block;height:auto}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
+
+  /* Hero */
+  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto var(--vr);border-radius:var(--radius);overflow:hidden}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
+  .hero img{width:100%;height:120%;object-fit:cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;color:#fff;display:flex;flex-direction:column;gap:.45rem}
+  .hero-title{margin:0;font-weight:800;font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .hero-sub{margin:0;opacity:.95}
+
+  /* Sections */
+  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
+  .section h2{margin:0 0 .75rem;font-size:1.4rem}
+  .muted{color:var(--muted)}
+
+  /* Grids / cards */
+  .grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .block h3{margin:.2rem 0 .5rem;font-size:1rem}
+  .block p{margin:0 0 .5rem}
+  .dotlist{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
+
+  .two-col{max-width:var(--page-max);margin:var(--vr) auto;display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .card{grid-column:span 6;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .card h3{margin:.2rem 0 .5rem;font-size:1.1rem}
+  .embed{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:var(--radius);overflow:hidden}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* Metrics band */
+  .pillrow{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+  .pill{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem}
+
+  /* Table */
+  .table-wrap{overflow:auto;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th, td{padding:.8rem;border-top:1px solid rgba(0,0,0,.06)}
+  thead th{background:#faf8f6;text-align:left}
+
+  /* Buttons */
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.7rem 1.1rem;font-weight:700;border:0;transition:.2s transform,.3s background}
+  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
+  .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+  .btn.outline:hover{background:#fff4eb}
+
+  /* Footer */
+  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr)}
+
+  /* Mobile hero readability tweaks (same pattern as other pages) */
+  @media (max-width: 768px){
+    .hero{height:240px}
+    .hero img{object-position:center 30%}
+    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
+    .hero-content{bottom:.85rem;max-width:36ch}
+    .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.1rem}
+    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
+    .hero-content::before{content:"";position:absolute;inset:-.4rem -.6rem;background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;z-index:-1}
+  }
+
+  /* Responsive grid */
+  @media (max-width:900px){ .block{grid-column:span 6} .card{grid-column:span 12} }
+  @media (max-width:768px){ .block{grid-column:span 12} header,.hero,.section{padding-left:1rem;padding-right:1rem} }
+  @media (prefers-reduced-motion: reduce){ .hero-media{transform:none !important} }
+</style>
+</head>
+<body>
+
+<header><a href="/">← Back to Home</a></header>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <!-- Swap this with your ad creative, e.g. /images/projects/winter25_hero.jpg -->
+    <img src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=1740&auto=format&fit=crop" alt="Winter enrollment campaign creative">
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Winter Semester 2025 Enrollment Campaign</h1>
+    <p class="hero-sub">Awareness → value props → urgency. Multi-channel push across paid social, email, and video to hit enrollment goals during the first weeks of January.</p>
+  </div>
+</section>
+
+<!-- At a Glance -->
+<section class="section" aria-labelledby="glance">
+  <h2 id="glance">At a Glance</h2>
+  <div class="grid12">
+    <article class="block">
+      <h3>Context</h3>
+      <p>Michigan Virtual’s second semester begins late January. Districts return from winter break right after New Year’s, so we launch enrollment immediately to meet ambitious goals despite bigger-budget competitors.</p>
+      <ul class="dotlist">
+        <li>Audience: Michigan educators & enrollment coordinators</li>
+        <li>Timing: First 2–3 weeks of January</li>
+        <li>Phases: <em>Open now</em> → course highlights → last-chance urgency</li>
+      </ul>
+    </article>
+
+    <article class="block">
+      <h3>Approach</h3>
+      <p>Multi-channel cadence to meet educators where they are.</p>
+      <ul class="dotlist">
+        <li><strong>Email</strong> blasts & reminders to school contacts</li>
+        <li><strong>Facebook</strong> ads targeted to MI educators</li>
+        <li><strong>Video</strong> that entertains (Guitar 🎸) and explains (How MV works)</li>
+      </ul>
+    </article>
+
+    <article class="block">
+      <h3>Impact</h3>
+      <p>We consistently hit enrollment goals through service-forward messaging and partner positioning—never just “vendor.”</p>
+      <ul class="dotlist">
+        <li>Efficient paid social: low CPC for statewide reach</li>
+        <li>Emails with ~2× typical opens for this space</li>
+        <li>Reinforced at conferences & community touchpoints</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- Paid Social Performance -->
+<section class="section" aria-labelledby="paid">
+  <h2 id="paid">Paid Social Performance (Facebook)</h2>
+  <p class="muted" style="margin:.25rem 0 .75rem">Campaign spanned awareness, course highlights, and urgency creatives.</p>
+
+  <div class="pillrow">
+    <span class="pill">Reach: <strong>296,511</strong></span>
+    <span class="pill">Impressions: <strong>5,022,928</strong></span>
+    <span class="pill">Link Clicks: <strong>11,700</strong> (9,652 unique)</span>
+    <span class="pill">CPC: <strong>$0.30</strong></span>
+    <span class="pill">Spend: <strong>$3,499.99</strong></span>
+  </div>
+
+  <div class="grid12">
+    <article class="block" style="grid-column:span 12">
+      <h3>What it shows</h3>
+      <p>With a modest budget, we reached the statewide educator community and drove five million+ impressions at a very efficient <strong>$0.30 CPC</strong>. This kept the top of the funnel full while emails and urgency ads closed the loop.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Email Performance -->
+<section class="section" aria-labelledby="email">
+  <h2 id="email">Email Highlights</h2>
+  <p class="muted" style="margin:.25rem 0 .75rem">Representative send to school enrollment contacts (targeted list).</p>
+
+  <div class="pillrow">
+    <span class="pill">Open Rate: <strong>49%</strong> (~2× typical)</span>
+    <span class="pill">CTR: <strong>0.75%</strong></span>
+    <span class="pill">Replies: <strong>0.21%</strong></span>
+  </div>
+
+  <div class="table-wrap" role="region" aria-label="Email performance table">
+    <table>
+      <thead><tr><th scope="col">Email</th><th scope="col">Audience</th><th scope="col">Sent</th><th scope="col">Delivered</th><th scope="col">Open Rate</th><th scope="col">CTR</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="https://mail.michiganvirtual.org/its-about-that-time-2" target="_blank" rel="noopener">“It’s about that time” (Open enrollment)</a></td>
+          <td>Enrollment coordinators</td>
+          <td>~954</td>
+          <td>~932</td>
+          <td><strong>49.0%</strong></td>
+          <td>0.75%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="muted" style="margin-top:.6rem">Takeaway: helpful, timely emails to a well-curated list drove unusually high open rates, while paid social scaled awareness efficiently.</p>
+</section>
+
+<!-- Channel Samples -->
+<section class="two-col" aria-label="Channel Samples">
+  <div class="card">
+    <h3>Entertaining teaser: “Guitar”</h3>
+    <p class="muted" style="margin-top:0">A light, memorable spot to remind educators how broad the catalog is (yes, even Guitar online!).</p>
+    <div class="embed" role="region" aria-label="Guitar Video">
+      <iframe src="https://www.youtube-nocookie.com/embed/L6th1SR57Sg"
+              title="Michigan Virtual Guitar spot"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Explainer: How Online Learning Works</h3>
+    <p class="muted" style="margin-top:0">Addresses common concerns and helps administrators reassure families and staff.</p>
+    <div class="embed" role="region" aria-label="Explainer Video">
+      <iframe src="https://www.youtube-nocookie.com/embed/CpGWsjcLZIM"
+              title="How Michigan Virtual works"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Process card (optional narrative) -->
+<section class="section" aria-labelledby="process">
+  <h2 id="process">How We Sequenced the Campaign</h2>
+  <div class="grid12">
+    <article class="block">
+      <h3>Week 1: Open Now</h3>
+      <p>Announce enrollment and nudge returning districts to act quickly after break.</p>
+      <ul class="dotlist">
+        <li>Facebook awareness + email announcement</li>
+        <li>Conference chatter & partner outreach reinforce message</li>
+      </ul>
+    </article>
+
+    <article class="block">
+      <h3>Week 2: Value Props</h3>
+      <p>Highlight unique, relevant courses and student outcomes; drive clicks to catalog.</p>
+      <ul class="dotlist">
+        <li>Course-feature ads & social carousels</li>
+        <li>Explainer video for admins & counselors</li>
+      </ul>
+    </article>
+
+    <article class="block">
+      <h3>Week 3: Urgency</h3>
+      <p>“Last chance” creatives and reminder emails to ensure all enrollments are captured.</p>
+      <ul class="dotlist">
+        <li>Retargeting + countdown messaging</li>
+        <li>Final reminder to curated email segments</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- Back to Home -->
+<section style="max-width:var(--page-max);margin:var(--vr) auto;text-align:center;">
+  <a href="/" class="btn outline">← Back to Home</a>
+</section>
+
+<footer>© 2025 Brandon Bautista</footer>
+
+<script>
+  // Gentle hero parallax (respects reduced motion)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if(!hero || !media) return;
+    let ticking=false;
+    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y',(r.top*0.15)+'px'); ticking=false; }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    update(); window.addEventListener('scroll', onScroll,{passive:true}); window.addEventListener('resize', onScroll);
+  })();
+</script>
+
+</body>
+</html>
