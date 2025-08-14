@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Brand Standards & Guidelines | Brandon Bautista</title>
+<title>Brand Standards & System | Brandon Bautista</title>
 
 <!-- Social preview -->
-<meta property="og:title" content="Michigan Virtual Brand Standards & Guidelines — Project" />
-<meta property="og:description" content="One brand, one voice. A practical, accessible system that keeps Michigan Virtual consistent across every touchpoint." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1740&auto=format&fit=crop" />
+<meta property="og:title" content="Brand Standards & System | Brandon Bautista">
+<meta property="og:description" content="A practical, loved, and widely adopted brand system for Michigan Virtual — logos, colors, accessibility, typography, writing, templates, and icons in one place.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop">
 
 <style>
   :root{
@@ -22,178 +22,276 @@
     --brand:#ff7a00;
     --brand-700:#e66b00;
     --footer:#333333;
-    --vr: 1.25rem; /* vertical rhythm between sections */
+    --vr: 1.6rem;          /* vertical rhythm between sections */
+    --side-pad: 1rem;      /* aligns with hero’s left/right inset */
   }
 
   /* Base */
   *{box-sizing:border-box}
   html,body{overflow-x:hidden}
-  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  a{color:var(--brand);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  img{max-width:100%;display:block}
+  img{max-width:100%;height:auto;display:block}
+  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
 
-  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
+  /* Centered grid wrapper */
+  .page{
+    display:grid;
+    grid-template-columns: 1fr minmax(0, var(--page-max)) 1fr;
+  }
+  .page > *{ grid-column: 2; }
+  .pad{ padding-left: var(--side-pad); padding-right: var(--side-pad); }
+
+  /* Header */
+  header{padding:1rem 0;font-weight:700;}
 
   /* Hero */
-  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto var(--vr);border-radius:var(--radius);overflow:hidden;}
-  .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
-  .hero img{width:100%;height:120%;object-fit:cover;display:block;}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.55) 100%);z-index:1;}
-  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.25rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.5rem;z-index:2;}
-  .hero-title{margin:0;color:#fff;font-weight:800;font-size:2rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
-  .hero-sub{margin:0;color:#fff;opacity:.95;}
+  .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
+  .hero img{width:100%;height:120%;object-fit:cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)}
+  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.25rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
+  .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .hero-sub{margin:0;opacity:.95}
 
   /* Sections */
-  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
-  .section h2{margin:0 0 .75rem;font-size:1.4rem;}
-  .muted{color:var(--muted);}
+  .section{margin:var(--vr) 0;}
+  .section-inner{
+    background:#f2f0ee;border-radius:var(--radius);
+    padding:1.25rem var(--side-pad);
+  }
+  .section h2{margin:0 0 .75rem;font-size:1.4rem}
+  .muted{color:var(--muted)}
 
-  /* 3-up quick blocks */
-  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
-  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
-  .block h3{margin:.2rem 0 .5rem;font-size:1rem;}
-  .block p{margin:0 0 .5rem;}
-  .block ul{margin:.5rem 0 0;padding:0 0 0 1.1rem;}
+  /* KPI / pill row */
+  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+  .pill{display:inline-block;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem}
 
-  /* Feature grid */
-  .features{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
-  .feature{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-  .feature h3{margin:.2rem 0 .45rem;font-size:1rem;}
-  .feature p{margin:.25rem 0 0;}
+  /* Feature cards grid */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .feature{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .feature h3{margin:.2rem 0 .5rem;font-size:1.05rem}
+  .feature .head{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem}
+  .icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;font-size:18px;flex:0 0 34px}
+  .feature details{margin-top:.5rem}
+  .feature summary{cursor:pointer;color:var(--brand);font-weight:700;list-style:none}
+  .feature summary::-webkit-details-marker{display:none}
 
-  /* Callout */
-  .callout{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center;}
+  /* “Kit” download links */
+  .klinks{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
 
   /* Buttons */
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.7rem 1.1rem;font-weight:700;text-decoration:none;transition:.2s transform,.3s background;border:0}
+  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
   .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
   .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
   .btn.outline:hover{background:#fff4eb}
 
   /* Footer */
-  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
+  footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
+  footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  /* Mobile hero readability tweaks (same pattern as your other pages) */
+  /* Mobile hero readability tweaks */
   @media (max-width: 768px){
-    .hero{ height: 240px; }
-    .hero img{ object-position:center 35%; }
-    .hero-overlay{ background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%); }
-    .hero-content{ bottom:.85rem; max-width:36ch; }
-    .hero-title{ font-size:clamp(1.35rem, 7.2vw, 1.85rem); line-height:1.12; text-wrap:balance; margin-bottom:.15rem; }
-    .hero-sub{ font-size:.98rem; line-height:1.35; max-width:38ch; opacity:.96; }
-    .hero-content::before{ content:""; position:absolute; inset:-.4rem -.6rem; background:rgba(0,0,0,.18); filter:blur(.5px); border-radius:10px; z-index:-1; }
-    .block,.feature{grid-column:span 12;}
-    header, .hero, .section, .callout { padding-left: 1rem; padding-right: 1rem; }
+    .hero{height:240px}
+    .hero-media img{object-position:center 30%}
+    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
+    .hero-content{bottom:.85rem;max-width:36ch}
+    .hero-title{font-size:clamp(1.35rem, 7.2vw, 1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
+    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
+    .hero-content::before{
+      content:"";position:absolute;inset:-.4rem -.6rem;z-index:-1;
+      background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;
+    }
   }
 
+  /* Responsive grid */
   @media (max-width: 900px){
-    .block{grid-column:span 6;}
-    .feature{grid-column:span 6;}
+    .feature{grid-column:span 6}
   }
-
-  @media (prefers-reduced-motion: reduce){
-    .hero-media{transform:none !important;}
+  @media (max-width: 600px){
+    .feature{grid-column:span 12}
   }
 </style>
 </head>
 <body>
 
-<!-- Back to Home -->
-<header><a href="/">← Back to Home</a></header>
+<div class="page">
 
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-media" id="heroMedia" aria-hidden="true">
-    <!-- School/learning themed Unsplash photo -->
-    <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1740&auto=format&fit=crop" alt="Clean design elements on a desk representing brand systems" />
-  </div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">One Brand, One Voice: Michigan Virtual’s Brand Standards & Guidelines</h1>
-    <p class="hero-sub">A practical, accessible system that keeps our identity consistent across every touchpoint — and a piece of work we’re genuinely proud of.</p>
-  </div>
-</section>
+  <!-- Header -->
+  <header class="pad"><a href="/">← Back to Home</a></header>
 
-<!-- At a Glance -->
-<section class="section" aria-labelledby="glance-title">
-  <h2 id="glance-title">At a Glance</h2>
-  <div class="quick">
-    <article class="block" aria-labelledby="what-title">
-      <h3 id="what-title">What</h3>
-      <p>A comprehensive, public brand guide covering logos, color, typography, voice, templates, and iconography — all in one place for staff, partners, and vendors.</p>
-      <p class="muted">Reference: <a href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">michiganvirtual.org/brand/</a></p>
-    </article>
+  <!-- Hero -->
+  <section class="pad">
+    <div class="hero" id="hero">
+      <div class="hero-media" id="heroMedia" aria-hidden="true">
+        <!-- School/brand-ish Unsplash hero -->
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop" alt="Clean academic workspace and brand materials">
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Michigan Virtual — Brand Standards & System</h1>
+        <p class="hero-sub">A single source of truth for logos, colors, accessibility, typography, voice & tone, templates, and icons — built to be practical, enforceable, and loved.</p>
+      </div>
+    </div>
+  </section>
 
-    <article class="block" aria-labelledby="why-title">
-      <h3 id="why-title">Why It Matters</h3>
+  <!-- At a Glance -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>At a Glance</h2>
+      <div class="pill-row">
+        <span class="pill">Centralized brand site</span>
+        <span class="pill">Accessibility guidance</span>
+        <span class="pill">Ready-to-use templates</span>
+        <span class="pill">Voice & tone rules</span>
+        <span class="pill">Custom icon library</span>
+      </div>
+      <p class="muted" style="margin:0">Our goal was utility over theory: make it fast and easy for anyone — designers, writers, or partners — to produce work that is unmistakably Michigan Virtual.</p>
+    </div>
+  </section>
+
+  <!-- Feature areas with emoji-inspired icons -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>What’s Inside</h2>
+      <div class="grid">
+
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🧩</div>
+            <h3>Logos & Usage</h3>
+          </div>
+          <p>Lockups, safe areas, scale, and misuse examples — everything teams need to apply the mark with confidence.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Primary/secondary lockups</li>
+              <li>Minimum size & clear space</li>
+              <li>Background control & misuse gallery</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🎨</div>
+            <h3>Colors & Accessibility</h3>
+          </div>
+          <p>Primary/secondary palette with contrast ratios and examples — so on-brand also means readable.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>WCAG contrast checks</li>
+              <li>When to use brand colors</li>
+              <li>Live swatches & code values</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🔤</div>
+            <h3>Typography</h3>
+          </div>
+          <p>Signature type pairing and hierarchy rules that keep layouts clean, consistent, and legible.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Primary & secondary families</li>
+              <li>Scale & weights for headings/body</li>
+              <li>Web & presentation guidance</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🗂️</div>
+            <h3>Templates</h3>
+          </div>
+          <p>Official slide deck, email signatures, and blog patterns — ship faster and stay on-brand by default.</p>
+          <details><summary>Details</summary>
+            <div class="klinks">
+              <a class="btn outline" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Slide template</a>
+              <a class="btn outline" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Email signature spec</a>
+              <a class="btn outline" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Blog guidelines</a>
+            </div>
+          </details>
+        </article>
+
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">✍️</div>
+            <h3>Writing Standards</h3>
+          </div>
+          <p>A friendly, confident voice — plus nuts-and-bolts rules for acronyms, commas, dates, and more.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Voice & tone by audience</li>
+              <li>Grammar & mechanics quick-refs</li>
+              <li>Examples for clarity and consistency</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🔣</div>
+            <h3>Custom Icons</h3>
+          </div>
+          <p>A cohesive icon set that adds warmth and personality while reinforcing clarity in UI and content.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Category & usage guidance</li>
+              <li>Downloadable assets</li>
+              <li>Styling rules for new additions</li>
+            </ul>
+          </details>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Governance & adoption -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Governance & Adoption</h2>
+      <p>Standards only work when they’re easy to find and easier to follow. We centralized everything on a clean, public-facing page and paired it with ready-to-use files. As a result, the brand has been consistently applied across teams and vendors — with fewer revision cycles, fewer one-off questions, and more beautiful, accessible work.</p>
+      <div class="pill-row">
+        <span class="pill">Single source of truth</span>
+        <span class="pill">Self-serve assets</span>
+        <span class="pill">Vendor alignment</span>
+        <span class="pill">Fewer reworks</span>
+      </div>
+      <a class="btn" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">View the live Brand Standards →</a>
+    </div>
+  </section>
+
+  <!-- Outcomes (qualitative) -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Outcomes</h2>
       <ul>
-        <li>Protects brand integrity and accessibility (WCAG-aware palette + guidance).</li>
-        <li>Saves time with ready-to-use assets (slides, signatures, writing rules).</li>
-        <li>Ensures a unified look and voice across campaigns, emails, and events.</li>
+        <li>Designers, writers, and partners produce consistent work faster using shared templates and clear rules.</li>
+        <li>Leadership and stakeholders report stronger confidence in brand presentation across channels.</li>
+        <li>Accessibility standards are built-in — increasing legibility and reducing retrofits.</li>
       </ul>
-    </article>
+      <p class="muted" style="margin:.5rem 0 0">We’ve received frequent compliments from internal teams and external partners on the clarity and usefulness of the system.</p>
+    </div>
+  </section>
 
-    <article class="block" aria-labelledby="impact-title">
-      <h3 id="impact-title">Impact</h3>
-      <ul>
-        <li>Adoption across teams & vendors; fewer revisions and brand escalations.</li>
-        <li>Consistently praised by colleagues and partners for clarity & polish.</li>
-        <li>Faster production and higher quality across presentations, blogs, and ads.</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<!-- Features -->
-<section class="section" aria-labelledby="features-title">
-  <h2 id="features-title">What’s Inside</h2>
-  <div class="features">
-    <article class="feature">
-      <h3>Logos & Usage</h3>
-      <p>Clear do’s and don’ts, correct spacing, and downloadable formats to ensure our mark always shines.</p>
-    </article>
-    <article class="feature">
-      <h3>Colors & Accessibility</h3>
-      <p>Primary/secondary palette with contrast guidance for readable, inclusive design.</p>
-    </article>
-    <article class="feature">
-      <h3>Typography</h3>
-      <p>Our signature type pairings and hierarchy for consistent, professional layouts.</p>
-    </article>
-    <article class="feature">
-      <h3>Templates</h3>
-      <p>Official slide deck, email signature spec, and blog formatting — fast and on-brand.</p>
-    </article>
-    <article class="feature">
-      <h3>Writing Standards</h3>
-      <p>Voice & tone basics plus nuts-and-bolts (acronyms, dates, commas) for clear, unified content.</p>
-    </article>
-    <article class="feature">
-      <h3>Custom Icons</h3>
-      <p>A unique icon system that adds warmth and personality while staying consistent.</p>
-    </article>
-  </div>
-</section>
-
-<!-- Open the Guide -->
-<section class="callout" aria-labelledby="open-guide-title">
-  <h2 id="open-guide-title" style="margin:.2rem 0 .25rem;">Explore the Brand Guide</h2>
-  <p class="muted" style="margin:.25rem 0 1rem;">Logos, colors, templates, writing rules — everything in one place.</p>
-  <a class="btn" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Open the Brand Guide →</a>
-</section>
-
-<!-- Back to Home link (consistent with other pages) -->
-<section class="section" style="background:transparent;padding:0;max-width:var(--page-max);margin:calc(var(--vr) + .5rem) auto;">
-  <div style="text-align:center;">
+  <!-- Back to Home -->
+  <section class="pad" style="text-align:center; margin-top:2rem;">
     <a href="/" class="btn outline">← Back to Home</a>
-  </div>
-</section>
+  </section>
 
-<footer>© 2025 Brandon Bautista</footer>
+  <!-- Footer -->
+  <footer>
+    <div class="pad">© 2025 Brandon Bautista</div>
+  </footer>
+
+</div><!-- /.page -->
 
 <script>
-  // Gentle parallax for hero (respects reduced motion)
+  // Gentle hero parallax (respects reduced motion)
   (function(){
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (reduce.matches) return;
@@ -201,9 +299,15 @@
     const media = document.getElementById('heroMedia');
     if(!hero || !media) return;
     let ticking=false;
-    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
+    function update(){
+      const r=hero.getBoundingClientRect();
+      media.style.setProperty('--y', (r.top*0.15)+'px');
+      ticking=false;
+    }
     function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
-    update(); window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll);
+    update();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
   })();
 </script>
 
