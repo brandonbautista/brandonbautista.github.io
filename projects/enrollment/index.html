@@ -89,6 +89,7 @@
   .ad{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
   .ad figure{margin:0}
   .ad figcaption{padding:.6rem .75rem;border-top:1px solid rgba(0,0,0,.06);font-size:.95rem}
+  .ad video{display:block;width:100%;height:auto}
 
   /* Buttons */
   .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
@@ -263,29 +264,30 @@
     </div>
   </section>
 
-  <!-- Ad Samples (swap in your real assets when ready) -->
+  <!-- Ad Samples (two MP4s + one static) -->
   <section class="section">
     <div class="section-inner">
       <h2>Creative Samples</h2>
       <div class="ads">
         <figure class="ad">
-          <!-- Animated GIF sample (placeholder) -->
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" alt="Animated ad placeholder">
-          <figcaption>Animated GIF ad (placeholder) — swap with your exported .gif</figcaption>
+          <video controls preload="metadata" playsinline muted>
+            <source src="./expand.mp4" type="video/mp4" />
+            Sorry, your browser doesn’t support embedded videos.
+          </video>
+          <figcaption>Video ad — “Expand” (MP4)</figcaption>
         </figure>
 
         <figure class="ad">
-          <!-- Static image sample (placeholder) -->
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop" alt="Static ad placeholder">
-          <figcaption>Static image ad (placeholder) — swap with a real ad image</figcaption>
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop" alt="Static ad sample">
+          <figcaption>Static image ad (sample)</figcaption>
         </figure>
 
         <figure class="ad">
-          <!-- MP4 sample (placeholder frame with link) -->
-          <a href="#" onclick="return false;">
-            <img src="https://images.unsplash.com/photo-1523246191152-4c4fd08d6633?q=80&w=1200&auto=format&fit=crop" alt="Video ad placeholder">
-          </a>
-          <figcaption>Video ad (MP4) — embed or link your final file here</figcaption>
+          <video controls preload="metadata" playsinline muted>
+            <source src="./fallvertical.mp4" type="video/mp4" />
+            Sorry, your browser doesn’t support embedded videos.
+          </video>
+          <figcaption>Video ad — “Fall Vertical” (MP4)</figcaption>
         </figure>
       </div>
     </div>
