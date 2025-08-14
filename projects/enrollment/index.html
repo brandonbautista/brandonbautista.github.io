@@ -89,7 +89,20 @@
   .ad{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
   .ad figure{margin:0}
   .ad figcaption{padding:.6rem .75rem;border-top:1px solid rgba(0,0,0,.06);font-size:.95rem}
-  .ad video{display:block;width:100%;height:auto}
+
+  /* Responsive videos inside ads with overlay controls */
+  .video-wrap{position:relative;aspect-ratio:16/9;background:#000}
+  .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;border:0}
+  .video-toggle{
+    position:absolute;inset:auto 0 0 auto; /* bottom-right */
+    margin:.5rem;
+    width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.6);
+    display:grid;place-items:center;background:rgba(0,0,0,.35);
+    color:#fff;font-weight:800;cursor:pointer;user-select:none;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .video-toggle:hover{transform:translateY(-1px);background:rgba(0,0,0,.5)}
+  .video-toggle[aria-pressed="true"]{background:rgba(0,0,0,.7)} /* pressed = paused */
 
   /* Buttons */
   .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
@@ -188,27 +201,26 @@
         <div class="mega">5,000,000+ impressions</div>
         <p class="muted" style="margin:.25rem 0 1rem;">High-scale reach to Michigan educators & families with efficient performance.</p>
 
-        <!-- Replace the XX placeholders below with your exact figures -->
         <div class="r-grid">
           <div class="metric">
             <h4>CTR</h4>
-            <p>XX%</p>
+            <p>0.24%</p>
           </div>
           <div class="metric">
             <h4>CPC</h4>
-            <p>$XX.XX</p>
-          </div>
-          <div class="metric">
-            <h4>CPM</h4>
-            <p>$XX.XX</p>
+            <p>$0.30</p>
           </div>
           <div class="metric">
             <h4>Reach</h4>
-            <p>~XX,XXX</p>
+            <p>296,511</p>
+          </div>
+          <div class="metric">
+            <h4>Link Clicks</h4>
+            <p>11,700</p>
           </div>
         </div>
 
-        <p class="muted" style="margin-top:.75rem">Note: I can drop in the precise CTR/CPC/CPM/Reach figures—you mentioned they outperform education benchmarks; this card is built to feature them prominently.</p>
+        <p class="muted" style="margin-top:.75rem">CTR and CPC performed competitively vs. education benchmarks, while delivering more than five million impressions on a lean budget.</p>
       </div>
     </div>
   </section>
@@ -222,8 +234,8 @@
         <article class="g-card" style="grid-column:span 6;">
           <h3>Key Metrics</h3>
           <ul>
-            <li><strong>Open Rate:</strong> ~2× industry average</li>
-            <li><strong>Click Rate:</strong> Healthy CTR for a small, high-intent list</li>
+            <li><strong>Open Rate:</strong> ~49% (≈2× industry average)</li>
+            <li><strong>Click-through Rate:</strong> 1.53% (education audience)</li>
           </ul>
         </article>
         <article class="g-card" style="grid-column:span 6;">
@@ -264,31 +276,44 @@
     </div>
   </section>
 
-  <!-- Ad Samples (two MP4s + one static) -->
+  <!-- Creative Samples (with autoplaying MP4s + toggle) -->
   <section class="section">
     <div class="section-inner">
       <h2>Creative Samples</h2>
       <div class="ads">
+
         <figure class="ad">
-          <video controls preload="metadata" playsinline muted>
-            <source src="./expand.mp4" type="video/mp4" />
-            Sorry, your browser doesn’t support embedded videos.
-          </video>
-          <figcaption>Video ad — “Expand” (MP4)</figcaption>
+          <!-- Animated GIF sample (placeholder) -->
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop" alt="Animated ad placeholder">
+          <figcaption>Animated GIF ad (placeholder) — swap with your exported .gif</figcaption>
         </figure>
 
         <figure class="ad">
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop" alt="Static ad sample">
-          <figcaption>Static image ad (sample)</figcaption>
+          <!-- Static image sample (placeholder) -->
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop" alt="Static ad placeholder">
+          <figcaption>Static image ad (placeholder) — swap with a real ad image</figcaption>
         </figure>
 
         <figure class="ad">
-          <video controls preload="metadata" playsinline muted>
-            <source src="./fallvertical.mp4" type="video/mp4" />
-            Sorry, your browser doesn’t support embedded videos.
-          </video>
-          <figcaption>Video ad — “Fall Vertical” (MP4)</figcaption>
+          <div class="video-wrap">
+            <video class="video-ad" muted playsinline loop preload="auto">
+              <source src="./expand.mp4" type="video/mp4">
+            </video>
+            <button class="video-toggle" aria-label="Play/Pause video" aria-pressed="false">▐▐</button>
+          </div>
+          <figcaption>Video ad — Expand campaign</figcaption>
         </figure>
+
+        <figure class="ad">
+          <div class="video-wrap">
+            <video class="video-ad" muted playsinline loop preload="auto">
+              <source src="./fallvertical.mp4" type="video/mp4">
+            </video>
+            <button class="video-toggle" aria-label="Play/Pause video" aria-pressed="false">▐▐</button>
+          </div>
+          <figcaption>Video ad — Fall vertical campaign</figcaption>
+        </figure>
+
       </div>
     </div>
   </section>
@@ -323,6 +348,59 @@
     update();
     window.addEventListener('scroll', onScroll, {passive:true});
     window.addEventListener('resize', onScroll);
+  })();
+
+  // Video autoplay when motion allowed + play/pause toggles
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const vids = document.querySelectorAll('.video-ad');
+    const toggles = document.querySelectorAll('.video-toggle');
+
+    function setButtonState(btn, playing){
+      btn.setAttribute('aria-pressed', playing ? 'false' : 'true');
+      btn.textContent = playing ? '▐▐' : '▶';
+    }
+
+    vids.forEach((v, i) => {
+      // Autoplay only if user hasn't asked to reduce motion
+      if (!reduce.matches) {
+        v.setAttribute('autoplay', '');
+        v.play().catch(()=>{/* autoplay may be blocked; ignore */});
+      }
+      // Initial button state (assume playing if not reduced motion)
+      setButtonState(toggles[i], !reduce.matches);
+
+      // Toggle click handler
+      toggles[i].addEventListener('click', () => {
+        if (v.paused) {
+          v.play().catch(()=>{});
+          setButtonState(toggles[i], true);
+        } else {
+          v.pause();
+          setButtonState(toggles[i], false);
+        }
+      });
+
+      // Clicking the video also toggles
+      v.addEventListener('click', () => toggles[i].click());
+    });
+
+    // React if user changes their reduced motion preference live
+    try {
+      reduce.addEventListener('change', (e) => {
+        vids.forEach((v, i) => {
+          if (e.matches) {
+            v.pause();
+            v.removeAttribute('autoplay');
+            setButtonState(toggles[i], false);
+          } else {
+            v.setAttribute('autoplay', '');
+            v.play().catch(()=>{});
+            setButtonState(toggles[i], true);
+          }
+        });
+      });
+    } catch(_) {}
   })();
 </script>
 
