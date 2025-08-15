@@ -30,6 +30,9 @@
   html,body{overflow-x:hidden}
   img{max-width:100%;display:block;height:auto}
   body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+  section { margin: 0; padding: 0; }
+  figure { margin: 0; padding: 0; }
+  blockquote { margin: 0; padding: 0; }
 
   /* Page grid: center all main sections; footer spans full width */
   .page{
@@ -74,25 +77,30 @@
   .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
   .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
 
-  /* Testimonial / Colleague Feedback */
-  .feedback{margin:var(--vr) 0;}
-  .feedback h2{margin:0 0 1rem .25rem;}
+  /* Testimonial / Colleague Feedback - LEFT ALIGNED LAYOUT */
+  .feedback{margin:var(--vr) 0; padding: 0;}
+  .feedback h2{font-size:1.5rem; margin:0 0 1rem .25rem;}
   .t-card{
-    display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
-    background:var(--card); border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08);
-    padding:1.25rem;
+    display:grid; 
+    grid-template-columns:240px 1fr; 
+    gap:1.5rem;
+    background:var(--card); 
+    border:1px solid rgba(0,0,0,.06);
+    border-radius:var(--radius); 
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    padding:1.5rem;
+    width: 100%;
+    max-width: 100%;
   }
-  .t-aside{display:grid; gap:.75rem; align-content:start;}
+  .t-aside{display:flex; flex-direction:column; gap:.75rem; align-items:flex-start;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
-  .t-meta{color:var(--muted); display:grid; gap:.2rem;}
+  .t-meta{color:var(--muted); display:flex; flex-direction:column; gap:.2rem;}
   .t-meta strong{color:var(--text);}
-  /* Full-width pull-quote inside the right column */
+  /* Left-aligned quote */
   blockquote.t-quote{
-    margin:0;
     background:#fff7ef;
     border-left:4px solid var(--brand);
-    padding:.75rem 1rem;
+    padding:1.25rem 1.5rem;
     border-radius:6px;
     line-height:1.7;
     font-size:1.05rem;
@@ -112,6 +120,7 @@
   /* Mobile */
   @media (max-width: 768px) {
     .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
+    .feedback { padding-left: 0; padding-right: 0; }
     .hero{height:300px}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
     .hero-content{bottom:1rem;}
@@ -120,7 +129,7 @@
     .project{flex:1 1 100%;}
     .skill-card{grid-column:span 12;}
     .t-card{grid-template-columns:1fr;}
-    .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
+    .t-aside{flex-direction:row; align-items:center; gap:.75rem;}
     .t-avatar{width:72px; height:72px;}
     .t-quote{font-size:1.02rem;}
   }
@@ -142,7 +151,7 @@
   <section class="container">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="images/hero.avif" alt="Modern workspace with laptop and notebook" />
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Modern workspace with laptop and notebook" />
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content" aria-label="Introduction">
@@ -158,8 +167,8 @@
   <!-- Intro -->
   <section class="container">
     <div class="intro">
-      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
-      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
+      <p>I believe great marketing isn't about outspending competitors — it's about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
+      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I've led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
       <p><strong>Be kind. Work hard. Have fun.</strong></p>
     </div>
   </section>
@@ -171,7 +180,7 @@
       <!-- BRIGHT -->
       <div class="project">
         <a href="/projects/bright/">
-          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork" />
+          <img class="thumb-parallax" src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1200&auto=format&fit=crop" alt="BRIGHT podcast artwork" />
           <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
         </a>
       </div>
@@ -179,16 +188,14 @@
       <!-- Michigan Cares -->
       <div class="project">
         <a href="/projects/michigancares/">
-          <!-- Replace with a local thumbnail when ready -->
           <img class="thumb-parallax" src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop" alt="Michigan Cares campaign thumbnail" />
           <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
         </a>
       </div>
 
-            <!-- Yearlong Enrollment Cycle -->
+      <!-- Yearlong Enrollment Cycle -->
       <div class="project">
         <a href="/projects/enrollment/">
-          <!-- Swap to a local thumb like images/enrollment.jpg when ready -->
           <img class="thumb-parallax" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop" alt="Yearlong Enrollment campaign thumbnail" />
           <p>Yearlong Enrollment Cycle: Always-On Campaigns</p>
         </a>
@@ -197,21 +204,18 @@
       <!-- Brand Standards -->
       <div class="project">
         <a href="/projects/brand/">
-          <!-- Swap to a local thumb like images/brand.jpg when ready -->
           <img class="thumb-parallax" src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop" alt="Brand Standards system thumbnail" />
           <p>Brand Standards: Unified, Practical, and Loved</p>
         </a>
       </div>
 
-            <!-- Writing sample -->
+      <!-- Writing sample -->
       <div class="project">
         <a href="/projects/writing/">
           <img class="thumb-parallax" src="https://images.unsplash.com/photo-1459257831348-f0cdd359235f?q=80&w=1200&auto=format&fit=crop" alt="Writing Sample thumbnail" />
-          <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
+          <p>Writing Sample: Why I Don't Give (Hear Me Out)</p>
         </a>
       </div>
-
-
     </div>
   </section>
 
@@ -249,7 +253,7 @@
 
       <article class="skill-card">
         <h3>Customer Advocacy & Experience</h3>
-        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
+        <p class="skill-muted">Championing the customer's voice to create intuitive, trusted experiences.</p>
         <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
       </article>
     </div>
@@ -270,8 +274,8 @@
       </div>
 
       <blockquote class="t-quote">
-        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
-        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
+        <p>"In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking."</p>
+        <p>"In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!"</p>
       </blockquote>
     </figure>
   </section>
