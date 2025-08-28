@@ -7,7 +7,7 @@
 
 <!-- Social preview -->
 <meta property="og:title" content="AI Strategist Consulting | Brandon Bautista">
-<meta property="og:description" content="Scaled a new consulting division from 0 to $500K in under two years — helping schools navigate AI through inbound marketing, free resources, and PD programs.">
+<meta property="og:description" content="Built a new consulting division from zero to $500K in under two years — helping schools become AI-ready through PD, free resources, and inbound marketing.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop">
 
@@ -43,11 +43,11 @@
   .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
   .hero-sub{margin:.3rem 0 0;font-size:1.1rem;opacity:.95}
 
-  /* Executive Snapshot */
-  .snapshot{display:flex;flex-wrap:wrap;gap:1rem;margin:var(--vr) 0}
-  .snap-card{flex:1 1 200px;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);text-align:center}
-  .snap-card h3{margin:0;font-size:1.6rem;font-weight:800;color:var(--brand)}
-  .snap-card p{margin:.35rem 0 0;font-size:.95rem;color:var(--muted)}
+  /* At a Glance cards */
+  .glance{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:var(--vr) 0}
+  .g-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .g-card h3{margin:0;font-size:1.5rem;font-weight:800;color:var(--brand)}
+  .g-card p{margin:.4rem 0 0;font-size:.95rem;color:var(--muted)}
 
   /* Problem → Solution → Results */
   .psr{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:var(--vr) 0}
@@ -55,11 +55,10 @@
   .psr h3{margin:.2rem 0;font-size:1.1rem}
   .psr p{margin:.3rem 0 0}
 
-  /* Detail sections */
+  /* Detail section */
   .section{margin:var(--vr) 0}
   .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
-
   .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:.4rem 0 0}
   .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .6rem;font-size:.85rem;font-weight:700;white-space:nowrap}
 
@@ -67,11 +66,10 @@
   footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
   footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  /* Mobile */
   @media(max-width:768px){
     .hero{height:240px}
+    .glance{grid-template-columns:1fr}
     .psr{grid-template-columns:1fr}
-    .snapshot{flex-direction:column}
   }
 </style>
 </head>
@@ -92,19 +90,19 @@
     </div>
   </section>
 
-  <!-- Executive Snapshot -->
-  <section class="snapshot pad">
-    <div class="snap-card">
+  <!-- At a Glance -->
+  <section class="glance pad">
+    <div class="g-card">
       <h3>$500K+</h3>
       <p>Revenue in under 2 years</p>
     </div>
-    <div class="snap-card">
-      <h3>3 → 5</h3>
-      <p>Strategists hired to meet demand</p>
+    <div class="g-card">
+      <h3>50+</h3>
+      <p>Districts engaged in PD & consulting</p>
     </div>
-    <div class="snap-card">
-      <h3>Inbound + PD</h3>
-      <p>Free resources fueling consulting sales</p>
+    <div class="g-card">
+      <h3>AI 101</h3>
+      <p>Professional development program offered statewide</p>
     </div>
   </section>
 
@@ -112,15 +110,15 @@
   <section class="psr pad">
     <article>
       <h3>Problem</h3>
-      <p>Schools told us: “Our students are already using AI, our staff are unsure or scared, and we don’t know where to start.”</p>
+      <p>Schools told us: “Our students are already using AI, our staff are unsure or even scared, and we don’t know where to start.”</p>
     </article>
     <article>
       <h3>Solution</h3>
-      <p>Created an AI Consulting group with an <strong>AI 101 PD program</strong> + free resources to guide schools, using inbound marketing funnels.</p>
+      <p>Launched an <strong>AI Strategist Consulting group</strong> with an “AI 101” program plus free resources to guide schools, powered by inbound marketing funnels.</p>
     </article>
     <article>
       <h3>Results</h3>
-      <p>Scaled a new division to $500K+ revenue, hired 2 more strategists, and established Michigan Virtual as the go-to AI partner for schools.</p>
+      <p>Scaled a new division to $500K+ revenue in under 2 years, positioning Michigan Virtual as the go-to AI partner for schools.</p>
     </article>
   </section>
 
@@ -136,8 +134,8 @@
         <li>Partnerships</li>
         <li>Organic & Paid Social</li>
       </ul>
-      <p>We published frameworks, guidebooks, rubrics, and blog posts to help schools take first steps. Each resource pointed toward a consulting engagement, funneling demand into PD sales.</p>
-      <p><a href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">See the free resources →</a></p>
+      <p>We created a suite of resources to meet educators where they were — from frameworks and planning guides to teacher rubrics. Each resource funneled interest toward a consulting engagement.</p>
+      <p><a href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">Explore the free AI resources →</a></p>
     </div>
   </section>
 
