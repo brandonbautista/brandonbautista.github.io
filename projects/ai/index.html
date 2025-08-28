@@ -55,21 +55,42 @@
   .psr h3{margin:.2rem 0;font-size:1.1rem}
   .psr p{margin:.3rem 0 0}
 
-  /* Detail section */
+  /* Pull-quote Message */
+  .message{margin:var(--vr) 0;background:#fff7ef;border-left:4px solid var(--brand);border-radius:var(--radius);padding:1.25rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .message p{margin:0;font-size:1.2rem;font-weight:700;color:#333;text-wrap:balance}
+
+  /* Section shell */
   .section{margin:var(--vr) 0}
   .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
+  .muted{color:var(--muted)}
+
+  /* Chips */
   .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:.4rem 0 0}
   .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .6rem;font-size:.85rem;font-weight:700;white-space:nowrap}
+
+  /* Resource cards (emoji icon like Michigan Cares) */
+  .resource-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .resource{grid-column:span 4;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
+  .resource h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+  .resource p{margin:0 0 .75rem}
+  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.6rem .95rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
+  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
+  .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+  .btn.outline:hover{background:#fff4eb}
 
   /* Footer */
   footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
   footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  @media(max-width:768px){
-    .hero{height:240px}
+  @media(max-width:900px){
     .glance{grid-template-columns:1fr}
     .psr{grid-template-columns:1fr}
+    .resource{grid-column:span 12}
+  }
+  @media(max-width:768px){
+    .hero{height:240px}
   }
 </style>
 </head>
@@ -91,7 +112,7 @@
   </section>
 
   <!-- At a Glance -->
-  <section class="glance pad">
+  <section class="glance pad" aria-label="Key outcomes">
     <div class="g-card">
       <h3>$500K+</h3>
       <p>Revenue in under 2 years</p>
@@ -107,7 +128,7 @@
   </section>
 
   <!-- Problem → Solution → Results -->
-  <section class="psr pad">
+  <section class="psr pad" aria-label="Problem, solution, and results">
     <article>
       <h3>Problem</h3>
       <p>Schools told us: “Our students are already using AI, our staff are unsure or even scared, and we don’t know where to start.”</p>
@@ -122,20 +143,59 @@
     </article>
   </section>
 
-  <!-- Details -->
+  <!-- Message / Campaign Voice -->
+  <section class="message pad" aria-label="Message">
+    <p>“AI is here. We are here to help you become ready.”</p>
+  </section>
+
+  <!-- How We Did It -->
   <section class="section">
     <div class="section-inner">
       <h2>How We Did It</h2>
       <p class="muted">A multi-channel approach grounded in educator needs.</p>
-      <ul class="chiplist">
+      <ul class="chiplist" aria-label="Tactics">
         <li>Inbound Marketing</li>
         <li>Free Resources</li>
         <li>Professional Development</li>
         <li>Partnerships</li>
         <li>Organic & Paid Social</li>
       </ul>
-      <p>We created a suite of resources to meet educators where they were — from frameworks and planning guides to teacher rubrics. Each resource funneled interest toward a consulting engagement.</p>
-      <p><a href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">Explore the free AI resources →</a></p>
+      <p style="margin-top:.6rem">We created a suite of resources to meet educators where they were — from frameworks and planning guides to teacher-friendly rubrics. Each resource funneled interest toward a consulting engagement.</p>
+      <p><a href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">Explore the full AI resource hub →</a></p>
+    </div>
+  </section>
+
+  <!-- Featured Resources -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Featured Resources</h2>
+      <div class="resource-grid">
+
+        <!-- Planning Guide for AI -->
+        <article class="resource" aria-labelledby="res-plan-title">
+          <div class="icon" aria-hidden="true">🗺️</div>
+          <h3 id="res-plan-title">Planning Guide for AI</h3>
+          <p>A practical, step-by-step planning guide to shape a district AI strategy and align stakeholders.</p>
+          <a class="btn" href="https://michiganvirtual.org/resources/guides/ai-guide/" target="_blank" rel="noopener">Open Guide →</a>
+        </article>
+
+        <!-- AI Integration Framework (PDF) -->
+        <article class="resource" aria-labelledby="res-framework-title">
+          <div class="icon" aria-hidden="true">🧩</div>
+          <h3 id="res-framework-title">AI Integration Framework (PDF)</h3>
+          <p>A district-level framework to operationalize AI safely and effectively across curriculum and policy.</p>
+          <a class="btn outline" href="https://michiganvirtual.org/wp-content/uploads/2023/07/AI-Integration-Framework-for-School-Districts.pdf" target="_blank" rel="noopener">Download PDF →</a>
+        </article>
+
+        <!-- Teacher Guide to AI -->
+        <article class="resource" aria-labelledby="res-teacher-title">
+          <div class="icon" aria-hidden="true">🍎</div>
+          <h3 id="res-teacher-title">Teacher Guide to AI</h3>
+          <p>Teacher-friendly guidance, examples, and guardrails for mindful, classroom-ready AI use.</p>
+          <a class="btn" href="https://aitg.michiganvirtual.org/?_gl=1*azimsh*_gcl_au*MTAwNDAzODg1MS4xNzUxOTc4NDQ2*_ga*MTkyMDgyODAwLjE3MjA2OTk0Nzg.*_ga_VG58GV15BV*czE3NTY0MTk1NjEkbzQzMCRnMSR0MTc1NjQxOTU2MiRqNTkkbDAkaDA." target="_blank" rel="noopener">View Site →</a>
+        </article>
+
+      </div>
     </div>
   </section>
 
