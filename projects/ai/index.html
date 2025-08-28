@@ -7,9 +7,9 @@
 
 <!-- Social preview -->
 <meta property="og:title" content="AI Strategist Consulting | Brandon Bautista">
-<meta property="og:description" content="We heard ‘Where do we start with AI?’—so we built AI 101 PD + a robust inbound resource hub. Result: $500K revenue and a growing team.">
+<meta property="og:description" content="Scaled a new consulting division from 0 to $500K in under two years — helping schools navigate AI through inbound marketing, free resources, and PD programs.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1740&auto=format&fit=crop">
+<meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop">
 
 <style>
   :root{
@@ -22,277 +22,131 @@
     --brand:#ff7a00;
     --brand-700:#e66b00;
     --footer:#333333;
-    --vr: 1.6rem;          /* vertical rhythm between sections */
-    --side-pad: 1rem;      /* match hero text inset */
+    --vr: 1.6rem;
+    --side-pad: 1rem;
   }
-
-  /* Base */
   *{box-sizing:border-box}
-  html,body{overflow-x:hidden}
+  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
   img{max-width:100%;height:auto;display:block}
-  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
-
-  /* HARD-CENTER LAYOUT */
   .page{display:grid;grid-template-columns:1fr minmax(0,var(--page-max)) 1fr}
-  .page > *{grid-column:2}
+  .page>*{grid-column:2}
   .pad{padding-left:var(--side-pad);padding-right:var(--side-pad)}
-
-  /* Header */
-  header{padding:1rem 0;font-weight:700;}
+  header{padding:1rem 0;font-weight:700}
 
   /* Hero */
   .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;margin-bottom:var(--vr)}
-  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
   .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.58) 100%)}
-  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.1rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,.6) 100%)}
+  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.25rem;color:#fff}
   .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-  .hero-sub{margin:0;opacity:.96}
+  .hero-sub{margin:.3rem 0 0;font-size:1.1rem;opacity:.95}
 
-  /* Sections */
-  .section{margin:var(--vr) 0;}
-  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem var(--side-pad)}
+  /* Executive Snapshot */
+  .snapshot{display:flex;flex-wrap:wrap;gap:1rem;margin:var(--vr) 0}
+  .snap-card{flex:1 1 200px;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);text-align:center}
+  .snap-card h3{margin:0;font-size:1.6rem;font-weight:800;color:var(--brand)}
+  .snap-card p{margin:.35rem 0 0;font-size:.95rem;color:var(--muted)}
+
+  /* Problem → Solution → Results */
+  .psr{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:var(--vr) 0}
+  .psr article{background:#f2f0ee;border-radius:var(--radius);padding:1rem}
+  .psr h3{margin:.2rem 0;font-size:1.1rem}
+  .psr p{margin:.3rem 0 0}
+
+  /* Detail sections */
+  .section{margin:var(--vr) 0}
+  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
-  .muted{color:var(--muted)}
 
-  /* Pills / chips */
-  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
-  .pill{display:inline-block;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem;white-space:nowrap}
-
-  /* Three-up cards */
-  .grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .g-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .g-card h3{margin:.2rem 0 .5rem;font-size:1rem}
-
-  /* Icon circle (emoji-inspired) */
-  .icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
-
-  /* Channel / tactic cards */
-  .channel-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .channel-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .channel-card h4{margin:.2rem 0 .45rem;font-size:1rem}
-  .channel-card details{margin-top:.5rem}
-  .channel-card summary{cursor:pointer;color:var(--brand);font-weight:700;list-style:none}
-  .channel-card summary::-webkit-details-marker{display:none}
-  .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0 0;padding:0;list-style:none}
-  .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .55rem;font-size:.85rem;font-weight:700;white-space:nowrap}
-
-  /* Two-up cards (resources & CTA, or proof) */
-  .twoup{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .card{grid-column:span 6;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
-  .card-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
-  .card-head h3{margin:0;font-size:1.1rem}
-  .card-body{padding:1rem}
-
-  /* Results / proof */
-  .r-card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.08);padding:1rem}
-  .r-top{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.5rem}
-  .badge{display:inline-block;background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.45rem .7rem;font-weight:700;white-space:nowrap}
-  .mega{font-size:2rem;font-weight:800;line-height:1}
-
-  /* Buttons */
-  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
-  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
-  .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
-  .btn.outline:hover{background:#fff4eb}
+  .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:.4rem 0 0}
+  .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .6rem;font-size:.85rem;font-weight:700;white-space:nowrap}
 
   /* Footer */
   footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
   footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  /* Mobile hero readability */
-  @media (max-width:768px){
+  /* Mobile */
+  @media(max-width:768px){
     .hero{height:240px}
-    .hero-media img{object-position:center 35%}
-    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
-    .hero-content{bottom:.85rem;max-width:36ch}
-    .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
-    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
-    .hero-content::before{content:"";position:absolute;inset:-.4rem -.6rem; background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;z-index:-1}
-    .g-card,.card,.channel-card{grid-column:span 12}
+    .psr{grid-template-columns:1fr}
+    .snapshot{flex-direction:column}
   }
 </style>
 </head>
 <body>
-
 <div class="page">
 
-  <!-- Header -->
-  <header class="pad"><a href="/" aria-label="Back to Home">← Back to Home</a></header>
+  <header class="pad"><a href="/">← Back to Home</a></header>
 
   <!-- Hero -->
   <section class="pad">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <!-- Unsplash: classroom + tech vibe -->
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1740&auto=format&fit=crop"
-             alt="Educator using AI tools on a laptop in a classroom">
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="Educators learning about AI">
+      <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1 class="hero-title">AI Strategist Consulting</h1>
-        <p class="hero-sub">“AI is here. We’re here to help you become ready.” We built AI 101 PD + a free resource engine that meets schools where they are.</p>
+        <p class="hero-sub">Helping schools move from AI uncertainty to AI readiness — scaled from 0 to $500K in under two years.</p>
       </div>
     </div>
   </section>
 
-  <!-- At a Glance -->
+  <!-- Executive Snapshot -->
+  <section class="snapshot pad">
+    <div class="snap-card">
+      <h3>$500K+</h3>
+      <p>Revenue in under 2 years</p>
+    </div>
+    <div class="snap-card">
+      <h3>3 → 5</h3>
+      <p>Strategists hired to meet demand</p>
+    </div>
+    <div class="snap-card">
+      <h3>Inbound + PD</h3>
+      <p>Free resources fueling consulting sales</p>
+    </div>
+  </section>
+
+  <!-- Problem → Solution → Results -->
+  <section class="psr pad">
+    <article>
+      <h3>Problem</h3>
+      <p>Schools told us: “Our students are already using AI, our staff are unsure or scared, and we don’t know where to start.”</p>
+    </article>
+    <article>
+      <h3>Solution</h3>
+      <p>Created an AI Consulting group with an <strong>AI 101 PD program</strong> + free resources to guide schools, using inbound marketing funnels.</p>
+    </article>
+    <article>
+      <h3>Results</h3>
+      <p>Scaled a new division to $500K+ revenue, hired 2 more strategists, and established Michigan Virtual as the go-to AI partner for schools.</p>
+    </article>
+  </section>
+
+  <!-- Details -->
   <section class="section">
     <div class="section-inner">
-      <h2>At a Glance</h2>
-
-      <div class="pill-row">
-        <span class="pill">Problem: “Where do we start?”</span>
-        <span class="pill">Students using AI; staff unsure</span>
-        <span class="pill">AI 101 PD + resource hub</span>
-        <span class="pill">$500K revenue in &lt; 2 years</span>
-        <span class="pill">Team scaled to meet demand</span>
-      </div>
-
-      <div class="grid-12">
-        <article class="g-card">
-          <div class="icon" aria-hidden="true">❓</div>
-          <h3>The Need</h3>
-          <p>Districts told us: “Our students are already using AI. Our staff is unsure, some are nervous, and we don’t know where to begin.”</p>
-          <p class="muted">We listened and designed an on-ramp that’s approachable, safe, and practical.</p>
-        </article>
-
-        <article class="g-card">
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h3>The Solution</h3>
-          <p>We launched <strong>AI Strategist Consulting</strong>: on-site/virtual <strong>AI 101 professional development</strong> + hands-on frameworks and rubrics that schools can adopt immediately.</p>
-        </article>
-
-        <article class="g-card">
-          <div class="icon" aria-hidden="true">📈</div>
-          <h3>Impact</h3>
-          <p><strong>$500K+</strong> in revenue, added two AI Strategists to keep up with demand, and sustained inbound interest through content + partnerships.</p>
-        </article>
-      </div>
+      <h2>How We Did It</h2>
+      <p class="muted">A multi-channel approach grounded in educator needs.</p>
+      <ul class="chiplist">
+        <li>Inbound Marketing</li>
+        <li>Free Resources</li>
+        <li>Professional Development</li>
+        <li>Partnerships</li>
+        <li>Organic & Paid Social</li>
+      </ul>
+      <p>We published frameworks, guidebooks, rubrics, and blog posts to help schools take first steps. Each resource pointed toward a consulting engagement, funneling demand into PD sales.</p>
+      <p><a href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">See the free resources →</a></p>
     </div>
   </section>
 
-  <!-- Channels & Tactics -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Channels & Tactics</h2>
-      <div class="channel-grid">
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🎓</div>
-          <h4>AI 101 Professional Development</h4>
-          <p>Practical, district-ready training that demystifies AI, emphasizes mindful use, and aligns to school goals and policies.</p>
-          <details><summary>What’s inside?</summary>
-            <ul class="chiplist">
-              <li>Use cases & demos</li><li>Risk & policy basics</li><li>Classroom workflows</li><li>Hands-on labs</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🧰</div>
-          <h4>Inbound Resource Engine</h4>
-          <p>We shipped a suite of <strong>free guides</strong> that funneled to a simple “bring this to your school” request.</p>
-          <details><summary>Key resources</summary>
-            <ul class="chiplist">
-              <li>Planning Guide for AI</li><li>Teacher Guide for AI</li><li>AI Integration Framework</li><li>Blogs & Rubrics</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🤝</div>
-          <h4>Partnerships & Social</h4>
-          <p>Amplified reach through partner networks, practitioner-led posts, and targeted paid/organic social.</p>
-          <details><summary>How it helped</summary>
-            <ul class="chiplist">
-              <li>Trust signals</li><li>Warm introductions</li><li>Consistent demand</li>
-            </ul>
-          </details>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resource Hub + Get Help -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Get Resources & Next Steps</h2>
-      <div class="twoup">
-        <article class="card">
-          <div class="card-head"><h3>Explore Free Resources</h3></div>
-          <div class="card-body">
-            <p class="muted" style="margin-top:0">We keep this living hub updated with frameworks, guides, rubrics, and blog posts to help schools move forward with confidence.</p>
-            <p><a class="btn" href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">Visit the AI Resource Hub →</a></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head"><h3>Bring AI 101 to Your District</h3></div>
-          <div class="card-body">
-            <p>Ready for a clear starting point? We’ll tailor AI 101 PD to your goals, policies, and staff comfort levels.</p>
-            <p><a class="btn outline" href="/#contact" onclick="return false;">Request a session →</a></p>
-            <p class="muted" style="margin:.5rem 0 0;">(Use your preferred contact method or form. On GitHub Pages, link this to an email or Netlify/Formspark endpoint.)</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Results Spotlight -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Results</h2>
-      <div class="r-card">
-        <div class="r-top">
-          <span class="badge">Inbound-first</span>
-          <span class="badge">Educator-led social</span>
-          <span class="badge">Partnership-driven</span>
-        </div>
-        <div class="mega">$500,000+ revenue</div>
-        <p class="muted" style="margin:.25rem 0 .75rem;">Generated by the AI Strategist Consulting team in under two years.</p>
-        <ul>
-          <li><strong>Scaled team:</strong> Hired two additional AI Strategists to meet demand.</li>
-          <li><strong>Consistent pipeline:</strong> Free resources → qualified interest → PD engagements.</li>
-          <li><strong>Mindful adoption:</strong> Schools gained a safe, practical foundation to begin.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Back to Home -->
-  <section class="pad" style="text-align:center; margin-top:2rem;">
+  <!-- Back -->
+  <section class="pad" style="text-align:center;margin-top:2rem">
     <a href="/" class="btn outline">← Back to Home</a>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="pad">© 2025 Brandon Bautista</div>
-  </footer>
-
-</div><!-- /.page -->
-
-<script>
-  // Gentle hero parallax (respects reduced motion)
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) return;
-    const hero = document.getElementById('hero');
-    const media = document.getElementById('heroMedia');
-    if(!hero || !media) return;
-    let ticking=false;
-    function update(){
-      const r=hero.getBoundingClientRect();
-      media.style.setProperty('--y', (r.top*0.15)+'px');
-      ticking=false;
-    }
-    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
-    update();
-    window.addEventListener('scroll', onScroll, {passive:true});
-    window.addEventListener('resize', onScroll);
-  })();
-</script>
-
+  <footer><div class="pad">© 2025 Brandon Bautista</div></footer>
+</div>
 </body>
 </html>
