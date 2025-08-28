@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI Strategists Division | Brandon Bautista</title>
+<title>AI Strategist Consulting | Brandon Bautista</title>
 
 <!-- Social preview -->
-<meta property="og:title" content="AI Strategists Division | Brandon Bautista">
-<meta property="og:description" content="From 0 → $500K in < 2 years: a new division helping educators use AI mindfully—grown through partnerships, a free resource engine, and practitioner-led social.">
+<meta property="og:title" content="AI Strategist Consulting | Brandon Bautista">
+<meta property="og:description" content="We heard ‘Where do we start with AI?’—so we built AI 101 PD + a robust inbound resource hub. Result: $500K revenue and a growing team.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1740&auto=format&fit=crop">
 
@@ -22,8 +22,8 @@
     --brand:#ff7a00;
     --brand-700:#e66b00;
     --footer:#333333;
-    --vr: 1.6rem;      /* vertical rhythm between sections */
-    --side-pad: 1rem;  /* match hero text inset */
+    --vr: 1.6rem;          /* vertical rhythm between sections */
+    --side-pad: 1rem;      /* match hero text inset */
   }
 
   /* Base */
@@ -57,36 +57,40 @@
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
   .muted{color:var(--muted)}
 
-  /* At a Glance */
-  .glance-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  /* Pills / chips */
+  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+  .pill{display:inline-block;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem;white-space:nowrap}
+
+  /* Three-up cards */
+  .grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
   .g-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
   .g-card h3{margin:.2rem 0 .5rem;font-size:1rem}
-  .g-card p{margin:.25rem 0 .5rem}
-  .g-card ul{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
 
-  /* Results Spotlight */
+  /* Icon circle (emoji-inspired) */
+  .icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
+
+  /* Channel / tactic cards */
+  .channel-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .channel-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .channel-card h4{margin:.2rem 0 .45rem;font-size:1rem}
+  .channel-card details{margin-top:.5rem}
+  .channel-card summary{cursor:pointer;color:var(--brand);font-weight:700;list-style:none}
+  .channel-card summary::-webkit-details-marker{display:none}
+  .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0 0;padding:0;list-style:none}
+  .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .55rem;font-size:.85rem;font-weight:700;white-space:nowrap}
+
+  /* Two-up cards (resources & CTA, or proof) */
+  .twoup{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .card{grid-column:span 6;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+  .card-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+  .card-head h3{margin:0;font-size:1.1rem}
+  .card-body{padding:1rem}
+
+  /* Results / proof */
   .r-card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.08);padding:1rem}
   .r-top{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.5rem}
   .badge{display:inline-block;background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.45rem .7rem;font-weight:700;white-space:nowrap}
   .mega{font-size:2rem;font-weight:800;line-height:1}
-  .r-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.75rem;margin-top:.75rem}
-  .metric{grid-column:span 3;background:#faf8f6;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:.75rem}
-  .metric h4{margin:0 0 .25rem;font-size:.95rem;color:#111}
-  .metric p{margin:0;font-weight:800;font-size:1.15rem}
-
-  /* Channels (emoji-inspired icons) */
-  .channel-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:.5rem}
-  .channel-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
-  .channel-card h4{margin:.2rem 0 .45rem;font-size:1rem}
-  .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0 0;padding:0;list-style:none}
-  .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .55rem;font-size:.85rem;font-weight:700;white-space:nowrap}
-
-  /* Resource Samples */
-  .samples{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .sample{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
-  .sample figure{margin:0}
-  .sample figcaption{padding:.6rem .75rem;border-top:1px solid rgba(0,0,0,.06);font-size:.95rem}
 
   /* Buttons */
   .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
@@ -101,14 +105,13 @@
   /* Mobile hero readability */
   @media (max-width:768px){
     .hero{height:240px}
-    .hero-media img{object-position:center 30%}
+    .hero-media img{object-position:center 35%}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
     .hero-content{bottom:.85rem;max-width:36ch}
     .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
     .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
     .hero-content::before{content:"";position:absolute;inset:-.4rem -.6rem; background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;z-index:-1}
-    .g-card,.channel-card,.sample{grid-column:span 12}
-    .metric{grid-column:span 6}
+    .g-card,.card,.channel-card{grid-column:span 12}
   }
 </style>
 </head>
@@ -123,13 +126,14 @@
   <section class="pad">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <!-- Unsplash: tech + learning -->
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1740&auto=format&fit=crop" alt="Educators collaborating with laptops and AI concepts">
+        <!-- Unsplash: classroom + tech vibe -->
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1740&auto=format&fit=crop"
+             alt="Educator using AI tools on a laptop in a classroom">
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
-        <h1 class="hero-title">AI Strategists: From Zero to $500K in < 2 Years</h1>
-        <p class="hero-sub">We built a practitioner-led division that helps schools use AI mindfully—scaled through partnerships, a free resource engine, and amplified social proof.</p>
+        <h1 class="hero-title">AI Strategist Consulting</h1>
+        <p class="hero-sub">“AI is here. We’re here to help you become ready.” We built AI 101 PD + a free resource engine that meets schools where they are.</p>
       </div>
     </div>
   </section>
@@ -138,34 +142,99 @@
   <section class="section">
     <div class="section-inner">
       <h2>At a Glance</h2>
-      <div class="glance-grid">
+
+      <div class="pill-row">
+        <span class="pill">Problem: “Where do we start?”</span>
+        <span class="pill">Students using AI; staff unsure</span>
+        <span class="pill">AI 101 PD + resource hub</span>
+        <span class="pill">$500K revenue in &lt; 2 years</span>
+        <span class="pill">Team scaled to meet demand</span>
+      </div>
+
+      <div class="grid-12">
         <article class="g-card">
-          <h3>What</h3>
-          <p>Launched a new division of <strong>AI Strategists</strong> who deliver workshops and implementation frameworks to K-12 teams—grounded in mindful, responsible use.</p>
-          <ul>
-            <li>On-site PD + virtual sessions</li>
-            <li>Actionable frameworks, rubrics, and guidebooks</li>
-            <li>Follow-up coaching & enablement</li>
-          </ul>
+          <div class="icon" aria-hidden="true">❓</div>
+          <h3>The Need</h3>
+          <p>Districts told us: “Our students are already using AI. Our staff is unsure, some are nervous, and we don’t know where to begin.”</p>
+          <p class="muted">We listened and designed an on-ramp that’s approachable, safe, and practical.</p>
         </article>
 
         <article class="g-card">
-          <h3>Why</h3>
-          <p>Educators needed clarity and confidence, not hype. We focused on safety, pedagogy, and workflow impact—helping districts adopt AI with purpose and guardrails.</p>
-          <ul>
-            <li>Positioned Michigan Virtual as a <strong>partner</strong>, not a vendor</li>
-            <li>Provided value first with free, practical resources</li>
-            <li>Turned practitioners into visible thought leaders</li>
-          </ul>
+          <div class="icon" aria-hidden="true">🧭</div>
+          <h3>The Solution</h3>
+          <p>We launched <strong>AI Strategist Consulting</strong>: on-site/virtual <strong>AI 101 professional development</strong> + hands-on frameworks and rubrics that schools can adopt immediately.</p>
         </article>
 
         <article class="g-card">
+          <div class="icon" aria-hidden="true">📈</div>
           <h3>Impact</h3>
-          <p>In less than two years, revenue grew from <strong>$0 → $500K</strong>, driven by repeat district engagements and word-of-mouth from partners and attendees.</p>
-          <ul>
-            <li>Steady inbound demand via content & social</li>
-            <li>Clear playbook for sustainable, ethical adoption</li>
-          </ul>
+          <p><strong>$500K+</strong> in revenue, added two AI Strategists to keep up with demand, and sustained inbound interest through content + partnerships.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channels & Tactics -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Channels & Tactics</h2>
+      <div class="channel-grid">
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">🎓</div>
+          <h4>AI 101 Professional Development</h4>
+          <p>Practical, district-ready training that demystifies AI, emphasizes mindful use, and aligns to school goals and policies.</p>
+          <details><summary>What’s inside?</summary>
+            <ul class="chiplist">
+              <li>Use cases & demos</li><li>Risk & policy basics</li><li>Classroom workflows</li><li>Hands-on labs</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">🧰</div>
+          <h4>Inbound Resource Engine</h4>
+          <p>We shipped a suite of <strong>free guides</strong> that funneled to a simple “bring this to your school” request.</p>
+          <details><summary>Key resources</summary>
+            <ul class="chiplist">
+              <li>Planning Guide for AI</li><li>Teacher Guide for AI</li><li>AI Integration Framework</li><li>Blogs & Rubrics</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">🤝</div>
+          <h4>Partnerships & Social</h4>
+          <p>Amplified reach through partner networks, practitioner-led posts, and targeted paid/organic social.</p>
+          <details><summary>How it helped</summary>
+            <ul class="chiplist">
+              <li>Trust signals</li><li>Warm introductions</li><li>Consistent demand</li>
+            </ul>
+          </details>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resource Hub + Get Help -->
+  <section class="section">
+    <div class="section-inner">
+      <h2>Get Resources & Next Steps</h2>
+      <div class="twoup">
+        <article class="card">
+          <div class="card-head"><h3>Explore Free Resources</h3></div>
+          <div class="card-body">
+            <p class="muted" style="margin-top:0">We keep this living hub updated with frameworks, guides, rubrics, and blog posts to help schools move forward with confidence.</p>
+            <p><a class="btn" href="https://michiganvirtual.org/ai/" target="_blank" rel="noopener">Visit the AI Resource Hub →</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><h3>Bring AI 101 to Your District</h3></div>
+          <div class="card-body">
+            <p>Ready for a clear starting point? We’ll tailor AI 101 PD to your goals, policies, and staff comfort levels.</p>
+            <p><a class="btn outline" href="/#contact" onclick="return false;">Request a session →</a></p>
+            <p class="muted" style="margin:.5rem 0 0;">(Use your preferred contact method or form. On GitHub Pages, link this to an email or Netlify/Formspark endpoint.)</p>
+          </div>
         </article>
       </div>
     </div>
@@ -174,109 +243,20 @@
   <!-- Results Spotlight -->
   <section class="section">
     <div class="section-inner">
-      <h2>Results Spotlight</h2>
+      <h2>Results</h2>
       <div class="r-card">
         <div class="r-top">
-          <span class="badge">Practitioner-led</span>
-          <span class="badge">Value-first inbound</span>
-          <span class="badge">District partnerships</span>
+          <span class="badge">Inbound-first</span>
+          <span class="badge">Educator-led social</span>
+          <span class="badge">Partnership-driven</span>
         </div>
-
         <div class="mega">$500,000+ revenue</div>
-        <p class="muted" style="margin:.25rem 0 1rem;">From launch to $500K in under 24 months—powered by partnerships, free resources that actually help, and authentic social proof from our educators.</p>
-
-        <div class="r-grid">
-          <div class="metric"><h4>Time to $500K</h4><p>< 24 months</p></div>
-          <div class="metric"><h4>Model</h4><p>Partnership + Inbound</p></div>
-          <div class="metric"><h4>Engine</h4><p>Frameworks & Rubrics</p></div>
-          <div class="metric"><h4>Moat</h4><p>Practitioner Credibility</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Channels & Plays -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Channels & Plays</h2>
-      <div class="channel-grid">
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🤝</div>
-          <h4>Partnerships</h4>
-          <p>Co-hosted PD with districts, ISDs, and associations to reach the right educators together.</p>
-          <ul class="chiplist">
-            <li>Co-branded events</li><li>Referral loops</li><li>Conference presence</li>
-          </ul>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">📚</div>
-          <h4>Inbound Resource Hub</h4>
-          <p>Published free frameworks, guidebooks, rubrics, and blog posts that solved immediate problems.</p>
-          <ul class="chiplist">
-            <li>Framework PDFs</li><li>Rubrics</li><li>How-to blogs</li>
-          </ul>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🎥</div>
-          <h4>Practitioner Social</h4>
-          <p>Amplified our strategists’ voices on LinkedIn/X—clips, threads, and artifacts from the field.</p>
-          <ul class="chiplist">
-            <li>Short clips</li><li>Carousels</li><li>Threads</li>
-          </ul>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🏫</div>
-          <h4>Workshops & PD</h4>
-          <p>Mindful AI training with a repeatable framework and hands-on planning time for teams.</p>
-          <ul class="chiplist">
-            <li>On-site & virtual</li><li>Department cohorts</li><li>Follow-ups</li>
-          </ul>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h4>Implementation Playbooks</h4>
-          <p>Simple “start Monday” docs: scope, roles, risk mitigations, and exemplars educators can borrow.</p>
-          <ul class="chiplist">
-            <li>Templates</li><li>Starter kits</li><li>Artifacts</li>
-          </ul>
-        </article>
-
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">✉️</div>
-          <h4>Nurture & Follow-up</h4>
-          <p>Post-session recap emails with links to materials and optional coaching blocks.</p>
-          <ul class="chiplist">
-            <li>Recaps</li><li>Next steps</li><li>Booking CTA</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Resource Samples (swap in real links/art later) -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Resource Samples</h2>
-      <p class="muted" style="margin:.25rem 0 1rem;">A taste of the value-first content that fueled inbound interest. Replace these with your live assets when ready.</p>
-      <div class="samples">
-        <figure class="sample">
-          <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop" alt="Framework thumbnail">
-          <figcaption><strong>Mindful AI Framework</strong> — scope, guardrails, and a phased rollout plan.</figcaption>
-        </figure>
-        <figure class="sample">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Rubric thumbnail">
-          <figcaption><strong>Classroom Use Rubric</strong> — evaluates tasks for safety, equity, and learning impact.</figcaption>
-        </figure>
-        <figure class="sample">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Guidebook thumbnail">
-          <figcaption><strong>Guidebook</strong> — practical prompts, policy starters, and exemplar lessons.</figcaption>
-        </figure>
+        <p class="muted" style="margin:.25rem 0 .75rem;">Generated by the AI Strategist Consulting team in under two years.</p>
+        <ul>
+          <li><strong>Scaled team:</strong> Hired two additional AI Strategists to meet demand.</li>
+          <li><strong>Consistent pipeline:</strong> Free resources → qualified interest → PD engagements.</li>
+          <li><strong>Mindful adoption:</strong> Schools gained a safe, practical foundation to begin.</li>
+        </ul>
       </div>
     </div>
   </section>
