@@ -1,226 +1,463 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>AI Strategist Consulting | Brandon Bautista</title>
 
+
+
+<!-- Social preview -->
+
 <meta property="og:title" content="AI Strategist Consulting | Brandon Bautista">
+
 <meta property="og:description" content="Built the growth engine — sales funnel, inbound content, and social amplification — that scaled AI Strategist Consulting to $500K in under two years.">
+
 <meta property="og:type" content="website">
+
 <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop">
 
+
+
 <style>
+
   :root{
+
     --page-max: 1200px;
+
     --radius: 12px;
+
     --bg: #f9f8f6;
+
     --text: #333333;
+
     --muted:#6b7280;
+
     --card:#ffffff;
+
     --brand:#ff7a00;
+
     --brand-700:#e66b00;
+
     --footer:#333333;
+
     --vr: 1.6rem;
+
     --side-pad: 1rem;
+
   }
+
   *{box-sizing:border-box}
+
   body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
   img{max-width:100%;height:auto;display:block}
+
   a{color:var(--brand);text-decoration:none}
+
   a:hover{text-decoration:underline}
 
-  /* Centered page grid */
-  .page{display:grid;grid-template-columns:1fr minmax(0,var(--page-max)) 1fr}
-  .page > *{grid-column:2}
 
-  /* Standardized inner content padding */
-  .content-inner{padding:1.25rem var(--side-pad)}
+
+  /* Centered page grid */
+
+  .page{display:grid;grid-template-columns:1fr minmax(0,var(--page-max)) 1fr}
+
+  .page>*{grid-column:2}
+
+  .pad{padding-left:var(--side-pad);padding-right:var(--side-pad)}
+
   header{padding:1rem 0;font-weight:700}
 
+
+
   /* Hero */
+
   .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;margin-bottom:var(--vr)}
+
   .hero img{width:100%;height:120%;object-fit:cover}
+
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,.6) 100%)}
+
   .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.25rem;color:#fff}
+
   .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+
   .hero-sub{margin:.3rem 0 0;font-size:1.1rem;opacity:.95}
 
+
+
   /* Quick stats */
+
   .glance{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:var(--vr) 0}
+
   .g-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
   .g-card h3{margin:0;font-size:1.5rem;font-weight:800;color:var(--brand)}
+
   .g-card p{margin:.4rem 0 0;font-size:.95rem;color:var(--muted)}
 
+
+
   /* Section shells */
+
   .section{margin:var(--vr) 0}
-  .card-shell{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
+
+  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
+
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
+
   .muted{color:var(--muted)}
 
+
+
   /* Problem > Origin */
+
   .two-col{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+
   .two-col > *{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
   .two-col h3{margin:.2rem 0 .4rem;font-size:1.05rem}
 
+
+
   /* Your contributions */
+
   .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 0}
+
   .pill{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.35rem .65rem;font-weight:700;font-size:.88rem;white-space:nowrap}
+
   .contrib-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:.75rem}
+
   .contrib{grid-column:span 4;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
   .contrib h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+
   .icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
 
+
+
   /* Resource cards */
+
   .resource-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+
   .resource{grid-column:span 4;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
   .resource h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+
   .resource p{margin:0 0 .75rem}
 
+
+
   /* Buttons (consistent) */
+
   .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.6rem .95rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
+
   .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
+
   .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+
   .btn.outline:hover{background:#fff4eb}
 
+
+
   /* Footer */
+
   footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
-  footer .content-inner{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
+
+  footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
+
+
 
   @media(max-width:900px){
+
     .glance{grid-template-columns:1fr}
+
     .two-col{grid-template-columns:1fr}
+
     .two-col > *{grid-column:span 12}
+
     .contrib{grid-column:span 12}
+
     .resource{grid-column:span 12}
+
   }
+
   @media(max-width:768px){
+
     .hero{height:240px}
+
   }
+
 </style>
+
 </head>
+
 <body>
+
 <div class="page">
 
-  <header class="content-inner"><a href="/">← Back to Home</a></header>
 
-    <section class="content-inner">
+
+  <header class="pad"><a href="/">← Back to Home</a></header>
+
+
+
+  <!-- Hero -->
+
+  <section class="pad">
+
     <div class="hero">
+
       <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="Educators learning about AI">
+
       <div class="hero-overlay"></div>
+
       <div class="hero-content">
+
         <h1 class="hero-title">AI Strategist Consulting</h1>
+
         <p class="hero-sub">I built the growth engine — sales funnel, inbound content, and social amplification — that scaled this new service to <strong>$500K</strong> in under two years.</p>
+
       </div>
+
     </div>
+
   </section>
 
-    <section class="glance content-inner" aria-label="Key outcomes">
+
+
+  <!-- Fast facts -->
+
+  <section class="glance pad" aria-label="Key outcomes">
+
     <div class="g-card">
+
       <h3>$500K+</h3>
+
       <p>Revenue in under 2 years</p>
+
     </div>
+
     <div class="g-card">
+
       <h3>AI 101</h3>
+
       <p>Flagship PD offering schools book repeatedly</p>
+
     </div>
+
     <div class="g-card">
+
       <h3>Inbound-led</h3>
+
       <p>Free resources → consult requests → bookings</p>
+
     </div>
+
   </section>
 
-    <section class="section">
-    <div class="card-shell">
+
+
+  <!-- Context & Origin -->
+
+  <section class="section">
+
+    <div class="section-inner">
+
       <h2>Why this existed — and how it started</h2>
+
       <div class="two-col">
+
         <article>
+
           <h3>The signal from schools</h3>
+
           <p>Districts told us: <em>“Students are already using AI. Staff are unsure or even scared. We don’t know where to start.”</em></p>
+
           <p>We launched a consulting arm to meet that need with clear, practical support — beginning with an accessible <strong>AI 101</strong> program.</p>
+
         </article>
+
         <article>
+
           <h3>My mandate</h3>
+
           <p>Create market pull and a repeatable path to purchase. I designed and executed the growth stack: a lean sales funnel, an inbound content engine, and social amplification that made our strategists recognizable and requested by name.</p>
+
           <div class="pill-row">
+
             <span class="pill">Funnel design</span>
+
             <span class="pill">Content & assets</span>
+
             <span class="pill">Practitioner branding</span>
+
             <span class="pill">Paid + organic social</span>
+
             <span class="pill">Partner enablement</span>
+
           </div>
+
         </article>
+
       </div>
+
     </div>
+
   </section>
 
-    <section class="section">
-    <div class="card-shell">
+
+
+  <!-- Your contributions (3 pillars) -->
+
+  <section class="section">
+
+    <div class="section-inner">
+
       <h2>What I led</h2>
+
       <div class="contrib-grid">
+
         <article class="contrib">
+
           <div class="icon" aria-hidden="true">🧭</div>
+
           <h3>Built the Sales Funnel</h3>
+
           <p>Mapped the journey from “curious” to “booked PD”: resource → nurture → consult form → scheduling. Simplified copy, reduced friction, and clarifed offers.</p>
+
         </article>
+
         <article class="contrib">
+
           <div class="icon" aria-hidden="true">✍️</div>
+
           <h3>Produced Inbound Assets</h3>
+
           <p>Led the creation of practical, high-trust resources (frameworks, guides, rubrics, blogs) that educators shared widely — feeding the funnel with qualified demand.</p>
+
         </article>
+
         <article class="contrib">
+
           <div class="icon" aria-hidden="true">📣</div>
+
           <h3>Amplified Strategists on Social</h3>
+
           <p>Elevated practitioner voices with targeted campaigns and content support. Result: stronger credibility, community engagement, and name recognition.</p>
+
         </article>
+
       </div>
+
     </div>
+
   </section>
 
-    <section class="section">
-    <div class="card-shell">
+
+
+  <!-- Featured Resources (buttons now consistent / filled) -->
+
+  <section class="section">
+
+    <div class="section-inner">
+
       <h2>Featured Resources</h2>
+
       <p class="muted" style="margin:.25rem 0 1rem">Free tools that powered our inbound flow and guided districts toward PD bookings.</p>
+
       <div class="resource-grid">
 
+
+
         <article class="resource" aria-labelledby="res-plan-title">
+
           <div class="icon" aria-hidden="true">🗺️</div>
+
           <h3 id="res-plan-title">Planning Guide for AI</h3>
+
           <p>A practical, step-by-step planning guide to shape a district AI strategy and align stakeholders.</p>
+
           <a class="btn" href="https://michiganvirtual.org/resources/guides/ai-guide/" target="_blank" rel="noopener">Open Guide →</a>
+
         </article>
+
+
 
         <article class="resource" aria-labelledby="res-framework-title">
+
           <div class="icon" aria-hidden="true">🧩</div>
+
           <h3 id="res-framework-title">AI Integration Framework (PDF)</h3>
+
           <p>A district-level framework to operationalize AI safely and effectively across curriculum and policy.</p>
+
           <a class="btn" href="https://michiganvirtual.org/wp-content/uploads/2023/07/AI-Integration-Framework-for-School-Districts.pdf" target="_blank" rel="noopener">Download PDF →</a>
+
         </article>
+
+
 
         <article class="resource" aria-labelledby="res-teacher-title">
+
           <div class="icon" aria-hidden="true">🍎</div>
+
           <h3 id="res-teacher-title">Teacher Guide to AI</h3>
+
           <p>Teacher-friendly guidance, examples, and guardrails for mindful, classroom-ready AI use.</p>
+
           <a class="btn" href="https://aitg.michiganvirtual.org/?_gl=1*azimsh*_gcl_au*MTAwNDAzODg1MS4xNzUxOTc4NDQ2*_ga*MTkyMDgyODAwLjE3MjA2OTk0Nzg.*_ga_VG58GV15BV*czE3NTY0MTk1NjEkbzQzMCRnMSR0MTc1NjQxOTU2MiRqNTkkbDAkaDA." target="_blank" rel="noopener">View Site →</a>
+
         </article>
 
+
+
       </div>
+
     </div>
+
   </section>
 
-    <section class="section">
-    <div class="card-shell" style="text-align:center">
+
+
+  <!-- Close with the message -->
+
+  <section class="section">
+
+    <div class="section-inner" style="text-align:center">
+
       <h2 style="margin-bottom:.4rem">Message to Schools</h2>
+
       <p style="font-weight:700">“AI is here. We are here to help you become ready.”</p>
+
       <p class="muted" style="max-width:60ch;margin:0 auto">This clear promise guided our funnel, content, and social narrative — meeting educators where they are and inviting them forward with confidence.</p>
+
     </div>
+
   </section>
 
-    <section class="content-inner" style="text-align:center;margin-top:2rem">
+
+
+  <!-- Back -->
+
+  <section class="pad" style="text-align:center;margin-top:2rem">
+
     <a href="/" class="btn outline">← Back to Home</a>
+
   </section>
 
-  <footer><div class="content-inner">© 2025 Brandon Bautista</div></footer>
+
+
+  <footer><div class="pad">© 2025 Brandon Bautista</div></footer>
+
 </div>
+
 </body>
+
 </html>
