@@ -3,40 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Brandon Bautista</title>
+<title>Brandon Bautista | Marketing Portfolio</title>
 
-<!-- Social Preview -->
 <meta property="og:title" content="Brandon Bautista | Marketing Portfolio" />
 <meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" />
 
 <style>
-  :root{
+  :root {
     --page-max: 1200px;
     --radius: 12px;
     --bg: #f9f8f6;
     --text: #333333;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --brand:#ff7a00;
-    --footer:#333333;
+    --muted: #6b7280;
+    --card: #ffffff;
+    --brand: #ff7a00;
+    --footer: #333333;
     /* vertical rhythm */
     --vr: 1.5rem;
   }
 
   /* Reset / base */
-  *{box-sizing:border-box}
-  html,body{overflow-x:hidden}
-  img{max-width:100%;display:block;height:auto}
+  * { box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  img { max-width: 100%; display: block; height: auto; }
   body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
   /* Page grid: center all main sections; footer spans full width */
-  .page{
-    display:grid;
+  .page {
+    display: grid;
     grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
   }
-  .container{ grid-column: 2; }
+  .container { grid-column: 2; }
 
   header { font-weight: 700; padding: 1rem 0; }
 
@@ -47,263 +46,262 @@
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); }
   .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; display: flex; flex-direction: column; gap: .75rem; }
   .hero h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
+  .hero-subtitle { color: #fff; margin: -.5rem 0 0; font-size: 1.1rem; text-shadow: 0 1px 4px rgba(0,0,0,.25); }
   .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
-  .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background;}
-  .btn:hover{background:#e66b00; transform:translateY(-2px);}
-  .btn.secondary{background:#fff; color:#333; border:1px solid rgba(0,0,0,.15);}
-  .btn.secondary:hover{background:#f7f7f7;}
+  .btn { display: inline-block; background: var(--brand); color: #fff; text-decoration: none; padding: .8rem 1.5rem; border-radius: var(--radius); font-weight: 700; transition: .2s transform, .3s background; }
+  .btn:hover { background: #e66b00; transform: translateY(-2px); }
+  .btn.secondary { background: #fff; color: #333; border: 1px solid rgba(0,0,0,.15); }
+  .btn.secondary:hover { background: #f7f7f7; }
 
   /* Sections */
-  .intro{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0;}
-  .section{margin:var(--vr) 0;}
-  .section h2{font-size:1.5rem; margin:0 0 1rem .25rem;}
+  .intro { background: #f2f0ee; padding: 1.5rem; border-radius: var(--radius); margin: var(--vr) 0; }
+  .section { margin: var(--vr) 0; }
+  .section h2 { font-size: 1.5rem; margin: 0 0 1rem .25rem; }
 
   /* Projects */
-  .project-list{display:flex; flex-wrap:wrap; gap:1rem;}
-  .project{flex:1 1 calc(33.333% - 1rem); background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:.25s transform; will-change:transform;}
-  .project:hover{transform:translateY(-5px);}
-  .project a{color:inherit; text-decoration:none; display:block; height:100%;}
-  .project img{width:100%; height:200px; object-fit:cover; transform:translateY(0); transition:transform .35s ease;}
-  .project p{padding:.75rem; font-size:.95rem;}
+  .project-list { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .project { flex: 1 1 calc(33.333% - 1rem); background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: .25s transform; will-change: transform; }
+  .project:hover { transform: translateY(-5px); }
+  .project a { color: inherit; text-decoration: none; display: block; height: 100%; }
+  .project img { width: 100%; height: 200px; object-fit: cover; transform: translateY(0); transition: transform .35s ease; }
+  .project-body { padding: .75rem; }
+  .project-body p { margin: 0; font-weight: 600; }
+  .project-body .description { font-size: .9rem; color: var(--muted); margin: .25rem 0 0; }
 
   /* Skills */
-  .skill-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem;}
-  .skill-card{grid-column:span 4; background:var(--card); border-radius:var(--radius); padding:1rem 1rem .75rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.06);}
-  .skill-card h3{margin:0 0 .4rem;}
-  .skill-muted{color:var(--muted); font-size:.95rem; margin:0 0 .6rem;}
-  .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
-  .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
+  .skill-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+  .skill-card { grid-column: span 4; background: var(--card); border-radius: var(--radius); padding: 1rem 1rem .75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.06); }
+  .skill-card h3 { margin: 0 0 .4rem; }
+  .skill-muted { color: var(--muted); font-size: .95rem; margin: 0 0 .6rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .tag { padding: .35rem .6rem; font-size: .85rem; border-radius: 999px; background: #fff4eb; border: 1px solid #ffd7b4; color: #8a3d00; font-weight: 600; white-space: nowrap; }
 
   /* Testimonial / Colleague Feedback */
-  .feedback{margin:var(--vr) 0;}
-  .feedback h2{margin:0 0 1rem .25rem;}
-  .t-card{
-    display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
-    background:var(--card); border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08);
-    padding:1.25rem;
+  .feedback { margin: var(--vr) 0; }
+  .feedback h2 { margin: 0 0 1rem .25rem; }
+  .t-card {
+    display: grid; grid-template-columns: 280px 1fr; gap: 1.25rem;
+    background: var(--card); border: 1px solid rgba(0,0,0,.06);
+    border-radius: var(--radius); box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    padding: 1.25rem;
   }
-  .t-aside{display:grid; gap:.75rem; align-content:start;}
-  .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
-  .t-meta{color:var(--muted); display:grid; gap:.2rem;}
-  .t-meta strong{color:var(--text);}
+  .t-aside { display: grid; gap: .75rem; align-content: start; }
+  .t-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+  .t-meta { color: var(--muted); display: grid; gap: .2rem; }
+  .t-meta strong { color: var(--text); }
   /* Full-width pull-quote inside the right column */
-  blockquote.t-quote{
-    margin:0;
-    background:#fff7ef;
-    border-left:4px solid var(--brand);
-    padding:.75rem 1rem;
-    border-radius:6px;
-    line-height:1.7;
-    font-size:1.05rem;
-    max-width:none;
-    width:100%;
+  blockquote.t-quote {
+    margin: 0;
+    background: #fff7ef;
+    border-left: 4px solid var(--brand);
+    padding: .75rem 1rem;
+    border-radius: 6px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    max-width: none;
+    width: 100%;
   }
-  .t-quote p{margin:.4rem 0;}
+  .t-quote p { margin: .4rem 0; }
+  .t-quote strong { color: var(--brand); }
 
   /* Contact + Footer */
-  .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0; text-align:center;}
-  .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
-  .contact a:hover{text-decoration:underline;}
+  .contact { background: #f2f0ee; padding: 1.5rem; border-radius: var(--radius); margin: var(--vr) 0; text-align: center; }
+  .contact a { color: var(--brand); font-weight: 700; text-decoration: none; font-size: 1.2rem; }
+  .contact a:hover { text-decoration: underline; }
 
-  footer{grid-column:1 / -1; background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
-  footer .container{grid-column:2;}
+  footer { grid-column: 1 / -1; background: var(--footer); color: #fff; text-align: center; padding: 1rem; font-size: .9rem; margin-top: var(--vr); }
+  footer .container { grid-column: 2; }
 
   /* Mobile */
   @media (max-width: 768px) {
     .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
-    .hero{height:300px}
-    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
-    .hero-content{bottom:1rem;}
-    .hero h1{font-size:clamp(1.6rem, 7.5vw, 2.1rem); line-height:1.1; text-wrap:balance;}
-    .btn{width:100%; padding:1rem 1.25rem; font-size:1.05rem;}
-    .project{flex:1 1 100%;}
-    .skill-card{grid-column:span 12;}
-    .t-card{grid-template-columns:1fr;}
-    .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
-    .t-avatar{width:72px; height:72px;}
-    .t-quote{font-size:1.02rem;}
+    .hero { height: 300px; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); }
+    .hero-content { bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.6rem, 7.5vw, 2.1rem); line-height: 1.1; text-wrap: balance; }
+    .btn { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
+    .project { flex: 1 1 100%; }
+    .skill-card { grid-column: span 12; }
+    .t-card { grid-template-columns: 1fr; }
+    .t-aside { grid-template-columns: 72px 1fr; align-items: center; column-gap: .75rem; }
+    .t-avatar { width: 72px; height: 72px; }
+    .t-quote { font-size: 1.02rem; }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    .hero-media{transform:none !important}
-    .project img{transition:none}
+  @media (prefers-reduced-motion: reduce) {
+    .hero-media { transform: none !important; }
+    .project img { transition: none; }
   }
 </style>
 </head>
 <body>
 
 <div class="page">
+  <main>
+    <header class="container">
+      <h1 class="visually-hidden">Brandon Bautista's Portfolio</h1>
+      <p style="font-weight: 700; margin: 0;">Brandon Bautista</p>
+    </header>
 
-  <!-- Header -->
-  <header class="container">Brandon Bautista</header>
-
-  <!-- Hero -->
-  <section class="container">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="images/hero.avif" alt="Modern workspace with laptop and notebook" />
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content" aria-label="Introduction">
-        <h1>Brandon Bautista</h1>
-        <div class="hero-buttons">
-          <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
-          <a class="btn secondary" href="Bautista_Resume.pdf" target="_blank" rel="noopener">View Resume →</a>
+    <section class="container" role="banner">
+      <div class="hero" id="hero">
+        <div class="hero-media" id="heroMedia" aria-hidden="true">
+          <img src="images/hero.avif" alt="A modern workspace with a laptop and a notebook, symbolizing creativity and professional work." />
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content" aria-labelledby="hero-title">
+          <h2 id="hero-title">Brandon Bautista</h2>
+          <p class="hero-subtitle">Marketing Leader, Storyteller, and Customer Advocate</p>
+          <div class="hero-buttons">
+            <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener" aria-label="Connect with Brandon Bautista on LinkedIn.">Connect on LinkedIn →</a>
+            <a class="btn secondary" href="Bautista_Resume.pdf" target="_blank" rel="noopener" aria-label="View Brandon Bautista's professional resume.">View Resume →</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Intro -->
-  <section class="container">
-    <div class="intro">
-      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
-      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
-      <p><strong>Be kind. Work hard. Have fun.</strong></p>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="container section">
-    <h2 id="projects-title">Featured Projects</h2>
-    <div class="project-list" id="projects">
-      <!-- AI Strategists (FIRST) -->
-      <div class="project">
-        <a href="/projects/ai/">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-               alt="AI Strategists division thumbnail" />
-          <p>AI Strategists: From Zero to $500K in &lt; 2 Years</p>
-        </a>
+    <section class="container">
+      <div class="intro">
+        <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
+        <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
+        <p><strong>Be kind. Work hard. Have fun.</strong></p>
       </div>
+    </section>
 
-      <!-- BRIGHT -->
-      <div class="project">
-        <a href="/projects/bright/">
-          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork" />
-          <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
-        </a>
-      </div>
-
-      <!-- Writing sample -->
-      <div class="project">
-        <a href="/projects/writing/">
-          <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail" />
-          <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
-        </a>
-      </div>
-
-      <!-- Michigan Cares -->
-      <div class="project">
-        <a href="/projects/michigancares/">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
-               alt="Michigan Cares campaign thumbnail" />
-          <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
-        </a>
-      </div>
-
-      <!-- Brand Standards -->
-      <div class="project">
-        <a href="/projects/brand/">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
-               alt="Brand Standards guide thumbnail" />
-          <p>Michigan Virtual Brand Standards</p>
-        </a>
-      </div>
-
-      <!-- Yearlong Enrollment -->
-      <div class="project">
-        <a href="/projects/enrollment/">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-               alt="Enrollment campaign thumbnail" />
-          <p>Yearlong Enrollment Cycle Campaigns</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="container section">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <article class="skill-card">
-        <h3>Storytelling</h3>
-        <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
-        <div class="tags">
-          <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
-          <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
-          <span class="tag">Editorial Judgment</span>
+    <section class="container section">
+      <h2 id="projects-title">Featured Projects</h2>
+      <div class="project-list" id="projects">
+        <div class="project">
+          <a href="/projects/ai/" aria-labelledby="project-1-title project-1-desc">
+            <img class="thumb-parallax" src="images/ai_strategists.webp" alt="A thumbnail for the AI Strategists case study, featuring a stylized image of a brain made of circuit boards." />
+            <div class="project-body">
+              <p id="project-1-title">Driving $500K in Revenue in Under Two Years</p>
+              <p id="project-1-desc" class="description">A case study in launching and scaling a new division using AI-driven marketing strategies.</p>
+            </div>
+          </a>
         </div>
-      </article>
 
-      <article class="skill-card">
-        <h3>Content Creation & Video Production</h3>
-        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
-        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
-      </article>
+        <div class="project">
+          <a href="/projects/bright/" aria-labelledby="project-2-title project-2-desc">
+            <img class="thumb-parallax" src="images/bright.webp" alt="A thumbnail for the BRIGHT podcast, with artwork featuring a stylized sun and vibrant colors." />
+            <div class="project-body">
+              <p id="project-2-title">BRIGHT: A Podcast for Michigan Educators</p>
+              <p id="project-2-desc" class="description">A new media initiative to share inspiring stories of hope and innovation in Michigan classrooms.</p>
+            </div>
+          </a>
+        </div>
 
-      <article class="skill-card">
-        <h3>Social Media Strategy</h3>
-        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
-        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
-      </article>
+        <div class="project">
+          <a href="/projects/writing/" aria-labelledby="project-3-title project-3-desc">
+            <img class="thumb-parallax" src="images/qd.webp" alt="A thumbnail for a writing sample, with a stylized logo for a fictional blog." />
+            <div class="project-body">
+              <p id="project-3-title">Writing Sample: Why I Don’t Give (Hear Me Out)</p>
+              <p id="project-3-desc" class="description">An example of long-form, narrative copywriting and content creation for a specific audience.</p>
+            </div>
+          </a>
+        </div>
 
-      <article class="skill-card">
-        <h3>HubSpot Mastery</h3>
-        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
-        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
-      </article>
+        <div class="project">
+          <a href="/projects/michigancares/" aria-labelledby="project-4-title project-4-desc">
+            <img class="thumb-parallax" src="images/michigan_cares.webp" alt="A thumbnail for the Michigan Cares campaign, featuring diverse students smiling in a classroom." />
+            <div class="project-body">
+              <p id="project-4-title">Michigan Cares: Statewide SEL Awareness & Adoption</p>
+              <p id="project-4-desc" class="description">A public awareness campaign to promote social-emotional learning and foster statewide adoption.</p>
+            </div>
+          </a>
+        </div>
 
-      <article class="skill-card">
-        <h3>Customer Advocacy & Experience</h3>
-        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
-        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
-      </article>
-    </div>
-  </section>
+        <div class="project">
+          <a href="/projects/brand/" aria-labelledby="project-5-title project-5-desc">
+            <img class="thumb-parallax" src="images/brand_standards.webp" alt="A thumbnail for the Brand Standards guide, featuring an open notebook and brand color swatches." />
+            <div class="project-body">
+              <p id="project-5-title">Crafting and Implementing New Brand Standards</p>
+              <p id="project-5-desc" class="description">Leading a comprehensive rebranding initiative to unify and modernize brand identity across the organization.</p>
+            </div>
+          </a>
+        </div>
 
-  <!-- Colleague Feedback -->
-  <section class="container feedback" aria-labelledby="feedback-title">
-    <h2 id="feedback-title">Colleague Feedback</h2>
-    <figure class="t-card">
-      <div class="t-aside">
-        <img class="t-avatar"
-             src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
-             alt="Headshot of Nikki Herta" />
-        <figcaption class="t-meta">
-          <strong>Nikki Herta</strong>
-          <span>Writer/Editor/Marketing Professional</span>
-        </figcaption>
+        <div class="project">
+          <a href="/projects/enrollment/" aria-labelledby="project-6-title project-6-desc">
+            <img class="thumb-parallax" src="images/enrollment.webp" alt="A thumbnail for the Enrollment campaign, showing a student using a laptop with a modern, clean interface." />
+            <div class="project-body">
+              <p id="project-6-title">Optimizing Yearlong Enrollment Cycle Campaigns</p>
+              <p id="project-6-desc" class="description">A strategic approach to automating marketing funnels for a sustained year-round enrollment process.</p>
+            </div>
+          </a>
+        </div>
       </div>
+    </section>
 
-      <blockquote class="t-quote">
-        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
-        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
-      </blockquote>
-    </figure>
-  </section>
+    <section class="container section">
+      <h2>Skills</h2>
+      <div class="skill-grid">
+        <article class="skill-card">
+          <h3>Storytelling</h3>
+          <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
+          <div class="tags">
+            <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
+            <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
+            <span class="tag">Editorial Judgment</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <h3>Content Creation & Video Production</h3>
+          <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
+          <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
+        </article>
 
-  <!-- Contact -->
-  <section class="container">
-    <div class="contact">
-      <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
-    </div>
-  </section>
+        <article class="skill-card">
+          <h3>Social Media Strategy</h3>
+          <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
+          <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
+        </article>
 
-  <!-- Footer -->
+        <article class="skill-card">
+          <h3>HubSpot Mastery</h3>
+          <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
+          <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Customer Advocacy & Experience</h3>
+          <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
+          <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container feedback" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Colleague Feedback</h2>
+      <figure class="t-card">
+        <div class="t-aside">
+          <img class="t-avatar" src="images/nikki_herta_headshot.webp" alt="Professional headshot of Nikki Herta, a marketing writer and editor." />
+          <figcaption class="t-meta">
+            <strong>Nikki Herta</strong>
+            <span>Writer/Editor/Marketing Professional</span>
+          </figcaption>
+        </div>
+        <blockquote class="t-quote">
+          <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
+          <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <strong>Brandon is the real deal</strong>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
+        </blockquote>
+      </figure>
+    </section>
+
+    <section class="container">
+      <div class="contact">
+        <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="container">
       <p>© 2025 Brandon Bautista</p>
     </div>
   </footer>
 
-</div><!-- /.page -->
-
-<script>
+</div><script>
 /* Hero parallax (respects reduced motion) */
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -330,7 +328,7 @@
 })();
 
 /* Desktop-only subtle parallax on project thumbnails */
-(function(){
+(function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
   if (reduce.matches) return;
@@ -338,22 +336,22 @@
   const imgs = Array.from(document.querySelectorAll('.thumb-parallax'));
   if (!imgs.length) return;
 
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
       const img = e.target;
       if (!e.isIntersecting) return;
       const onMove = () => {
         const r = img.getBoundingClientRect();
         const vh = window.innerHeight || 1;
-        const p = (r.top + r.height/2) / vh; // 0..1
+        const p = (r.top + r.height / 2) / vh; // 0..1
         const y = (p - 0.5) * -6; // subtle translate
-        img.style.transform = isDesktop() ? translateY(${y}px) : 'translateY(0)';
+        img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
       };
       onMove();
-      window.addEventListener('scroll', onMove, {passive:true});
+      window.addEventListener('scroll', onMove, { passive: true });
       window.addEventListener('resize', onMove);
     });
-  }, {threshold: 0.2});
+  }, { threshold: 0.2 });
   imgs.forEach(i => io.observe(i));
 })();
 </script>
