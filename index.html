@@ -42,15 +42,18 @@
     border: 0;
   }
 
-  /* --- FIX --- Centering the main container with margin: auto */
-  .container {
-    max-width: var(--page-max);
-    margin-left: auto;
-    margin-right: auto;
+  /* --- FIX --- Use a simple grid for centering */
+  .page {
+    display: grid;
+    grid-template-columns: 1fr min(var(--page-max), 100% - 2rem) 1fr;
+    grid-gap: 1rem;
+    padding-bottom: 2rem;
   }
+  .container { grid-column: 2; }
+  /* Ensure full-width sections are not restricted by the grid */
+  .hero-full-width { grid-column: 1 / -1; }
 
   header { font-weight: 700; padding: 1rem 0; }
-  footer { background: var(--footer); color: #fff; text-align: center; padding: 1rem; font-size: .9rem; margin-top: var(--vr); }
 
   /* Hero */
   .hero { position: relative; height: 450px; border-radius: var(--radius); overflow: hidden; }
@@ -122,6 +125,9 @@
   .contact a { color: var(--brand); font-weight: 700; text-decoration: none; font-size: 1.2rem; }
   .contact a:hover { text-decoration: underline; }
 
+  footer { grid-column: 1 / -1; background: var(--footer); color: #fff; text-align: center; padding: 1rem; font-size: .9rem; margin-top: var(--vr); }
+  footer .container { grid-column: 2; }
+
   /* Mobile */
   @media (max-width: 768px) {
     .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
@@ -146,179 +152,180 @@
 </head>
 <body>
 
-<div class="container">
-  <header>
+<div class="page">
+  <header class="container">
     <h1 class="visually-hidden">Brandon Bautista's Marketing Portfolio</h1>
     <p style="font-weight: 700; margin: 0;">Brandon Bautista</p>
   </header>
+
+  <main>
+    <section class="container hero-full-width" role="banner">
+      <div class="hero" id="hero">
+        <div class="hero-media" id="heroMedia" aria-hidden="true">
+          <img src="images/hero.avif" alt="A modern workspace with a laptop and a notebook, symbolizing creativity and professional work." />
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content" aria-labelledby="hero-title">
+          <h2 id="hero-title">Brandon Bautista</h2>
+          <p class="hero-subtitle">Marketing Leader, Storyteller, and Customer Advocate</p>
+          <div class="hero-buttons">
+            <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener" aria-label="Connect with Brandon Bautista on LinkedIn.">Connect on LinkedIn →</a>
+            <a class="btn secondary" href="Bautista_Resume.pdf" target="_blank" rel="noopener" aria-label="View Brandon Bautista's professional resume.">View Resume →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="intro">
+        <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
+        <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
+        <p><strong>Be kind. Work hard. Have fun.</strong></p>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2 id="projects-title">Featured Projects</h2>
+      <div class="project-list" id="projects">
+        <div class="project">
+          <a href="/projects/ai/" aria-labelledby="project-1-title project-1-desc">
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the AI Strategists case study, featuring a stylized image of a brain made of circuit boards." />
+            <div class="project-body">
+              <p id="project-1-title">Driving $500K in Revenue in Under Two Years</p>
+              <p id="project-1-desc" class="description">A case study in launching and scaling a new division using AI-driven marketing strategies.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="/projects/bright/" aria-labelledby="project-2-title project-2-desc">
+            <img class="thumb-parallax" src="images/bright.jpg" alt="A thumbnail for the BRIGHT podcast, with artwork featuring a stylized sun and vibrant colors." />
+            <div class="project-body">
+              <p id="project-2-title">BRIGHT: A Podcast for Michigan Educators</p>
+              <p id="project-2-desc" class="description">A new media initiative to share inspiring stories of hope and innovation in Michigan classrooms.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="/projects/writing/" aria-labelledby="project-3-title project-3-desc">
+            <img class="thumb-parallax" src="images/qd.webp" alt="A thumbnail for a writing sample, with a stylized logo for a fictional blog." />
+            <div class="project-body">
+              <p id="project-3-title">Writing Sample: Why I Don’t Give (Hear Me Out)</p>
+              <p id="project-3-desc" class="description">An example of long-form, narrative copywriting and content creation for a specific audience.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="/projects/michigancares/" aria-labelledby="project-4-title project-4-desc">
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the Michigan Cares campaign, featuring diverse students smiling in a classroom." />
+            <div class="project-body">
+              <p id="project-4-title">Michigan Cares: Statewide SEL Awareness & Adoption</p>
+              <p id="project-4-desc" class="description">A public awareness campaign to promote social-emotional learning and foster statewide adoption.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="/projects/brand/" aria-labelledby="project-5-title project-5-desc">
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the Brand Standards guide, featuring an open notebook and brand color swatches." />
+            <div class="project-body">
+              <p id="project-5-title">Crafting and Implementing New Brand Standards</p>
+              <p id="project-5-desc" class="description">Leading a comprehensive rebranding initiative to unify and modernize brand identity across the organization.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="project">
+          <a href="/projects/enrollment/" aria-labelledby="project-6-title project-6-desc">
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the Enrollment campaign, showing a student using a laptop with a modern, clean interface." />
+            <div class="project-body">
+              <p id="project-6-title">Optimizing Yearlong Enrollment Cycle Campaigns</p>
+              <p id="project-6-desc" class="description">A strategic approach to automating marketing funnels for a sustained year-round enrollment process.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2>Skills</h2>
+      <div class="skill-grid">
+        <article class="skill-card">
+          <h3>Storytelling</h3>
+          <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
+          <div class="tags">
+            <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
+            <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
+            <span class="tag">Editorial Judgment</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <h3>Content Creation & Video Production</h3>
+          <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
+          <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Social Media Strategy</h3>
+          <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
+          <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>HubSpot Mastery</h3>
+          <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
+          <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Customer Advocacy & Experience</h3>
+          <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
+          <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container feedback" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Colleague Feedback</h2>
+      <figure class="t-card">
+        <div class="t-aside">
+          <img class="t-avatar" src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU" alt="Professional headshot of Nikki Herta, a marketing writer and editor." />
+          <figcaption class="t-meta">
+            <strong>Nikki Herta</strong>
+            <span>Writer/Editor/Marketing Professional</span>
+          </figcaption>
+        </div>
+        <blockquote class="t-quote">
+          <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
+          <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <strong>Brandon is the real deal</strong>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
+        </blockquote>
+      </figure>
+    </section>
+
+    <section class="container">
+      <div class="contact">
+        <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Brandon Bautista</p>
+    </div>
+  </footer>
+
 </div>
-
-<main>
-  <section class="container" role="banner">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="images/hero.avif" alt="A modern workspace with a laptop and a notebook, symbolizing creativity and professional work." />
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content" aria-labelledby="hero-title">
-        <h2 id="hero-title">Brandon Bautista</h2>
-        <p class="hero-subtitle">Marketing Leader, Storyteller, and Customer Advocate</p>
-        <div class="hero-buttons">
-          <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener" aria-label="Connect with Brandon Bautista on LinkedIn.">Connect on LinkedIn →</a>
-          <a class="btn secondary" href="Bautista_Resume.pdf" target="_blank" rel="noopener" aria-label="View Brandon Bautista's professional resume.">View Resume →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="intro">
-      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
-      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
-      <p><strong>Be kind. Work hard. Have fun.</strong></p>
-    </div>
-  </section>
-
-  <section class="container section">
-    <h2 id="projects-title">Featured Projects</h2>
-    <div class="project-list" id="projects">
-      <div class="project">
-        <a href="/projects/ai/" aria-labelledby="project-1-title project-1-desc">
-          <img class="thumb-parallax"
-                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-                 alt="A thumbnail for the AI Strategists case study, featuring a stylized image of a brain made of circuit boards." />
-          <div class="project-body">
-            <p id="project-1-title">Driving $500K in Revenue in Under Two Years</p>
-            <p id="project-1-desc" class="description">A case study in launching and scaling a new division using AI-driven marketing strategies.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/bright/" aria-labelledby="project-2-title project-2-desc">
-          <img class="thumb-parallax" src="images/bright.jpg" alt="A thumbnail for the BRIGHT podcast, with artwork featuring a stylized sun and vibrant colors." />
-          <div class="project-body">
-            <p id="project-2-title">BRIGHT: A Podcast for Michigan Educators</p>
-            <p id="project-2-desc" class="description">A new media initiative to share inspiring stories of hope and innovation in Michigan classrooms.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/writing/" aria-labelledby="project-3-title project-3-desc">
-          <img class="thumb-parallax" src="images/qd.webp" alt="A thumbnail for a writing sample, with a stylized logo for a fictional blog." />
-          <div class="project-body">
-            <p id="project-3-title">Writing Sample: Why I Don’t Give (Hear Me Out)</p>
-            <p id="project-3-desc" class="description">An example of long-form, narrative copywriting and content creation for a specific audience.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/michigancares/" aria-labelledby="project-4-title project-4-desc">
-          <img class="thumb-parallax"
-                 src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
-                 alt="A thumbnail for the Michigan Cares campaign, featuring diverse students smiling in a classroom." />
-          <div class="project-body">
-            <p id="project-4-title">Michigan Cares: Statewide SEL Awareness & Adoption</p>
-            <p id="project-4-desc" class="description">A public awareness campaign to promote social-emotional learning and foster statewide adoption.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/brand/" aria-labelledby="project-5-title project-5-desc">
-          <img class="thumb-parallax"
-                 src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
-                 alt="A thumbnail for the Brand Standards guide, featuring an open notebook and brand color swatches." />
-          <div class="project-body">
-            <p id="project-5-title">Crafting and Implementing New Brand Standards</p>
-            <p id="project-5-desc" class="description">Leading a comprehensive rebranding initiative to unify and modernize brand identity across the organization.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/enrollment/" aria-labelledby="project-6-title project-6-desc">
-          <img class="thumb-parallax"
-                 src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-                 alt="A thumbnail for the Enrollment campaign, showing a student using a laptop with a modern, clean interface." />
-          <div class="project-body">
-            <p id="project-6-title">Optimizing Yearlong Enrollment Cycle Campaigns</p>
-            <p id="project-6-desc" class="description">A strategic approach to automating marketing funnels for a sustained year-round enrollment process.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container section">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <article class="skill-card">
-        <h3>Storytelling</h3>
-        <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
-        <div class="tags">
-          <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
-          <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
-          <span class="tag">Editorial Judgment</span>
-        </div>
-      </article>
-      <article class="skill-card">
-        <h3>Content Creation & Video Production</h3>
-        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
-        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
-      </article>
-
-      <article class="skill-card">
-        <h3>Social Media Strategy</h3>
-        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
-        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
-      </article>
-
-      <article class="skill-card">
-        <h3>HubSpot Mastery</h3>
-        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
-        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
-      </article>
-
-      <article class="skill-card">
-        <h3>Customer Advocacy & Experience</h3>
-        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
-        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
-      </article>
-    </div>
-  </section>
-
-  <section class="container feedback" aria-labelledby="feedback-title">
-    <h2 id="feedback-title">Colleague Feedback</h2>
-    <figure class="t-card">
-      <div class="t-aside">
-        <img class="t-avatar" src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU" alt="Professional headshot of Nikki Herta, a marketing writer and editor." />
-        <figcaption class="t-meta">
-          <strong>Nikki Herta</strong>
-          <span>Writer/Editor/Marketing Professional</span>
-        </figcaption>
-      </div>
-      <blockquote class="t-quote">
-        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
-        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <strong>Brandon is the real deal</strong>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
-      </blockquote>
-    </figure>
-  </section>
-
-  <section class="container">
-    <div class="contact">
-      <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <p>© 2025 Brandon Bautista</p>
-  </div>
-</footer>
 
 <script>
 /* Hero parallax (respects reduced motion) */
