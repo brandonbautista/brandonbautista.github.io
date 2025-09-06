@@ -30,6 +30,18 @@
   img { max-width: 100%; display: block; height: auto; }
   body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
+  /* Visually hidden for accessibility */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
   /* Page grid: center all main sections; footer spans full width */
   .page {
     display: grid;
@@ -45,7 +57,7 @@
   .hero img { width: 100%; height: 120%; object-fit: cover; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); }
   .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; display: flex; flex-direction: column; gap: .75rem; }
-  .hero h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
+  .hero h2 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
   .hero-subtitle { color: #fff; margin: -.5rem 0 0; font-size: 1.1rem; text-shadow: 0 1px 4px rgba(0,0,0,.25); }
   .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
   .btn { display: inline-block; background: var(--brand); color: #fff; text-decoration: none; padding: .8rem 1.5rem; border-radius: var(--radius); font-weight: 700; transition: .2s transform, .3s background; }
@@ -114,18 +126,18 @@
 
   /* Mobile */
   @media (max-width: 768px) {
-    .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
-    .hero { height: 300px; }
-    .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); }
-    .hero-content { bottom: 1rem; }
-    .hero h1 { font-size: clamp(1.6rem, 7.5vw, 2.1rem); line-height: 1.1; text-wrap: balance; }
-    .btn { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
-    .project { flex: 1 1 100%; }
-    .skill-card { grid-column: span 12; }
-    .t-card { grid-template-columns: 1fr; }
-    .t-aside { grid-template-columns: 72px 1fr; align-items: center; column-gap: .75rem; }
-    .t-avatar { width: 72px; height: 72px; }
-    .t-quote { font-size: 1.02rem; }
+    /* Removed container padding override from here that was causing desktop issues */
+    .hero{height:300px}
+    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
+    .hero-content{bottom:1rem;}
+    .hero h2{font-size:clamp(1.6rem, 7.5vw, 2.1rem); line-height:1.1; text-wrap:balance;}
+    .btn{width:100%; padding:1rem 1.25rem; font-size:1.05rem;}
+    .project{flex:1 1 100%;}
+    .skill-card{grid-column:span 12;}
+    .t-card{grid-template-columns:1fr;}
+    .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
+    .t-avatar{width:72px; height:72px;}
+    .t-quote{font-size:1.02rem;}
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -137,12 +149,12 @@
 <body>
 
 <div class="page">
-  <main>
-    <header class="container">
-      <h1 class="visually-hidden">Brandon Bautista's Portfolio</h1>
-      <p style="font-weight: 700; margin: 0;">Brandon Bautista</p>
-    </header>
+  <header class="container">
+    <h1 class="visually-hidden">Brandon Bautista's Marketing Portfolio</h1>
+    <p style="font-weight: 700; margin: 0;">Brandon Bautista</p>
+  </header>
 
+  <main>
     <section class="container" role="banner">
       <div class="hero" id="hero">
         <div class="hero-media" id="heroMedia" aria-hidden="true">
@@ -173,7 +185,9 @@
       <div class="project-list" id="projects">
         <div class="project">
           <a href="/projects/ai/" aria-labelledby="project-1-title project-1-desc">
-            <img class="thumb-parallax" src="images/ai_strategists.webp" alt="A thumbnail for the AI Strategists case study, featuring a stylized image of a brain made of circuit boards." />
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the AI Strategists case study, featuring a stylized image of a brain made of circuit boards." />
             <div class="project-body">
               <p id="project-1-title">Driving $500K in Revenue in Under Two Years</p>
               <p id="project-1-desc" class="description">A case study in launching and scaling a new division using AI-driven marketing strategies.</p>
@@ -183,7 +197,7 @@
 
         <div class="project">
           <a href="/projects/bright/" aria-labelledby="project-2-title project-2-desc">
-            <img class="thumb-parallax" src="images/bright.webp" alt="A thumbnail for the BRIGHT podcast, with artwork featuring a stylized sun and vibrant colors." />
+            <img class="thumb-parallax" src="images/bright.jpg" alt="A thumbnail for the BRIGHT podcast, with artwork featuring a stylized sun and vibrant colors." />
             <div class="project-body">
               <p id="project-2-title">BRIGHT: A Podcast for Michigan Educators</p>
               <p id="project-2-desc" class="description">A new media initiative to share inspiring stories of hope and innovation in Michigan classrooms.</p>
@@ -203,7 +217,9 @@
 
         <div class="project">
           <a href="/projects/michigancares/" aria-labelledby="project-4-title project-4-desc">
-            <img class="thumb-parallax" src="images/michigan_cares.webp" alt="A thumbnail for the Michigan Cares campaign, featuring diverse students smiling in a classroom." />
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the Michigan Cares campaign, featuring diverse students smiling in a classroom." />
             <div class="project-body">
               <p id="project-4-title">Michigan Cares: Statewide SEL Awareness & Adoption</p>
               <p id="project-4-desc" class="description">A public awareness campaign to promote social-emotional learning and foster statewide adoption.</p>
@@ -213,7 +229,9 @@
 
         <div class="project">
           <a href="/projects/brand/" aria-labelledby="project-5-title project-5-desc">
-            <img class="thumb-parallax" src="images/brand_standards.webp" alt="A thumbnail for the Brand Standards guide, featuring an open notebook and brand color swatches." />
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the Brand Standards guide, featuring an open notebook and brand color swatches." />
             <div class="project-body">
               <p id="project-5-title">Crafting and Implementing New Brand Standards</p>
               <p id="project-5-desc" class="description">Leading a comprehensive rebranding initiative to unify and modernize brand identity across the organization.</p>
@@ -223,7 +241,9 @@
 
         <div class="project">
           <a href="/projects/enrollment/" aria-labelledby="project-6-title project-6-desc">
-            <img class="thumb-parallax" src="images/enrollment.webp" alt="A thumbnail for the Enrollment campaign, showing a student using a laptop with a modern, clean interface." />
+            <img class="thumb-parallax"
+                   src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+                   alt="A thumbnail for the Enrollment campaign, showing a student using a laptop with a modern, clean interface." />
             <div class="project-body">
               <p id="project-6-title">Optimizing Yearlong Enrollment Cycle Campaigns</p>
               <p id="project-6-desc" class="description">A strategic approach to automating marketing funnels for a sustained year-round enrollment process.</p>
@@ -275,7 +295,7 @@
       <h2 id="feedback-title">Colleague Feedback</h2>
       <figure class="t-card">
         <div class="t-aside">
-          <img class="t-avatar" src="images/nikki_herta_headshot.webp" alt="Professional headshot of Nikki Herta, a marketing writer and editor." />
+          <img class="t-avatar" src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU" alt="Professional headshot of Nikki Herta, a marketing writer and editor." />
           <figcaption class="t-meta">
             <strong>Nikki Herta</strong>
             <span>Writer/Editor/Marketing Professional</span>
@@ -301,7 +321,9 @@
     </div>
   </footer>
 
-</div><script>
+</div>
+
+<script>
 /* Hero parallax (respects reduced motion) */
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -345,6 +367,7 @@
         const vh = window.innerHeight || 1;
         const p = (r.top + r.height / 2) / vh; // 0..1
         const y = (p - 0.5) * -6; // subtle translate
+        // Only apply parallax if it's desktop
         img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
       };
       onMove();
