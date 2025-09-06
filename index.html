@@ -2,57 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brandon Bautista</title>
 
-<!-- Meta / Social -->
-<meta name="description" content="Senior marketing leader specializing in storytelling, inbound, and customer advocacy. Portfolio featuring AI go-to-market, enrollment campaigns, brand standards, and award-winning content." />
-<link rel="canonical" href="https://YOUR-DOMAIN.example/" />
-<meta property="og:title" content="Brandon Bautista | Senior Marketing Leader" />
-<meta property="og:description" content="Marketing leader, storyteller, and customer advocate. $500K new revenue in <2 years, 217K+ podcast views, 5M+ paid social impressions on lean budgets." />
+<!-- Social Preview -->
+<meta property="og:title" content="Brandon Bautista | Marketing Portfolio" />
+<meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" />
-<meta property="og:url" content="https://YOUR-DOMAIN.example/" />
-<meta name="twitter:card" content="summary_large_image" />
 
 <style>
   :root{
     --page-max: 1200px;
     --radius: 12px;
     --bg: #f9f8f6;
-    --text: #222;        /* darker for contrast */
-    --muted:#5b6474;     /* slightly darker for contrast */
+    --text: #333333;
+    --muted:#6b7280;
     --card:#ffffff;
     --brand:#ff7a00;
-    --brand-700:#e66b00;
-    --brand-900:#8a3d00;
     --footer:#333333;
-    --ring:#1a73e8;      /* focus ring color */
+    /* vertical rhythm */
     --vr: 1.5rem;
-    --shadow: 0 2px 8px rgba(0,0,0,.08);
-    --shadow-lg: 0 8px 30px rgba(0,0,0,.10);
   }
 
   /* Reset / base */
   *{box-sizing:border-box}
   html,body{overflow-x:hidden}
   img{max-width:100%;display:block;height:auto}
-  body { margin: 0; font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-  a{color:var(--brand); text-decoration:none}
-  a:hover{text-decoration:underline}
-  :focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+  body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-  /* Skip link */
-  .skip-link{
-    position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-  }
-  .skip-link:focus-visible{
-    position:fixed; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem;
-    background:#fff; color:#111; border-radius:8px; box-shadow:var(--shadow);
-    z-index:9999; text-decoration:none;
-  }
-
-  /* Page grid */
+  /* Page grid: center all main sections; footer spans full width */
   .page{
     display:grid;
     grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
@@ -61,110 +40,70 @@
 
   header { font-weight: 700; padding: 1rem 0; }
 
-  /* Buttons */
-  .btn{
-    display:inline-block; background:var(--brand); color:#fff;
-    text-decoration:none; padding:.8rem 1.25rem; border-radius:var(--radius);
-    font-weight:700; border:0; box-shadow:var(--shadow);
-    transition: transform .18s ease, background .25s ease, box-shadow .25s ease, opacity .25s ease;
-  }
-  .btn:hover{ background:var(--brand-700); text-decoration:none; transform: translateY(-2px); box-shadow:var(--shadow-lg); }
-  .btn:active{ transform: translateY(0); }
-  .btn.secondary{
-    background:#fff; color:#111; border:1px solid rgba(0,0,0,.15);
-  }
-  .btn.secondary:hover{ background:#f7f7f7; }
-  .btn.ghost{
-    background:transparent; color:var(--brand); border:2px solid var(--brand);
-  }
-  .btn.ghost:hover{ background:var(--brand); color:#fff; }
-
   /* Hero */
-  .hero { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
+  .hero { position: relative; height: 450px; border-radius: var(--radius); overflow: hidden; }
   .hero-media { position: absolute; inset: -10% 0 -10% 0; will-change: transform; transform: translateY(var(--y, 0)); }
   .hero img { width: 100%; height: 120%; object-fit: cover; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,.58) 100%); }
-  .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; display: grid; gap: .6rem; color:#fff; }
-  .hero h1 { margin: 0; font-size: 2.2rem; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
-  .hero-tag{ font-size:1.05rem; opacity:.96; }
-  .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; margin-top:.2rem; }
-
-  /* Intro */
-  .intro{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0;}
-
-  /* KPI band */
-  .kpis{
-    display:grid; grid-template-columns:repeat(12,1fr); gap:1rem;
-    background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius);
-    padding:1rem; box-shadow:var(--shadow);
-  }
-  .kpi{ grid-column: span 3; background:#fff7ef; border:1px solid #ffd7b4; border-radius:10px; padding:.85rem; }
-  .kpi strong{ display:block; font-size:1.2rem; }
-  .kpi span{ color:var(--brand-900); font-weight:700; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); }
+  .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; display: flex; flex-direction: column; gap: .75rem; }
+  .hero h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
+  .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background;}
+  .btn:hover{background:#e66b00; transform:translateY(-2px);}
+  .btn.secondary{background:#fff; color:#333; border:1px solid rgba(0,0,0,.15);}
+  .btn.secondary:hover{background:#f7f7f7;}
 
   /* Sections */
+  .intro{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0;}
   .section{margin:var(--vr) 0;}
   .section h2{font-size:1.5rem; margin:0 0 1rem .25rem;}
 
   /* Projects */
   .project-list{display:flex; flex-wrap:wrap; gap:1rem;}
-  .project{
-    flex:1 1 calc(33.333% - 1rem); background:var(--card); border-radius:var(--radius);
-    overflow:hidden; box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .25s ease;
-    opacity:0; transform:translateY(8px); will-change:transform, opacity;
-  }
-  .project.ready{ opacity:1; transform:translateY(0); }
-  .project:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg);}
+  .project{flex:1 1 calc(33.333% - 1rem); background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:.25s transform; will-change:transform;}
+  .project:hover{transform:translateY(-5px);}
   .project a{color:inherit; text-decoration:none; display:block; height:100%;}
   .project img{width:100%; height:200px; object-fit:cover; transform:translateY(0); transition:transform .35s ease;}
   .project p{padding:.75rem; font-size:.95rem;}
 
-  /* “What I’m working on” pills */
-  .now{
-    display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem;
-  }
-  .pill{
-    background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:999px;
-    padding:.45rem .75rem; font-weight:700; font-size:.92rem; color:#222;
-  }
-
   /* Skills */
   .skill-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem;}
-  .skill-card{
-    grid-column:span 4; background:var(--card); border-radius:var(--radius);
-    padding:1rem 1rem .85rem; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.06);
-  }
+  .skill-card{grid-column:span 4; background:var(--card); border-radius:var(--radius); padding:1rem 1rem .75rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.06);}
   .skill-card h3{margin:0 0 .4rem;}
   .skill-muted{color:var(--muted); font-size:.95rem; margin:0 0 .6rem;}
   .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
   .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
 
-  /* Tools stack */
-  .tools{display:flex; flex-wrap:wrap; gap:.5rem;}
-  .tool{ background:#fff; border:1px solid rgba(0,0,0,.08); padding:.45rem .6rem; border-radius:8px; font-weight:700; }
-
-  /* Testimonial */
+  /* Testimonial / Colleague Feedback */
   .feedback{margin:var(--vr) 0;}
   .feedback h2{margin:0 0 1rem .25rem;}
   .t-card{
     display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
     background:var(--card); border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius); box-shadow:var(--shadow-lg);
+    border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08);
     padding:1.25rem;
   }
   .t-aside{display:grid; gap:.75rem; align-content:start;}
   .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
   .t-meta{color:var(--muted); display:grid; gap:.2rem;}
   .t-meta strong{color:var(--text);}
+  /* Full-width pull-quote inside the right column */
   blockquote.t-quote{
-    margin:0; background:#fff7ef; border-left:4px solid var(--brand);
-    padding:.75rem 1rem; border-radius:6px; line-height:1.7; font-size:1.05rem; width:100%;
+    margin:0;
+    background:#fff7ef;
+    border-left:4px solid var(--brand);
+    padding:.75rem 1rem;
+    border-radius:6px;
+    line-height:1.7;
+    font-size:1.05rem;
+    max-width:none;
+    width:100%;
   }
   .t-quote p{margin:.4rem 0;}
 
   /* Contact + Footer */
   .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0; text-align:center;}
-  .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.1rem;}
+  .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
   .contact a:hover{text-decoration:underline;}
 
   footer{grid-column:1 / -1; background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
@@ -172,15 +111,14 @@
 
   /* Mobile */
   @media (max-width: 768px) {
-    .hero, .container.section, .container .intro, .container.feedback, .container .contact, .kpis { padding-left: 1rem; padding-right: 1rem; }
-    .hero{height:320px}
+    .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
+    .hero{height:300px}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
     .hero-content{bottom:1rem;}
     .hero h1{font-size:clamp(1.6rem, 7.5vw, 2.1rem); line-height:1.1; text-wrap:balance;}
     .btn{width:100%; padding:1rem 1.25rem; font-size:1.05rem;}
     .project{flex:1 1 100%;}
     .skill-card{grid-column:span 12;}
-    .kpi{grid-column: span 6;}
     .t-card{grid-template-columns:1fr;}
     .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
     .t-avatar{width:72px; height:72px;}
@@ -189,30 +127,26 @@
 
   @media (prefers-reduced-motion: reduce){
     .hero-media{transform:none !important}
-    .project{ transition:none; opacity:1 !important; transform:none !important; }
     .project img{transition:none}
   }
 </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
-
 <div class="page">
 
   <!-- Header -->
-  <header class="container" role="banner">Brandon Bautista</header>
+  <header class="container">Brandon Bautista</header>
 
   <!-- Hero -->
-  <section class="container" aria-label="Intro & primary actions">
+  <section class="container">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="images/hero.avif" alt="Clean workspace with laptop and notebook on a wood desk" width="1600" height="960" />
+        <img src="images/hero.avif" alt="Modern workspace with laptop and notebook" />
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content">
+      <div class="hero-content" aria-label="Introduction">
         <h1>Brandon Bautista</h1>
-        <p class="hero-tag"><strong>Senior Marketing Leader</strong> — storytelling, inbound, and customer advocacy that drives measurable growth.</p>
         <div class="hero-buttons">
           <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
           <a class="btn secondary" href="Bautista_Resume.pdf" target="_blank" rel="noopener">View Resume →</a>
@@ -221,156 +155,114 @@
     </div>
   </section>
 
-  <!-- Short intro -->
-  <section class="container" aria-label="About">
+  <!-- Intro -->
+  <section class="container">
     <div class="intro">
-      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them. I use empathy-first storytelling, clear positioning, and helpful content to help people see themselves in what you offer.</p>
-      <p>Recent work spans launching an AI consulting division, high-performing enrollment campaigns, and a brand system teams actually love to use.</p>
-
-      <!-- What I'm working on -->
-      <div class="now" aria-label="What I'm working on">
-        <span class="pill">Refining AI Go-to-Market</span>
-        <span class="pill">Thought Leadership Engine</span>
-        <span class="pill">Video-first Social</span>
-        <span class="pill">HubSpot RevOps</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quantified stats -->
-  <section class="container section" aria-labelledby="kpi-title">
-    <h2 id="kpi-title">Highlights</h2>
-    <div class="kpis" role="list">
-      <div class="kpi" role="listitem" aria-label="AI revenue">
-        <strong>$500K+</strong><span>new revenue in &lt; 2 years</span><div class="skill-muted">AI Strategists GTM</div>
-      </div>
-      <div class="kpi" role="listitem" aria-label="Podcast views">
-        <strong>217K+</strong><span>podcast/video views</span><div class="skill-muted">Award-winning series</div>
-      </div>
-      <div class="kpi" role="listitem" aria-label="Paid social scale">
-        <strong>5M+</strong><span>paid social impressions</span><div class="skill-muted">Lean budgets</div>
-      </div>
-      <div class="kpi" role="listitem" aria-label="Email performance">
-        <strong>~49%</strong><span>open rate</span><div class="skill-muted">≈2× edu benchmark</div>
-      </div>
+      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
+      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
+      <p><strong>Be kind. Work hard. Have fun.</strong></p>
     </div>
   </section>
 
   <!-- Projects -->
-  <main id="main" class="container section" aria-labelledby="projects-title">
+  <section class="container section">
     <h2 id="projects-title">Featured Projects</h2>
     <div class="project-list" id="projects">
       <!-- AI Strategists (FIRST) -->
-      <div class="project" data-delay="0">
-        <a href="/projects/ai/" aria-label="AI Strategists project">
-          <img class="thumb-parallax" loading="lazy"
+      <div class="project">
+        <a href="/projects/ai/">
+          <img class="thumb-parallax"
                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-               alt="AI strategy concept illustration with laptop and data visualizations" width="1200" height="800" />
+               alt="AI Strategists division thumbnail" />
           <p>AI Strategists: From Zero to $500K in &lt; 2 Years</p>
         </a>
       </div>
 
       <!-- BRIGHT -->
-      <div class="project" data-delay="60">
-        <a href="/projects/bright/" aria-label="BRIGHT podcast project">
-          <img class="thumb-parallax" loading="lazy" src="images/bright.jpg"
-               alt="Podcast artwork for BRIGHT: Stories of Hope & Innovation" width="1200" height="800" />
+      <div class="project">
+        <a href="/projects/bright/">
+          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork" />
           <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
         </a>
       </div>
 
       <!-- Writing sample -->
-      <div class="project" data-delay="120">
-        <a href="/projects/writing/" aria-label="Writing sample project">
-          <img class="thumb-parallax" loading="lazy" src="images/qd.webp"
-               alt="Writing sample thumbnail — open notebook and coffee" width="1200" height="800" />
+      <div class="project">
+        <a href="/projects/writing/">
+          <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail" />
           <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
         </a>
       </div>
 
       <!-- Michigan Cares -->
-      <div class="project" data-delay="180">
-        <a href="/projects/michigancares/" aria-label="Michigan Cares campaign project">
-          <img class="thumb-parallax" loading="lazy"
+      <div class="project">
+        <a href="/projects/michigancares/">
+          <img class="thumb-parallax"
                src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
-               alt="Close-up of family hands showing support — SEL theme" width="1200" height="800" />
+               alt="Michigan Cares campaign thumbnail" />
           <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
         </a>
       </div>
 
       <!-- Brand Standards -->
-      <div class="project" data-delay="240">
-        <a href="/projects/brand/" aria-label="Brand standards project">
-          <img class="thumb-parallax" loading="lazy"
+      <div class="project">
+        <a href="/projects/brand/">
+          <img class="thumb-parallax"
                src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
-               alt="Color swatches and typography samples — brand guide" width="1200" height="800" />
+               alt="Brand Standards guide thumbnail" />
           <p>Michigan Virtual Brand Standards</p>
         </a>
       </div>
 
       <!-- Yearlong Enrollment -->
-      <div class="project" data-delay="300">
-        <a href="/projects/enrollment/" aria-label="Yearlong enrollment project">
-          <img class="thumb-parallax" loading="lazy"
+      <div class="project">
+        <a href="/projects/enrollment/">
+          <img class="thumb-parallax"
                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-               alt="Classroom desks and chalkboard — enrollment theme" width="1200" height="800" />
+               alt="Enrollment campaign thumbnail" />
           <p>Yearlong Enrollment Cycle Campaigns</p>
         </a>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Skills (expanded) -->
-  <section class="container section" aria-labelledby="skills-title">
-    <h2 id="skills-title">Skills</h2>
+  <!-- Skills -->
+  <section class="container section">
+    <h2>Skills</h2>
     <div class="skill-grid">
       <article class="skill-card">
-        <h3>Storytelling & Positioning</h3>
-        <p class="skill-muted">Turn complex ideas into clear, human narratives that move audiences to act.</p>
+        <h3>Storytelling</h3>
+        <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
         <div class="tags">
-          <span class="tag">Messaging</span><span class="tag">Narrative Structure</span>
-          <span class="tag">Copywriting</span><span class="tag">Thought Leadership</span>
+          <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
+          <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
+          <span class="tag">Editorial Judgment</span>
         </div>
       </article>
 
       <article class="skill-card">
-        <h3>Go-to-Market & Inbound</h3>
-        <p class="skill-muted">Full-funnel planning with content, paid/organic social, email, and enablement.</p>
-        <div class="tags"><span class="tag">GTM</span><span class="tag">Campaign Strategy</span><span class="tag">Lead Nurture</span><span class="tag">Conversion</span></div>
+        <h3>Content Creation & Video Production</h3>
+        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
+        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
       </article>
 
       <article class="skill-card">
-        <h3>Content & Video</h3>
-        <p class="skill-muted">From scripts and shoots to edits and distribution that actually gets watched.</p>
-        <div class="tags"><span class="tag">Scripting</span><span class="tag">Editing</span><span class="tag">YouTube</span><span class="tag">Shorts/Reels</span></div>
+        <h3>Social Media Strategy</h3>
+        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
+        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
       </article>
 
       <article class="skill-card">
-        <h3>Analytics & RevOps</h3>
-        <p class="skill-muted">Show the “so what” with dashboards, attribution, and pragmatic experiments.</p>
-        <div class="tags"><span class="tag">HubSpot</span><span class="tag">GA4</span><span class="tag">Attribution</span><span class="tag">A/B Testing</span></div>
+        <h3>HubSpot Mastery</h3>
+        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
+        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
       </article>
 
       <article class="skill-card">
-        <h3>Leadership</h3>
-        <p class="skill-muted">Build kind, high-standards teams that deliver—and enjoy doing it.</p>
-        <div class="tags"><span class="tag">People Mgmt</span><span class="tag">Cross-functional</span><span class="tag">Vendor Mgmt</span><span class="tag">Budgeting</span></div>
+        <h3>Customer Advocacy & Experience</h3>
+        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
+        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
       </article>
-    </div>
-  </section>
-
-  <!-- Tools & Technologies -->
-  <section class="container section" aria-labelledby="tools-title">
-    <h2 id="tools-title">Tools & Technologies</h2>
-    <div class="tools" role="list">
-      <span class="tool" role="listitem">HubSpot</span>
-      <span class="tool" role="listitem">Google Analytics 4</span>
-      <span class="tool" role="listitem">Meta Ads</span>
-      <span class="tool" role="listitem">YouTube Studio</span>
-      <span class="tool" role="listitem">Figma</span>
-      <span class="tool" role="listitem">Adobe Premiere</span>
-      <span class="tool" role="listitem">Canva</span>
-      <span class="tool" role="listitem">Airtable</span>
     </div>
   </section>
 
@@ -379,9 +271,9 @@
     <h2 id="feedback-title">Colleague Feedback</h2>
     <figure class="t-card">
       <div class="t-aside">
-        <img class="t-avatar" loading="lazy"
+        <img class="t-avatar"
              src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
-             alt="Headshot of Nikki Herta" width="176" height="176" />
+             alt="Headshot of Nikki Herta" />
         <figcaption class="t-meta">
           <strong>Nikki Herta</strong>
           <span>Writer/Editor/Marketing Professional</span>
@@ -390,43 +282,26 @@
 
       <blockquote class="t-quote">
         <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
-        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>.”</p>
+        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
       </blockquote>
     </figure>
   </section>
 
   <!-- Contact -->
-  <section class="container" aria-label="Contact">
+  <section class="container">
     <div class="contact">
       <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer role="contentinfo">
+  <footer>
     <div class="container">
       <p>© 2025 Brandon Bautista</p>
     </div>
   </footer>
 
 </div><!-- /.page -->
-
-<!-- Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Person",
-  "name":"Brandon Bautista",
-  "jobTitle":"Senior Marketing Leader",
-  "url":"https://YOUR-DOMAIN.example/",
-  "sameAs":[
-    "https://www.linkedin.com/in/brandonbautista/"
-  ],
-  "knowsAbout":[
-    "go-to-market","inbound marketing","content marketing","video production","customer advocacy","HubSpot","analytics"
-  ]
-}
-</script>
 
 <script>
 /* Hero parallax (respects reduced motion) */
@@ -454,54 +329,34 @@
   window.addEventListener('resize', onScroll);
 })();
 
-/* Desktop-only subtle parallax on project thumbnails + smooth reveal */
+/* Desktop-only subtle parallax on project thumbnails */
 (function(){
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
-  const projects = Array.from(document.querySelectorAll('.project'));
-  const imgs = Array.from(document.querySelectorAll('.thumb-parallax'));
-  if (!projects.length) return;
-
-  // reveal on view
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if (e.isIntersecting) {
-        const el = e.target;
-        const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
-        if (!reduce.matches) {
-          setTimeout(()=>el.classList.add('ready'), delay);
-        } else {
-          el.classList.add('ready');
-        }
-        io.unobserve(el);
-      }
-    });
-  }, {threshold: 0.12});
-  projects.forEach(p => io.observe(p));
-
   if (reduce.matches) return;
 
-  // subtle vertical translate based on viewport center
-  const onMove = (img) => {
-    const r = img.getBoundingClientRect();
-    const vh = window.innerHeight || 1;
-    const p = (r.top + r.height/2) / vh; // 0..1
-    const y = (p - 0.5) * -6; // subtle translate
-    img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
-  };
+  const imgs = Array.from(document.querySelectorAll('.thumb-parallax'));
+  if (!imgs.length) return;
 
-  const io2 = new IntersectionObserver((entries)=>{
+  const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       const img = e.target;
       if (!e.isIntersecting) return;
-      const handler = () => onMove(img);
-      handler();
-      window.addEventListener('scroll', handler, {passive:true});
-      window.addEventListener('resize', handler);
+      const onMove = () => {
+        const r = img.getBoundingClientRect();
+        const vh = window.innerHeight || 1;
+        const p = (r.top + r.height/2) / vh; // 0..1
+        const y = (p - 0.5) * -6; // subtle translate
+        img.style.transform = isDesktop() ? translateY(${y}px) : 'translateY(0)';
+      };
+      onMove();
+      window.addEventListener('scroll', onMove, {passive:true});
+      window.addEventListener('resize', onMove);
     });
   }, {threshold: 0.2});
-  imgs.forEach(i => io2.observe(i));
+  imgs.forEach(i => io.observe(i));
 })();
 </script>
+
 </body>
 </html>
