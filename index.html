@@ -126,7 +126,7 @@
 
   /* Mobile */
   @media (max-width: 768px) {
-    /* Removed container padding override from here that was causing desktop issues */
+    .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
     .hero{height:300px}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
     .hero-content{bottom:1rem;}
@@ -367,7 +367,6 @@
         const vh = window.innerHeight || 1;
         const p = (r.top + r.height / 2) / vh; // 0..1
         const y = (p - 0.5) * -6; // subtle translate
-        // Only apply parallax if it's desktop
         img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
       };
       onMove();
