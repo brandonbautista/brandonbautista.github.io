@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Why I Don’t Give (Hear Me Out) | Brandon Bautista</title>
 
+<!-- Social preview -->
 <meta property="og:title" content="Why I Don’t Give (Hear Me Out) | Brandon Bautista">
 <meta property="og:description" content="Guest post on donor psychology and relationship-based fundraising—an example of empathy-first storytelling for busy professionals.">
 <meta property="og:type" content="website">
@@ -15,172 +16,178 @@
 <meta name="twitter:image" content="/images/projects/writing_hero.jpg">
 
 <style>
-  :root{
-    --page-max: 1200px;
-    --radius: 12px;
-    --bg: #f9f8f6;
-    --text: #333333;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --brand:#ff7a00;
-    --brand-700:#e66b00;
-    --footer:#333333;
-    --vr: clamp(18px, 2.6vw, 28px);
-  }
+  :root{
+    --page-max: 1200px;
+    --radius: 12px;
+    --bg: #f9f8f6;
+    --text: #333333;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --brand:#ff7a00;
+    --brand-700:#e66b00;
+    --footer:#333333;
+    --vr: clamp(18px, 2.6vw, 28px);
+  }
 
-  /* Base */
-  *{box-sizing:border-box}
-  html,body{overflow-x:hidden}
-  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  img{max-width:100%;display:block}
+  /* Base */
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  img{max-width:100%;display:block}
 
-  a{color:var(--brand);text-decoration:none;}
-  a:hover{text-decoration:underline;}
+  a{color:var(--brand);text-decoration:none;}
+  a:hover{text-decoration:underline;}
 
-  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
+  header{max-width:var(--page-max);margin:0 auto;padding:1rem;font-weight:700;}
 
-  /* Hero */
-  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden;}
-  .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
-  .hero picture,.hero img{width:100%;height:120%;object-fit:cover;display:block;}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%);z-index:1;}
-  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.5rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.4rem;z-index:2;}
-  .hero-title{margin:0;color:#fff;font-weight:800;font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
-  .hero-sub{margin:0;color:#fff;opacity:.95;}
+  /* Hero */
+  .hero{position:relative;height:320px;max-width:var(--page-max);margin:0 auto;border-radius:var(--radius);overflow:hidden;}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;will-change:transform;transform:translateY(var(--y,0));}
+  .hero picture,.hero img{width:100%;height:120%;object-fit:cover;display:block;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%);z-index:1;}
+  .hero-content{position:absolute;left:1rem;right:1rem;bottom:1.5rem;max-width:calc(var(--page-max) - 2rem);margin:0 auto;display:flex;flex-direction:column;gap:.4rem;z-index:2;}
+  .hero-title{margin:0;color:#fff;font-weight:800;font-size:1.9rem;text-shadow:0 2px 8px rgba(0,0,0,.35);}
+  .hero-sub{margin:0;color:#fff;opacity:.95;}
 
-  /* Mini-intro strip */
-  .mini{max-width:var(--page-max);margin:var(--vr) auto 0;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem 1.25rem;}
-  .mini p{margin:.2rem 0 .6rem}
-  .mini ul{margin:.25rem 0 0 1.1rem}
-  .mini li{margin:.15rem 0}
+  /* Mini-intro strip */
+  .mini{max-width:var(--page-max);margin:var(--vr) auto 0;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem 1.25rem;}
+  .mini p{margin:.2rem 0 .6rem}
+  .mini ul{margin:.25rem 0 0 1.1rem}
+  .mini li{margin:.15rem 0}
 
-  /* Sections */
-  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
-  .section h2{margin:0 0 .75rem;font-size:1.4rem;}
-  .muted{color:var(--muted);}
+  /* Sections */
+  .section{max-width:var(--page-max);margin:var(--vr) auto;background:#f2f0ee;border-radius:var(--radius);padding:1.25rem;}
+  .section h2{margin:0 0 .75rem;font-size:1.4rem;}
+  .muted{color:var(--muted);}
 
-  /* 3-up blocks */
-  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
-  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
-  .block h3{margin:.2rem 0 .5rem;font-size:1rem;}
-  .block p{margin:0 0 .5rem;}
+  /* 3-up blocks */
+  .quick{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
+  .block{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .block h3{margin:.2rem 0 .5rem;font-size:1rem;}
+  .block p{margin:0 0 .5rem;}
 
-  /* Callout */
-  .callout{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center;}
+  /* Callout */
+  .callout{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;text-align:center;}
 
-  /* Buttons */
-  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
-  .btn:hover{background:var(--brand-700);text-decoration:none;}
-  .btn.outline{
-    background:none;
-    color:var(--brand);
-    border:2px solid var(--brand);
-  }
-  .btn.outline:hover{
-    background:var(--brand);
-    color:#fff;
-  }
+  /* Buttons */
+  .btn{display:inline-block;background:var(--brand);color:#fff;border-radius:var(--radius);padding:.6rem 1rem;font-weight:700;text-decoration:none;}
+  .btn:hover{background:var(--brand-700);text-decoration:none;}
+  .btn.outline{
+    background:none;
+    color:var(--brand);
+    border:2px solid var(--brand);
+  }
+  .btn.outline:hover{
+    background:var(--brand);
+    color:#fff;
+  }
 
-  /* Pullquote */
-  .pullquote{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;}
-  .pullquote blockquote{
-    margin:0;
-    font-size:1.35rem;
-    line-height:1.45;
-    font-weight:700;
-    color:#1a1a1a;
-    padding:.5rem .75rem;
-    background:#fff7ef;
-    border-left:6px solid var(--brand);
-    border-radius:6px;
-  }
+  /* Pullquote */
+  .pullquote{max-width:var(--page-max);margin:var(--vr) auto;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:var(--radius);padding:1.25rem;}
+  .pullquote blockquote{
+    margin:0;
+    font-size:1.35rem;
+    line-height:1.45;
+    font-weight:700;
+    color:#1a1a1a;
+    padding:.5rem .75rem;
+    background:#fff7ef;
+    border-left:6px solid var(--brand);
+    border-radius:6px;
+  }
 
-  /* Footer */
-  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
+  /* Footer */
+  footer{background:var(--footer);color:#fff;text-align:center;padding:1rem;font-size:.9rem;margin-top:var(--vr);}
 
-  /* Mobile */
-  @media (max-width:768px){
-    header, .hero, .mini, .section, .pullquote, .callout { padding-left: 1rem; padding-right: 1rem; }
-    .hero{height:240px;}
-    .block{grid-column:span 12;}
-  }
+  /* Mobile */
+  @media (max-width:768px){
+    header, .hero, .mini, .section, .pullquote, .callout { padding-left: 1rem; padding-right: 1rem; }
+    .hero{height:240px;}
+    .block{grid-column:span 12;}
+  }
 </style>
 </head>
 <body>
 
 <header><a href="/" class="btn outline">← Back to Home</a></header>
 
+<!-- Hero -->
 <section class="hero" id="hero">
-  <div class="hero-media" id="heroMedia">
-    <picture>
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920&auto=format&fit=crop" alt="Professional workspace with laptop and notebook">
-    </picture>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">Why I Don’t Give (Hear Me Out)</h1>
-    <p class="hero-sub">Guest post on donor psychology and relationship-based fundraising.</p>
-  </div>
+  <div class="hero-media" id="heroMedia">
+    <picture>
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920&auto=format&fit=crop" alt="Professional workspace with laptop and notebook">
+    </picture>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Why I Don’t Give (Hear Me Out)</h1>
+    <p class="hero-sub">Guest post on donor psychology and relationship-based fundraising.</p>
+  </div>
 </section>
 
+<!-- Context for hiring managers (humble framing) -->
 <section class="mini" aria-label="Why this matters">
-  <p>I wrote this guest post for a popular fundraising newsletter on a topic I care about. It shows how I use empathy-first storytelling to translate a sensitive issue into clear, actionable guidance that earns attention and trust—the same approach I use to position products, build thought leadership, and drive engagement.</p>
-  <p class="muted" style="margin:.4rem 0 .25rem"><strong>Read the full piece as an example of how I:</strong></p>
-  <ul>
-    <li>Turn complex emotions into plain-spoken, useful content</li>
-    <li>Balance provocation with credibility to spark conversation</li>
-    <li>Use light humor to disarm defensiveness and invite reflection</li>
-  </ul>
+  <p>I wrote this guest post for a popular fundraising newsletter on a topic I care about. It shows how I use empathy-first storytelling to translate a sensitive issue into clear, actionable guidance that earns attention and trust—the same approach I use to position products, build thought leadership, and drive engagement.</p>
+  <p class="muted" style="margin:.4rem 0 .25rem"><strong>Read the full piece as an example of how I:</strong></p>
+  <ul>
+    <li>Turn complex emotions into plain-spoken, useful content</li>
+    <li>Balance provocation with credibility to spark conversation</li>
+    <li>Use light humor to disarm defensiveness and invite reflection</li>
+  </ul>
 </section>
 
+<!-- At a Glance -->
 <section class="section" aria-labelledby="glance-title">
-  <h2 id="glance-title">At a Glance</h2>
-  <div class="quick">
-    <article class="block">
-      <h3>What</h3>
-      <p>Thought-leadership essay on how guilt-driven fundraising can erode trust—paired with practical steps for relationship-based donor communications.</p>
-    </article>
-    <article class="block">
-      <h3>Why</h3>
-      <p>To model human-centered writing that reframes a sensitive practice without shaming practitioners, and helps teams choose better tactics.</p>
-    </article>
-    <article class="block">
-      <h3>Impact</h3>
-      <p>Published on <em>Fundraising for Breakfast</em>, a newsletter read by thousands in the fundraising community—where it rose to the site’s <strong>#3 most-read article overall</strong>.</p>
-    </article>
-  </div>
+  <h2 id="glance-title">At a Glance</h2>
+  <div class="quick">
+    <article class="block">
+      <h3>What</h3>
+      <p>Thought-leadership essay on how guilt-driven fundraising can erode trust—paired with practical steps for relationship-based donor communications.</p>
+    </article>
+    <article class="block">
+      <h3>Why</h3>
+      <p>To model human-centered writing that reframes a sensitive practice without shaming practitioners, and helps teams choose better tactics.</p>
+    </article>
+    <article class="block">
+      <h3>Impact</h3>
+      <p>Published on <em>Fundraising for Breakfast</em>, a newsletter read by thousands in the fundraising community—where it rose to the site’s <strong>#3 most-read article overall</strong>.</p>
+    </article>
+  </div>
 </section>
 
+<!-- CTA -->
 <section class="callout" aria-labelledby="cta-title">
-  <h2 id="cta-title">Read the full piece</h2>
-  <p class="muted">Quick, clear, and human—written for busy professionals.</p>
-  <a class="btn" href="https://fundraisingforbreakfast.substack.com/p/why-i-dont-give-hear-me-out" target="_blank" rel="noopener">Read the article →</a>
+  <h2 id="cta-title">Read the full piece</h2>
+  <p class="muted">Quick, clear, and human—written for busy professionals.</p>
+  <a class="btn" href="https://fundraisingforbreakfast.substack.com/p/why-i-dont-give-hear-me-out" target="_blank" rel="noopener">Read the article →</a>
 </section>
 
+<!-- Single pull-quote -->
 <section class="pullquote" aria-label="Key line">
-  <blockquote>
-    “What I need is a relationship, not a drip campaign… The most meaningful giving doesn’t come from being made to feel bad. It comes from feeling seen.”
-  </blockquote>
+  <blockquote>
+    “What I need is a relationship, not a drip campaign… The most meaningful giving doesn’t come from being made to feel bad. It comes from feeling seen.”
+  </blockquote>
 </section>
 
+<!-- Back to Home -->
 <section style="text-align:center; margin-top:2rem;">
-  <a href="/" class="btn outline">← Back to Home</a>
+  <a href="/" class="btn outline">← Back to Home</a>
 </section>
 
 <footer>© 2025 Brandon Bautista</footer>
 
 <script>
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) return;
-    const hero = document.getElementById('hero');
-    const media = document.getElementById('heroMedia');
-    if(!hero || !media) return;
-    let ticking=false;
-    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
-    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
-    update(); window.addEventListener('scroll', onScroll, {passive:true});
-  })();
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if(!hero || !media) return;
+    let ticking=false;
+    function update(){ const r=hero.getBoundingClientRect(); media.style.setProperty('--y', (r.top*0.15)+'px'); ticking=false; }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    update(); window.addEventListener('scroll', onScroll, {passive:true});
+  })();
 </script>
 
 </body>
