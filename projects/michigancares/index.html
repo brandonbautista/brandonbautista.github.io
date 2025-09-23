@@ -11,363 +11,358 @@
 <meta property="og:image" content="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
 
 <style>
-  :root{
-    --page-max: 1200px;
-    --radius: 12px;
-    --bg: #f9f8f6;
-    --text: #333333;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --brand:#ff7a00;
-    --brand-700:#e66b00;
-    --footer:#333333;
-    --vr: 1.5rem;
-    --side-pad: 1rem;
-  }
-  
-  /* Base */
-  * { box-sizing: border-box; }
-  html,body{overflow-x:hidden}
-  img{max-width:100%;height:auto;display:block}
-  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  a{color:var(--brand);text-decoration:none}
-  a:hover{text-decoration:underline}
+  :root{
+    --page-max: 1200px;
+    --radius: 12px;
+    --bg: #f9f8f6;
+    --text: #333333;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --brand:#ff7a00;
+    --brand-700:#e66b00;
+    --footer:#333333;
+    --vr: 1.6rem;          /* vertical rhythm between sections */
+    --side-pad: 1rem;      /* consistent left/right padding to match hero text */
+  }
 
-  /* Centered page grid */
-  .page{
-    display:grid;
-    grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
-  }
-  .page > *{ grid-column: 2; }
-  .container{ grid-column: 2; }
+  /* Base */
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  img{max-width:100%;height:auto;display:block}
+  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
 
-  /* Header */
-  header{padding:1rem 0;font-weight:700;}
+  /* Centered page grid */
+  .page{
+    display:grid;
+    grid-template-columns: 1fr minmax(0, var(--page-max)) 1fr;
+  }
+  .page > *{ grid-column: 2; }
+  .pad{ padding-left: var(--side-pad); padding-right: var(--side-pad); }
 
-  /* Hero */
-  .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;margin-bottom:var(--vr)}
-  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
-  .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.58) 100%)}
-  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.1rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
-  .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-  .hero-sub{margin:0;opacity:.96}
+  /* Header */
+  header{padding:1rem 0;font-weight:700;}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
 
-  /* Sections */
-  .section{margin:var(--vr) 0;}
-  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
-  .section h2{margin:0 0 .75rem;font-size:1.4rem}
-  .muted{color:var(--muted)}
+  /* Hero */
+  .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
+  .hero img{width:100%;height:120%;object-fit:cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)}
+  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.25rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
+  .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .hero-sub{margin:0;opacity:.95}
 
-  /* “At a Glance” grid */
-  .glance-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .g-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .g-card h3{margin:.2rem 0 .5rem;font-size:1rem}
-  .g-card p{margin:.25rem 0 .5rem}
-  .g-card ul{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
+  /* Sections */
+  .section{margin:var(--vr) 0;}
+  .section-inner{
+    background:#f2f0ee;border-radius:var(--radius);
+    padding:1.25rem var(--side-pad);           /* aligns with hero-content */
+  }
+  .section h2{margin:0 0 .75rem;font-size:1.4rem}
+  .muted{color:var(--muted)}
 
-  /* RESULTS SPOTLIGHT (Facebook) */
-  .results{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .r-card{grid-column:span 12;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.08);padding:1rem}
-  .r-top{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.5rem}
-  .badge{display:inline-block;background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.45rem .7rem;font-weight:700;white-space:nowrap}
-  .mega{font-size:2rem;font-weight:800;line-height:1}
-  .r-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.75rem;margin-top:.75rem}
-  .metric{grid-column:span 3;background:#faf8f6;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:.75rem}
-  .metric h4{margin:0 0 .25rem;font-size:.95rem;color:#111}
-  .metric p{margin:0;font-weight:800;font-size:1.15rem}
+  /* Pills */
+  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+  .pill{display:inline-block;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem}
 
-  /* Two-up showcase cards */
-  .twoup{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .card{grid-column:span 6;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
-  .card-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
-  .card-head h3{margin:0;font-size:1.1rem}
-  .card-body{padding:1rem}
-  .embed{position:relative;width:100%;padding-top:56.25%;background:#000}
-  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  /* Overview grid cards */
+  .glance-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .g-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .g-card h3{margin:.2rem 0 .5rem;font-size:1rem}
+  .g-card details{margin-top:.5rem}
+  .g-card summary{cursor:pointer;color:var(--brand);font-weight:700;list-style:none}
+  .g-card summary::-webkit-details-marker{display:none}
 
-  /* Ad samples */
-  .ads{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .ad{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
-  .ad figure{margin:0}
-  .ad figcaption{padding:.6rem .75rem;border-top:1px solid rgba(0,0,0,.06);font-size:.95rem}
+  /* Channel cards */
+  .channel-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:1rem}
+  .channel-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .channel-card h4{margin:.2rem 0 .45rem;font-size:1rem}
+  .icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
+  .channel-card details{margin-top:.5rem}
+  .channel-card summary{cursor:pointer;color:var(--brand);font-weight:700;list-style:none}
+  .channel-card summary::-webkit-details-marker{display:none}
 
-  /* Responsive videos inside ads with overlay controls */
-  .video-wrap{position:relative;background:#000}
-  .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;border:0}
-  .video-toggle{
-    position:absolute;inset:auto 0 0 auto; /* bottom-right */
-    margin:.5rem;
-    width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.6);
-    display:grid;place-items:center;background:rgba(0,0,0,.35);
-    color:#fff;font-weight:800;cursor:pointer;user-select:none;
-    transition:transform .15s ease, background .2s ease;
-  }
-  .video-toggle:hover{transform:translateY(-1px);background:rgba(0,0,0,.5)}
-  .video-toggle[aria-pressed="true"]{background:rgba(0,0,0,.7)} /* pressed = paused */
+  .dotlist{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
+  .checklist{margin:.4rem 0 0 0;padding:0;list-style:none}
+  .checklist li{position:relative;padding-left:1.25rem;margin:.25rem 0}
+  .checklist li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand);font-weight:700}
+  .chiplist{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0 0;padding:0;list-style:none}
+  .chiplist li{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.3rem .55rem;font-size:.85rem;font-weight:700;white-space:nowrap}
 
-  /* Aspect-ratio helpers */
-  .ar-16-9{aspect-ratio:16/9}
-  .ar-1-1{aspect-ratio:1/1}
-  .ar-9-16{aspect-ratio:9/16}
+  /* Experience cards */
+  .experience{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .card{grid-column:span 6;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+  .card-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+  .card-head h3{margin:0;font-size:1.1rem}
+  .card-body{padding:1rem}
+  .embed{position:relative;width:100%;padding-top:56.25%;background:#000}
+  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-  /* Buttons */
-  .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background; border:0; }
-  .btn:hover{ background:var(--brand-700); text-decoration:none; transform:translateY(-2px); }
-  .btn.secondary{ background:#fff; color:#333; border:1px solid rgba(0,0,0,.15); padding:.8rem 1.5rem; }
-  .btn.secondary:hover{ background:#f7f7f7; transform:translateY(-2px); }
+  /* Email performance */
+  .metric-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+  .metric{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:.4rem .65rem;font-weight:700;font-size:.9rem}
+  .table-wrap{overflow:auto;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th, td{padding:.8rem;border-top:1px solid rgba(0,0,0,.06)}
+  thead th{background:#faf8f6;text-align:left}
 
-  /* Footer */
-footer {
-  background: var(--footer);
-  color: #fff;
-  margin-top: var(--vr);
-  grid-column: 1 / -1; /* This is the key line */
-}
+  /* Buttons */
+  .btn{
+    display:inline-block;
+    background:var(--brand);
+    color:#fff;
+    text-decoration:none;
+    padding:.7rem 1.1rem;
+    border-radius:var(--radius);
+    font-weight:700;
+    transition:.2s transform,.3s background;
+    border:0;
+  }
+  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
+  .btn.outline{
+    background:none;
+    color:var(--brand);
+    border:2px solid var(--brand);
+  }
+  .btn.outline:hover{
+    background:var(--brand);
+    color:#fff;
+  }
 
-footer .container {
-  padding: 1rem;
-  text-align: center;
-  font-size: .9rem;
-}
+  /* Footer */
+  footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
+  footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  /* Mobile tweaks (keep hero text readable) */
-  @media (max-width: 900px){
-    .g-card{grid-column:span 12}
-    .channel-card{grid-column:span 12}
-    .card{grid-column:span 12}
-    .ad{grid-column:span 12}
-    .hero{height:260px}
-  }
-  @media (max-width: 768px){
-    .container { padding-left: 1rem; padding-right: 1rem; }
-    .hero{height:240px}
-    .hero-media img{object-position:center 30%}
-    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
-    .hero-content{bottom:.85rem;max-width:36ch}
-    .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
-    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
-    .hero-content::before{
-      content:"";position:absolute;inset:-0.4rem -0.6rem;background:rgba(0,0,0,.18);
-      filter:blur(.5px);border-radius:10px;z-index:-1;
-    }
-    .btn { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
-  }
-  @media (max-width: 600px){
-     .metric{grid-column:span 6}
-  }
+  /* Mobile tweaks (keep hero text readable) */
+  @media (max-width: 900px){
+    .g-card{grid-column:span 12}
+    .channel-card{grid-column:span 12}
+    .card{grid-column:span 12}
+    .hero{height:260px}
+  }
+  @media (max-width: 768px){
+    .hero{height:240px}
+    .hero-media img{object-position:center 30%}
+    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
+    .hero-content{bottom:.85rem;max-width:36ch}
+    .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
+    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
+    .hero-content::before{
+      content:"";position:absolute;inset:-0.4rem -0.6rem;background:rgba(0,0,0,.18);
+      filter:blur(.5px);border-radius:10px;z-index:-1;
+    }
+  }
 </style>
 </head>
 <body>
 
 <div class="page">
 
-  <header class="container">
-    <a href="/" aria-label="Back to Home">← Back to Home</a>
-  </header>
+    <header class="pad">
+    <a href="/" aria-label="Back to Home">← Back to Home</a>
+  </header>
 
-  <section class="container">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Supportive family / SEL concept">
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Michigan Cares: Statewide SEL Awareness & Adoption</h1>
-        <p class="hero-sub">Multi-channel campaign during COVID to support schools, families, and students with free, evidence-based SEL & mental-health resources.</p>
-      </div>
-    </div>
-  </section>
+    <section class="pad">
+    <div class="hero" id="hero">
+      <div class="hero-media" id="heroMedia" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Supportive family / SEL concept">
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Michigan Cares: Statewide SEL Awareness & Adoption</h1>
+        <p class="hero-sub">Multi-channel campaign during COVID to support schools, families, and students with free, evidence-based SEL & mental-health resources.</p>
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2 id="glance-title">At a Glance</h2>
+    <section class="section">
+    <div class="section-inner">
+      <h2 id="glance-title">At a Glance</h2>
 
-      <div class="pill-row">
-        <span class="pill">$100,000 state funding</span>
-        <span class="pill">Free access for all MI districts</span>
-        <span class="pill">COVID-era community support</span>
-        <span class="pill">Press outreach & media coverage</span>
-      </div>
+      <div class="pill-row">
+        <span class="pill">$100,000 state funding</span>
+        <span class="pill">Free access for all MI districts</span>
+        <span class="pill">COVID-era community support</span>
+        <span class="pill">Press outreach & media coverage</span>
+      </div>
 
-      <div class="glance-grid">
-        <article class="g-card">
-          <h3>What</h3>
-          <p><em>Michigan Cares</em> offered Michigan schools, families, and students a free portal of evidence-based SEL and mental-health resources. Our remit: make every district aware and help them launch quickly.</p>
-          <details><summary>More</summary>
-            <p>We built a campaign that combined awareness, enablement, and clear next steps for <strong>admins, educators, and parents</strong>.</p>
-          </details>
-        </article>
+      <div class="glance-grid">
+        <article class="g-card">
+          <h3>What</h3>
+          <p><em>Michigan Cares</em> offered Michigan schools, families, and students a free portal of evidence-based SEL and mental-health resources. Our remit: make every district aware and help them launch quickly.</p>
+          <details><summary>More</summary>
+            <p>We built a campaign that combined awareness, enablement, and clear next steps for <strong>admins, educators, and parents</strong>.</p>
+          </details>
+        </article>
 
-        <article class="g-card">
-          <h3>Why</h3>
-          <p>During lockdown, districts needed ways to support social-emotional wellbeing. Our objective: drive awareness and adoption statewide—equipping local leaders with ready-to-use content and a simple path to launch.</p>
-          <details><summary>More</summary>
-            <ul class="checklist">
-              <li>Serve, don’t sell: lead with help and clarity.</li>
-              <li>Tailor by audience (admins, educators, parents).</li>
-              <li>Blend paid, owned, and earned media for reach + credibility.</li>
-            </ul>
-          </details>
-        </article>
+        <article class="g-card">
+          <h3>Why</h3>
+          <p>During lockdown, districts needed ways to support social-emotional wellbeing. Our objective: drive awareness and adoption statewide—equipping local leaders with ready-to-use content and a simple path to launch.</p>
+          <details><summary>More</summary>
+            <ul class="checklist">
+              <li>Serve, don’t sell: lead with help and clarity.</li>
+              <li>Tailor by audience (admins, educators, parents).</li>
+              <li>Blend paid, owned, and earned media for reach + credibility.</li>
+            </ul>
+          </details>
+        </article>
 
-        <article class="g-card">
-          <h3>Impact</h3>
-          <p>State-level awareness, strong email engagement, and meaningful uptake of free portals.</p>
-          <details><summary>More</summary>
-            <ul class="dotlist">
-              <li>Press mentions from targeted local outreach to newspapers, TV, and radio.</li>
-              <li>District toolkits + drip communications accelerated adoption and usage.</li>
-              <li>Positive feedback from school leaders navigating a difficult moment.</li>
-            </ul>
-          </details>
-        </article>
-      </div>
+        <article class="g-card">
+          <h3>Impact</h3>
+          <p>State-level awareness, strong email engagement, and meaningful uptake of free portals.</p>
+          <details><summary>More</summary>
+            <ul class="dotlist">
+              <li>Press mentions from targeted local outreach to newspapers, TV, and radio.</li>
+              <li>District toolkits + drip communications accelerated adoption and usage.</li>
+              <li>Positive feedback from school leaders navigating a difficult moment.</li>
+            </ul>
+          </details>
+        </article>
+      </div>
 
-      <div class="channel-grid">
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">✉️</div>
-          <h4>Email (segmented)</h4>
-          <p>Audience-specific messages to admins, educators, and parents with clear paths to request/access their portal.</p>
-          <details><summary>Details</summary>
-            <ul class="chiplist"><li>Blasts + Drips</li><li>Webinar Invites</li><li>Reminders</li></ul>
-          </details>
-        </article>
+            <div class="channel-grid">
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">✉️</div>
+          <h4>Email (segmented)</h4>
+          <p>Audience-specific messages to admins, educators, and parents with clear paths to request/access their portal.</p>
+          <details><summary>Details</summary>
+            <ul class="chiplist"><li>Blasts + Drips</li><li>Webinar Invites</li><li>Reminders</li></ul>
+          </details>
+        </article>
 
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">📣</div>
-          <h4>Facebook Ads</h4>
-          <p>Paid social to drive awareness and interest among educators and families with supportive, service-forward copy.</p>
-          <details><summary>Details</summary>
-            <ul class="chiplist"><li>Awareness</li><li>Remarketing</li></ul>
-          </details>
-        </article>
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">📣</div>
+          <h4>Facebook Ads</h4>
+          <p>Paid social to drive awareness and interest among educators and families with supportive, service-forward copy.</p>
+          <details><summary>Details</summary>
+            <ul class="chiplist"><li>Awareness</li><li>Remarketing</li></ul>
+          </details>
+        </article>
 
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">📻</div>
-          <h4>TV & Radio PSAs</h4>
-          <p>Broadcast placements to reach households statewide—inviting families and schools to explore the free resource.</p>
-          <details><summary>Details</summary>
-            <ul class="chiplist"><li>Statewide Reach</li><li>Public Service Announcements</li></ul>
-          </details>
-        </article>
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">📻</div>
+          <h4>TV & Radio PSAs</h4>
+          <p>Broadcast placements to reach households statewide—inviting families and schools to explore the free resource.</p>
+          <details><summary>Details</summary>
+            <ul class="chiplist"><li>Statewide Reach</li><li>Public Service Announcements</li></ul>
+          </details>
+        </article>
 
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">📰</div>
-          <h4>Press & Outreach</h4>
-          <p>Targeted media outreach and press releases to local markets featuring the schools/educators highlighted in communications.</p>
-          <details><summary>Details</summary>
-            <ul class="chiplist"><li>Local News</li><li>Community Coverage</li></ul>
-          </details>
-        </article>
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">📰</div>
+          <h4>Press & Outreach</h4>
+          <p>Targeted media outreach and press releases to local markets featuring the schools/educators highlighted in communications.</p>
+          <details><summary>Details</summary>
+            <ul class="chiplist"><li>Local News</li><li>Community Coverage</li></ul>
+          </details>
+        </article>
 
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🧰</div>
-          <h4>District Enablement</h4>
-          <p>Step-by-step toolkits and FAQs to launch quickly and communicate confidently with their communities.</p>
-          <details><summary>Details</summary>
-            <ul class="chiplist"><li>Toolkit</li><li>FAQs</li><li>Templates</li></ul>
-          </details>
-        </article>
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">🧰</div>
+          <h4>District Enablement</h4>
+          <p>Step-by-step toolkits and FAQs to launch quickly and communicate confidently with their communities.</p>
+          <details><summary>Details</summary>
+            <ul class="chiplist"><li>Toolkit</li><li>FAQs</li><li>Templates</li></ul>
+          </details>
+        </article>
 
-        <article class="channel-card">
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h4>Inbound Content</h4>
-          <p>Context-rich blogs aligned to SEL needs that naturally directed readers to Michigan Cares.</p>
-          <details><summary>Example</summary>
-            <a class="btn secondary" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" rel="noopener">View the blog →</a>
-          </details>
-        </article>
-      </div>
-    </div>
-  </section>
+        <article class="channel-card">
+          <div class="icon" aria-hidden="true">🧭</div>
+          <h4>Inbound Content</h4>
+          <p>Context-rich blogs aligned to SEL needs that naturally directed readers to Michigan Cares.</p>
+          <details><summary>Example</summary>
+            <a class="btn outline" href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" rel="noopener">View the blog →</a>
+          </details>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2 id="exp-title">Campaign in Action</h2>
-      <div class="experience">
-        <article class="card">
-          <div class="card-head"><h3>Live Webinar to Explain the Offer</h3></div>
-          <div class="embed" role="region" aria-label="Michigan Cares webinar">
-            <iframe src="https://www.youtube-nocookie.com/embed/Py9zOlxslwU"
-                    title="Michigan Cares Webinar"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen loading="lazy"></iframe>
-          </div>
-        </article>
+    <section class="section">
+    <div class="section-inner">
+      <h2 id="exp-title">Campaign in Action</h2>
+      <div class="experience">
+        <article class="card">
+          <div class="card-head"><h3>Live Webinar to Explain the Offer</h3></div>
+          <div class="embed" role="region" aria-label="Michigan Cares webinar">
+            <iframe src="https://www.youtube-nocookie.com/embed/Py9zOlxslwU"
+                    title="Michigan Cares Webinar"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen loading="lazy"></iframe>
+          </div>
+        </article>
 
-        <article class="card">
-          <div class="card-head"><h3>Samples</h3></div>
-          <div class="card-body">
-            <p class="muted" style="margin-top:0">Representative emails from the series:</p>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <a class="btn" href="https://mail.michiganvirtual.org/-temporary-slug-9317230f-3391-420d-973b-1bb7ef25b121?hs_preview=VjnMzJuH-28548303455" target="_blank" rel="noopener">Email #1 to Educators →</a>
-              <a class="btn" href="https://mail.michiganvirtual.org/free-mental-health-sel-resources-for-parents" target="_blank" rel="noopener">Email #1 to Parents →</a>
-              <a class="btn" href="https://mail.michiganvirtual.org/-temporary-slug-065107d5-aa81-4b57-ac59-ba9c66e61795?hs_preview=LoDvnoCM-33901726406" target="_blank" rel="noopener">Email #1 to Principals →</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+        <article class="card">
+          <div class="card-head"><h3>Samples</h3></div>
+          <div class="card-body">
+            <p class="muted" style="margin-top:0">Representative emails from the series:</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+              <a class="btn" href="https://mail.michiganvirtual.org/-temporary-slug-9317230f-3391-420d-973b-1bb7ef25b121?hs_preview=VjnMzJuH-28548303455" target="_blank" rel="noopener">Email #1 to Educators →</a>
+              <a class="btn" href="https://mail.michiganvirtual.org/free-mental-health-sel-resources-for-parents" target="_blank" rel="noopener">Email #1 to Parents →</a>
+              <a class="btn" href="https://mail.michiganvirtual.org/-temporary-slug-065107d5-aa81-4b57-ac59-ba9c66e61795?hs_preview=LoDvnoCM-33901726406" target="_blank" rel="noopener">Email #1 to Principals →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2 id="perf-title">Email Performance</h2>
-      <p class="muted" style="margin:.25rem 0 .75rem">Representative sends across key segments (admins, educators, parents).</p>
+    <section class="section">
+    <div class="section-inner">
+      <h2 id="perf-title">Email Performance</h2>
+      <p class="muted" style="margin:.25rem 0 .75rem">Representative sends across key segments (admins, educators, parents).</p>
 
-      <div class="metric-pills">
-        <span class="metric">Delivered: <strong>49,658+</strong></span>
-        <span class="metric">Avg Open Rate (weighted): <strong>~36%</strong></span>
-        <span class="metric">Avg Click Rate (weighted): <strong>~2.9%</strong></span>
-      </div>
+      <div class="metric-pills">
+        <span class="metric">Delivered: <strong>49,658+</strong></span>
+        <span class="metric">Avg Open Rate (weighted): <strong>~36%</strong></span>
+        <span class="metric">Avg Click Rate (weighted): <strong>~2.9%</strong></span>
+      </div>
 
-      <div class="table-wrap" role="region" aria-label="Email performance table">
-        <table>
-          <thead>
-            <tr><th scope="col">Email / Segment</th><th scope="col">Delivered</th><th scope="col">Open Rate</th><th scope="col">Click Rate</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Admins (blast)</td><td>3,087</td><td>41.59%</td><td>2.56%</td></tr>
-            <tr><td>Parents (blast)</td><td>7,459</td><td>34.44%</td><td>2.68%</td></tr>
-            <tr><td>Educators (blast)</td><td>27,072</td><td>33.51%</td><td>3.15%</td></tr>
-            <tr><td>Drip emails (educators)</td><td>2,831–3,016</td><td>~38.5%</td><td>1.16–2.04%</td></tr>
-            <tr><td>Grant webinar (admins)</td><td>3,056</td><td>46.5%</td><td>4.84%</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+      <div class="table-wrap" role="region" aria-label="Email performance table">
+        <table>
+          <thead>
+            <tr><th scope="col">Email / Segment</th><th scope="col">Delivered</th><th scope="col">Open Rate</th><th scope="col">Click Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Admins (blast)</td><td>3,087</td><td>41.59%</td><td>2.56%</td></tr>
+            <tr><td>Parents (blast)</td><td>7,459</td><td>34.44%</td><td>2.68%</td></tr>
+            <tr><td>Educators (blast)</td><td>27,072</td><td>33.51%</td><td>3.15%</td></tr>
+            <tr><td>Drip emails (educators)</td><td>2,831–3,016</td><td>~38.5%</td><td>1.16–2.04%</td></tr>
+            <tr><td>Grant webinar (admins)</td><td>3,056</td><td>46.5%</td><td>4.84%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-  <section class="container" style="text-align:center; margin-top:2rem;">
-    <a href="/" class="btn secondary">← Back to Home</a>
-  </section>
+    <section class="pad" style="text-align:center; margin-top:2rem;">
+    <a href="/" class="btn outline">← Back to Home</a>
+  </section>
 
-<footer>
-  <div class="container">
-    © 2025 Brandon Bautista
-  </div>
-</footer>
+    <footer>
+    <div class="pad">© 2025 Brandon Bautista</div>
+  </footer>
 
 </div><script>
-  // Gentle hero parallax (respects reduced motion)
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) return;
-    const hero = document.getElementById('hero');
-    const media = document.getElementById('heroMedia');
-    if(!hero || !media) return;
-    let ticking=false;
-    function update(){
-      const r=hero.getBoundingClientRect();
-      media.style.setProperty('--y', (r.top*0.15)+'px');
-      ticking=false;
-    }
-    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
-    update();
-    window.addEventListener('scroll', onScroll, {passive:true});
-    window.addEventListener('resize', onScroll);
-  })();
+  // Gentle hero parallax (respects reduced motion)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if(!hero || !media) return;
+    let ticking=false;
+    function update(){
+      const r=hero.getBoundingClientRect();
+      media.style.setProperty('--y', (r.top*0.15)+'px');
+      ticking=false;
+    }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    update();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+  })();
 </script>
 
 </body>
