@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brandon Bautista</title>
 
-<!-- Social Preview -->
 <meta property="og:title" content="Brandon Bautista | Marketing Portfolio" />
 <meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate." />
 <meta property="og:type" content="website" />
@@ -74,6 +73,40 @@
   .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
   .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
 
+  /* Resources */
+  .resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; /* Or use your --vr variable */
+  }
+
+  .resource-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .resource-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    flex-grow: 1; /* Allows paragraph to take up available space */
+    margin-bottom: 1rem; /* Space before button */
+  }
+
+  .resource-card .btn.secondary {
+    align-self: flex-start; /* Align button to start within flex column */
+  }
+
   /* Testimonial / Colleague Feedback */
   .feedback{margin:var(--vr) 0;}
   .feedback h2{margin:0 0 1rem .25rem;}
@@ -135,10 +168,8 @@
 
 <div class="page">
 
-  <!-- Header -->
   <header class="container">Brandon Bautista</header>
 
-  <!-- Hero -->
   <section class="container">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
@@ -155,7 +186,6 @@
     </div>
   </section>
 
-  <!-- Intro -->
   <section class="container">
     <div class="intro">
       <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
@@ -164,21 +194,18 @@
     </div>
   </section>
 
-  <!-- Projects -->
   <section class="container section">
     <h2 id="projects-title">Featured Projects</h2>
     <div class="project-list" id="projects">
-      <!-- AI Strategists (FIRST) -->
       <div class="project">
         <a href="/projects/ai/">
           <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-               alt="AI Strategists division thumbnail" />
+                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
+                alt="AI Strategists division thumbnail" />
           <p>AI Strategists: From Zero to $500K in &lt; 2 Years</p>
         </a>
       </div>
 
-      <!-- BRIGHT -->
       <div class="project">
         <a href="/projects/bright/">
           <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork" />
@@ -186,7 +213,6 @@
         </a>
       </div>
 
-      <!-- Writing sample -->
       <div class="project">
         <a href="/projects/writing/">
           <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail" />
@@ -194,39 +220,35 @@
         </a>
       </div>
 
-      <!-- Michigan Cares -->
       <div class="project">
         <a href="/projects/michigancares/">
           <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
-               alt="Michigan Cares campaign thumbnail" />
+                src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
+                alt="Michigan Cares campaign thumbnail" />
           <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
         </a>
       </div>
 
-      <!-- Brand Standards -->
       <div class="project">
         <a href="/projects/brand/">
           <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
-               alt="Brand Standards guide thumbnail" />
+                src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
+                alt="Brand Standards guide thumbnail" />
           <p>Michigan Virtual Brand Standards</p>
         </a>
       </div>
 
-      <!-- Yearlong Enrollment -->
       <div class="project">
         <a href="/projects/enrollment/">
           <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-               alt="Enrollment campaign thumbnail" />
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+                alt="Enrollment campaign thumbnail" />
           <p>Yearlong Enrollment Cycle Campaigns</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
   <section class="container section">
     <h2>Skills</h2>
     <div class="skill-grid">
@@ -266,14 +288,38 @@
     </div>
   </section>
 
-  <!-- Colleague Feedback -->
+  <section class="container section">
+    <h2>Resources & Downloads</h2>
+    <div class="resource-list">
+      
+      <article class="resource-card">
+        <h3>Case Study: Powerful Partnership</h3>
+        <p>A compelling case study demonstrating collaborative marketing to meet diverse student needs, highlighting strategic partnerships and impact measurement.</p>
+        <a class="btn secondary" href="https://michiganvirtual.org/wp-content/uploads/2019/10/hamilton-case-study.pdf" target="_blank" rel="noopener">Download PDF →</a>
+      </article>
+
+      <article class="resource-card">
+        <h3>Guidebook: Leading Innovation</h3>
+        <p>A comprehensive guidebook on system-wide school transformation, showcasing thought leadership, content development, and strategic communication skills.</p>
+        <a class="btn secondary" href="https://3943841.fs1.hubspotusercontent-na1.net/hubfs/3943841/Leading%20Innovation%20Pillars%20of%20System-wide%20School%20Transformation%202.pdf?utm_campaign=Consulting%20Services%20-%20Leadership%20Coaching%20for%20Innovation&utm_source=innovationguidebook" target="_blank" rel="noopener">Download PDF →</a>
+      </article>
+
+      <article class="resource-card">
+        <h3>Pamphlet: Whole-School Virtual Learning Approach</h3>
+        <p>A concise pamphlet outlining an integrated approach to virtual learning, demonstrating clear communication and content design for educational initiatives.</p>
+        <a class="btn secondary" href="https://michiganvirtual.org/wp-content/uploads/2019/10/a-whole-school-approach-to-virtual-learning.pdf" target="_blank" rel="noopener">Download PDF →</a>
+      </article>
+
+    </div>
+  </section>
+
   <section class="container feedback" aria-labelledby="feedback-title">
     <h2 id="feedback-title">Colleague Feedback</h2>
     <figure class="t-card">
       <div class="t-aside">
         <img class="t-avatar"
-             src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
-             alt="Headshot of Nikki Herta" />
+              src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1757548800&v=beta&t=ysuMh4RJvg9uij520g6rd0iDufjho0GfKIj75WX2sDU"
+              alt="Headshot of Nikki Herta" />
         <figcaption class="t-meta">
           <strong>Nikki Herta</strong>
           <span>Writer/Editor/Marketing Professional</span>
@@ -287,23 +333,19 @@
     </figure>
   </section>
 
-  <!-- Contact -->
   <section class="container">
     <div class="contact">
       <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2025 Brandon Bautista</p>
     </div>
   </footer>
 
-</div><!-- /.page -->
-
-<script>
+</div><script>
 /* Hero parallax (respects reduced motion) */
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
