@@ -122,13 +122,18 @@
   .btn.secondary:hover{ background:#f7f7f7; transform:translateY(-2px); }
 
   /* Footer */
-  footer{
-    background:var(--footer);
-    color:#fff;
-    margin-top:var(--vr);
-    grid-column:1 / -1;
-  }
-  footer .container{padding:1rem;text-align:center;font-size:.9rem}
+footer {
+  background: var(--footer);
+  color: #fff;
+  margin-top: var(--vr);
+  grid-column: 1 / -1; /* This is the key line */
+}
+
+footer .container {
+  padding: 1rem;
+  text-align: center;
+  font-size: .9rem;
+}
 
   /* Mobile tweaks (keep hero text readable) */
   @media (max-width: 900px){
@@ -233,7 +238,11 @@
     <a href="/" class="btn secondary">← Back to Home</a>
   </section>
 
-  <footer><div class="container">© 2025 Brandon Bautista</div></footer>
+<footer>
+  <div class="container">
+    © 2025 Brandon Bautista
+  </div>
+</footer>
 </div>
 <script>
 (function(){
