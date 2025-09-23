@@ -11,340 +11,299 @@
 <meta property="og:image" content="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop">
 
 <style>
-  :root{
-    --page-max: 1200px;
-    --radius: 12px;
-    --bg: #f9f8f6;
-    --text: #333333;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --brand:#ff7a00;
-    --brand-700:#e66b00;
-    --footer:#333333;
-    --vr: 1.5rem;
-    --side-pad: 1rem;
-  }
-  
-  /* Base */
-  * { box-sizing: border-box; }
-  html,body{overflow-x:hidden}
-  img{max-width:100%;height:auto;display:block}
-  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-  a{color:var(--brand);text-decoration:none}
-  a:hover{text-decoration:underline}
+  :root{
+    --page-max: 1200px;
+    --radius: 12px;
+    --bg: #f9f8f6;
+    --text: #333333;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --brand:#ff7a00;
+    --brand-700:#e66b00;
+    --footer:#333333;
+    --vr: 1.6rem;          /* vertical rhythm between sections */
+    --side-pad: 1rem;      /* aligns with hero’s left/right inset */
+  }
 
-  /* Centered page grid */
-  .page{
-    display:grid;
-    grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
-  }
-  .page > *{ grid-column: 2; }
-  .container{ grid-column: 2; }
+  /* Base */
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  img{max-width:100%;height:auto;display:block}
+  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
 
-  /* Header */
-  header{padding:1rem 0;font-weight:700;}
+  /* Centered grid wrapper */
+  .page{
+    display:grid;
+    grid-template-columns: 1fr minmax(0, var(--page-max)) 1fr;
+  }
+  .page > *{ grid-column: 2; }
+  .pad{ padding-left: var(--side-pad); padding-right: var(--side-pad); }
 
-  /* Hero */
-  .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;margin-bottom:var(--vr)}
-  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
-  .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.58) 100%)}
-  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.1rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
-  .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-  .hero-sub{margin:0;opacity:.96}
+  /* Header */
+  header{padding:1rem 0;font-weight:700;}
 
-  /* Sections */
-  .section{margin:var(--vr) 0;}
-  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
-  .section h2{margin:0 0 .75rem;font-size:1.4rem}
-  .muted{color:var(--muted)}
+  /* Hero */
+  .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden}
+  .hero-media{position:absolute;inset:-10% 0 -10% 0;transform:translateY(var(--y,0));will-change:transform}
+  .hero img{width:100%;height:120%;object-fit:cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)}
+  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.25rem;display:flex;flex-direction:column;gap:.35rem;color:#fff}
+  .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .hero-sub{margin:0;opacity:.95}
 
-  /* “At a Glance” grid */
-  .glance-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .g-card{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .g-card h3{margin:.2rem 0 .5rem;font-size:1rem}
-  .g-card p{margin:.25rem 0 .5rem}
-  .g-card ul{margin:.4rem 0 0 0;padding:0 0 0 1.1rem}
+  /* Sections */
+  .section{margin:var(--vr) 0;}
+  .section-inner{
+    background:#f2f0ee;border-radius:var(--radius);
+    padding:1.25rem var(--side-pad);
+  }
+  .section h2{margin:0 0 .75rem;font-size:1.4rem}
+  .muted{color:var(--muted)}
 
-  /* RESULTS SPOTLIGHT (Facebook) */
-  .results{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .r-card{grid-column:span 12;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.08);padding:1rem}
-  .r-top{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.5rem}
-  .badge{display:inline-block;background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.45rem .7rem;font-weight:700;white-space:nowrap}
-  .mega{font-size:2rem;font-weight:800;line-height:1}
-  .r-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.75rem;margin-top:.75rem}
-  .metric{grid-column:span 3;background:#faf8f6;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:.75rem}
-  .metric h4{margin:0 0 .25rem;font-size:.95rem;color:#111}
-  .metric p{margin:0;font-weight:800;font-size:1.15rem}
+  /* KPI / pill row */
+  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+  .pill{display:inline-block;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4rem .7rem;font-weight:700;font-size:.9rem}
 
-  /* Two-up showcase cards */
-  .twoup{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .card{grid-column:span 6;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
-  .card-head{padding:1rem;border-bottom:1px solid rgba(0,0,0,.06)}
-  .card-head h3{margin:0;font-size:1.1rem}
-  .card-body{padding:1rem}
-  .embed{position:relative;width:100%;padding-top:56.25%;background:#000}
-  .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  /* Feature cards grid */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .feature{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .feature h3{margin:.2rem 0 .5rem;font-size:1.05rem}
+  .feature .head{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem}
+  .icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;font-size:18px;flex:0 0 34px}
+  .feature details{margin-top:.5rem}
+  .feature summary{cursor:pointer;color:var(--brand);font-weight:700;list-style:none}
+  .feature summary::-webkit-details-marker{display:none}
 
-  /* Ad samples */
-  .ads{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .ad{grid-column:span 4;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
-  .ad figure{margin:0}
-  .ad figcaption{padding:.6rem .75rem;border-top:1px solid rgba(0,0,0,.06);font-size:.95rem}
+  /* “Kit” download links */
+  .klinks{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
 
-  /* Responsive videos inside ads with overlay controls */
-  .video-wrap{position:relative;background:#000}
-  .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;border:0}
-  .video-toggle{
-    position:absolute;inset:auto 0 0 auto; /* bottom-right */
-    margin:.5rem;
-    width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.6);
-    display:grid;place-items:center;background:rgba(0,0,0,.35);
-    color:#fff;font-weight:800;cursor:pointer;user-select:none;
-    transition:transform .15s ease, background .2s ease;
-  }
-  .video-toggle:hover{transform:translateY(-1px);background:rgba(0,0,0,.5)}
-  .video-toggle[aria-pressed="true"]{background:rgba(0,0,0,.7)} /* pressed = paused */
+  /* Buttons */
+  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
+  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
+  .btn.outline{
+    background:#fff;
+    color:var(--brand);
+    border:2px solid var(--brand);
+  }
+  .btn.outline:hover{
+    background:var(--brand);
+    color:#fff;
+  }
 
-  /* Aspect-ratio helpers */
-  .ar-16-9{aspect-ratio:16/9}
-  .ar-1-1{aspect-ratio:1/1}
-  .ar-9-16{aspect-ratio:9/16}
+  /* Footer */
+  footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
+  footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
 
-  /* Buttons */
-  .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background; border:0; }
-  .btn:hover{ background:var(--brand-700); text-decoration:none; transform:translateY(-2px); }
-  .btn.secondary{ background:#fff; color:#333; border:1px solid rgba(0,0,0,.15); padding:.8rem 1.5rem; }
-  .btn.secondary:hover{ background:#f7f7f7; transform:translateY(-2px); }
+  /* Mobile hero readability tweaks */
+  @media (max-width: 768px){
+    .hero{height:240px}
+    .hero-media img{object-position:center 30%}
+    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
+    .hero-content{bottom:.85rem;max-width:36ch}
+    .hero-title{font-size:clamp(1.35rem, 7.2vw, 1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
+    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
+    .hero-content::before{
+      content:"";position:absolute;inset:-.4rem -.6rem;z-index:-1;
+      background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;
+    }
+  }
 
-  /* Footer */
-footer {
-  background: var(--footer);
-  color: #fff;
-  margin-top: var(--vr);
-  grid-column: 1 / -1; /* This is the key line */
-}
-
-footer .container {
-  padding: 1rem;
-  text-align: center;
-  font-size: .9rem;
-}
-
-  /* Mobile tweaks (keep hero text readable) */
-  @media (max-width: 900px){
-    .g-card{grid-column:span 12}
-    .channel-card{grid-column:span 12}
-    .card{grid-column:span 12}
-    .ad{grid-column:span 12}
-    .hero{height:260px}
-  }
-  @media (max-width: 768px){
-    .container { padding-left: 1rem; padding-right: 1rem; }
-    .hero{height:240px}
-    .hero-media img{object-position:center 30%}
-    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
-    .hero-content{bottom:.85rem;max-width:36ch}
-    .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
-    .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
-    .hero-content::before{
-      content:"";position:absolute;inset:-0.4rem -0.6rem;background:rgba(0,0,0,.18);
-      filter:blur(.5px);border-radius:10px;z-index:-1;
-    }
-    .btn { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
-  }
-  @media (max-width: 600px){
-     .metric{grid-column:span 6}
-  }
+  /* Responsive grid */
+  @media (max-width: 900px){
+    .feature{grid-column:span 6}
+  }
+  @media (max-width: 600px){
+    .feature{grid-column:span 12}
+  }
 </style>
 </head>
 <body>
 
 <div class="page">
 
-  <header class="container"><a href="/">← Back to Home</a></header>
+    <header class="pad"><a href="/">← Back to Home</a></header>
 
-  <section class="container">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop" alt="Clean academic workspace and brand materials">
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Michigan Virtual — Brand Standards & System</h1>
-        <p class="hero-sub">A single source of truth for logos, colors, accessibility, typography, voice & tone, templates, and icons — built to be practical, enforceable, and loved.</p>
-      </div>
-    </div>
-  </section>
+    <section class="pad">
+    <div class="hero" id="hero">
+      <div class="hero-media" id="heroMedia" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop" alt="Clean academic workspace and brand materials">
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Michigan Virtual — Brand Standards & System</h1>
+        <p class="hero-sub">A single source of truth for logos, colors, accessibility, typography, voice & tone, templates, and icons — built to be practical, enforceable, and loved.</p>
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2>At a Glance</h2>
-      <div class="pill-row">
-        <span class="pill">Centralized brand site</span>
-        <span class="pill">Accessibility guidance</span>
-        <span class="pill">Ready-to-use templates</span>
-        <span class="pill">Voice & tone rules</span>
-        <span class="pill">Custom icon library</span>
-      </div>
-      <p class="muted" style="margin:0">Our goal was utility over theory: make it fast and easy for anyone — designers, writers, or partners — to produce work that is unmistakably Michigan Virtual.</p>
-    </div>
-  </section>
+    <section class="section">
+    <div class="section-inner">
+      <h2>At a Glance</h2>
+      <div class="pill-row">
+        <span class="pill">Centralized brand site</span>
+        <span class="pill">Accessibility guidance</span>
+        <span class="pill">Ready-to-use templates</span>
+        <span class="pill">Voice & tone rules</span>
+        <span class="pill">Custom icon library</span>
+      </div>
+      <p class="muted" style="margin:0">Our goal was utility over theory: make it fast and easy for anyone — designers, writers, or partners — to produce work that is unmistakably Michigan Virtual.</p>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2>What’s Inside</h2>
-      <div class="grid">
+    <section class="section">
+    <div class="section-inner">
+      <h2>What’s Inside</h2>
+      <div class="grid">
 
-        <article class="feature">
-          <div class="head">
-            <div class="icon" aria-hidden="true">🧩</div>
-            <h3>Logos & Usage</h3>
-          </div>
-          <p>Lockups, safe areas, scale, and misuse examples — everything teams need to apply the mark with confidence.</p>
-          <details><summary>Details</summary>
-            <ul>
-              <li>Primary/secondary lockups</li>
-              <li>Minimum size & clear space</li>
-              <li>Background control & misuse gallery</li>
-            </ul>
-          </details>
-        </article>
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🧩</div>
+            <h3>Logos & Usage</h3>
+          </div>
+          <p>Lockups, safe areas, scale, and misuse examples — everything teams need to apply the mark with confidence.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Primary/secondary lockups</li>
+              <li>Minimum size & clear space</li>
+              <li>Background control & misuse gallery</li>
+            </ul>
+          </details>
+        </article>
 
-        <article class="feature">
-          <div class="head">
-            <div class="icon" aria-hidden="true">🎨</div>
-            <h3>Colors & Accessibility</h3>
-          </div>
-          <p>Primary/secondary palette with contrast ratios and examples — so on-brand also means readable.</p>
-          <details><summary>Details</summary>
-            <ul>
-              <li>WCAG contrast checks</li>
-              <li>When to use brand colors</li>
-              <li>Live swatches & code values</li>
-            </ul>
-          </details>
-        </article>
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🎨</div>
+            <h3>Colors & Accessibility</h3>
+          </div>
+          <p>Primary/secondary palette with contrast ratios and examples — so on-brand also means readable.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>WCAG contrast checks</li>
+              <li>When to use brand colors</li>
+              <li>Live swatches & code values</li>
+            </ul>
+          </details>
+        </article>
 
-        <article class="feature">
-          <div class="head">
-            <div class="icon" aria-hidden="true">🔤</div>
-            <h3>Typography</h3>
-          </div>
-          <p>Signature type pairing and hierarchy rules that keep layouts clean, consistent, and legible.</p>
-          <details><summary>Details</summary>
-            <ul>
-              <li>Primary & secondary families</li>
-              <li>Scale & weights for headings/body</li>
-              <li>Web & presentation guidance</li>
-            </ul>
-          </details>
-        </article>
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🔤</div>
+            <h3>Typography</h3>
+          </div>
+          <p>Signature type pairing and hierarchy rules that keep layouts clean, consistent, and legible.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Primary & secondary families</li>
+              <li>Scale & weights for headings/body</li>
+              <li>Web & presentation guidance</li>
+            </ul>
+          </details>
+        </article>
 
-        <article class="feature">
-          <div class="head">
-            <div class="icon" aria-hidden="true">🗂️</div>
-            <h3>Templates</h3>
-          </div>
-          <p>Official slide deck, email signatures, and blog patterns — ship faster and stay on-brand by default.</p>
-          <details><summary>Details</summary>
-            <div class="klinks">
-              <a class="btn secondary" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Slide template</a>
-              <a class="btn secondary" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Email signature spec</a>
-              <a class="btn secondary" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Blog guidelines</a>
-            </div>
-          </details>
-        </article>
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🗂️</div>
+            <h3>Templates</h3>
+          </div>
+          <p>Official slide deck, email signatures, and blog patterns — ship faster and stay on-brand by default.</p>
+          <details><summary>Details</summary>
+            <div class="klinks">
+              <a class="btn outline" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Slide template</a>
+              <a class="btn outline" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Email signature spec</a>
+              <a class="btn outline" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">Blog guidelines</a>
+            </div>
+          </details>
+        </article>
 
-        <article class="feature">
-          <div class="head">
-            <div class="icon" aria-hidden="true">✍️</div>
-            <h3>Writing Standards</h3>
-          </div>
-          <p>A friendly, confident voice — plus nuts-and-bolts rules for acronyms, commas, dates, and more.</p>
-          <details><summary>Details</summary>
-            <ul>
-              <li>Voice & tone by audience</li>
-              <li>Grammar & mechanics quick-refs</li>
-              <li>Examples for clarity and consistency</li>
-            </ul>
-          </details>
-        </article>
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">✍️</div>
+            <h3>Writing Standards</h3>
+          </div>
+          <p>A friendly, confident voice — plus nuts-and-bolts rules for acronyms, commas, dates, and more.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Voice & tone by audience</li>
+              <li>Grammar & mechanics quick-refs</li>
+              <li>Examples for clarity and consistency</li>
+            </ul>
+          </details>
+        </article>
 
-        <article class="feature">
-          <div class="head">
-            <div class="icon" aria-hidden="true">🔣</div>
-            <h3>Custom Icons</h3>
-          </div>
-          <p>A cohesive icon set that adds warmth and personality while reinforcing clarity in UI and content.</p>
-          <details><summary>Details</summary>
-            <ul>
-              <li>Category & usage guidance</li>
-              <li>Downloadable assets</li>
-              <li>Styling rules for new additions</li>
-            </ul>
-          </details>
-        </article>
+        <article class="feature">
+          <div class="head">
+            <div class="icon" aria-hidden="true">🔣</div>
+            <h3>Custom Icons</h3>
+          </div>
+          <p>A cohesive icon set that adds warmth and personality while reinforcing clarity in UI and content.</p>
+          <details><summary>Details</summary>
+            <ul>
+              <li>Category & usage guidance</li>
+              <li>Downloadable assets</li>
+              <li>Styling rules for new additions</li>
+            </ul>
+          </details>
+        </article>
 
-      </div>
-    </div>
-  </section>
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2>Governance & Adoption</h2>
-      <p>Standards only work when they’re easy to find and easier to follow. We centralized everything on a clean, public-facing page and paired it with ready-to-use files. As a result, the brand has been consistently applied across teams and vendors — with fewer revision cycles, fewer one-off questions, and more beautiful, accessible work.</p>
-      <div class="pill-row">
-        <span class="pill">Single source of truth</span>
-        <span class="pill">Self-serve assets</span>
-        <span class="pill">Vendor alignment</span>
-        <span class="pill">Fewer reworks</span>
-      </div>
-      <a class="btn" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">View the live Brand Standards →</a>
-    </div>
-  </section>
+    <section class="section">
+    <div class="section-inner">
+      <h2>Governance & Adoption</h2>
+      <p>Standards only work when they’re easy to find and easier to follow. We centralized everything on a clean, public-facing page and paired it with ready-to-use files. As a result, the brand has been consistently applied across teams and vendors — with fewer revision cycles, fewer one-off questions, and more beautiful, accessible work.</p>
+      <div class="pill-row">
+        <span class="pill">Single source of truth</span>
+        <span class="pill">Self-serve assets</span>
+        <span class="pill">Vendor alignment</span>
+        <span class="pill">Fewer reworks</span>
+      </div>
+      <a class="btn" href="https://michiganvirtual.org/brand/" target="_blank" rel="noopener">View the live Brand Standards →</a>
+    </div>
+  </section>
 
-  <section class="section">
-    <div class="section-inner container">
-      <h2>Outcomes</h2>
-      <ul>
-        <li>Designers, writers, and partners produce consistent work faster using shared templates and clear rules.</li>
-        <li>Leadership and stakeholders report stronger confidence in brand presentation across channels.</li>
-        <li>Accessibility standards are built-in — increasing legibility and reducing retrofits.</li>
-      </ul>
-      <p class="muted" style="margin:.5rem 0 0">We’ve received frequent compliments from internal teams and external partners on the clarity and usefulness of the system.</p>
-    </div>
-  </section>
+    <section class="section">
+    <div class="section-inner">
+      <h2>Outcomes</h2>
+      <ul>
+        <li>Designers, writers, and partners produce consistent work faster using shared templates and clear rules.</li>
+        <li>Leadership and stakeholders report stronger confidence in brand presentation across channels.</li>
+        <li>Accessibility standards are built-in — increasing legibility and reducing retrofits.</li>
+      </ul>
+      <p class="muted" style="margin:.5rem 0 0">We’ve received frequent compliments from internal teams and external partners on the clarity and usefulness of the system.</p>
+    </div>
+  </section>
 
-  <section class="container" style="text-align:center; margin-top:2rem;">
-    <a href="/" class="btn secondary">← Back to Home</a>
-  </section>
+    <section class="pad" style="text-align:center; margin-top:2rem;">
+    <a href="/" class="btn outline">← Back to Home</a>
+  </section>
 
-<footer>
-  <div class="container">
-    © 2025 Brandon Bautista
-  </div>
-</footer>
+    <footer>
+    <div class="pad">© 2025 Brandon Bautista</div>
+  </footer>
 
 </div><script>
-  // Gentle hero parallax (respects reduced motion)
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) return;
-    const hero = document.getElementById('hero');
-    const media = document.getElementById('heroMedia');
-    if(!hero || !media) return;
-    let ticking=false;
-    function update(){
-      const r=hero.getBoundingClientRect();
-      media.style.setProperty('--y', (r.top*0.15)+'px');
-      ticking=false;
-    }
-    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
-    update();
-    window.addEventListener('scroll', onScroll, {passive:true});
-    window.addEventListener('resize', onScroll);
-  })();
+  // Gentle hero parallax (respects reduced motion)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const hero = document.getElementById('hero');
+    const media = document.getElementById('heroMedia');
+    if(!hero || !media) return;
+    let ticking=false;
+    function update(){
+      const r=hero.getBoundingClientRect();
+      media.style.setProperty('--y', (r.top*0.15)+'px');
+      ticking=false;
+    }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    update();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+  })();
 </script>
 
 </body>
