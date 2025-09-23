@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Yearlong Enrollment Cycle | Brandon Bautista</title>
 
-<!-- Social preview -->
 <meta property="og:title" content="Yearlong Enrollment Cycle | Brandon Bautista">
 <meta property="og:description" content="Always-on, multi-channel enrollment campaigns that consistently hit goals—out-connecting bigger budgets with smart creative and precise targeting.">
 <meta property="og:type" content="website">
@@ -22,22 +21,25 @@
     --brand:#ff7a00;
     --brand-700:#e66b00;
     --footer:#333333;
-    --vr: 1.6rem;      /* vertical rhythm between sections */
-    --side-pad: 1rem;  /* match hero text inset */
+    --vr: 1.5rem;
+    --side-pad: 1rem;
   }
-
+  
   /* Base */
-  *{box-sizing:border-box}
+  * { box-sizing: border-box; }
   html,body{overflow-x:hidden}
   img{max-width:100%;height:auto;display:block}
   body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  /* HARD-CENTER LAYOUT */
-  .page{display:grid;grid-template-columns:1fr minmax(0,var(--page-max)) 1fr}
-  .page > *{grid-column:2}
-  .pad{padding-left:var(--side-pad);padding-right:var(--side-pad)}
+  /* Centered page grid */
+  .page{
+    display:grid;
+    grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
+  }
+  .page > *{ grid-column: 2; }
+  .container{ grid-column: 2; }
 
   /* Header */
   header{padding:1rem 0;font-weight:700;}
@@ -53,7 +55,7 @@
 
   /* Sections */
   .section{margin:var(--vr) 0;}
-  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem var(--side-pad)}
+  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
   .section h2{margin:0 0 .75rem;font-size:1.4rem}
   .muted{color:var(--muted)}
 
@@ -110,26 +112,39 @@
   .ar-9-16{aspect-ratio:9/16}
 
   /* Buttons */
-  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.7rem 1.1rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
-  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
-  .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
-  .btn.outline:hover{background:#fff4eb}
+  .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background; border:0; }
+  .btn:hover{ background:var(--brand-700); text-decoration:none; transform:translateY(-2px); }
+  .btn.secondary{ background:#fff; color:#333; border:1px solid rgba(0,0,0,.15); padding:.8rem 1.5rem; }
+  .btn.secondary:hover{ background:#f7f7f7; transform:translateY(-2px); }
 
   /* Footer */
   footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
-  footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
+  footer .container{padding:1rem;text-align:center;font-size:.9rem}
 
-  /* Mobile hero readability */
-  @media (max-width:768px){
+  /* Mobile tweaks (keep hero text readable) */
+  @media (max-width: 900px){
+    .g-card{grid-column:span 12}
+    .channel-card{grid-column:span 12}
+    .card{grid-column:span 12}
+    .ad{grid-column:span 12}
+    .hero{height:260px}
+  }
+  @media (max-width: 768px){
+    .container { padding-left: 1rem; padding-right: 1rem; }
     .hero{height:240px}
     .hero-media img{object-position:center 30%}
     .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%)}
     .hero-content{bottom:.85rem;max-width:36ch}
     .hero-title{font-size:clamp(1.35rem,7.2vw,1.85rem);line-height:1.12;text-wrap:balance;margin-bottom:.15rem}
     .hero-sub{font-size:.98rem;line-height:1.35;max-width:38ch;opacity:.96}
-    .hero-content::before{content:"";position:absolute;inset:-.4rem -.6rem; background:rgba(0,0,0,.18);filter:blur(.5px);border-radius:10px;z-index:-1}
-    .g-card,.card,.ad{grid-column:span 12}
-    .metric{grid-column:span 6}
+    .hero-content::before{
+      content:"";position:absolute;inset:-0.4rem -0.6rem;background:rgba(0,0,0,.18);
+      filter:blur(.5px);border-radius:10px;z-index:-1;
+    }
+    .btn { width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; }
+  }
+  @media (max-width: 600px){
+     .metric{grid-column:span 6}
   }
 </style>
 </head>
@@ -137,14 +152,11 @@
 
 <div class="page">
 
-  <!-- Header -->
-  <header class="pad"><a href="/" aria-label="Back to Home">← Back to Home</a></header>
+  <header class="container"><a href="/" aria-label="Back to Home">← Back to Home</a></header>
 
-  <!-- Hero -->
-  <section class="pad">
+  <section class="container">
     <div class="hero" id="hero">
       <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <!-- School / classroom Unsplash placeholder -->
         <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop"
              alt="Classroom desks and chalkboard">
       </div>
@@ -156,9 +168,8 @@
     </div>
   </section>
 
-  <!-- At a Glance -->
   <section class="section">
-    <div class="section-inner">
+    <div class="section-inner container">
       <h2>At a Glance</h2>
       <div class="glance-grid">
         <article class="g-card">
@@ -193,9 +204,8 @@
     </div>
   </section>
 
-  <!-- RESULTS SPOTLIGHT (Facebook) -->
   <section class="section">
-    <div class="section-inner">
+    <div class="section-inner container">
       <h2>Results Spotlight: Facebook Campaign</h2>
       <div class="r-card">
         <div class="r-top">
@@ -230,9 +240,8 @@
     </div>
   </section>
 
-  <!-- Email Highlight -->
   <section class="section">
-    <div class="section-inner">
+    <div class="section-inner container">
       <h2>Email Highlight</h2>
       <p class="muted" style="margin:.25rem 0 .75rem;">Representative send with strong engagement—about double typical open rates for education.</p>
       <div class="glance-grid">
@@ -252,9 +261,8 @@
     </div>
   </section>
 
-  <!-- Videos: Course breadth + Online learning explainer -->
   <section class="section">
-    <div class="section-inner">
+    <div class="section-inner container">
       <h2>Short Videos</h2>
       <p class="muted" style="margin:.25rem 0 1rem;">Purpose-built to (1) show the surprising breadth of courses—including “you can even take Guitar online!”—and (2) demystify what online learning looks like at Michigan Virtual.</p>
       <div class="twoup">
@@ -281,14 +289,12 @@
     </div>
   </section>
 
-  <!-- Creative Samples (3 total; square + vertical ratios on MP4s) -->
   <section class="section">
-    <div class="section-inner">
+    <div class="section-inner container">
       <h2>Creative Samples</h2>
       <div class="ads">
 
         <figure class="ad">
-          <!-- Animated GIF sample (placeholder) -->
           <img src="./spring.jpeg" alt="Animated ad placeholder">
           <figcaption>Static image ad for Facebook</figcaption>
         </figure>
@@ -317,19 +323,15 @@
     </div>
   </section>
 
-  <!-- Back to Home -->
-  <section class="pad" style="text-align:center; margin-top:2rem;">
-    <a href="/" class="btn outline">← Back to Home</a>
+  <section class="container" style="text-align:center; margin-top:2rem;">
+    <a href="/" class="btn secondary">← Back to Home</a>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <div class="pad">© 2025 Brandon Bautista</div>
+    <div class="container">© 2025 Brandon Bautista</div>
   </footer>
 
-</div><!-- /.page -->
-
-<script>
+</div><script>
   // Gentle hero parallax (respects reduced motion)
   (function(){
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
