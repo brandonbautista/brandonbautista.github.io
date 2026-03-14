@@ -1,232 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI Strategist Consulting | Brandon Bautista</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Strategist Consulting | Brandon Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Social preview -->
-<meta property="og:title" content="AI Strategist Consulting | Brandon Bautista">
-<meta property="og:description" content="Built the growth engine — sales funnel, inbound content, and social amplification — that scaled AI Strategist Consulting to $500K in under two years.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop">
+  <style>
+    /* CSS Variables */
+    :root {
+      --charcoal: #1e1e1e;
+      --charcoal-mid: #2c2c2c;
+      --orange: #e05c2a;
+      --orange-light: #f07040;
+      --cream: #f5f1eb;
+      --cream-dark: #ede8e0;
+      --warm-white: #faf8f5;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --text-light: #888;
+      --border: #e0dbd3;
+    }
 
-<style>
-  :root{
-    --page-max: 1200px;
-    --radius: 12px;
-    --bg: #f9f8f6;
-    --text: #333333;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --brand:#ff7a00;
-    --brand-700:#e66b00;
-    --footer:#333333;
-    --vr: 1.6rem;
-    --side-pad: 1rem;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-  img{max-width:100%;height:auto;display:block}
-  a{color:var(--brand);text-decoration:none}
-  a:hover{text-decoration:underline}
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* Centered page grid */
-  .page{display:grid;grid-template-columns:1fr minmax(0,var(--page-max)) 1fr}
-  .page>*{grid-column:2}
-  .pad{padding-left:var(--side-pad);padding-right:var(--side-pad)}
-  header{padding:1rem 0;font-weight:700}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* Hero */
-  .hero{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;margin-bottom:var(--vr)}
-  .hero img{width:100%;height:120%;object-fit:cover}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,.6) 100%)}
-  .hero-content{position:absolute;left:var(--side-pad);right:var(--side-pad);bottom:1.25rem;color:#fff}
-  .hero-title{margin:0;font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-  .hero-sub{margin:.3rem 0 0;font-size:1.1rem;opacity:.95}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: var(--warm-white);
+    }
 
-  /* Quick stats */
-  .glance{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:var(--vr) 0}
-  .g-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .g-card h3{margin:0;font-size:1.5rem;font-weight:800;color:var(--brand)}
-  .g-card p{margin:.4rem 0 0;font-size:.95rem;color:var(--muted)}
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
 
-  /* Section shells */
-  .section{margin:var(--vr) 0}
-  .section-inner{background:#f2f0ee;border-radius:var(--radius);padding:1.25rem}
-  .section h2{margin:0 0 .75rem;font-size:1.4rem}
-  .muted{color:var(--muted)}
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+    }
 
-  /* Problem > Origin */
-  .two-col{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .two-col > *{grid-column:span 6;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .two-col h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
 
-  /* Your contributions */
-  .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 0}
-  .pill{background:#fff4eb;border:1px solid #ffd7b4;border-radius:999px;padding:.35rem .65rem;font-weight:700;font-size:.88rem;white-space:nowrap}
-  .contrib-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:.75rem}
-  .contrib{grid-column:span 4;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .contrib h3{margin:.2rem 0 .4rem;font-size:1.05rem}
-  .icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff4eb;border:1px solid #ffd7b4;margin-bottom:.4rem;font-size:18px}
+    p {
+      font-weight: 400;
+    }
 
-  /* Resource cards */
-  .resource-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-  .resource{grid-column:span 4;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .resource h3{margin:.2rem 0 .4rem;font-size:1.05rem}
-  .resource p{margin:0 0 .75rem}
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--charcoal);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      border-bottom: 2px solid var(--orange);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  /* Buttons (consistent) */
-  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:.6rem .95rem;border-radius:var(--radius);font-weight:700;transition:.2s transform,.3s background;border:0}
-  .btn:hover{background:var(--brand-700);text-decoration:none;transform:translateY(-1px)}
-  .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand)}
-  .btn.outline:hover{background:#fff4eb}
+    .nav-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: white;
+      text-decoration: none;
+    }
 
-  /* Footer */
-  footer{background:var(--footer);color:#fff;margin-top:var(--vr)}
-  footer .pad{padding:1rem var(--side-pad);text-align:center;font-size:.9rem}
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-  @media(max-width:900px){
-    .glance{grid-template-columns:1fr}
-    .two-col{grid-template-columns:1fr}
-    .two-col > *{grid-column:span 12}
-    .contrib{grid-column:span 12}
-    .resource{grid-column:span 12}
-  }
-  @media(max-width:768px){
-    .hero{height:240px}
-  }
-</style>
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .nav-links .nav-cta {
+      background: var(--orange);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links .nav-cta:hover {
+      background: var(--orange-light);
+      color: white;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(9px, 9px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -7px);
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1.5rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--charcoal-mid);
+        flex-direction: column;
+        gap: 0;
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.active {
+        max-height: 300px;
+      }
+
+      .nav-links a {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: block;
+      }
+
+      .nav-links .nav-cta {
+        margin: 0.5rem 1.5rem;
+        text-align: center;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--charcoal);
+      color: white;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 600px;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.1s forwards;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 3rem;
+      line-height: 1.2;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.2s forwards;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.8;
+      max-width: 90%;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.3s forwards;
+    }
+
+    .hero-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(224, 92, 42, 0.1);
+      padding: 0.875rem 1.25rem;
+      border-radius: 4px;
+      border: 1px solid var(--orange);
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.4s forwards;
+    }
+
+    .hero-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    .hero-stat-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    .hero-image {
+      position: relative;
+      height: 100%;
+      min-height: 400px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.4s forwards;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(224, 92, 42, 0.3), transparent);
+      pointer-events: none;
+    }
+
+    .hero-image-tag {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(30, 30, 30, 0.85);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-left: 3px solid var(--orange);
+    }
+
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero-image {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.875rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--cream);
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--orange);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .stats-bar {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+
+    /* Content Sections */
+    section {
+      padding: 4rem 2rem;
+    }
+
+    section.warm-white {
+      background: var(--warm-white);
+    }
+
+    section.cream {
+      background: var(--cream);
+    }
+
+    .section-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    section h2 {
+      margin-bottom: 2rem;
+      font-size: 2.25rem;
+    }
+
+    /* Challenge Section */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--charcoal);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+
+    .card-tags {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(224, 92, 42, 0.1);
+      color: var(--orange);
+      padding: 0.375rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      section h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* What I Led Section */
+    .icon-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .icon-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .icon-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .icon-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--charcoal);
+    }
+
+    .icon-card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+
+    @media (max-width: 1024px) {
+      .icon-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .icon-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Resources Section */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .resource-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .resource-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .resource-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+      color: var(--charcoal);
+    }
+
+    .resource-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .resource-button {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 0.625rem 1.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: background 0.3s ease;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .resource-button:hover {
+      background: var(--orange-light);
+    }
+
+    @media (max-width: 1024px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Quote Section */
+    .quote-section {
+      background: var(--charcoal);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .quote-section blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.4;
+      max-width: 800px;
+      color: white;
+    }
+
+    .quote-section p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 800px;
+    }
+
+    @media (max-width: 768px) {
+      .quote-section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .quote-section blockquote {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* CTA Strip */
+    .cta-strip {
+      background: var(--orange);
+      padding: 3rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cta-strip h2 {
+      color: white;
+      font-size: 1.75rem;
+      margin: 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .cta-button-back {
+      background: white;
+      color: var(--orange);
+    }
+
+    .cta-button-back:hover {
+      background: var(--cream);
+      color: var(--orange);
+    }
+
+    .cta-button-cta {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .cta-button-cta:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .cta-strip {
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+      }
+
+      .cta-strip h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .cta-button {
+        width: 100%;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--orange);
+    }
+  </style>
 </head>
 <body>
-<div class="page">
+  <!-- Navigation -->
+  <nav>
+    <a href="/" class="nav-name">Brandon Bautista</a>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#projects">Work</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#testimonials">Reviews</a></li>
+      <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
 
-  <header class="pad"><a href="/">← Back to Home</a></header>
-
-  <!-- Hero -->
-  <section class="pad">
-    <div class="hero">
-      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="Educators learning about AI">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">AI Strategist Consulting</h1>
-        <p class="hero-sub">I built the growth engine — sales funnel, inbound content, and social amplification — that scaled this new service to <strong>$500K</strong> in under two years.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Product Launch · Inbound · Revenue</div>
+      <h1>AI Strategist Consulting: Zero to $500K in Under 2 Years</h1>
+      <p class="hero-description">I built the full growth engine — sales funnel, inbound content, and social amplification — for a brand-new consulting product line. Schools were booking our strategists by name within months.</p>
+      <div class="hero-stat">
+        <span class="hero-stat-number">2yr</span>
+        <span class="hero-stat-label">To $500K Revenue</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-frame">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="AI Strategist Consulting Project">
+        <div class="hero-image-overlay"></div>
+        <div class="hero-image-tag">Michigan Virtual · 2022–2024</div>
       </div>
     </div>
   </section>
 
-  <!-- Fast facts -->
-  <section class="glance pad" aria-label="Key outcomes">
-    <div class="g-card">
-      <h3>$500K+</h3>
-      <p>Revenue in under 2 years</p>
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">$500K+</div>
+      <div class="stat-label">Revenue in Under 2 Years</div>
     </div>
-    <div class="g-card">
-      <h3>AI 101</h3>
-      <p>Flagship PD offering schools book repeatedly</p>
+    <div class="stat-item">
+      <div class="stat-number">AI 101</div>
+      <div class="stat-label">Flagship PD Schools Book Repeatedly</div>
     </div>
-    <div class="g-card">
-      <h3>Inbound-led</h3>
-      <p>Free resources → consult requests → bookings</p>
+    <div class="stat-item">
+      <div class="stat-number">Inbound-Led</div>
+      <div class="stat-label">Free Resources → Consult → Bookings</div>
     </div>
   </section>
 
-  <!-- Context & Origin -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Why this existed — and how it started</h2>
-      <div class="two-col">
-        <article>
-          <h3>The signal from schools</h3>
-          <p>Districts told us: <em>“Students are already using AI. Staff are unsure or even scared. We don’t know where to start.”</em></p>
-          <p>We launched a consulting arm to meet that need with clear, practical support — beginning with an accessible <strong>AI 101</strong> program.</p>
-        </article>
-        <article>
-          <h3>My mandate</h3>
-          <p>Create market pull and a repeatable path to purchase. I designed and executed the growth stack: a lean sales funnel, an inbound content engine, and social amplification that made our strategists recognizable and requested by name.</p>
-          <div class="pill-row">
-            <span class="pill">Funnel design</span>
-            <span class="pill">Content & assets</span>
-            <span class="pill">Practitioner branding</span>
-            <span class="pill">Paid + organic social</span>
-            <span class="pill">Partner enablement</span>
-          </div>
-        </article>
+  <!-- The Challenge Section -->
+  <section class="warm-white">
+    <span class="section-label">The Challenge</span>
+    <h2>Meeting Schools Where They Are</h2>
+    <div class="challenge-grid">
+      <div class="card">
+        <h3>The Signal from Schools</h3>
+        <p>Districts told us: "Students are already using AI. Staff are unsure or even scared. We don't know where to start." We launched a consulting arm to meet that need with clear, practical support — beginning with an accessible AI 101 program.</p>
+      </div>
+      <div class="card">
+        <h3>My Mandate</h3>
+        <p>Create market pull and a repeatable path to purchase. I designed and executed the growth stack: a lean sales funnel, an inbound content engine, and social amplification that made our strategists recognizable and requested by name.</p>
+        <div class="card-tags">
+          <span class="tag">Funnel Design</span>
+          <span class="tag">Content & Assets</span>
+          <span class="tag">Practitioner Branding</span>
+          <span class="tag">Paid + Organic Social</span>
+          <span class="tag">Partner Enablement</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Your contributions (3 pillars) -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>What I led</h2>
-      <div class="contrib-grid">
-        <article class="contrib">
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h3>Built the Sales Funnel</h3>
-          <p>Mapped the journey from “curious” to “booked PD”: resource → nurture → consult form → scheduling. Simplified copy, reduced friction, and clarifed offers.</p>
-        </article>
-        <article class="contrib">
-          <div class="icon" aria-hidden="true">✍️</div>
-          <h3>Produced Inbound Assets</h3>
-          <p>Led the creation of practical, high-trust resources (frameworks, guides, rubrics, blogs) that educators shared widely — feeding the funnel with qualified demand.</p>
-        </article>
-        <article class="contrib">
-          <div class="icon" aria-hidden="true">📣</div>
-          <h3>Amplified Strategists on Social</h3>
-          <p>Elevated practitioner voices with targeted campaigns and content support. Result: stronger credibility, community engagement, and name recognition.</p>
-        </article>
+  <!-- What I Led Section -->
+  <section class="cream">
+    <span class="section-label">What I Led</span>
+    <h2>The Growth Stack</h2>
+    <div class="icon-cards">
+      <div class="icon-card">
+        <div class="icon">🧭</div>
+        <h3>Built the Sales Funnel</h3>
+        <p>Mapped the journey from "curious" to "booked PD": resource → nurture → consult form → scheduling. Simplified copy, reduced friction, and clarified offers.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon">✍️</div>
+        <h3>Produced Inbound Assets</h3>
+        <p>Led the creation of practical, high-trust resources (frameworks, guides, rubrics, blogs) that educators shared widely — feeding the funnel with qualified demand.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon">📣</div>
+        <h3>Amplified Strategists on Social</h3>
+        <p>Elevated practitioner voices with targeted campaigns and content support. Result: stronger credibility, community engagement, and name recognition.</p>
       </div>
     </div>
   </section>
 
-  <!-- Featured Resources (buttons now consistent / filled) -->
-  <section class="section">
-    <div class="section-inner">
-      <h2>Featured Resources</h2>
-      <p class="muted" style="margin:.25rem 0 1rem">Free tools that powered our inbound flow and guided districts toward PD bookings.</p>
-      <div class="resource-grid">
-
-        <article class="resource" aria-labelledby="res-plan-title">
-          <div class="icon" aria-hidden="true">🗺️</div>
-          <h3 id="res-plan-title">Planning Guide for AI</h3>
-          <p>A practical, step-by-step planning guide to shape a district AI strategy and align stakeholders.</p>
-          <a class="btn" href="https://michiganvirtual.org/resources/guides/ai-guide/" target="_blank" rel="noopener">Open Guide →</a>
-        </article>
-
-        <article class="resource" aria-labelledby="res-framework-title">
-          <div class="icon" aria-hidden="true">🧩</div>
-          <h3 id="res-framework-title">AI Integration Framework (PDF)</h3>
-          <p>A district-level framework to operationalize AI safely and effectively across curriculum and policy.</p>
-          <a class="btn" href="https://michiganvirtual.org/wp-content/uploads/2023/07/AI-Integration-Framework-for-School-Districts.pdf" target="_blank" rel="noopener">Download PDF →</a>
-        </article>
-
-        <article class="resource" aria-labelledby="res-teacher-title">
-          <div class="icon" aria-hidden="true">🍎</div>
-          <h3 id="res-teacher-title">Teacher Guide to AI</h3>
-          <p>Teacher-friendly guidance, examples, and guardrails for mindful, classroom-ready AI use.</p>
-          <a class="btn" href="https://aitg.michiganvirtual.org/?_gl=1*azimsh*_gcl_au*MTAwNDAzODg1MS4xNzUxOTc4NDQ2*_ga*MTkyMDgyODAwLjE3MjA2OTk0Nzg.*_ga_VG58GV15BV*czE3NTY0MTk1NjEkbzQzMCRnMSR0MTc1NjQxOTU2MiRqNTkkbDAkaDA." target="_blank" rel="noopener">View Site →</a>
-        </article>
-
+  <!-- Featured Resources Section -->
+  <section class="warm-white">
+    <span class="section-label">Featured Resources</span>
+    <h2>The Inbound Engine</h2>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon">🗺️</div>
+        <h3>Planning Guide for AI</h3>
+        <p>A practical, step-by-step planning guide to shape a district AI strategy and align stakeholders.</p>
+        <a href="https://michiganvirtual.org/resources/guides/ai-guide/" target="_blank" class="resource-button">Open Guide →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🧩</div>
+        <h3>AI Integration Framework (PDF)</h3>
+        <p>A district-level framework to operationalize AI safely and effectively across curriculum and policy.</p>
+        <a href="https://michiganvirtual.org/wp-content/uploads/2023/07/AI-Integration-Framework-for-School-Districts.pdf" target="_blank" class="resource-button">Download PDF →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🍎</div>
+        <h3>Teacher Guide to AI</h3>
+        <p>Teacher-friendly guidance, examples, and guardrails for mindful, classroom-ready AI use.</p>
+        <a href="https://aitg.michiganvirtual.org/" target="_blank" class="resource-button">View Site →</a>
       </div>
     </div>
   </section>
 
-  <!-- Close with the message -->
-  <section class="section">
-    <div class="section-inner" style="text-align:center">
-      <h2 style="margin-bottom:.4rem">Message to Schools</h2>
-      <p style="font-weight:700">“AI is here. We are here to help you become ready.”</p>
-      <p class="muted" style="max-width:60ch;margin:0 auto">This clear promise guided our funnel, content, and social narrative — meeting educators where they are and inviting them forward with confidence.</p>
+  <!-- Quote Section -->
+  <section class="quote-section">
+    <blockquote>"AI is here. We are here to help you become ready."</blockquote>
+    <p>This clear promise guided our funnel, content, and social narrative — meeting educators where they are and inviting them forward with confidence.</p>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <h2>Ready to see more?</h2>
+    <div class="cta-buttons">
+      <a href="/" class="cta-button cta-button-back">← Back to All Work</a>
+      <a href="/#contact" class="cta-button cta-button-cta">Let's Connect</a>
     </div>
   </section>
 
-  <!-- Back -->
-  <section class="pad" style="text-align:center;margin-top:2rem">
-    <a href="/" class="btn outline">← Back to Home</a>
-  </section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Brandon Bautista. All rights reserved.</p>
+  </footer>
 
-  <footer><div class="pad">© 2025 Brandon Bautista</div></footer>
-</div>
+  <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
