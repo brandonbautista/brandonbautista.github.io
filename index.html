@@ -1,377 +1,1165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Brandon Bautista</title>
-
-<meta property="og:title" content="Brandon Bautista | Marketing Portfolio" />
-<meta property="og:description" content="Portfolio of Brandon Bautista – marketing leader, storyteller, content creator, and customer advocate." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Bautista | Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --page-max: 1200px;
-    --radius: 12px;
-    --bg: #f9f8f6;
-    --text: #333333;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --brand:#ff7a00;
-    --footer:#333333;
-    /* vertical rhythm */
-    --vr: 1.5rem;
+  :root {
+    --charcoal: #1e1e1e;
+    --charcoal-mid: #2c2c2c;
+    --orange: #e05c2a;
+    --orange-light: #f07040;
+    --cream: #f5f1eb;
+    --cream-dark: #ede8e0;
+    --warm-white: #faf8f5;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #888;
+    --border: #e0dbd3;
   }
 
-  /* Reset / base */
-  *{box-sizing:border-box}
-  html,body{overflow-x:hidden}
-  img{max-width:100%;display:block;height:auto}
-  body { margin: 0; font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* Page grid: center all main sections; footer spans full width */
-  .page{
-    display:grid;
-    grid-template-columns: 1fr min(var(--page-max), 100%) 1fr;
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
   }
-  .container{ grid-column: 2; }
 
-  header { font-weight: 700; padding: 1rem 0; }
-
-  /* Hero */
-  .hero { position: relative; height: 450px; border-radius: var(--radius); overflow: hidden; }
-  .hero-media { position: absolute; inset: -10% 0 -10% 0; will-change: transform; transform: translateY(var(--y, 0)); }
-  .hero img { width: 100%; height: 120%; object-fit: cover; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); }
-  .hero-content { position: absolute; left: 1rem; right: 1rem; bottom: 2rem; display: flex; flex-direction: column; gap: .75rem; }
-  .hero h1 { margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
-  .hero-buttons { display: flex; gap: .5rem; flex-wrap: wrap; }
-  .btn{display:inline-block; background:var(--brand); color:#fff; text-decoration:none; padding:.8rem 1.5rem; border-radius:var(--radius); font-weight:700; transition:.2s transform, .3s background;}
-  .btn:hover{background:#e66b00; transform:translateY(-2px);}
-  .btn.secondary{background:#fff; color:#333; border:1px solid rgba(0,0,0,.15);}
-  .btn.secondary:hover{background:#f7f7f7;}
-
-  /* Sections */
-  .intro{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0;}
-  .section{margin:var(--vr) 0;}
-  .section h2{font-size:1.5rem; margin:0 0 1rem .25rem;}
-
-  /* Projects */
-  .project-list{display:flex; flex-wrap:wrap; gap:1rem;}
-  .project{flex:1 1 calc(33.333% - 1rem); background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:.25s transform; will-change:transform;}
-  .project:hover{transform:translateY(-5px);}
-  .project a{color:inherit; text-decoration:none; display:block; height:100%;}
-  .project img{width:100%; height:200px; object-fit:cover; transform:translateY(0); transition:transform .35s ease;}
-  .project p{padding:.75rem; font-size:.95rem;}
-
-  /* Skills */
-  .skill-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem;}
-  .skill-card{grid-column:span 4; background:var(--card); border-radius:var(--radius); padding:1rem 1rem .75rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.06);}
-  .skill-card h3{margin:0 0 .4rem;}
-  .skill-muted{color:var(--muted); font-size:.95rem; margin:0 0 .6rem;}
-  .tags{display:flex; flex-wrap:wrap; gap:.5rem;}
-  .tag{padding:.35rem .6rem; font-size:.85rem; border-radius:999px; background:#fff4eb; border:1px solid #ffd7b4; color:#8a3d00; font-weight:600; white-space:nowrap;}
-
-  /* Testimonial / Colleague Feedback */
-  .feedback{margin:var(--vr) 0;}
-  .feedback h2{margin:0 0 1rem .25rem;}
-  .t-card{
-    display:grid; grid-template-columns:280px 1fr; gap:1.25rem;
-    background:var(--card); border:1px solid rgba(0,0,0,.06);
-    border-radius:var(--radius); box-shadow:0 6px 20px rgba(0,0,0,.08);
-    padding:1.25rem;
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 60px;
+    border-bottom: 2px solid var(--orange);
   }
-  .t-aside{display:grid; gap:.75rem; align-content:start;}
-  .t-avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.12);}
-  .t-meta{color:var(--muted); display:grid; gap:.2rem;}
-  .t-meta strong{color:var(--text);}
-  /* Full-width pull-quote inside the right column */
-  blockquote.t-quote{
-    margin:0;
-    background:#fff7ef;
-    border-left:4px solid var(--brand);
-    padding:.75rem 1rem;
-    border-radius:6px;
-    line-height:1.7;
-    font-size:1.05rem;
-    max-width:none;
-    width:100%;
+
+  .nav-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
   }
-  .t-quote p{margin:.4rem 0;}
 
-  /* Contact + Footer */
-  .contact{background:#f2f0ee; padding:1.5rem; border-radius:var(--radius); margin:var(--vr) 0; text-align:center;}
-  .contact a{color:var(--brand); font-weight:700; text-decoration:none; font-size:1.2rem;}
-  .contact a:hover{text-decoration:underline;}
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
 
-  footer{grid-column:1 / -1; background:var(--footer); color:#fff; text-align:center; padding:1rem; font-size:.9rem; margin-top:var(--vr);}
-  footer .container{grid-column:2;}
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.2s;
+  }
 
-  /* Mobile */
+  .nav-links a:hover { color: #fff; }
+
+  .nav-cta {
+    background: var(--orange) !important;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 3px;
+    font-weight: 600 !important;
+  }
+
+  .nav-cta:hover { background: var(--orange-light) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--charcoal);
+    padding: 80px 48px 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224,92,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span {
+    color: var(--orange);
+  }
+
+  .hero-bio {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    padding: 13px 28px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.25);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: #fff;
+  }
+
+  .hero-right {
+    position: relative;
+  }
+
+  .hero-image-frame {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .hero-image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(224,92,42,0.2) 0%, transparent 60%);
+  }
+
+  .hero-image-frame img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+  }
+
+  .hero-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--orange);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    z-index: 2;
+  }
+
+  /* ── NUMBERS BAR ── */
+  .numbers-bar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+  }
+
+  .numbers-inner {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    divide: auto;
+  }
+
+  .stat-item {
+    padding: 32px 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .stat-number em {
+    color: var(--orange);
+    font-style: normal;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    line-height: 1.4;
+  }
+
+  /* ── SECTION SCAFFOLDING ── */
+  section {
+    padding: 80px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-bottom: 48px;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  /* ── FEATURED PROJECTS ── */
+  .projects-section {
+    background: var(--warm-white);
+  }
+
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .projects-header-left { max-width: 560px; }
+  .projects-header-left .section-label { margin-bottom: 10px; }
+  .projects-header-left .section-title { margin-bottom: 0; }
+
+  .see-more-link {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--orange);
+    text-decoration: none;
+    border-bottom: 1px solid var(--orange);
+    padding-bottom: 1px;
+    white-space: nowrap;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .project-card {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  .project-card.featured {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+
+  .project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-card.featured .project-img {
+    width: 45%;
+    height: 100%;
+    min-height: 260px;
+    flex-shrink: 0;
+  }
+
+  .project-body {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(224,92,42,0.08);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    width: fit-content;
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .project-card.featured .project-title {
+    font-size: 26px;
+  }
+
+  .project-outcome {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .project-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .project-cta::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+
+  .project-card:hover .project-cta::after {
+    transform: translateX(4px);
+  }
+
+  /* ── SKILLS ── */
+  .skills-section {
+    background: var(--charcoal);
+    padding: 80px 48px;
+  }
+
+  .skills-section .section-title { color: #fff; }
+  .skills-section .section-subtitle { color: rgba(255,255,255,0.55); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .skill-block {
+    background: var(--charcoal-mid);
+    padding: 28px 24px;
+    transition: background 0.2s;
+  }
+
+  .skill-block:hover {
+    background: #333;
+  }
+
+  .skill-icon {
+    font-size: 22px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .skill-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .skill-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.07);
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section {
+    background: var(--cream);
+  }
+
+  .testimonials-single {
+    max-width: 800px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .testimonial-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 36px 40px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--orange);
+    opacity: 0.2;
+    position: absolute;
+    top: 16px;
+    left: 32px;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
+
+  .testimonial-author-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .testimonial-author-role {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  .testimonial-placeholder {
+    background: var(--charcoal);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 48px 40px;
+    border-radius: 4px;
+    gap: 12px;
+  }
+
+  .testimonial-placeholder p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    max-width: 240px;
+    font-style: italic;
+  }
+
+  .testimonial-placeholder span {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  /* ── CTA FOOTER STRIP ── */
+  .cta-strip {
+    background: var(--orange);
+    padding: 60px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .cta-strip-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .cta-strip-text p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .cta-strip-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .btn-white {
+    background: #fff;
+    color: var(--orange);
+    padding: 13px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: inline-block;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+
+  .btn-outline-white {
+    background: transparent;
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 3px;
+    border: 2px solid rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: border-color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline-white:hover {
+    border-color: #fff;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+  .hero h1 { animation: fadeUp 0.5s 0.1s ease both; }
+  .hero-bio { animation: fadeUp 0.5s 0.2s ease both; }
+  .hero-buttons { animation: fadeUp 0.5s 0.3s ease both; }
+  .hero-right { animation: fadeUp 0.5s 0.15s ease both; }
+
+  /* ── DIVIDER ── */
+  .orange-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--orange);
+    margin-bottom: 20px;
+    border-radius: 2px;
+  }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--charcoal);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 24px 24px 32px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+    margin-top: 12px;
+    background: var(--orange);
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* ── TABLET (max 1024px) ── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+
+    .hero {
+      padding: 60px 32px;
+      gap: 40px;
+    }
+
+    section { padding: 64px 32px; }
+
+    .numbers-bar { padding: 0 32px; }
+    .numbers-inner { grid-template-columns: repeat(3, 1fr); }
+    .stat-item:nth-child(3) { border-right: none; }
+    .stat-item:nth-child(4) { border-right: 1px solid var(--border); }
+    .stat-item:nth-child(4),
+    .stat-item:nth-child(5) {
+      border-top: 1px solid var(--border);
+    }
+
+    .skills-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .cta-strip { padding: 60px 32px; }
+    footer { padding: 24px 32px; }
+  }
+
+  /* ── MOBILE (max 768px) ── */
   @media (max-width: 768px) {
-    .hero, .container.section, .container .intro, .container.feedback, .container .contact { padding-left: 1rem; padding-right: 1rem; }
-    .hero{height:300px}
-    .hero-overlay{background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%);}
-    .hero-content{bottom:1rem;}
-    .hero h1{font-size:clamp(1.6rem, 7.5vw, 2.1rem); line-height:1.1; text-wrap:balance;}
-    .btn{width:100%; padding:1rem 1.25rem; font-size:1.05rem;}
-    .project{flex:1 1 100%;}
-    .skill-card{grid-column:span 12;}
-    .t-card{grid-template-columns:1fr;}
-    .t-aside{grid-template-columns:72px 1fr; align-items:center; column-gap:.75rem;}
-    .t-avatar{width:72px; height:72px;}
-    .t-quote{font-size:1.02rem;}
+    /* Nav */
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    /* Hero */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 48px 20px 40px;
+      gap: 36px;
+    }
+
+    .hero h1 { font-size: 38px; }
+    .hero-bio { font-size: 15px; max-width: 100%; }
+
+    .hero-right { order: -1; }
+
+    .hero-image-frame img { height: 240px; }
+
+    /* Numbers bar */
+    .numbers-bar { padding: 0 20px; }
+    .numbers-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-item { padding: 24px 16px; }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-right: 1px solid var(--border); }
+    .stat-item:nth-child(3),
+    .stat-item:nth-child(4),
+    .stat-item:nth-child(5) {
+      border-top: 1px solid var(--border);
+    }
+    .stat-item:nth-child(4) { border-right: none; }
+    .stat-item:nth-child(5) {
+      grid-column: span 2;
+      border-right: none;
+    }
+    .stat-number { font-size: 28px; }
+
+    /* Sections */
+    section { padding: 52px 20px; }
+
+    .section-title { font-size: 28px; }
+
+    /* Projects */
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+
+    .project-card.featured {
+      flex-direction: column;
+      grid-column: span 1;
+    }
+
+    .project-card.featured .project-img {
+      width: 100%;
+      height: 200px;
+    }
+
+    /* Skills */
+    .skills-section { padding: 52px 20px; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { padding: 28px 24px; }
+
+    /* CTA strip */
+    .cta-strip {
+      padding: 48px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta-strip-text h2 { font-size: 24px; }
+
+    .cta-strip-buttons { width: 100%; }
+    .btn-white, .btn-outline-white {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px;
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+    }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    .hero-media{transform:none !important}
-    .project img{transition:none}
+  /* ── SMALL MOBILE (max 480px) ── */
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .numbers-inner { grid-template-columns: 1fr; }
+    .stat-item,
+    .stat-item:nth-child(n) {
+      border-right: none;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item:first-child { border-top: none; }
+    .stat-item:nth-child(5) { grid-column: span 1; }
+    .btn-white, .btn-outline-white { width: 100%; }
+    .hero-buttons { flex-direction: column; }
+    .btn-primary, .btn-secondary { text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="page">
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Brandon Bautista</span>
+  <div class="nav-links">
+    <a href="#projects">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <header class="container">Brandon Bautista</header>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects" onclick="closeMenu()">Work</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Let's Talk →</a>
+</div>
 
-  <section class="container">
-    <div class="hero" id="hero">
-      <div class="hero-media" id="heroMedia" aria-hidden="true">
-        <img src="images/hero.avif" alt="Modern workspace with laptop and notebook" />
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-content" aria-label="Introduction">
-        <h1>Brandon Bautista</h1>
-        <div class="hero-buttons">
-          <a class="btn" href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
-          <a class="btn secondary" href="Bautista_Resume.pdf" target="_blank" rel="noopener">View Resume →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="intro">
-      <p>I believe great marketing isn’t about outspending competitors — it’s about out-connecting them, using storytelling to help people see themselves in what you offer.</p>
-      <p>My approach blends strategic focus with emotional intelligence: serving the human first, fostering a positive team culture, and delivering thoughtful, high-impact campaigns that resonate and endure. Along the way, I’ve led award-winning projects recognized for creativity, impact, and customer advocacy.</p>
-      <p><strong>Be kind. Work hard. Have fun.</strong></p>
-    </div>
-  </section>
-
-  <section class="container section">
-    <h2 id="projects-title">Featured Projects</h2>
-    <div class="project-list" id="projects">
-      <div class="project">
-        <a href="/projects/ai/">
-          <img class="thumb-parallax"
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-                alt="AI Strategists division thumbnail" />
-          <p>AI Strategists: From Zero to $500K in &lt; 2 Years</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/bright/">
-          <img class="thumb-parallax" src="images/bright.jpg" alt="BRIGHT podcast artwork" />
-          <p>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/writing/">
-          <img class="thumb-parallax" src="images/qd.webp" alt="Writing Sample thumbnail" />
-          <p>Writing Sample: Why I Don’t Give (Hear Me Out)</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/michigancares/">
-          <img class="thumb-parallax"
-                src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop"
-                alt="Michigan Cares campaign thumbnail" />
-          <p>Michigan Cares: Statewide SEL Awareness & Adoption</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/brand/">
-          <img class="thumb-parallax"
-                src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop"
-                alt="Brand Standards guide thumbnail" />
-          <p>Michigan Virtual Brand Standards</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/projects/enrollment/">
-          <img class="thumb-parallax"
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-                alt="Enrollment campaign thumbnail" />
-          <p>Yearlong Enrollment Cycle Campaigns</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container section">
-    <h2>Created Assets</h2>
-    <div class="project-list" id="resources">
-      <div class="project">
-        <a href="https://michiganvirtual.org/wp-content/uploads/2019/10/hamilton-case-study.pdf" target="_blank" rel="noopener">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-               alt="An image representing a school partnership" />
-          <p>Case Study: Powerful Partnership</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="https://3943841.fs1.hubspotusercontent-na1.net/hubfs/3943841/Leading%20Innovation%20Pillars%20of%20System-wide%20School%20Transformation%202.pdf?utm_campaign=Consulting%20Services%20-%20Leadership%20Coaching%20for%20Innovation&utm_source=innovationguidebook" target="_blank" rel="noopener">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1585524487570-30debe69e5bf?q=80&w=1200&auto=format&fit=crop"
-               alt="An image representing innovation and technology" />
-          <p>Guidebook: Leading Innovation</p>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="https://michiganvirtual.org/wp-content/uploads/2019/10/a-whole-school-approach-to-virtual-learning.pdf" target="_blank" rel="noopener">
-          <img class="thumb-parallax"
-               src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=1200&auto=format&fit=crop"
-               alt="An image of a student participating in virtual learning" />
-          <p>Pamphlet: Whole-School Virtual Learning Approach</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container section">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <article class="skill-card">
-        <h3>Storytelling</h3>
-        <p class="skill-muted">Narratives that connect emotionally and move audiences to act.</p>
-        <div class="tags">
-          <span class="tag">Brand Voice</span><span class="tag">Interviewing</span>
-          <span class="tag">Narrative Structure</span><span class="tag">Copywriting</span>
-          <span class="tag">Editorial Judgment</span>
-        </div>
-      </article>
-
-      <article class="skill-card">
-        <h3>Content Creation & Video Production</h3>
-        <p class="skill-muted">From concept to post, I build content that blends creativity with strategy.</p>
-        <div class="tags"><span class="tag">Video Scripting</span><span class="tag">Filming</span><span class="tag">Editing</span><span class="tag">Voiceover</span><span class="tag">Visual Storytelling</span></div>
-      </article>
-
-      <article class="skill-card">
-        <h3>Social Media Strategy</h3>
-        <p class="skill-muted">Strategies that grow audiences, spark engagement, and build community.</p>
-        <div class="tags"><span class="tag">Instagram Growth</span><span class="tag">YouTube Channel</span><span class="tag">Content Calendars</span><span class="tag">Audience Engagement</span><span class="tag">Analytics</span></div>
-      </article>
-
-      <article class="skill-card">
-        <h3>HubSpot Mastery</h3>
-        <p class="skill-muted">Advanced CRM, automation, and reporting to streamline and prove ROI.</p>
-        <div class="tags"><span class="tag">Email Automation</span><span class="tag">Lead Nurturing</span><span class="tag">Pipeline Management</span><span class="tag">Custom Reporting</span><span class="tag">Integrations</span></div>
-      </article>
-
-      <article class="skill-card">
-        <h3>Customer Advocacy & Experience</h3>
-        <p class="skill-muted">Championing the customer’s voice to create intuitive, trusted experiences.</p>
-        <div class="tags"><span class="tag">Voice of Customer</span><span class="tag">Journey Mapping</span><span class="tag">Experience Optimization</span><span class="tag">Feedback Loops</span><span class="tag">Empathy-Driven Design</span></div>
-      </article>
-    </div>
-  </section>
-
-  <section class="container feedback" aria-labelledby="feedback-title">
-    <h2 id="feedback-title">Colleague Feedback</h2>
-    <figure class="t-card">
-      <div class="t-aside">
-        <img class="t-avatar"
-              src="https://media.licdn.com/dms/image/v2/D4E03AQFpIgxCtaTiYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1664470737636?e=1761782400&v=beta&t=C1RFmHVRCUPQ2zpSlZwuELnze2S92uJh1yVg6M9ykD4"
-              alt="Headshot of Nikki Herta" />
-        <figcaption class="t-meta">
-          <strong>Nikki Herta</strong>
-          <span>Writer/Editor/Marketing Professional</span>
-        </figcaption>
-      </div>
-
-      <blockquote class="t-quote">
-        <p>“In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company's culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking.”</p>
-        <p>“In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: <em>Brandon is the real deal</em>, and I'm beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon!”</p>
-      </blockquote>
-    </figure>
-  </section>
-
-  <section class="container">
-    <div class="contact">
-      <p>Thanks for visiting my portfolio. <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank" rel="noopener">Connect with me on LinkedIn →</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 Brandon Bautista</p>
-    </div>
-  </footer>
-
-</div><script>
-/* Hero parallax (respects reduced motion) */
-(function () {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduce.matches) return;
-  const hero = document.getElementById('hero');
-  const media = document.getElementById('heroMedia');
-  if (!hero || !media) return;
-  let ticking = false;
-  function updateParallax() {
-    const rect = hero.getBoundingClientRect();
-    const offset = rect.top * 0.15;
-    media.style.setProperty('--y', offset + 'px');
-    ticking = false;
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
   }
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
-  updateParallax();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-})();
-
-/* Desktop-only subtle parallax on project thumbnails */
-(function(){
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
-  if (reduce.matches) return;
-
-  const imgs = Array.from(document.querySelectorAll('.thumb-parallax'));
-  if (!imgs.length) return;
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      const img = e.target;
-      if (!e.isIntersecting) return;
-      const onMove = () => {
-        const r = img.getBoundingClientRect();
-        const vh = window.innerHeight || 1;
-        const p = (r.top + r.height/2) / vh; // 0..1
-        const y = (p - 0.5) * -6; // subtle translate
-        img.style.transform = isDesktop() ? `translateY(${y}px)` : 'translateY(0)';
-      };
-      onMove();
-      window.addEventListener('scroll', onMove, {passive:true});
-      window.addEventListener('resize', onMove);
-    });
-  }, {threshold: 0.2});
-  imgs.forEach(i => io.observe(i));
-})();
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
 </script>
 
-</body>
-</html>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Marketing Leader · Storyteller · Builder</p>
+    <h1>Growth, Goodwill &amp; <span>Revenue</span> Through Storytelling</h1>
+    <p class="hero-bio">
+      I believe great marketing isn't about outspending competitors — it's about out-connecting them. For 25+ years I've built campaigns, teams, and content ecosystems that earn trust first and drive results that last.
+    </p>
+    <div class="hero-buttons">
+      <a href="Bautista_Resume.pdf" class="btn-primary">Download Resume</a>
+      <a href="https://linkedin.com/in/brandonbautista" class="btn-secondary">Connect on LinkedIn →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-frame">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Marketing professional at work">
+      <span class="hero-tag">Director of Marketing · Michigan Virtual</span>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS BAR -->
+<div class="numbers-bar">
+  <div class="numbers-inner">
+    <div class="stat-item">
+      <span class="stat-number">$<em>500K</em><span style="font-size:22px">+</span></span>
+      <span class="stat-label">Revenue scaled in<br>under 2 years</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number"><em>17.4</em><span style="font-size:22px">M</span></span>
+      <span class="stat-label">Ad impressions<br>generated</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number"><em>31K</em><span style="font-size:22px">+</span></span>
+      <span class="stat-label">Social followers<br>built from zero</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number"><em>160K</em><span style="font-size:22px">+</span></span>
+      <span class="stat-label">HubSpot contacts<br>managed</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number"><em>217K</em><span style="font-size:22px">+</span></span>
+      <span class="stat-label">Podcast<br>listens & views</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="projects-header">
+    <div class="projects-header-left">
+      <p class="section-label">Featured Work</p>
+      <h2 class="section-title">Campaigns that moved people<br>and numbers</h2>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- CARD 1: AI — featured/wide -->
+    <a href="/projects/ai/" class="project-card featured">
+      <img class="project-img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop" alt="AI Strategist Consulting">
+      <div class="project-body">
+        <span class="project-tag">Product Launch · Inbound · Revenue</span>
+        <h3 class="project-title">AI Strategist Consulting: Zero to $500K in Under 2 Years</h3>
+        <p class="project-outcome">Built the full growth engine — sales funnel, inbound content, and social amplification — for a brand-new consulting product line. Schools were booking our strategists by name within months.</p>
+        <span class="project-cta">View case study</span>
+      </div>
+    </a>
+
+    <!-- CARD 2: BRIGHT -->
+    <a href="/projects/bright/" class="project-card">
+      <img class="project-img" src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=1200&auto=format&fit=crop" alt="BRIGHT Podcast">
+      <div class="project-body">
+        <span class="project-tag">Award-Winning · Podcast · Content</span>
+        <h3 class="project-title">BRIGHT: Stories of Hope & Innovation</h3>
+        <p class="project-outcome">Award-winning podcast with 217K+ listens/views. Built for goodwill, not pitches — and it earned Michigan Virtual durable trust across the K-12 community.</p>
+        <span class="project-cta">View case study</span>
+      </div>
+    </a>
+
+    <!-- CARD 3: Michigan Cares -->
+    <a href="/projects/michigancares/" class="project-card">
+      <img class="project-img" src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1200&auto=format&fit=crop" alt="Michigan Cares Campaign">
+      <div class="project-body">
+        <span class="project-tag">Multi-Channel · SEL · COVID Response</span>
+        <h3 class="project-title">Michigan Cares: Statewide SEL Awareness Campaign</h3>
+        <p class="project-outcome">Statewide campaign reaching 49K+ across email, paid social, TV/radio PSAs, and press. Designed distinct audience tracks for admins, educators, and parents.</p>
+        <span class="project-cta">View case study</span>
+      </div>
+    </a>
+
+    <!-- CARD 4: Brand Standards -->
+    <a href="/projects/brand/" class="project-card">
+      <img class="project-img" src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop" alt="Brand Standards">
+      <div class="project-body">
+        <span class="project-tag">Rebrand · Brand Strategy · Voice</span>
+        <h3 class="project-title">Michigan Virtual Brand Standards</h3>
+        <p class="project-outcome">Led a full organizational rebrand — new brand guide, voice, visual system, and statewide communications rollout — unifying a 25-year-old nonprofit for a new era.</p>
+        <span class="project-cta">View case study</span>
+      </div>
+    </a>
+
+    <!-- CARD 5: Enrollment -->
+    <a href="/projects/enrollment/" class="project-card">
+      <img class="project-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop" alt="Enrollment Campaigns">
+      <div class="project-body">
+        <span class="project-tag">Digital Ads · Social · CRM</span>
+        <h3 class="project-title">Yearlong Enrollment Cycle Campaigns</h3>
+        <p class="project-outcome">Orchestrated multi-phase digital ad campaigns generating 17.4M+ impressions and 70K+ clicks, while scaling social presence from zero to 31K+ followers across five platforms.</p>
+        <span class="project-cta">View case study</span>
+      </div>
+    </a>
+
+    <!-- CARD 6: Writing Sample -->
+    <a href="/projects/writing/" class="project-card">
+      <img class="project-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200&auto=format&fit=crop" alt="Writing Sample">
+      <div class="project-body">
+        <span class="project-tag">Copywriting · Voice · Storytelling</span>
+        <h3 class="project-title">Writing Sample: Why I Don't Give (Hear Me Out)</h3>
+        <p class="project-outcome">A sample of long-form brand writing — opinionated, human, and built to earn trust. Shows the editorial voice behind the strategy.</p>
+        <span class="project-cta">Read the piece</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <p class="section-label" style="color: var(--orange);">What I Do</p>
+  <h2 class="section-title" style="color: #fff; margin-bottom: 8px;">A full-stack marketing toolkit</h2>
+  <p class="section-subtitle" style="color: rgba(255,255,255,0.5); margin-bottom: 40px;">Strategy to execution. From brand positioning to HubSpot pipelines.</p>
+
+  <div class="skills-grid">
+    <div class="skill-block">
+      <span class="skill-icon">✍️</span>
+      <p class="skill-name">Storytelling & Brand Voice</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Copywriting</span>
+        <span class="skill-tag">Brand Voice</span>
+        <span class="skill-tag">Narrative Structure</span>
+        <span class="skill-tag">Editorial</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <span class="skill-icon">📊</span>
+      <p class="skill-name">Inbound & CRM</p>
+      <div class="skill-tags">
+        <span class="skill-tag">HubSpot Admin</span>
+        <span class="skill-tag">Lead Nurturing</span>
+        <span class="skill-tag">Automation</span>
+        <span class="skill-tag">Pipelines</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <span class="skill-icon">🎥</span>
+      <p class="skill-name">Content & Video</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Video Production</span>
+        <span class="skill-tag">Podcast</span>
+        <span class="skill-tag">Scripting</span>
+        <span class="skill-tag">Voiceover</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <span class="skill-icon">📣</span>
+      <p class="skill-name">Social & Paid Media</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Instagram</span>
+        <span class="skill-tag">Facebook Ads</span>
+        <span class="skill-tag">YouTube</span>
+        <span class="skill-tag">Analytics</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <span class="skill-icon">🧭</span>
+      <p class="skill-name">Strategy & Leadership</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Team Leadership</span>
+        <span class="skill-tag">Brand Strategy</span>
+        <span class="skill-tag">CX Design</span>
+        <span class="skill-tag">Project Mgmt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="orange-rule"></div>
+  <p class="section-label">Colleague Feedback</p>
+  <h2 class="section-title">What people say</h2>
+  <p class="section-subtitle">From the people who've seen the work up close.</p>
+
+  <div class="testimonials-single">
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        "In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met. He approaches every situation with empathic listening, creative problem-solving, and deep integrity. He has served as a cornerstone of our company's culture — and he is a masterful marketing professional with attention to detail, quality output, and creative flair. Brandon is the real deal."
+      </p>
+      <div class="testimonial-author">
+        <img class="testimonial-avatar" src="images/nikki.jpeg" alt="Nikki Herta">
+        <div>
+          <p class="testimonial-author-name">Nikki Herta</p>
+          <p class="testimonial-author-role">Writer / Editor / Marketing Professional</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip" id="contact">
+  <div class="cta-strip-text">
+    <h2>If you're looking for someone who builds trust as fast as they build pipelines — let's talk.</h2>
+    <p>Available for full-time roles and select freelance engagements in marketing strategy, content, and brand.</p>
+  </div>
+  <div class="cta-strip-buttons">
+    <a href="https://linkedin.com/in/brandonbautista" class="btn-white">Connect on LinkedIn</a>
+    <a href="/cdn-cgi/l/email-protection#395b5b584c4d504a4d58795e54585055175a5654" class="btn-outline-white">Send an Email</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Brandon Bautista · East Lansing, MI</p>
+  <p><a href="
