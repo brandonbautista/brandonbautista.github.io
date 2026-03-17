@@ -1,908 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Strategist Consulting | Brandon Bautista</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* CSS Variables */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
+      --paper: #faf9f7;
+      --paper-warm: #f3f0ea;
       --charcoal: #1e1e1e;
-      --charcoal-mid: #2c2c2c;
-      --orange: #e05c2a;
-      --orange-light: #f07040;
-      --cream: #f5f1eb;
-      --cream-dark: #ede8e0;
-      --warm-white: #faf8f5;
-      --text-dark: #1a1a1a;
-      --text-mid: #4a4a4a;
-      --text-light: #888;
-      --border: #e0dbd3;
+      --accent: #c1440e;
+      --rule: #ddd8d0;
+      --text-muted: #6b6560;
+      --max-w: 860px;
     }
 
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      color: var(--text-dark);
-      line-height: 1.6;
-      background: var(--warm-white);
-    }
-
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 900;
-    }
-
-    h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
+      background: var(--paper);
       color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    p {
-      font-weight: 400;
-    }
-
-    /* Navigation */
+    /* ── NAV ── */
     nav {
+      background: var(--charcoal);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: var(--charcoal);
-      height: 60px;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      border-bottom: 2px solid var(--orange);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      height: 60px;
     }
-
-    .nav-name {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: white;
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
       text-decoration: none;
+      letter-spacing: 0.01em;
     }
-
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.875rem;
-      color: white;
+      color: rgba(255,255,255,0.75);
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--orange);
-    }
-
-    .nav-links .nav-cta {
-      background: var(--orange);
-      color: white;
-      padding: 0.5rem 1.25rem;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-
-    .nav-links .nav-cta:hover {
-      background: var(--orange-light);
-      color: white;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(9px, 9px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(8px, -7px);
-    }
-
-    /* Responsive Nav */
-    @media (max-width: 768px) {
-      nav {
-        padding: 0 1.5rem;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: var(--charcoal-mid);
-        flex-direction: column;
-        gap: 0;
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-
-      .nav-links.active {
-        max-height: 300px;
-      }
-
-      .nav-links a {
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        display: block;
-      }
-
-      .nav-links .nav-cta {
-        margin: 0.5rem 1.5rem;
-        text-align: center;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-up {
-      animation: fadeUp 0.8s ease-out forwards;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: var(--charcoal);
-      color: white;
-      padding: 4rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      min-height: 600px;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--orange);
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.1s forwards;
-    }
-
-    .hero h1 {
-      color: white;
-      font-size: 3rem;
-      line-height: 1.2;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.2s forwards;
-    }
-
-    .hero-description {
-      font-size: 1.125rem;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.8;
-      max-width: 90%;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.3s forwards;
-    }
-
-    .hero-stat {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(224, 92, 42, 0.1);
-      padding: 0.875rem 1.25rem;
-      border-radius: 4px;
-      border: 1px solid var(--orange);
-      width: fit-content;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.4s forwards;
-    }
-
-    .hero-stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--orange);
-    }
-
-    .hero-stat-label {
       font-size: 0.875rem;
       font-weight: 500;
-      color: white;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
     }
+    .nav-links a:hover { color: #fff; }
 
-    .hero-image {
+    /* ── HERO ── */
+    .hero {
       position: relative;
-      height: 100%;
-      min-height: 400px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.4s forwards;
-    }
-
-    .hero-image-frame {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 4px;
+      height: 480px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     }
-
-    .hero-image-frame img {
+    .hero img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 40%;
+      display: block;
     }
-
-    .hero-image-overlay {
+    .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(224, 92, 42, 0.3), transparent);
-      pointer-events: none;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
     }
-
-    .hero-image-tag {
+    .hero-content {
       position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: rgba(30, 30, 30, 0.85);
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border-radius: 4px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-left: 3px solid var(--orange);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    @media (max-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 2rem;
-      }
-
-      .hero h1 {
-        font-size: 2.25rem;
-      }
-
-      .hero-image {
-        min-height: 300px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: 1.875rem;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-    }
-
-    /* Stats Bar */
-    .stats-bar {
-      background: var(--cream);
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .stat-item {
+    .hero-tags {
       display: flex;
-      flex-direction: column;
       gap: 0.5rem;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--orange);
-    }
-
-    .stat-label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text-mid);
-      letter-spacing: 0.05em;
-    }
-
-    @media (max-width: 768px) {
-      .stats-bar {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-    }
-
-    /* Content Sections */
-    section {
-      padding: 4rem 2rem;
-    }
-
-    section.warm-white {
-      background: var(--warm-white);
-    }
-
-    section.cream {
-      background: var(--cream);
-    }
-
-    .section-label {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 1rem;
-    }
-
-    section h2 {
-      margin-bottom: 2rem;
-      font-size: 2.25rem;
-    }
-
-    /* Challenge Section */
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: var(--charcoal);
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-    }
-
-    .card-tags {
-      margin-top: 1.5rem;
-      display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      margin-bottom: 0.75rem;
     }
-
     .tag {
-      display: inline-block;
-      background: rgba(224, 92, 42, 0.1);
-      color: var(--orange);
-      padding: 0.375rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
     }
 
-    @media (max-width: 768px) {
-      .challenge-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 2.5rem 1.5rem;
-      }
-
-      section h2 {
-        font-size: 1.75rem;
-      }
+    /* ── LAYOUT ── */
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    /* What I Led Section */
-    .icon-cards {
+    /* ── AT A GLANCE ── */
+    .glance {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .icon-card {
-      background: white;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
       border-radius: 4px;
-      border: 1px solid var(--border);
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--paper-warm);
+      padding: 1.4rem 1.25rem;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
     }
 
-    .icon-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
     }
 
-    .icon {
-      font-size: 2.5rem;
+    /* ── PROSE SECTIONS ── */
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .prose-section p {
+      color: #3a3530;
       margin-bottom: 1rem;
     }
+    .prose-section p:last-child { margin-bottom: 0; }
 
-    .icon-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: var(--charcoal);
+    /* ── WHAT I LED GRID ── */
+    .led-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+    .led-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.5rem 1.25rem;
+    }
+    .led-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .led-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .led-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    .icon-card p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-    }
-
-    @media (max-width: 1024px) {
-      .icon-cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .icon-cards {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Resources Section */
+    /* ── RESOURCES ── */
     .resources-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
     }
-
     .resource-card {
-      background: white;
-      padding: 2rem;
+      border: 1px solid var(--rule);
       border-radius: 4px;
-      border: 1px solid var(--border);
+      padding: 1.25rem;
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      gap: 0.4rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-
     .resource-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(193,68,14,0.09);
     }
-
-    .resource-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .resource-card h3 {
-      font-size: 1.125rem;
-      margin-bottom: 0.75rem;
-      color: var(--charcoal);
-    }
-
-    .resource-card p {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--text-mid);
-      flex-grow: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .resource-button {
-      display: inline-block;
-      background: var(--orange);
-      color: white;
-      padding: 0.625rem 1.25rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      transition: background 0.3s ease;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .resource-button:hover {
-      background: var(--orange-light);
-    }
-
-    @media (max-width: 1024px) {
-      .resources-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .resources-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Quote Section */
-    .quote-section {
-      background: var(--charcoal);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .quote-section blockquote {
+    .resource-icon { font-size: 1.3rem; }
+    .resource-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      font-style: italic;
-      line-height: 1.4;
-      max-width: 800px;
-      color: white;
-    }
-
-    .quote-section p {
       font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 800px;
-    }
-
-    @media (max-width: 768px) {
-      .quote-section {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .quote-section blockquote {
-        font-size: 1.5rem;
-      }
-    }
-
-    /* CTA Strip */
-    .cta-strip {
-      background: var(--orange);
-      padding: 3rem 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .cta-strip h2 {
-      color: white;
-      font-size: 1.75rem;
-      margin: 0;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-button {
-      padding: 0.875rem 2rem;
-      border-radius: 4px;
-      text-decoration: none;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      line-height: 1.3;
+    }
+    .resource-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .resource-cta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
     }
 
-    .cta-button-back {
-      background: white;
-      color: var(--orange);
+    /* ── PULLQUOTE ── */
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--paper-warm);
+      border-radius: 0 4px 4px 0;
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
     }
 
-    .cta-button-back:hover {
-      background: var(--cream);
-      color: var(--orange);
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-
-    .cta-button-cta {
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #a8380b; }
+    .btn-ghost {
+      border: 1.5px solid var(--rule);
+      color: var(--charcoal);
       background: transparent;
-      color: white;
-      border: 2px solid white;
     }
+    .btn-ghost:hover { border-color: var(--charcoal); }
 
-    .cta-button-cta:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    @media (max-width: 768px) {
-      .cta-strip {
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-
-      .cta-strip h2 {
-        font-size: 1.5rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .cta-button {
-        width: 100%;
-      }
-    }
-
-    /* Footer */
+    /* ── FOOTER ── */
     footer {
       background: var(--charcoal);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 2rem;
+      color: rgba(255,255,255,0.5);
       text-align: center;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem;
+      letter-spacing: 0.04em;
     }
 
-    footer a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-      color: var(--orange);
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .led-grid { grid-template-columns: 1fr; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a href="/" class="nav-name">Brandon Bautista</a>
-    <button class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#projects">Work</a></li>
-      <li><a href="/#skills">Skills</a></li>
-      <li><a href="/#testimonials">Reviews</a></li>
-      <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://brandonbautista.github.io/" class="nav-logo">Brandon Bautista</a>
+    <ul class="nav-links">
+      <li><a href="https://brandonbautista.github.io/#projects">Work</a></li>
+      <li><a href="https://brandonbautista.github.io/#skills">Skills</a></li>
+      <li><a href="https://brandonbautista.github.io/#testimonials">Reviews</a></li>
+      <li><a href="https://brandonbautista.github.io/#contact">Let's Talk</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Product Launch · Inbound · Revenue</div>
-      <h1>AI Strategist Consulting: Zero to $500K in Under 2 Years</h1>
-      <p class="hero-description">I built the full growth engine — sales funnel, inbound content, and social amplification — for a brand-new consulting product line. Schools were booking our strategists by name within months.</p>
-      <div class="hero-stat">
-        <span class="hero-stat-number">2yr</span>
-        <span class="hero-stat-label">To $500K Revenue</span>
-      </div>
+<!-- HERO -->
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="AI strategy and consulting" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">Product Launch</span>
+      <span class="tag">Inbound</span>
+      <span class="tag">Revenue</span>
     </div>
-    <div class="hero-image">
-      <div class="hero-image-frame">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="AI Strategist Consulting Project">
-        <div class="hero-image-overlay"></div>
-        <div class="hero-image-tag">Michigan Virtual · 2022–2024</div>
+    <h1 class="hero-title">AI Strategist Consulting: Zero to $500K in Under 2 Years</h1>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="case-body">
+
+  <!-- AT A GLANCE -->
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">$500K+</div>
+      <div class="glance-label">Revenue, Under 2 Years</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">~1 yr</div>
+      <div class="glance-label">To Booked by Name</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">Inbound</div>
+      <div class="glance-label">Led Growth Strategy</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">MI Virtual</div>
+      <div class="glance-label">2022 to 2024</div>
+    </div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <section class="prose-section">
+    <p class="section-label">The Situation</p>
+    <h2 class="section-title">A Market We Didn't Know Existed</h2>
+    <p>When AI started dominating headlines, teachers weren't excited. They were anxious. Are my students cheating? How do I even address this? What's our policy supposed to be? It was a wave of uncertainty hitting every district in the state at once, and no one had a clear answer.</p>
+    <p>Michigan Virtual had spent years positioning itself as a trusted partner to Michigan schools, not a vendor. When that anxiety peaked, schools started coming to us. Not because we had an AI product to sell, but because they trusted us enough to ask for help. That trust was the market. We just had to meet it.</p>
+    <p>The challenge: build something real, fast, before that window closed. There was no playbook. No established product. No established audience for it. Just an opportunity and a deadline that didn't exist yet.</p>
+  </section>
+
+  <!-- THE STRATEGY -->
+  <section class="prose-section">
+    <p class="section-label">The Strategy</p>
+    <h2 class="section-title">Lead with Free. Let the Funnel Do Its Job.</h2>
+    <p>I came to this informed by inbound marketing philosophy: the best way to generate qualified demand is to solve a real problem first and let the pipeline follow. I partnered with our Director of School Partnerships, our Learning Research and Innovation team (who served as subject matter experts), and my marketing specialists to build a content engine around genuine educator need.</p>
+    <p>We produced a library of free, practical resources: rubrics for evaluating AI-generated student work, district-level implementation frameworks, teacher guides, infographics, and live webinars. These weren't lead magnets dressed up as resources. They were actually useful, and educators shared them widely because of it.</p>
+    <p>Embedded throughout was a simple, low-friction form: if you want more personalized help, our AI strategists are available. That was the funnel. Curiosity led to a resource. A resource led to a conversation. A conversation led to a booked engagement.</p>
+
+    <div class="pullquote">
+      <p>"AI is here. We are here to help you become ready." That simple promise guided every piece of copy, every resource, every social post. It met educators exactly where they were.</p>
+    </div>
+  </section>
+
+  <!-- WHAT I LED -->
+  <section class="prose-section">
+    <p class="section-label">What I Led</p>
+    <h2 class="section-title">The Growth Stack</h2>
+    <div class="led-grid">
+      <div class="led-card">
+        <span class="led-icon">🧭</span>
+        <h3>Funnel Design</h3>
+        <p>Mapped the full journey from "curious" to "booked": resource to nurture to consult form to scheduling. Simplified offers and reduced friction at every step.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">✍️</span>
+        <h3>Inbound Content Engine</h3>
+        <p>Led creation of practical, high-trust resources that educators actually shared. The content did the selling by being genuinely useful first.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">📣</span>
+        <h3>Practitioner Amplification</h3>
+        <p>Built social campaigns around our strategists' voices, not the organization's. Within about a year, schools were requesting them by name based on their reputation and visibility.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">🤝</span>
+        <h3>Cross-Functional Collaboration</h3>
+        <p>Worked closely with Sales (School Partnerships) to ensure content leads translated into conversations, and with our research team to ensure accuracy and credibility.</p>
       </div>
     </div>
   </section>
 
-  <!-- Stats Bar -->
-  <section class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-number">$500K+</div>
-      <div class="stat-label">Revenue in Under 2 Years</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">AI 101</div>
-      <div class="stat-label">Flagship PD Schools Book Repeatedly</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">Inbound-Led</div>
-      <div class="stat-label">Free Resources → Consult → Bookings</div>
-    </div>
-  </section>
-
-  <!-- The Challenge Section -->
-  <section class="warm-white">
-    <span class="section-label">The Challenge</span>
-    <h2>Meeting Schools Where They Are</h2>
-    <div class="challenge-grid">
-      <div class="card">
-        <h3>The Signal from Schools</h3>
-        <p>Districts told us: "Students are already using AI. Staff are unsure or even scared. We don't know where to start." We launched a consulting arm to meet that need with clear, practical support — beginning with an accessible AI 101 program.</p>
-      </div>
-      <div class="card">
-        <h3>My Mandate</h3>
-        <p>Create market pull and a repeatable path to purchase. I designed and executed the growth stack: a lean sales funnel, an inbound content engine, and social amplification that made our strategists recognizable and requested by name.</p>
-        <div class="card-tags">
-          <span class="tag">Funnel Design</span>
-          <span class="tag">Content & Assets</span>
-          <span class="tag">Practitioner Branding</span>
-          <span class="tag">Paid + Organic Social</span>
-          <span class="tag">Partner Enablement</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What I Led Section -->
-  <section class="cream">
-    <span class="section-label">What I Led</span>
-    <h2>The Growth Stack</h2>
-    <div class="icon-cards">
-      <div class="icon-card">
-        <div class="icon">🧭</div>
-        <h3>Built the Sales Funnel</h3>
-        <p>Mapped the journey from "curious" to "booked PD": resource → nurture → consult form → scheduling. Simplified copy, reduced friction, and clarified offers.</p>
-      </div>
-      <div class="icon-card">
-        <div class="icon">✍️</div>
-        <h3>Produced Inbound Assets</h3>
-        <p>Led the creation of practical, high-trust resources (frameworks, guides, rubrics, blogs) that educators shared widely — feeding the funnel with qualified demand.</p>
-      </div>
-      <div class="icon-card">
-        <div class="icon">📣</div>
-        <h3>Amplified Strategists on Social</h3>
-        <p>Elevated practitioner voices with targeted campaigns and content support. Result: stronger credibility, community engagement, and name recognition.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Resources Section -->
-  <section class="warm-white">
-    <span class="section-label">Featured Resources</span>
-    <h2>The Inbound Engine</h2>
+  <!-- FEATURED RESOURCES -->
+  <section class="prose-section">
+    <p class="section-label">Featured Resources</p>
+    <h2 class="section-title">The Inbound Engine in Action</h2>
+    <p>A sample of the free resources that drove awareness, search traffic, and form fills. These lived at the top of the funnel and fed everything downstream.</p>
     <div class="resources-grid">
-      <div class="resource-card">
-        <div class="resource-icon">🗺️</div>
-        <h3>Planning Guide for AI</h3>
-        <p>A practical, step-by-step planning guide to shape a district AI strategy and align stakeholders.</p>
-        <a href="https://michiganvirtual.org/resources/guides/ai-guide/" target="_blank" class="resource-button">Open Guide →</a>
-      </div>
-      <div class="resource-card">
-        <div class="resource-icon">🧩</div>
-        <h3>AI Integration Framework (PDF)</h3>
-        <p>A district-level framework to operationalize AI safely and effectively across curriculum and policy.</p>
-        <a href="https://michiganvirtual.org/wp-content/uploads/2023/07/AI-Integration-Framework-for-School-Districts.pdf" target="_blank" class="resource-button">Download PDF →</a>
-      </div>
-      <div class="resource-card">
-        <div class="resource-icon">🍎</div>
-        <h3>Teacher Guide to AI</h3>
-        <p>Teacher-friendly guidance, examples, and guardrails for mindful, classroom-ready AI use.</p>
-        <a href="https://aitg.michiganvirtual.org/" target="_blank" class="resource-button">View Site →</a>
-      </div>
+      <a href="https://michiganvirtual.org/resources/guides/ai-guide/" class="resource-card" target="_blank" rel="noopener">
+        <span class="resource-icon">🗺️</span>
+        <div class="resource-title">Planning Guide for AI</div>
+        <div class="resource-desc">Step-by-step guide for shaping a district AI strategy and aligning stakeholders around a shared approach.</div>
+        <div class="resource-cta">Open Guide &rarr;</div>
+      </a>
+      <a href="https://michiganvirtual.org/wp-content/uploads/2023/07/AI-Integration-Framework-for-School-Districts.pdf" class="resource-card" target="_blank" rel="noopener">
+        <span class="resource-icon">🧩</span>
+        <div class="resource-title">AI Integration Framework</div>
+        <div class="resource-desc">A district-level framework to operationalize AI safely and effectively across curriculum and policy.</div>
+        <div class="resource-cta">Download PDF &rarr;</div>
+      </a>
+      <a href="https://aitg.michiganvirtual.org/" class="resource-card" target="_blank" rel="noopener">
+        <span class="resource-icon">🍎</span>
+        <div class="resource-title">Teacher Guide to AI</div>
+        <div class="resource-desc">Teacher-friendly guidance, examples, and guardrails for mindful, classroom-ready AI use.</div>
+        <div class="resource-cta">View Site &rarr;</div>
+      </a>
     </div>
   </section>
 
-  <!-- Quote Section -->
-  <section class="quote-section">
-    <blockquote>"AI is here. We are here to help you become ready."</blockquote>
-    <p>This clear promise guided our funnel, content, and social narrative — meeting educators where they are and inviting them forward with confidence.</p>
+  <!-- THE RESULT -->
+  <section class="prose-section">
+    <p class="section-label">The Result</p>
+    <h2 class="section-title">$500K+ and a Reputation That Preceded Itself</h2>
+    <p>Within about a year of launch, something had shifted. School administrators weren't just requesting AI consulting from Michigan Virtual. They were requesting specific strategists by name, based on their social media presence and word of mouth from other district leaders. The inbound engine had done more than drive revenue. It had built individual credibility at scale.</p>
+    <p>The consulting arm crossed $500,000 in revenue in under two years, from zero, in a market that didn't exist before we helped create it. The AI 101 program became a repeatable, bookable product. Free resources continued to drive search traffic and form fills long after launch.</p>
+    <p>This is what inbound marketing looks like when it's working: you serve first, and the pipeline takes care of itself.</p>
   </section>
 
-  <!-- CTA Strip -->
-  <section class="cta-strip">
-    <h2>Ready to see more?</h2>
-    <div class="cta-buttons">
-      <a href="/" class="cta-button cta-button-back">← Back to All Work</a>
-      <a href="/#contact" class="cta-button cta-button-cta">Let's Connect</a>
+  <!-- CTA -->
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="https://brandonbautista.github.io/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="https://brandonbautista.github.io/#contact" class="btn btn-primary">Let's Connect</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Brandon Bautista. All rights reserved.</p>
-  </footer>
+</div>
 
-  <script>
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+<footer>
+  &copy; 2026 Brandon Bautista
+</footer>
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-  </script>
 </body>
 </html>
