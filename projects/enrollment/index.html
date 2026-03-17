@@ -1,1107 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yearlong Enrollment Cycle | Brandon Bautista</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --charcoal: #1e1e1e;
-            --charcoal-mid: #2c2c2c;
-            --orange: #e05c2a;
-            --orange-light: #f07040;
-            --cream: #f5f1eb;
-            --cream-dark: #ede8e0;
-            --warm-white: #faf8f5;
-            --text-dark: #1a1a1a;
-            --text-mid: #4a4a4a;
-            --text-light: #888;
-            --border: #e0dbd3;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--warm-white);
-            line-height: 1.6;
-        }
-
-        /* Keyframe animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--charcoal);
-            border-bottom: 2px solid var(--orange);
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 48px;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .nav-name {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: white;
-            letter-spacing: 0.05em;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 400;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--orange);
-        }
-
-        .nav-cta {
-            background-color: var(--orange);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--orange-light);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background-color: var(--charcoal);
-            padding: 24px 48px;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 999;
-        }
-
-        .mobile-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 14px;
-        }
-
-        /* PROJECT HERO */
-        .project-hero {
-            background-color: var(--charcoal);
-            padding: 80px 48px 72px;
-            min-height: 420px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-left {
-            color: white;
-        }
-
-        .hero-eyebrow {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--orange);
-            letter-spacing: 0.18em;
-            margin-bottom: 10px;
-            animation: fadeUp 0.6s ease-out 0s;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            animation: fadeUp 0.6s ease-out 0.1s both;
-        }
-
-        .hero-description {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 560px;
-            animation: fadeUp 0.6s ease-out 0.2s both;
-        }
-
-        .hero-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            animation: fadeUp 0.6s ease-out 0.3s both;
-        }
-
-        .pill {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .hero-right {
-            position: relative;
-            animation: fadeUp 0.6s ease-out 0.15s both;
-        }
-
-        .hero-image-frame {
-            position: relative;
-            width: 100%;
-            height: 360px;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: var(--cream);
-        }
-
-        .hero-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-image-frame::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(224, 92, 42, 0.3) 0%, rgba(240, 112, 64, 0.15) 100%);
-            pointer-events: none;
-        }
-
-        .hero-tag {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.95);
-            color: var(--charcoal);
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* NUMBERS BAR */
-        .numbers-bar {
-            background-color: var(--cream);
-            padding: 48px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 48px;
-            text-align: center;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .stat-number em {
-            color: var(--orange);
-            font-style: normal;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-mid);
-            font-weight: 500;
-        }
-
-        .numbers-bar .stat-item:not(:last-child) {
-            border-right: 1px solid var(--border);
-        }
-
-        /* SECTION STYLES */
-        section {
-            padding: 80px 48px;
-        }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--orange);
-            letter-spacing: 0.18em;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--charcoal);
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: var(--text-mid);
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
-
-        /* CARDS */
-        .card {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 40px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-
-        .card-subtitle {
-            font-size: 14px;
-            color: var(--text-light);
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .card-text {
-            font-size: 15px;
-            color: var(--text-mid);
-            line-height: 1.7;
-        }
-
-        /* STRATEGY CARDS */
-        .strategy-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 32px;
-            margin-top: 40px;
-        }
-
-        /* RESULTS CARD */
-        .results-card {
-            background-color: white;
-            border: 2px solid var(--border);
-            border-radius: 4px;
-            padding: 48px;
-            margin-top: 40px;
-        }
-
-        .results-header {
-            margin-bottom: 40px;
-        }
-
-        .results-main-stat {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-
-        .results-subtitle {
-            font-size: 16px;
-            color: var(--text-mid);
-            max-width: 400px;
-        }
-
-        .metric-boxes {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .metric-box {
-            background-color: var(--warm-white);
-            padding: 24px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .metric-label {
-            font-size: 12px;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .metric-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--charcoal);
-        }
-
-        .results-note {
-            font-size: 14px;
-            color: var(--text-mid);
-            line-height: 1.7;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-        }
-
-        .badge-group {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .badge {
-            background-color: rgba(224, 92, 42, 0.1);
-            border: 1px solid var(--orange);
-            color: var(--orange);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* EMAIL SECTION */
-        .email-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .email-metrics {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 40px;
-        }
-
-        .metric-item {
-            margin-bottom: 24px;
-        }
-
-        .metric-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .metric-item-label {
-            font-size: 13px;
-            color: var(--text-light);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-        }
-
-        .metric-item-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--charcoal);
-        }
-
-        .email-action {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .email-action-text {
-            margin-bottom: 24px;
-        }
-
-        .email-action-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 8px;
-        }
-
-        .email-action-desc {
-            font-size: 14px;
-            color: var(--text-mid);
-            line-height: 1.6;
-        }
-
-        .btn-orange {
-            display: inline-block;
-            background-color: var(--orange);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            margin-top: 16px;
-        }
-
-        .btn-orange:hover {
-            background-color: var(--orange-light);
-        }
-
-        /* VIDEO SECTION */
-        .video-intro {
-            font-size: 16px;
-            color: var(--text-mid);
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 4px;
-            background-color: var(--cream);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-label {
-            font-size: 14px;
-            color: var(--text-mid);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        /* CTA STRIP */
-        .cta-strip {
-            background-color: var(--orange);
-            padding: 60px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .cta-strip-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: white;
-            line-height: 1.15;
-            margin-bottom: 12px;
-        }
-
-        .cta-strip-text p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            max-width: 400px;
-        }
-
-        .cta-strip-buttons {
-            display: flex;
-            gap: 16px;
-        }
-
-        .btn-white {
-            background-color: white;
-            color: var(--charcoal);
-            padding: 12px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-white:hover {
-            background-color: var(--cream);
-        }
-
-        .btn-outline-white {
-            background-color: transparent;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid white;
-            cursor: pointer;
-        }
-
-        .btn-outline-white:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--charcoal);
-            color: white;
-            padding: 24px 48px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            nav {
-                padding: 0 32px;
-            }
-
-            .project-hero {
-                padding: 60px 32px 56px;
-                gap: 60px;
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero-title {
-                font-size: 40px;
-            }
-
-            section {
-                padding: 60px 32px;
-            }
-
-            .numbers-bar {
-                padding: 40px 32px;
-                gap: 32px;
-            }
-
-            .strategy-cards {
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-
-            .metric-boxes {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-
-            .email-cards {
-                gap: 32px;
-            }
-
-            .video-grid {
-                gap: 32px;
-            }
-
-            .cta-strip {
-                padding: 48px 32px;
-                gap: 40px;
-            }
-
-            .cta-strip-text h2 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu.active {
-                display: flex;
-            }
-
-            nav {
-                padding: 0 20px;
-            }
-
-            .project-hero {
-                padding: 48px 20px 40px;
-                grid-template-columns: 1fr;
-                gap: 40px;
-                min-height: auto;
-            }
-
-            .hero-title {
-                font-size: 32px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .hero-image-frame {
-                height: 280px;
-            }
-
-            section {
-                padding: 48px 20px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .numbers-bar {
-                padding: 32px 20px;
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .numbers-bar .stat-item:not(:last-child) {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 24px;
-            }
-
-            .strategy-cards {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .metric-boxes {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
-
-            .card {
-                padding: 32px 24px;
-            }
-
-            .card-title {
-                font-size: 20px;
-            }
-
-            .results-card {
-                padding: 32px 24px;
-            }
-
-            .results-main-stat {
-                font-size: 40px;
-            }
-
-            .email-cards {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .cta-strip {
-                padding: 40px 20px;
-                flex-direction: column;
-                text-align: center;
-                gap: 32px;
-            }
-
-            .cta-strip-text h2 {
-                font-size: 28px;
-            }
-
-            .cta-strip-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn-white,
-            .btn-outline-white {
-                width: 100%;
-            }
-
-            footer {
-                padding: 20px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 0 16px;
-            }
-
-            .project-hero {
-                padding: 32px 16px;
-            }
-
-            .hero-title {
-                font-size: 24px;
-            }
-
-            .hero-description {
-                font-size: 14px;
-            }
-
-            section {
-                padding: 40px 16px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .numbers-bar {
-                padding: 24px 16px;
-            }
-
-            .stat-number {
-                font-size: 28px;
-            }
-
-            .stat-label {
-                font-size: 12px;
-            }
-
-            .strategy-cards {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .metric-boxes {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .metric-box {
-                padding: 16px 12px;
-            }
-
-            .metric-value {
-                font-size: 24px;
-            }
-
-            .results-main-stat {
-                font-size: 32px;
-            }
-
-            .results-card {
-                padding: 24px 16px;
-            }
-
-            .email-cards {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .badge-group {
-                flex-wrap: wrap;
-            }
-
-            .cta-strip {
-                padding: 32px 16px;
-            }
-
-            .cta-strip-text h2 {
-                font-size: 24px;
-            }
-
-            .cta-strip-text p {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yearlong Enrollment Cycle | Brandon Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #faf9f7;
+      --paper-warm: #f3f0ea;
+      --charcoal: #1e1e1e;
+      --accent: #c1440e;
+      --rule: #ddd8d0;
+      --text-muted: #6b6560;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: var(--charcoal);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
+    }
+
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--paper-warm);
+      padding: 1.4rem 1.25rem;
+      text-align: center;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .prose-section p { color: #3a3530; margin-bottom: 1rem; }
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    /* ── SPOTLIGHT CALLOUT ── */
+    .spotlight {
+      background: var(--charcoal);
+      color: #fff;
+      border-radius: 4px;
+      padding: 2rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .spotlight-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .spotlight-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .spotlight p {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* ── STATS GRID ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin-top: 1.75rem;
+      overflow: hidden;
+    }
+    .stat-cell {
+      background: var(--paper-warm);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ── PHASE BLOCKS ── */
+    .phases {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin-top: 1.75rem;
+      overflow: hidden;
+    }
+    .phase {
+      background: var(--paper-warm);
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .phase-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      min-width: 120px;
+      color: var(--charcoal);
+    }
+    .phase-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ── EMAIL HIGHLIGHT ── */
+    .email-highlight {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.5rem 1.4rem;
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .email-stat-pair {
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    .email-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .email-stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    .email-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--rule);
+    }
+    .email-link-wrap {
+      flex: 2;
+      min-width: 200px;
+    }
+    .email-link-wrap p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .email-btn {
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .email-btn:hover { border-color: var(--accent); }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--paper-warm);
+      border-radius: 0 4px 4px 0;
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    .cta-strip {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #a8380b; }
+    .btn-ghost {
+      border: 1.5px solid var(--rule);
+      color: var(--charcoal);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--charcoal); }
+
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .phase { flex-direction: column; gap: 0.25rem; }
+      .email-highlight { flex-direction: column; align-items: flex-start; }
+      .email-divider { display: none; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="nav-name">Brandon Bautista</div>
-        <ul class="nav-links">
-            <li><a href="/#projects">Work</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#testimonials">Reviews</a></li>
-            <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/#projects">Work</a>
-        <a href="/#skills">Skills</a>
-        <a href="/#testimonials">Reviews</a>
-        <a href="/#contact" class="nav-cta">Let's Talk</a>
+<nav>
+  <div class="nav-inner">
+    <a href="https://brandonbautista.github.io/" class="nav-logo">Brandon Bautista</a>
+    <ul class="nav-links">
+      <li><a href="https://brandonbautista.github.io/#projects">Work</a></li>
+      <li><a href="https://brandonbautista.github.io/#skills">Skills</a></li>
+      <li><a href="https://brandonbautista.github.io/#testimonials">Reviews</a></li>
+      <li><a href="https://brandonbautista.github.io/#contact">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop" alt="School enrollment and digital campaigns" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">Digital Ads</span>
+      <span class="tag">Social</span>
+      <span class="tag">Email</span>
+      <span class="tag">Video</span>
+    </div>
+    <h1 class="hero-title">Yearlong Enrollment Cycle: Always-On, Always-Helpful</h1>
+  </div>
+</div>
+
+<div class="case-body">
+
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">17.4M+</div>
+      <div class="glance-label">Total Impressions</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">70K+</div>
+      <div class="glance-label">Link Clicks</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">~$10K</div>
+      <div class="glance-label">Per Enrollment Period</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">3 per yr</div>
+      <div class="glance-label">Enrollment Windows</div>
+    </div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <section class="prose-section">
+    <p class="section-label">The Situation</p>
+    <h2 class="section-title">We Would Never Outspend Them. So We Had to Out-Connect Them.</h2>
+    <p>Michigan Virtual competes with national online learning providers that have marketing budgets orders of magnitude larger. Running the same playbook, just with less money, was never going to work. We needed a different theory of winning.</p>
+    <p>Ours: speak educators' language, show up in their calendar at exactly the right moment, and be relentlessly useful. Position Michigan Virtual not as a vendor selling virtual courses, but as a partner invested in student outcomes. Do that consistently, three enrollment windows a year, and trust compounds into enrollment.</p>
+    <p>The budget per enrollment period was roughly $10,000. That covered Facebook and Instagram paid social, email, and video production. It was a lean operation, and that constraint pushed creative decisions that turned out to be strengths.</p>
+  </section>
+
+  <!-- THE SYSTEM -->
+  <section class="prose-section">
+    <p class="section-label">The System</p>
+    <h2 class="section-title">Three Windows. One Consistent Strategy.</h2>
+    <p>The school year has three enrollment periods, and each has a different feel. Fall means back-to-school energy and fresh planning. Spring is about catching students who need course recovery or acceleration. Summer has its own urgency. We built campaigns that matched the rhythm of each window rather than running the same creative year-round.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <span class="phase-name">Fall Enrollment</span>
+        <span class="phase-desc">Back-to-school energy. Course selection season. Largest window and highest opportunity for new family awareness.</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Spring Enrollment</span>
+        <span class="phase-desc">Recovery and acceleration. Messaging focused on students who need to catch up or get ahead before year-end.</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Summer Enrollment</span>
+        <span class="phase-desc">Urgency-forward. Short window, concentrated creative push around flexible scheduling and unique course offerings.</span>
+      </div>
     </div>
 
-    <!-- PROJECT HERO -->
-    <section class="project-hero">
-        <div class="hero-left">
-            <div class="hero-eyebrow">Paid Social · Email · Video · Always-On</div>
-            <h1 class="hero-title">Yearlong Enrollment Cycle: Always-On, Always-Helpful</h1>
-            <p class="hero-description">Seasonal campaigns (winter/spring/summer/fall) combining email, social, and video to hit enrollment goals — by out-connecting competitors, not outspending them.</p>
-            <div class="hero-pills">
-                <span class="pill">Paid Social</span>
-                <span class="pill">Email Marketing</span>
-                <span class="pill">Video</span>
-                <span class="pill">Always-On</span>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="hero-image-frame">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop" alt="Enrollment Campaign">
-                <div class="hero-tag">Michigan Virtual · Annual Campaign</div>
-            </div>
-        </div>
-    </section>
+    <p style="margin-top:1.5rem;">Across all three periods, email reached school contacts responsible for virtual enrollments. Facebook and Instagram campaigns targeted Michigan educators and families with awareness and remarketing creative. Short-form videos demystified online learning and showed the surprising breadth of courses available, including things families wouldn't expect, like Guitar, taught by a Michigan-certified instructor.</p>
+  </section>
 
-    <!-- STATS BAR -->
-    <div class="numbers-bar">
-        <div class="stat-item">
-            <div class="stat-number"><em>5M+</em> Impressions</div>
-            <div class="stat-label">From Facebook campaigns</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">~<em>49%</em> Email Open Rate</div>
-            <div class="stat-label">2× industry average</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number"><em>$0.30</em> Cost per Click</div>
-            <div class="stat-label">Lean & efficient</div>
-        </div>
+  <!-- SPOTLIGHT CAMPAIGN -->
+  <section class="prose-section">
+    <p class="section-label">Campaign Spotlight</p>
+    <h2 class="section-title">The Fall Campaign That Made People Stop Scrolling</h2>
+
+    <div class="spotlight">
+      <div class="spotlight-label">Fall Campaign</div>
+      <div class="spotlight-headline">AI? Actual Instructors.</div>
+      <p>This was the right message at the exact right moment. AI was everywhere in the news, and our competitors, the faceless national platforms, had no real answer for it. Michigan Virtual did: every course is led by a Michigan-certified teacher. A real instructor. Every time.</p>
+      <p style="margin-top:0.75rem;">We leaned into it directly. While everyone else was figuring out what to say about AI, we said it plainly: we have AI, actual instructors. The play on words landed. District leaders shared it. Parents noticed. People in the education space said "that is a really good idea" because it was true and it cut right through the noise.</p>
     </div>
 
-    <!-- SECTION 1: THE STRATEGY -->
-    <section style="background-color: var(--warm-white);">
-        <div class="section-label">Overview</div>
-        <h2 class="section-title">Out-connect, not outspend</h2>
+    <div class="pullquote">
+      <p>The best campaign we ran didn't need a big budget. It needed the right insight at the right moment and the confidence to say something direct.</p>
+    </div>
+  </section>
 
-        <div class="strategy-cards">
-            <div class="card">
-                <div class="card-title">What</div>
-                <div class="card-text">Always-on enrollment marketing across the school year — launch awareness, value spotlights (e.g., unique courses), and urgency messaging as deadlines approach. Channels: Email to school contacts · Facebook campaigns to MI educators & families · Short videos to inform & disarm skepticism.</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Why</div>
-                <div class="card-text">We won't outspend national competitors, but we can out-connect: speak educators' language, position as partner (not vendor), and be remarkably useful. Goals: Align to school calendars and workload realities · Lift perception of Michigan Virtual as a collaborative ally · Meet or exceed enrollment targets consistently.</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Impact</div>
-                <div class="card-text">High-efficiency Facebook performance at modest budgets, strong email engagement, and repeatable semester wins. Key results: CTR ~0.24% · CPC ~$0.30 · Reach ~296K · 11.7K link clicks.</div>
-            </div>
-        </div>
-    </section>
+  <!-- RESULTS -->
+  <section class="prose-section">
+    <p class="section-label">The Results</p>
+    <h2 class="section-title">17.4M+ Impressions. Built on a Lean Budget.</h2>
+    <p>The numbers below represent the combined results across all three enrollment periods in one fiscal year. Total impressions, link clicks, and reach were generated from Facebook campaigns running at roughly $10,000 per enrollment window.</p>
 
-    <!-- SECTION 2: FACEBOOK RESULTS -->
-    <section style="background-color: var(--cream);">
-        <div class="section-label">Paid Social</div>
-        <h2 class="section-title">5 million impressions on a lean budget</h2>
-
-        <div class="results-card">
-            <div class="badge-group">
-                <span class="badge">Modest budget</span>
-                <span class="badge">Statewide targeting</span>
-            </div>
-
-            <div class="results-header">
-                <div class="results-main-stat">5,000,000+</div>
-                <div class="results-subtitle">High-scale reach to Michigan educators & families with efficient performance.</div>
-            </div>
-
-            <div class="metric-boxes">
-                <div class="metric-box">
-                    <div class="metric-label">CTR</div>
-                    <div class="metric-value">0.24%</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">CPC</div>
-                    <div class="metric-value">$0.30</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Reach</div>
-                    <div class="metric-value">296,511</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Link Clicks</div>
-                    <div class="metric-value">11,700</div>
-                </div>
-            </div>
-
-            <div class="results-note">CTR and CPC performed competitively vs. education benchmarks, while delivering more than five million impressions on a lean budget.</div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: EMAIL HIGHLIGHT -->
-    <section style="background-color: var(--warm-white);">
-        <div class="section-label">Email</div>
-        <h2 class="section-title">Double the industry open rate</h2>
-
-        <div class="email-cards">
-            <div class="email-metrics">
-                <div class="metric-item">
-                    <div class="metric-item-label">Open Rate</div>
-                    <div class="metric-item-value">~49%</div>
-                    <div style="font-size: 13px; color: var(--text-light); margin-top: 8px;">≈ 2× industry average</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-item-label">Click-through Rate</div>
-                    <div class="metric-item-value">1.53%</div>
-                </div>
-            </div>
-            <div class="email-action">
-                <div class="email-action-text">
-                    <div class="email-action-title">See the Email</div>
-                    <div class="email-action-desc">View 'It's About That Time' — timed to post-break planning</div>
-                </div>
-                <a href="https://mail.michiganvirtual.org/its-about-that-time-2" target="_blank" class="btn-orange">Open Email →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: VIDEOS -->
-    <section style="background-color: var(--cream);">
-        <div class="section-label">Video</div>
-        <h2 class="section-title">Built to inform and disarm skepticism</h2>
-        <p class="video-intro">Purpose-built to (1) show the surprising breadth of courses — including 'you can even take Guitar online!' — and (2) demystify what online learning looks like at Michigan Virtual.</p>
-
-        <div class="video-grid">
-            <div>
-                <div class="video-label">Impressive Course Selection</div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/L6th1SR57Sg" title="Guitar course video" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div>
-                <div class="video-label">How Online Learning Works</div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/CpGWsjcLZIM" title="How online learning works" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA STRIP -->
-    <div class="cta-strip">
-        <div class="cta-strip-text">
-            <h2>Want to see more of my work?</h2>
-            <p>Explore the full portfolio or get in touch to talk about your next project.</p>
-        </div>
-        <div class="cta-strip-buttons">
-            <a href="/" class="btn-white">← Back to All Work</a>
-            <a href="/#contact" class="btn-outline-white">Get in Touch</a>
-        </div>
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-value">17.4M+</div>
+        <div class="stat-label">Total Impressions</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">70K+</div>
+        <div class="stat-label">Link Clicks</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">$0.30</div>
+        <div class="stat-label">Avg CPC</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">296K</div>
+        <div class="stat-label">Reach</div>
+      </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Brandon Bautista · East Lansing, MI</p>
-    </footer>
+    <p style="margin-top:1.5rem;">CTR and CPC performed competitively against education-sector benchmarks while delivering statewide reach on a fraction of what competitors spend. Enrollment targets were met consistently across periods.</p>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+    <p>Email was equally strong. One representative send, timed to the post-break planning window when school counselors and administrators are actively thinking about student course loads, hit an open rate roughly double the education industry average.</p>
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+    <div class="email-highlight">
+      <div class="email-stat-pair">
+        <div class="email-stat-value">~49%</div>
+        <div class="email-stat-label">Open Rate</div>
+      </div>
+      <div class="email-divider"></div>
+      <div class="email-stat-pair">
+        <div class="email-stat-value">1.53%</div>
+        <div class="email-stat-label">Click Rate</div>
+      </div>
+      <div class="email-divider"></div>
+      <div class="email-link-wrap">
+        <p>View a representative send ("It's About That Time"), timed to post-break planning season:</p>
+        <a href="https://mail.michiganvirtual.org/its-about-that-time-2" class="email-btn" target="_blank" rel="noopener">Open Email &rarr;</a>
+      </div>
+    </div>
+  </section>
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="https://brandonbautista.github.io/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="https://brandonbautista.github.io/#contact" class="btn btn-primary">Let's Connect</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Brandon Bautista
+</footer>
+
 </body>
 </html>
