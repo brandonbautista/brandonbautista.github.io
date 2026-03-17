@@ -21,9 +21,11 @@
     body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     nav { background: var(--charcoal); border-bottom: 1px solid var(--charcoal-rule); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; }
-    .nav-back { font-size: 0.85rem; font-weight: 500; color: #999; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-    .nav-back:hover { color: var(--paper); }
     .nav-brand { font-family: var(--serif); font-size: 1.05rem; color: var(--paper); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: #999; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--paper); }
+    .nav-cta { color: var(--accent) !important; border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 2px; }
 
     .hero-img-wrap { width: 100%; height: 420px; overflow: hidden; border-bottom: 1px solid var(--rule); }
     .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
@@ -67,13 +69,22 @@
     .coming-soon { margin-top: 2.5rem; padding: 1.5rem 2rem; border: 1px dashed var(--rule); text-align: center; }
     .coming-soon p { font-size: 0.875rem; color: var(--ink-faint); margin: 0; }
 
-    .back-link { display: inline-block; margin-top: 3rem; font-size: 0.85rem; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-    .back-link:hover { color: var(--accent); }
+    .case-cta { background: var(--charcoal); color: var(--paper); padding: 4rem 2.5rem; text-align: center; margin-top: 0; }
+    .case-cta h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.3; margin-bottom: 0.75rem; }
+    .case-cta h2 em { font-style: italic; color: #e8a080; }
+    .case-cta p { font-size: 0.9rem; color: #999; margin-bottom: 2rem; }
+    .case-cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-light { display: inline-block; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.8rem 1.75rem; border-radius: 2px; text-decoration: none; transition: opacity 0.2s; }
+    .btn-light:hover { opacity: 0.88; }
+    .btn-outline-light { display: inline-block; color: var(--paper); font-family: var(--sans); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.8rem 1.75rem; border: 1px solid #555; border-radius: 2px; text-decoration: none; transition: border-color 0.2s; }
+    .btn-outline-light:hover { border-color: #999; }
 
-    footer { border-top: 1px solid var(--rule); padding: 1.5rem 2.5rem; font-size: 0.78rem; color: var(--ink-faint); text-align: center; }
+    footer { border-top: 1px solid var(--charcoal-rule); background: var(--charcoal); padding: 1.5rem 2.5rem; font-size: 0.78rem; color: #555; display: flex; justify-content: space-between; align-items: center; }
+    footer a { color: #555; text-decoration: none; }
 
     @media (max-width: 700px) {
       nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
       .hero-img-wrap { height: 260px; }
       .case-content { padding: 2rem 1.25rem 3.5rem; }
       .glance-grid { grid-template-columns: 1fr; }
@@ -82,14 +93,21 @@
       .stat-row { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid var(--rule); }
       .stat-item:last-child { border-bottom: none; }
+      .case-cta { padding: 2.5rem 1.25rem; }
+      footer { padding: 1rem 1.25rem; flex-direction: column; gap: 0.25rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-back">&larr; Back to Home</a>
   <a href="/" class="nav-brand">Brandon Bautista</a>
+  <ul class="nav-links">
+    <li><a href="/#projects">Work</a></li>
+    <li><a href="/#skills">Skills</a></li>
+    <li><a href="/#testimonials">Reviews</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk &rarr;</a></li>
+  </ul>
 </nav>
 
 <div class="hero-img-wrap">
@@ -179,11 +197,23 @@
     <p>Full case study &mdash; including campaign mechanics, organic amplification breakdown, and community response detail &mdash; coming soon.</p>
   </div>
 
-  <a href="/" class="back-link">&larr; Back to all work</a>
+  <a href="/" style="display:inline-block; margin-top:2rem; font-size:0.85rem; font-weight:500; color:var(--ink-muted); text-decoration:none; letter-spacing:0.04em; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-muted)'">&larr; Back to all work</a>
 
 </div>
 
-<footer>&copy; 2025 Brandon Bautista &middot; East Lansing, MI</footer>
+<div class="case-cta">
+  <h2>If you're looking for someone who builds trust as fast as they build <em>pipelines</em> &mdash; let's talk.</h2>
+  <p>Available for full-time roles and select freelance engagements in marketing strategy, content, and brand.</p>
+  <div class="case-cta-actions">
+    <a href="https://linkedin.com/in/brandonbautista" class="btn-light">Connect on LinkedIn</a>
+    <a href="/#projects" class="btn-outline-light">&larr; Back to All Work</a>
+  </div>
+</div>
+
+<footer>
+  <span>&copy; 2025 Brandon Bautista &middot; East Lansing, MI</span>
+  <a href="/Bautista_Resume.pdf">Download Resume</a>
+</footer>
 
 </body>
 </html>
