@@ -9,376 +9,181 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --ink: #1a1a1a;
-      --ink-muted: #555;
-      --ink-faint: #888;
-      --paper: #faf9f7;
-      --paper-warm: #f3f0ea;
-      --charcoal: #1e1e1e;
-      --charcoal-rule: #333;
-      --accent: #c1440e;
-      --rule: #ddd8d0;
+      --ink: #1a1a1a; --ink-muted: #555; --ink-faint: #888;
+      --paper: #faf9f7; --paper-warm: #f3f0ea;
+      --charcoal: #1e1e1e; --charcoal-rule: #333;
+      --accent: #c1440e; --rule: #ddd8d0;
       --serif: 'Playfair Display', Georgia, serif;
       --sans: 'DM Sans', system-ui, sans-serif;
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* NAV */
-    nav {
-      background: var(--charcoal);
-      border-bottom: 1px solid var(--charcoal-rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2.5rem;
-    }
-
-    .nav-back {
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #999;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: color 0.2s;
-    }
-
+    nav { background: var(--charcoal); border-bottom: 1px solid var(--charcoal-rule); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; }
+    .nav-back { font-size: 0.85rem; font-weight: 500; color: #999; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .nav-back:hover { color: var(--paper); }
+    .nav-brand { font-family: var(--serif); font-size: 1.05rem; color: var(--paper); text-decoration: none; }
 
-    .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: var(--paper);
-      text-decoration: none;
-    }
+    .hero-img-wrap { width: 100%; height: 420px; overflow: hidden; border-bottom: 1px solid var(--rule); }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
 
-    /* HERO */
-    .case-hero {
-      position: relative;
-      height: 420px;
-      overflow: hidden;
-      border-bottom: 1px solid var(--rule);
-    }
+    .case-content { max-width: 860px; margin: 0 auto; padding: 3rem 2.5rem 5rem; }
 
-    .case-hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 40%;
-      opacity: 0.5;
-    }
+    .case-header { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+    .case-tags { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .case-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; color: var(--ink); margin-bottom: 1rem; }
+    .case-subtitle { font-size: 1.05rem; color: var(--ink-muted); line-height: 1.7; max-width: 680px; }
 
-    .case-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(30,30,30,0.3) 0%, rgba(30,30,30,0.85) 100%);
-    }
-
-    .case-hero-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 3rem 2.5rem;
-    }
-
-    .case-tags {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .case-title {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--paper);
-      line-height: 1.2;
-      max-width: 720px;
-      margin-bottom: 1rem;
-    }
-
-    .case-subtitle {
-      font-size: 1rem;
-      color: #bbb;
-      max-width: 560px;
-      line-height: 1.65;
-    }
-
-    /* CONTENT */
-    .case-body {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 4rem 2.5rem;
-    }
-
-    .at-a-glance {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      margin-bottom: 3.5rem;
-      overflow: hidden;
-    }
-
-    .glance-item {
-      padding: 1.75rem 1.5rem;
-      border-right: 1px solid var(--rule);
-    }
-
+    .glance-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--rule); margin-bottom: 3rem; }
+    .glance-item { padding: 1.5rem; border-right: 1px solid var(--rule); }
     .glance-item:last-child { border-right: none; }
+    .glance-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .glance-value { font-size: 0.95rem; color: var(--ink); line-height: 1.4; }
 
-    .glance-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--rule); margin: 1.75rem 0; }
+    .stat-item { padding: 1.5rem; border-right: 1px solid var(--rule); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+    .stat-label { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.4; }
 
-    .glance-value {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: var(--ink);
-      line-height: 1.35;
-    }
+    .case-section { margin-bottom: 2.75rem; }
+    .case-section h2 { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); margin-bottom: 0.75rem; }
+    .case-section p { font-size: 0.975rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 0.85rem; }
+    .case-section p strong { color: var(--ink); font-weight: 500; }
+    .case-section ul { margin: 0.5rem 0 1rem 1.25rem; }
+    .case-section ul li { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.75; margin-bottom: 0.3rem; }
 
-    .prose-section {
-      margin-bottom: 3rem;
-    }
+    .pull-quote { margin: 2rem 0; padding: 1.5rem 1.75rem; border-left: 3px solid var(--accent); background: var(--paper-warm); }
+    .pull-quote p { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--ink); line-height: 1.7; margin: 0 0 0.5rem; }
+    .pull-quote cite { font-size: 0.8rem; color: var(--ink-faint); font-style: normal; }
 
-    .prose-section h2 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      color: var(--ink);
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--rule);
-    }
+    .press-note { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 1.5rem; border: 1px solid var(--rule); margin: 1.75rem 0; background: var(--paper-warm); }
+    .press-note-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); white-space: nowrap; padding-top: 0.15rem; }
+    .press-note p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.6; margin: 0; }
+    .press-note a { color: var(--accent); text-decoration: none; }
+    .press-note a:hover { text-decoration: underline; }
 
-    .prose-section p {
-      font-size: 1rem;
-      color: var(--ink-muted);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
+    .coming-soon { margin-top: 2.5rem; padding: 1.5rem 2rem; border: 1px dashed var(--rule); text-align: center; }
+    .coming-soon p { font-size: 0.875rem; color: var(--ink-faint); margin: 0; }
 
-    .prose-section p strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
+    .back-link { display: inline-block; margin-top: 3rem; font-size: 0.85rem; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .back-link:hover { color: var(--accent); }
 
-    .pull-quote {
-      margin: 2.5rem 0;
-      padding: 1.5rem 2rem;
-      border-left: 3px solid var(--accent);
-      background: var(--paper-warm);
-    }
+    footer { border-top: 1px solid var(--rule); padding: 1.5rem 2.5rem; font-size: 0.78rem; color: var(--ink-faint); text-align: center; }
 
-    .pull-quote p {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--ink);
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    .coming-soon {
-      margin-top: 3rem;
-      padding: 2rem;
-      border: 1px dashed var(--rule);
-      border-radius: 2px;
-      text-align: center;
-    }
-
-    .coming-soon p {
-      font-size: 0.875rem;
-      color: var(--ink-faint);
-      margin: 0;
-    }
-
-    .coming-soon strong {
-      color: var(--ink-muted);
-      font-weight: 500;
-    }
-
-    /* BACK LINK */
-    .back-footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .back-footer a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--ink-muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: color 0.2s;
-    }
-
-    .back-footer a:hover { color: var(--accent); }
-
-    .back-footer span {
-      font-size: 0.78rem;
-      color: var(--ink-faint);
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       nav { padding: 1rem 1.25rem; }
-      .case-hero { height: 320px; }
-      .case-hero-content { padding: 2rem 1.25rem; }
-      .case-body { padding: 2.5rem 1.25rem; }
-      .at-a-glance { grid-template-columns: 1fr; }
+      .hero-img-wrap { height: 260px; }
+      .case-content { padding: 2rem 1.25rem 3.5rem; }
+      .glance-grid { grid-template-columns: 1fr; }
       .glance-item { border-right: none; border-bottom: 1px solid var(--rule); }
       .glance-item:last-child { border-bottom: none; }
-      .back-footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+      .stat-row { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--rule); }
+      .stat-item:last-child { border-bottom: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-back">&larr; Back to Home</a>
   <a href="/" class="nav-brand">Brandon Bautista</a>
 </nav>
 
-<!-- HERO -->
-<div class="case-hero">
-  <img class="case-hero-img" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop" alt="Classroom" />
-  <div class="case-hero-overlay"></div>
-  <div class="case-hero-content">
+<div class="hero-img-wrap">
+  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop" alt="Teacher in a classroom" />
+</div>
+
+<div class="case-content">
+
+  <div class="case-header">
     <p class="case-tags">Community &middot; Goodwill &middot; Organic</p>
     <h1 class="case-title">Clear the List: Spending the Last $10K Where It Mattered Most</h1>
-    <p class="case-subtitle">A campaign built on a simple belief — that the most powerful thing a brand can do is prove it actually cares.</p>
+    <p class="case-subtitle">At the end of the fiscal year, with back-to-school season underway, we had $10,000 left in the ad budget and a choice to make. We chose to put it directly into Michigan classrooms &mdash; and let that action do the marketing.</p>
   </div>
-</div>
 
-<!-- BODY -->
-<div class="case-body">
-
-  <!-- AT A GLANCE -->
-  <div class="at-a-glance">
+  <div class="glance-grid">
     <div class="glance-item">
-      <div class="glance-label">Budget</div>
-      <div class="glance-value">$10,000 — end-of-fiscal-year remainder</div>
+      <div class="glance-label">What</div>
+      <div class="glance-value">Michigan educators submitted classroom Amazon wish lists. We selected 19 and funded them completely.</div>
     </div>
     <div class="glance-item">
-      <div class="glance-label">Timing</div>
-      <div class="glance-value">Back-to-school season, Michigan educators</div>
+      <div class="glance-label">Why</div>
+      <div class="glance-value">Authenticity is a strategy. Proving we cared about teachers was worth more than one more awareness campaign.</div>
     </div>
     <div class="glance-item">
-      <div class="glance-label">Outcome</div>
-      <div class="glance-value">Organic reach, community goodwill, and zero regrets</div>
+      <div class="glance-label">Impact</div>
+      <div class="glance-value">19 classrooms funded. 1,100+ educators engaged statewide. Picked up by Fox 17 News.</div>
     </div>
   </div>
 
-  <!-- THE SITUATION -->
-  <div class="prose-section">
+  <div class="stat-row">
+    <div class="stat-item">
+      <div class="stat-number">1,100+</div>
+      <div class="stat-label">Michigan educators who submitted wish lists</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">19</div>
+      <div class="stat-label">Classrooms fully funded across the state</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$10K</div>
+      <div class="stat-label">End-of-fiscal-year budget invested directly in teachers</div>
+    </div>
+  </div>
+
+  <div class="case-section">
     <h2>The Situation</h2>
-    <p>
-      At the end of Michigan Virtual's fiscal year, we had <strong>$10,000 left in the advertising budget</strong>
-      and a choice to make. The safe play was obvious: run one more awareness campaign, spend the money on impressions,
-      show the line items to leadership, and call it a quarter.
-    </p>
-    <p>
-      The timing, though, was hard to ignore. It was back-to-school season — the time of year when Michigan teachers
-      are setting up their classrooms, often spending their own money on supplies their schools can't afford.
-      Teachers across the country post classroom wish lists online, hoping strangers will help fill the gaps.
-    </p>
-    <p>
-      I had a different idea for that $10,000.
-    </p>
+    <p>Teachers across the country routinely spend their own money on classroom supplies &mdash; an average of <strong>$750 out of pocket per year</strong>, a number that had climbed higher in the wake of pandemic-era inflation. Many post Amazon wish lists hoping strangers will help fill the gaps.</p>
+    <p>At Michigan Virtual, we had spent two decades supporting teachers through professional development. But back-to-school season 2022 felt like a moment to do something more direct. We had $10,000 remaining in the advertising budget at the end of our fiscal year. The question was what to do with it.</p>
   </div>
 
-  <!-- THE IDEA -->
-  <div class="prose-section">
+  <div class="case-section">
     <h2>The Idea</h2>
-    <p>
-      We invited Michigan educators to submit their classroom wish lists to us. Then we spread that $10,000 across
-      as many of those lists as we could — directly funding the supplies teachers needed to start the school year.
-    </p>
-    <p>
-      It wasn't an awareness campaign. There were no banner ads, no click-through rates to optimize, no lead forms.
-      It was Michigan Virtual putting money into Michigan classrooms and <strong>letting that action speak for itself</strong>.
-    </p>
+    <p>Instead of running one more awareness campaign, I proposed we use that budget to fund Michigan teachers' classroom wish lists directly. We invited educators statewide to submit their lists, selected 19 winners based on school need, submission message, and alignment with Michigan Virtual's mission &mdash; then purchased the supplies and shipped them to classrooms across the state.</p>
+    <p>The funded classrooms represented the full breadth of Michigan education:</p>
+    <ul>
+      <li>A hands-on science lab for a classroom in Manistique</li>
+      <li>A Detroit classroom lending library centered on diverse, culturally relatable books</li>
+      <li>Games and learning tools for a special education classroom in Homer</li>
+      <li>Basic necessities for a Grand Rapids classroom where 10% of students were experiencing homelessness</li>
+      <li>Two new iPads for an Upper Peninsula classroom</li>
+      <li>Charging stations for students in Muskegon who couldn't charge devices at home</li>
+      <li>Spanish language materials for 8th graders in Kalamazoo</li>
+    </ul>
   </div>
 
-  <!-- THE PUSHBACK -->
-  <div class="prose-section">
-    <h2>The Pushback — and Why It Was Worth Navigating</h2>
-    <p>
-      Not everyone was immediately on board. The concern internally was reasonable on its face:
-      <strong>would spending state-adjacent budget on teacher wish lists make us look like we had too much money?</strong>
-      Would it invite scrutiny? Would it look tone-deaf rather than generous?
-    </p>
-    <p>
-      My read was the opposite. Michigan Virtual exists to serve Michigan's K-12 community.
-      Teachers are our most important audience. Proving that we understood their daily reality —
-      not just their enrollment decisions — was exactly the kind of signal that builds durable trust.
-      An awareness campaign buys attention. This bought something harder to manufacture: credibility.
-    </p>
+  <div class="case-section">
+    <h2>The Pushback &mdash; and Why It Was Worth Navigating</h2>
+    <p>Not everyone was immediately on board. The internal concern was that spending state-adjacent budget on teacher wish lists might look like we had too much money to burn &mdash; that it could invite scrutiny rather than goodwill.</p>
+    <p>My read was the opposite. Michigan Virtual exists to serve Michigan's K-12 community. Teachers are our most important audience. <strong>Proving that we understood their daily reality &mdash; not just their enrollment decisions &mdash; was exactly the kind of signal that builds durable trust.</strong> An awareness campaign buys attention for a week. This built something harder to manufacture: credibility that lasts.</p>
 
-    <div class="pull-quote">
-      <p>"The ones worth fighting for usually worked."</p>
-    </div>
   </div>
 
-  <!-- THE RESULT -->
-  <div class="prose-section">
+  <div class="case-section">
     <h2>What Happened</h2>
-    <p>
-      The campaign generated significant organic reach and genuine community response — teachers sharing,
-      colleagues tagging each other, goodwill that no paid campaign budget could have replicated.
-      It became one of the most successful campaigns we ran that year, measured not in click-through rates
-      but in the thing that actually matters: <strong>people feeling like Michigan Virtual was on their side</strong>.
-    </p>
-    <p>
-      It also validated a principle I've carried through every campaign since — that authenticity
-      is a strategy, not just a value. When your brand does something real, the marketing takes care of itself.
-    </p>
+    <p>The campaign generated significant organic reach and genuine community response. Over <strong>1,100 educators engaged</strong> statewide &mdash; far exceeding expectations. Teachers shared their lists, colleagues tagged one another, and the story spread well beyond Michigan Virtual's owned channels.</p>
+
+    <div class="press-note">
+      <span class="press-note-label">In the Press</span>
+      <p>The campaign was picked up by <a href="https://www.fox17online.com/news/local-news/michigan/19-michigan-educators-chosen-for-clear-the-list-campaign" target="_blank" rel="noopener">Fox 17 News</a>, extending reach to a statewide audience with no additional media spend.</p>
+    </div>
+
+    <p>All submitted wish lists remained public on the campaign page throughout the school year, and Michigan Virtual encouraged the broader community to keep contributing to their local teachers &mdash; extending the campaign's life and goodwill well beyond the original $10,000.</p>
+    <p>It became one of the most talked-about campaigns we ran that year &mdash; not measured in click-through rates, but in something harder to manufacture: <strong>people feeling like Michigan Virtual was genuinely on their side</strong>.</p>
   </div>
 
-  <!-- COMING SOON NOTE -->
   <div class="coming-soon">
-    <p><strong>Full case study coming soon</strong> — including campaign mechanics, community response, and results detail.</p>
+    <p>Full case study &mdash; including campaign mechanics, organic amplification breakdown, and community response detail &mdash; coming soon.</p>
   </div>
 
+  <a href="/" class="back-link">&larr; Back to all work</a>
+
 </div>
 
-<!-- BACK FOOTER -->
-<div class="back-footer">
-  <a href="/">&larr; Back to all work</a>
-  <span>&copy; 2025 Brandon Bautista</span>
-</div>
+<footer>&copy; 2025 Brandon Bautista &middot; East Lansing, MI</footer>
 
 </body>
 </html>
