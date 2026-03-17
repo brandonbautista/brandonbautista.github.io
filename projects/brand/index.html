@@ -1,966 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Standards & System | Brandon Bautista</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --charcoal: #1e1e1e;
-            --charcoal-mid: #2c2c2c;
-            --orange: #e05c2a;
-            --orange-light: #f07040;
-            --cream: #f5f1eb;
-            --cream-dark: #ede8e0;
-            --warm-white: #faf8f5;
-            --text-dark: #1a1a1a;
-            --text-mid: #4a4a4a;
-            --text-light: #888;
-            --border: #e0dbd3;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--warm-white);
-            line-height: 1.6;
-        }
-
-        /* Keyframe animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--charcoal);
-            border-bottom: 2px solid var(--orange);
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 48px;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .nav-name {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: white;
-            letter-spacing: 0.05em;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 400;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--orange);
-        }
-
-        .nav-cta {
-            background-color: var(--orange);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--orange-light);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background-color: var(--charcoal);
-            padding: 24px 48px;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 999;
-        }
-
-        .mobile-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 14px;
-        }
-
-        /* PROJECT HERO */
-        .project-hero {
-            background-color: var(--charcoal);
-            padding: 80px 48px 72px;
-            min-height: 420px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-left {
-            color: white;
-        }
-
-        .hero-eyebrow {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--orange);
-            letter-spacing: 0.18em;
-            margin-bottom: 10px;
-            animation: fadeUp 0.6s ease-out 0s;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            animation: fadeUp 0.6s ease-out 0.1s both;
-        }
-
-        .hero-description {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 560px;
-            animation: fadeUp 0.6s ease-out 0.2s both;
-        }
-
-        .hero-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            animation: fadeUp 0.6s ease-out 0.3s both;
-        }
-
-        .pill {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .hero-right {
-            position: relative;
-            animation: fadeUp 0.6s ease-out 0.15s both;
-        }
-
-        .hero-image-frame {
-            position: relative;
-            width: 100%;
-            height: 360px;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: var(--cream);
-        }
-
-        .hero-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-image-frame::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(224, 92, 42, 0.3) 0%, rgba(240, 112, 64, 0.15) 100%);
-            pointer-events: none;
-        }
-
-        .hero-tag {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.95);
-            color: var(--charcoal);
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* NUMBERS BAR */
-        .numbers-bar {
-            background-color: var(--cream);
-            padding: 48px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 48px;
-            text-align: center;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .stat-number em {
-            color: var(--orange);
-            font-style: normal;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-mid);
-            font-weight: 500;
-        }
-
-        .numbers-bar .stat-item:not(:last-child) {
-            border-right: 1px solid var(--border);
-        }
-
-        /* SECTION STYLES */
-        section {
-            padding: 80px 48px;
-        }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--orange);
-            letter-spacing: 0.18em;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--charcoal);
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: var(--text-mid);
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
-
-        /* CARDS */
-        .card {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 40px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-
-        .card-subtitle {
-            font-size: 14px;
-            color: var(--text-light);
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .card-text {
-            font-size: 15px;
-            color: var(--text-mid);
-            line-height: 1.7;
-        }
-
-        /* CHALLENGE SECTION */
-        .challenge-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        /* PILLARS GRID */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 32px;
-            margin-top: 40px;
-        }
-
-        .pillar-card {
-            background-color: var(--charcoal-mid);
-            color: white;
-            padding: 28px 24px;
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .pillar-icon {
-            font-size: 36px;
-            height: 40px;
-        }
-
-        .pillar-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .pillar-subtitle {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .pillar-details {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            list-style: none;
-            margin-bottom: 16px;
-        }
-
-        .pillar-details li {
-            margin-bottom: 8px;
-        }
-
-        .pillar-details li::before {
-            content: '· ';
-            margin-right: 8px;
-            opacity: 0.6;
-        }
-
-        .btn-orange {
-            display: inline-block;
-            background-color: var(--orange);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-orange:hover {
-            background-color: var(--orange-light);
-        }
-
-        /* OUTCOME PILLS */
-        .outcome-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 40px;
-        }
-
-        .outcome-pill {
-            background-color: rgba(224, 92, 42, 0.1);
-            border: 1px solid var(--orange);
-            color: var(--orange);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* OUTCOMES SECTION */
-        .outcomes-list {
-            list-style: none;
-        }
-
-        .outcomes-list li {
-            font-size: 16px;
-            color: white;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .outcomes-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--orange);
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .outcomes-note {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            font-style: italic;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* CTA STRIP */
-        .cta-strip {
-            background-color: var(--orange);
-            padding: 60px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .cta-strip-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: white;
-            line-height: 1.15;
-            margin-bottom: 12px;
-        }
-
-        .cta-strip-text p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            max-width: 400px;
-        }
-
-        .cta-strip-buttons {
-            display: flex;
-            gap: 16px;
-        }
-
-        .btn-white {
-            background-color: white;
-            color: var(--charcoal);
-            padding: 12px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-white:hover {
-            background-color: var(--cream);
-        }
-
-        .btn-outline-white {
-            background-color: transparent;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid white;
-            cursor: pointer;
-        }
-
-        .btn-outline-white:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--charcoal);
-            color: white;
-            padding: 24px 48px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            nav {
-                padding: 0 32px;
-            }
-
-            .project-hero {
-                padding: 60px 32px 56px;
-                gap: 60px;
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero-title {
-                font-size: 40px;
-            }
-
-            section {
-                padding: 60px 32px;
-            }
-
-            .numbers-bar {
-                padding: 40px 32px;
-                gap: 32px;
-            }
-
-            .challenge-container {
-                gap: 32px;
-            }
-
-            .pillars-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-
-            .cta-strip {
-                padding: 48px 32px;
-                gap: 40px;
-            }
-
-            .cta-strip-text h2 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu.active {
-                display: flex;
-            }
-
-            nav {
-                padding: 0 20px;
-            }
-
-            .project-hero {
-                padding: 48px 20px 40px;
-                grid-template-columns: 1fr;
-                gap: 40px;
-                min-height: auto;
-            }
-
-            .hero-title {
-                font-size: 32px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .hero-image-frame {
-                height: 280px;
-            }
-
-            section {
-                padding: 48px 20px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .numbers-bar {
-                padding: 32px 20px;
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .numbers-bar .stat-item:not(:last-child) {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 24px;
-            }
-
-            .challenge-container {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .pillars-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .cta-strip {
-                padding: 40px 20px;
-                flex-direction: column;
-                text-align: center;
-                gap: 32px;
-            }
-
-            .cta-strip-text h2 {
-                font-size: 28px;
-            }
-
-            .cta-strip-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn-white,
-            .btn-outline-white {
-                width: 100%;
-            }
-
-            footer {
-                padding: 20px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 0 16px;
-            }
-
-            .project-hero {
-                padding: 32px 16px;
-            }
-
-            .hero-title {
-                font-size: 24px;
-            }
-
-            .hero-description {
-                font-size: 14px;
-            }
-
-            section {
-                padding: 40px 16px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .card {
-                padding: 24px 16px;
-            }
-
-            .card-title {
-                font-size: 20px;
-            }
-
-            .numbers-bar {
-                padding: 24px 16px;
-            }
-
-            .stat-number {
-                font-size: 28px;
-            }
-
-            .stat-label {
-                font-size: 12px;
-            }
-
-            .pillar-title {
-                font-size: 16px;
-            }
-
-            .cta-strip {
-                padding: 32px 16px;
-            }
-
-            .cta-strip-text h2 {
-                font-size: 24px;
-            }
-
-            .cta-strip-text p {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Standards &amp; System | Brandon Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #faf9f7;
+      --paper-warm: #f3f0ea;
+      --charcoal: #1e1e1e;
+      --accent: #c1440e;
+      --rule: #ddd8d0;
+      --text-muted: #6b6560;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: var(--charcoal);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
+    }
+
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--paper-warm);
+      padding: 1.4rem 1.25rem;
+      text-align: center;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .prose-section p { color: #3a3530; margin-bottom: 1rem; }
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    /* ── SYSTEM GRID ── */
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .system-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.4rem 1.2rem;
+    }
+    .system-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+    .system-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .system-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* ── ADOPTION BAR ── */
+    .adoption-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin-top: 1.75rem;
+      overflow: hidden;
+    }
+    .adoption-item {
+      background: #fff;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .adoption-item span {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--paper-warm);
+      border-radius: 0 4px 4px 0;
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    .live-link-wrap {
+      margin-top: 1.75rem;
+    }
+    .live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      background: var(--charcoal);
+      color: #fff;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .live-link:hover { background: #333; }
+
+    .cta-strip {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #a8380b; }
+    .btn-ghost {
+      border: 1.5px solid var(--rule);
+      color: var(--charcoal);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--charcoal); }
+
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="nav-name">Brandon Bautista</div>
-        <ul class="nav-links">
-            <li><a href="/#projects">Work</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#testimonials">Reviews</a></li>
-            <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/#projects">Work</a>
-        <a href="/#skills">Skills</a>
-        <a href="/#testimonials">Reviews</a>
-        <a href="/#contact" class="nav-cta">Let's Talk</a>
+<nav>
+  <div class="nav-inner">
+    <a href="https://brandonbautista.github.io/" class="nav-logo">Brandon Bautista</a>
+    <ul class="nav-links">
+      <li><a href="https://brandonbautista.github.io/#projects">Work</a></li>
+      <li><a href="https://brandonbautista.github.io/#skills">Skills</a></li>
+      <li><a href="https://brandonbautista.github.io/#testimonials">Reviews</a></li>
+      <li><a href="https://brandonbautista.github.io/#contact">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1740&auto=format&fit=crop" alt="Clean brand materials and workspace" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">Rebrand</span>
+      <span class="tag">Brand Strategy</span>
+      <span class="tag">Voice &amp; System</span>
+    </div>
+    <h1 class="hero-title">Michigan Virtual Brand Standards &amp; System</h1>
+  </div>
+</div>
+
+<div class="case-body">
+
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">Full</div>
+      <div class="glance-label">Org Rebrand</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">10&ndash;12 yr</div>
+      <div class="glance-label">Previous Brand Age</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">Live</div>
+      <div class="glance-label">Public Brand Site</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">Self-Serve</div>
+      <div class="glance-label">Asset System</div>
+    </div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <section class="prose-section">
+    <p class="section-label">The Situation</p>
+    <h2 class="section-title">The Name Was Causing the Confusion</h2>
+    <p>For years, Michigan Virtual operated under its full legal name: Michigan Virtual University. The "University" suffix was a relic of the organization's origins, but in the K-12 space it was actively working against us. School administrators were confused. Parents were confused. Potential partners sometimes assumed we were a higher education institution with no business serving their students.</p>
+    <p>The name wasn't just imprecise. It was creating friction at the front door of every relationship we tried to build.</p>
+    <p>Leadership made the call: it was time to consolidate the brand, drop "University," and build a visual and verbal system that accurately reflected who we were and what we did. That project landed with me.</p>
+  </section>
+
+  <!-- THE STRATEGY -->
+  <section class="prose-section">
+    <p class="section-label">The Strategy</p>
+    <h2 class="section-title">Build Something So Clear People Couldn't Argue With It</h2>
+    <p>Any rebrand will face resistance. People who've worked under a name for 10 or 12 years have emotional attachment to it, even if they know intellectually that something needs to change. The logos, the colors, the old way of doing things, it all becomes identity. That was true here too.</p>
+    <p>Our approach was to make the new brand so visually striking and the rationale so clear that the argument for change became self-evident. The brand standards site wasn't just a style guide. It explicitly laid out the case for consistency, the concept of a branded house versus a house of brands, and the value of a unified identity in terms that resonated beyond the design team. We brought leadership and staff along by making the reasoning visible, not just the rules.</p>
+    <p>The launch included something small but effective: store credit so staff could pick up a couple of pieces of clothing with the new branding. It sounds simple. But it gave people something tangible to get excited about, and it worked. Adoption built from there.</p>
+
+    <div class="pullquote">
+      <p>The best brand guide is one people actually use. We built it to be practical first, comprehensive second, and never precious.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="prose-section">
+    <p class="section-label">The System</p>
+    <h2 class="section-title">A Single Source of Truth</h2>
+    <p>The goal was a self-serve system that made it fast and easy for anyone, whether a staff writer, a contracted designer, or a partner agency, to produce work that was unmistakably Michigan Virtual.</p>
+    <div class="system-grid">
+      <div class="system-card">
+        <span class="system-icon">🧩</span>
+        <h3>Logos &amp; Usage</h3>
+        <p>Primary and secondary lockups, safe areas, minimum scale, background rules, and a misuse gallery so teams apply the mark with confidence.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">🎨</span>
+        <h3>Colors &amp; Accessibility</h3>
+        <p>Primary and secondary palette with WCAG contrast ratios built in. On-brand also means readable, by design.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">🔤</span>
+        <h3>Typography</h3>
+        <p>Signature type pairing and hierarchy rules for print, web, and presentation, with clear guidance on scale and weight.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">🗂️</span>
+        <h3>Templates</h3>
+        <p>Official slide decks, email signature specs, and blog guidelines. Ship faster and stay on-brand by default.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">✍️</span>
+        <h3>Voice &amp; Writing Standards</h3>
+        <p>A friendly, confident editorial voice, plus practical grammar and mechanics guidance. Tone by audience, rules for consistency.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">🔣</span>
+        <h3>Custom Icon Library</h3>
+        <p>A cohesive icon set with warmth and personality. Includes category guidance, downloadable assets, and rules for new additions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section class="prose-section">
+    <p class="section-label">Adoption &amp; Governance</p>
+    <h2 class="section-title">Standards That Actually Got Used</h2>
+    <p>The system is built as a clean, public-facing website, discoverable and self-serve. Internal teams, external vendors, and partner agencies all reference the same source. That centralization alone cut down on one-off questions, reduced revision cycles with vendors, and eliminated the back-and-forth of "which logo file should I use?"</p>
+    <p>The consistency it produced wasn't just visual. It gave leadership and stakeholders stronger confidence in every external touchpoint, from presentations to press releases to paid media.</p>
+
+    <div class="adoption-grid">
+      <div class="adoption-item"><span>📌</span>Single source of truth</div>
+      <div class="adoption-item"><span>⚡</span>Self-serve assets</div>
+      <div class="adoption-item"><span>🤝</span>Vendor alignment</div>
+      <div class="adoption-item"><span>♿</span>Accessibility built in</div>
+      <div class="adoption-item"><span>🔁</span>Fewer revision cycles</div>
     </div>
 
-    <!-- PROJECT HERO -->
-    <section class="project-hero">
-        <div class="hero-left">
-            <div class="hero-eyebrow">Brand Strategy · Design Systems · Michigan Virtual</div>
-            <h1 class="hero-title">Michigan Virtual — Brand Standards & System</h1>
-            <p class="hero-description">A single source of truth for logos, colors, accessibility, typography, voice & tone, templates, and icons — built to be practical, enforceable, and loved by the people who use it daily.</p>
-            <div class="hero-pills">
-                <span class="pill">Brand Strategy</span>
-                <span class="pill">Design Systems</span>
-                <span class="pill">Michigan Virtual</span>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="hero-image-frame">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1740&auto=format&fit=crop" alt="Michigan Virtual Brand System">
-                <div class="hero-tag">Michigan Virtual · Brand & Identity</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS BAR -->
-    <div class="numbers-bar">
-        <div class="stat-item">
-            <div class="stat-number"><em>6</em> Systems</div>
-            <div class="stat-label">Logo · Color · Type · Templates · Writing · Icons</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">Single Source</div>
-            <div class="stat-label">One centralized, public-facing brand site</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">Self-Serve</div>
-            <div class="stat-label">Faster output, fewer revision cycles</div>
-        </div>
+    <div class="live-link-wrap">
+      <a href="https://michiganvirtual.org/brand/" class="live-link" target="_blank" rel="noopener">View the Live Brand Standards &rarr;</a>
     </div>
+  </section>
 
-    <!-- SECTION 1: THE CHALLENGE -->
-    <section style="background-color: var(--warm-white);">
-        <div class="section-label">Overview</div>
-        <h2 class="section-title">Utility over theory</h2>
-        <p class="section-subtitle">Our goal was utility over theory: make it fast and easy for anyone — designers, writers, or partners — to produce work that is unmistakably Michigan Virtual.</p>
-
-        <div class="challenge-container">
-            <div class="card">
-                <div class="card-title">Problem</div>
-                <div class="card-text">Without a centralized system, teams and vendors were producing inconsistent work. Every project had to re-establish the basics — wasting time and creating brand drift.</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Solution</div>
-                <div class="card-text">We centralized everything on a clean, public-facing page and paired it with ready-to-use files. Standards only work when they're easy to find and easier to follow.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: WHAT'S INSIDE -->
-    <section style="background-color: var(--cream);">
-        <div class="section-label">The System</div>
-        <h2 class="section-title">Six pillars of a complete brand</h2>
-
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <div class="pillar-icon">🧩</div>
-                <div class="pillar-title">Logos & Usage</div>
-                <div class="pillar-subtitle">Lockups, safe areas, scale, and misuse examples</div>
-                <ul class="pillar-details">
-                    <li>Primary/secondary lockups</li>
-                    <li>Minimum size & clear space</li>
-                    <li>Background control & misuse gallery</li>
-                </ul>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">🎨</div>
-                <div class="pillar-title">Colors & Accessibility</div>
-                <div class="pillar-subtitle">Primary/secondary palette with contrast ratios</div>
-                <ul class="pillar-details">
-                    <li>WCAG contrast checks</li>
-                    <li>When to use brand colors</li>
-                    <li>Live swatches & code values</li>
-                </ul>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">🔤</div>
-                <div class="pillar-title">Typography</div>
-                <div class="pillar-subtitle">Signature type pairing and hierarchy rules</div>
-                <ul class="pillar-details">
-                    <li>Primary & secondary families</li>
-                    <li>Scale & weights for headings/body</li>
-                    <li>Web & presentation guidance</li>
-                </ul>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">🗂️</div>
-                <div class="pillar-title">Templates</div>
-                <div class="pillar-subtitle">Official slide deck, email signatures, and blog patterns</div>
-                <ul class="pillar-details">
-                    <li>Slide template</li>
-                    <li>Email signature spec</li>
-                    <li>Blog guidelines</li>
-                </ul>
-                <a href="https://michiganvirtual.org/brand/" target="_blank" class="btn-orange">View Brand Standards →</a>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">✍️</div>
-                <div class="pillar-title">Writing Standards</div>
-                <div class="pillar-subtitle">A friendly, confident voice — plus rules</div>
-                <ul class="pillar-details">
-                    <li>Voice & tone by audience</li>
-                    <li>Grammar & mechanics quick-refs</li>
-                    <li>Examples for clarity & consistency</li>
-                </ul>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">🔣</div>
-                <div class="pillar-title">Custom Icons</div>
-                <div class="pillar-subtitle">Cohesive icon set that adds warmth and personality</div>
-                <ul class="pillar-details">
-                    <li>Category & usage guidance</li>
-                    <li>Downloadable assets</li>
-                    <li>Styling rules for new additions</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: GOVERNANCE & ADOPTION -->
-    <section style="background-color: var(--warm-white);">
-        <div class="section-label">Impact</div>
-        <h2 class="section-title">Standards that actually get used</h2>
-        <p class="section-subtitle">Standards only work when they're easy to find and easier to follow. We centralized everything on a clean, public-facing page and paired it with ready-to-use files. As a result, the brand has been consistently applied across teams and vendors — with fewer revision cycles, fewer one-off questions, and more beautiful, accessible work.</p>
-
-        <div class="outcome-pills">
-            <span class="outcome-pill">Single source of truth</span>
-            <span class="outcome-pill">Self-serve assets</span>
-            <span class="outcome-pill">Vendor alignment</span>
-            <span class="outcome-pill">Fewer reworks</span>
-        </div>
-
-        <div style="margin-top: 40px;">
-            <a href="https://michiganvirtual.org/brand/" target="_blank" class="btn-orange">View the Live Brand Standards →</a>
-        </div>
-    </section>
-
-    <!-- SECTION 4: OUTCOMES -->
-    <section style="background-color: var(--charcoal); color: white;">
-        <div class="section-label">Results</div>
-        <ul class="outcomes-list">
-            <li>Designers, writers, and partners produce consistent work faster using shared templates and clear rules.</li>
-            <li>Leadership and stakeholders report stronger confidence in brand presentation across channels.</li>
-            <li>Accessibility standards are built-in — increasing legibility and reducing retrofits.</li>
-        </ul>
-        <p class="outcomes-note">We've received frequent compliments from internal teams and external partners on the clarity and usefulness of the system.</p>
-    </section>
-
-    <!-- CTA STRIP -->
-    <div class="cta-strip">
-        <div class="cta-strip-text">
-            <h2>Want to see more of my work?</h2>
-            <p>Explore the full portfolio or get in touch to talk about your next project.</p>
-        </div>
-        <div class="cta-strip-buttons">
-            <a href="/" class="btn-white">← Back to All Work</a>
-            <a href="/#contact" class="btn-outline-white">Get in Touch</a>
-        </div>
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="https://brandonbautista.github.io/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="https://brandonbautista.github.io/#contact" class="btn btn-primary">Let's Connect</a>
     </div>
+  </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Brandon Bautista · East Lansing, MI</p>
-    </footer>
+</div>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+<footer>
+  &copy; 2026 Brandon Bautista
+</footer>
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
