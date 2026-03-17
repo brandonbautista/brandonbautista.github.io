@@ -1,861 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BRIGHT Podcast | Brandon Bautista</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* CSS Variables */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
+      --paper: #faf9f7;
+      --paper-warm: #f3f0ea;
       --charcoal: #1e1e1e;
-      --charcoal-mid: #2c2c2c;
-      --orange: #e05c2a;
-      --orange-light: #f07040;
-      --cream: #f5f1eb;
-      --cream-dark: #ede8e0;
-      --warm-white: #faf8f5;
-      --text-dark: #1a1a1a;
-      --text-mid: #4a4a4a;
-      --text-light: #888;
-      --border: #e0dbd3;
+      --accent: #c1440e;
+      --rule: #ddd8d0;
+      --text-muted: #6b6560;
+      --max-w: 860px;
     }
 
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      color: var(--text-dark);
-      line-height: 1.6;
-      background: var(--warm-white);
-    }
-
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 900;
-    }
-
-    h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
+      background: var(--paper);
       color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    p {
-      font-weight: 400;
-    }
-
-    /* Navigation */
+    /* ── NAV ── */
     nav {
+      background: var(--charcoal);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: var(--charcoal);
-      height: 60px;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      border-bottom: 2px solid var(--orange);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      height: 60px;
     }
-
-    .nav-name {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: white;
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
       text-decoration: none;
+      letter-spacing: 0.01em;
     }
-
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.875rem;
-      color: white;
+      color: rgba(255,255,255,0.75);
       text-decoration: none;
-      transition: color 0.3s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
     }
+    .nav-links a:hover { color: #fff; }
 
-    .nav-links a:hover {
-      color: var(--orange);
-    }
-
-    .nav-links .nav-cta {
-      background: var(--orange);
-      color: white;
-      padding: 0.5rem 1.25rem;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-
-    .nav-links .nav-cta:hover {
-      background: var(--orange-light);
-      color: white;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(9px, 9px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(8px, -7px);
-    }
-
-    /* Responsive Nav */
-    @media (max-width: 768px) {
-      nav {
-        padding: 0 1.5rem;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: var(--charcoal-mid);
-        flex-direction: column;
-        gap: 0;
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-
-      .nav-links.active {
-        max-height: 300px;
-      }
-
-      .nav-links a {
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        display: block;
-      }
-
-      .nav-links .nav-cta {
-        margin: 0.5rem 1.5rem;
-        text-align: center;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-up {
-      animation: fadeUp 0.8s ease-out forwards;
-    }
-
-    /* Hero Section */
+    /* ── HERO ── */
     .hero {
-      background: var(--charcoal);
-      color: white;
-      padding: 4rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      min-height: 600px;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--orange);
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.1s forwards;
-    }
-
-    .hero h1 {
-      color: white;
-      font-size: 3rem;
-      line-height: 1.2;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.2s forwards;
-    }
-
-    .hero-description {
-      font-size: 1.125rem;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.8;
-      max-width: 90%;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.3s forwards;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--orange);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      width: fit-content;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.4s forwards;
-    }
-
-    .hero-image {
       position: relative;
-      height: 100%;
-      min-height: 400px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.4s forwards;
-    }
-
-    .hero-image-frame {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 4px;
+      height: 480px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     }
-
-    .hero-image-frame img {
+    .hero img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 40%;
+      display: block;
     }
-
-    .hero-image-overlay {
+    .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(224, 92, 42, 0.3), transparent);
-      pointer-events: none;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
     }
-
-    .hero-image-tag {
+    .hero-content {
       position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: rgba(30, 30, 30, 0.85);
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border-radius: 4px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-left: 3px solid var(--orange);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    @media (max-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 2rem;
-      }
-
-      .hero h1 {
-        font-size: 2.25rem;
-      }
-
-      .hero-image {
-        min-height: 300px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: 1.875rem;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-    }
-
-    /* Stats Bar */
-    .stats-bar {
-      background: var(--cream);
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .stat-item {
+    .hero-tags {
       display: flex;
-      flex-direction: column;
       gap: 0.5rem;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--orange);
-    }
-
-    .stat-label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text-mid);
-      letter-spacing: 0.05em;
-    }
-
-    @media (max-width: 768px) {
-      .stats-bar {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-    }
-
-    /* Content Sections */
-    section {
-      padding: 4rem 2rem;
-    }
-
-    section.warm-white {
-      background: var(--warm-white);
-    }
-
-    section.cream {
-      background: var(--cream);
-    }
-
-    .section-label {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 1rem;
-    }
-
-    section h2 {
-      margin-bottom: 2rem;
-      font-size: 2.25rem;
-    }
-
-    /* At a Glance Section */
-    .glance-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .card h3 {
-      font-size: 1.125rem;
-      margin-bottom: 1rem;
-      color: var(--charcoal);
-      font-weight: 700;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-      margin-bottom: 1rem;
-    }
-
-    .card ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .card li {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-      padding-left: 1.5rem;
-      position: relative;
-      margin-bottom: 0.5rem;
-    }
-
-    .card li:before {
-      content: "•";
-      color: var(--orange);
-      font-weight: 600;
-      position: absolute;
-      left: 0;
-    }
-
-    @media (max-width: 1024px) {
-      .glance-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .glance-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 2.5rem 1.5rem;
-      }
-
-      section h2 {
-        font-size: 1.75rem;
-      }
-    }
-
-    /* Experience Section */
-    .experience-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .experience-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .experience-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .experience-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      color: var(--charcoal);
-    }
-
-    .experience-card p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-      margin-bottom: 1.5rem;
-    }
-
-    /* YouTube Embed */
-    .video-embed {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 4px;
-    }
-
-    .video-embed iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 4px;
-    }
-
-    /* Platform Links */
-    .platform-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .platform-links p {
-      font-size: 0.95rem;
-      color: var(--text-mid);
+      flex-wrap: wrap;
       margin-bottom: 0.75rem;
     }
-
-    .platform-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .platform-button {
-      display: block;
-      background: var(--orange);
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border-radius: 4px;
-      text-decoration: none;
+    .tag {
+      font-size: 0.72rem;
       font-weight: 600;
-      font-size: 0.875rem;
-      transition: background 0.3s ease;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
     }
-
-    .platform-button:hover {
-      background: var(--orange-light);
-    }
-
-    @media (max-width: 768px) {
-      .experience-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .platform-buttons {
-        flex-direction: column;
-      }
-
-      .platform-button {
-        width: 100%;
-      }
-    }
-
-    /* Quote Section */
-    .quote-section {
-      background: var(--charcoal);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .quote-section blockquote {
+    .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
       font-weight: 700;
-      font-style: italic;
-      line-height: 1.4;
-      max-width: 800px;
-      color: white;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
     }
 
-    @media (max-width: 768px) {
-      .quote-section {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .quote-section blockquote {
-        font-size: 1.5rem;
-      }
+    /* ── LAYOUT ── */
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    /* CTA Strip */
-    .cta-strip {
-      background: var(--orange);
-      padding: 3rem 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .cta-strip h2 {
-      color: white;
-      font-size: 1.75rem;
-      margin: 0;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-button {
-      padding: 0.875rem 2rem;
+    /* ── AT A GLANCE ── */
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
       border-radius: 4px;
-      text-decoration: none;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--paper-warm);
+      padding: 1.4rem 1.25rem;
+      text-align: center;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
     }
 
-    .cta-button-back {
-      background: white;
-      color: var(--orange);
+    /* ── PROSE SECTIONS ── */
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .prose-section p {
+      color: #3a3530;
+      margin-bottom: 1rem;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    /* ── WHAT I LED GRID ── */
+    .led-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+    .led-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.5rem 1.25rem;
+    }
+    .led-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .led-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .led-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    .cta-button-back:hover {
-      background: var(--cream);
-      color: var(--orange);
+    /* ── AWARD CALLOUT ── */
+    .award-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .award-icon { font-size: 2rem; flex-shrink: 0; }
+    .award-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .award-text span {
+      font-size: 0.84rem;
+      color: var(--text-muted);
     }
 
-    .cta-button-cta {
+    /* ── PULLQUOTE ── */
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--paper-warm);
+      border-radius: 0 4px 4px 0;
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    /* ── LISTEN LINKS ── */
+    .listen-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .listen-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .listen-link:hover {
+      border-color: var(--accent);
+      background: var(--paper-warm);
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #a8380b; }
+    .btn-ghost {
+      border: 1.5px solid var(--rule);
+      color: var(--charcoal);
       background: transparent;
-      color: white;
-      border: 2px solid white;
     }
+    .btn-ghost:hover { border-color: var(--charcoal); }
 
-    .cta-button-cta:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    @media (max-width: 768px) {
-      .cta-strip {
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-      }
-
-      .cta-strip h2 {
-        font-size: 1.5rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .cta-button {
-        width: 100%;
-      }
-    }
-
-    /* Footer */
+    /* ── FOOTER ── */
     footer {
       background: var(--charcoal);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 2rem;
+      color: rgba(255,255,255,0.5);
       text-align: center;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem;
+      letter-spacing: 0.04em;
     }
 
-    footer a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-      color: var(--orange);
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .led-grid { grid-template-columns: 1fr; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a href="/" class="nav-name">Brandon Bautista</a>
-    <button class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#projects">Work</a></li>
-      <li><a href="/#skills">Skills</a></li>
-      <li><a href="/#testimonials">Reviews</a></li>
-      <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://brandonbautista.github.io/" class="nav-logo">Brandon Bautista</a>
+    <ul class="nav-links">
+      <li><a href="https://brandonbautista.github.io/#projects">Work</a></li>
+      <li><a href="https://brandonbautista.github.io/#skills">Skills</a></li>
+      <li><a href="https://brandonbautista.github.io/#testimonials">Reviews</a></li>
+      <li><a href="https://brandonbautista.github.io/#contact">Let's Talk</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Award-Winning · Podcast · Content</div>
-      <h1>BRIGHT: Stories of Hope & Innovation in Michigan Classrooms</h1>
-      <p class="hero-description">Award-winning podcast celebrating Michigan educators — built for goodwill, not pitches. By centering teacher voices, we reframed Michigan Virtual from "competitor" to trusted partner.</p>
-      <div class="hero-badge">
-        <span>🏆</span>
-        <span>Best Educational Podcast — 37th Annual Educational Advertising Awards</span>
-      </div>
+<!-- HERO -->
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=1740&auto=format&fit=crop" alt="Podcast microphone in a studio" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">Award-Winning</span>
+      <span class="tag">Podcast</span>
+      <span class="tag">Content Strategy</span>
     </div>
-    <div class="hero-image">
-      <div class="hero-image-frame">
-        <img src="https://images.unsplash.com/photo-1657215374010-786fefd1dbbc?q=80&w=1740&auto=format&fit=crop" alt="BRIGHT Podcast Project">
-        <div class="hero-image-overlay"></div>
-        <div class="hero-image-tag">Michigan Virtual · 2020–2023</div>
+    <h1 class="hero-title">BRIGHT: Stories of Hope &amp; Innovation in Michigan Classrooms</h1>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="case-body">
+
+  <!-- AT A GLANCE -->
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">217K+</div>
+      <div class="glance-label">Listens &amp; Views</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">50</div>
+      <div class="glance-label">Full Episodes</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">Best Ed.</div>
+      <div class="glance-label">Podcast Award</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">0%</div>
+      <div class="glance-label">Self-Promotion</div>
+    </div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <section class="prose-section">
+    <p class="section-label">The Situation</p>
+    <h2 class="section-title">We Had the Ratio Backward</h2>
+    <p>At the time, Michigan Virtual's content was heavily self-promotional. Product news, course spotlights, organizational updates. The kind of content that, if you're honest about it, only matters to you. I had just come back from the INBOUND conference with a framework stuck in my head: the 80/20 rule for content. Eighty percent value to your audience, twenty percent about yourself.</p>
+    <p>We had that flipped. And in K-12 education, where trust is everything and nobody wants to feel marketed to, that was a problem. Our relationships with schools were good, but they were transactional. We wanted something deeper. We wanted to be part of the community, not a vendor knocking on the door.</p>
+    <p>My team and I started asking: what would it look like to treat Michigan educators the way ESPN treats athletes? Shine a real light on them. Make them the story. Give the audience something worth seeking out.</p>
+    <p>That question became BRIGHT.</p>
+  </section>
+
+  <!-- THE STRATEGY -->
+  <section class="prose-section">
+    <p class="section-label">The Strategy</p>
+    <h2 class="section-title">Serve First. Trust Follows.</h2>
+    <p>The concept was straightforward and deliberately restrained: a podcast and companion blog series spotlighting innovative Michigan educators and the remarkable things happening in their classrooms. Each episode would surface classroom-tested ideas that other teachers could adapt immediately. Michigan Virtual's name would appear once, as a sponsor credit. Nothing more.</p>
+    <p>No product tie-ins. No calls to action. Just "Brought to you by Michigan Virtual" and a story worth hearing.</p>
+    <p>Outside our department, the reaction was somewhere between polite indifference and mild skepticism. "Oh, that's cute." People weren't opposed, but they weren't paying much attention either. That gave us room to build it the right way without too much interference.</p>
+    <p>Each episode was also an earned media opportunity. We worked with our PR team to target outreach to local news outlets near the featured educator. A teacher in Marquette meant pitching reporters in the U.P. A classroom story in Dearborn meant local TV in metro Detroit. The podcast became a way to generate coverage that felt genuinely local, not like an organization tooting its own horn.</p>
+    <p>Beyond audio, we repurposed the best moments into short-form social content. Some clips reached tens of thousands of views organically, extending episodes well beyond their original audience.</p>
+  </section>
+
+  <!-- WHAT I LED -->
+  <section class="prose-section">
+    <p class="section-label">What I Led</p>
+    <h2 class="section-title">Building the Show</h2>
+    <div class="led-grid">
+      <div class="led-card">
+        <span class="led-icon">🎙️</span>
+        <h3>Concept and Format</h3>
+        <p>Developed the editorial premise, episode structure, and "no self-promotion" rule that gave the show its credibility and made educators willing to participate.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">📰</span>
+        <h3>Earned Media Outreach</h3>
+        <p>Partnered with our PR team to pitch local press for each episode's featured educator. Coverage reached newspapers, TV stations, and community outlets across Michigan.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">📱</span>
+        <h3>Social Amplification</h3>
+        <p>Repurposed top episode moments into short-form content for social. Several clips reached tens of thousands of organic views, extending reach far beyond podcast subscribers.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">🔗</span>
+        <h3>Inbound Integration</h3>
+        <p>Aligned the series with Michigan Virtual's broader inbound strategy: useful, audience-first content builds trust, and trust eventually builds the business.</p>
       </div>
     </div>
   </section>
 
-  <!-- Stats Bar -->
-  <section class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-number">217K+</div>
-      <div class="stat-label">Listens & Views Across All Platforms</div>
+  <!-- AWARDS -->
+  <section class="prose-section">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">When the Work Speaks for Itself</h2>
+    <p>After a few seasons, BRIGHT had stopped being something people dismissed. The numbers were real, the press coverage was real, and the recognition followed.</p>
+
+    <div class="award-bar">
+      <div class="award-icon">🏆</div>
+      <div class="award-text">
+        <strong>Best Educational Podcast</strong>
+        <span>37th Annual Educational Advertising Awards</span>
+      </div>
     </div>
-    <div class="stat-item">
-      <div class="stat-number">Award Winner</div>
-      <div class="stat-label">37th Annual Educational Advertising Awards</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">K-12 Community</div>
-      <div class="stat-label">Durable Trust Built Statewide</div>
+
+    <p>More meaningful than any award was an unsolicited moment at a conference. The Michigan State Superintendent of Education spotted one of our executives and went out of their way to say the podcast was doing great work and to keep it up. That kind of acknowledgment doesn't come from a campaign that's trying to sell something. It comes from a show that's genuinely serving its community.</p>
+
+    <div class="pullquote">
+      <p>The goal was never to win an award. The goal was to make Michigan Virtual feel like a neighbor, not a vendor. The award was a signal that it worked.</p>
     </div>
   </section>
 
-  <!-- At a Glance Section -->
-  <section class="warm-white">
-    <span class="section-label">At a Glance</span>
-    <h2>BRIGHT by the Numbers</h2>
-    <div class="glance-grid">
-      <div class="card">
-        <h3>What</h3>
-        <p>BRIGHT is a podcast and blog series highlighting innovative Michigan teachers. Each episode shares classroom-tested ideas and human stories other educators can adapt quickly — and elevated Michigan Virtual as a collaborative partner to schools. We also activated regional pride by pitching local press for each featured educator, generating positive coverage across the state.</p>
-      </div>
-      <div class="card">
-        <h3>Why</h3>
-        <p>We set out to serve — not sell. By centering educator voices, we reframed Michigan Virtual from "competitor" to partner and built durable goodwill in the K-12 community.</p>
-        <ul>
-          <li>Spotlighted teachers doing remarkable work</li>
-          <li>Proactive outreach to newspapers, TV, and community press</li>
-          <li>Aligned with inbound strategy: useful content first; trust follows</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Impact</h3>
-        <p>217,000+ listens/views across YouTube and major podcast platforms. Best Educational Podcast — 37th Annual Educational Advertising Awards. Lifted public perception; strengthened partnerships statewide.</p>
-      </div>
+  <!-- RESULT -->
+  <section class="prose-section">
+    <p class="section-label">The Result</p>
+    <h2 class="section-title">217K+ and a Shift in How Schools Saw Us</h2>
+    <p>Fifty full episodes. More than 217,000 listens and views across YouTube, Apple Podcasts, and Spotify. Local press coverage in communities across Michigan. A content library that kept generating short-form organic reach long after each episode's initial release.</p>
+    <p>But the metric that mattered most wasn't a number. Michigan Virtual became known, in K-12 circles, as the organization that celebrated teachers. Not the one that sold to them. That reputation was worth more than any impression count, and it shaped how we approached every content decision that followed.</p>
+
+    <div class="listen-links">
+      <a href="https://www.youtube.com/playlist?list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" class="listen-link" target="_blank" rel="noopener">▶ YouTube</a>
+      <a href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" class="listen-link" target="_blank" rel="noopener">Apple Podcasts</a>
+      <a href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" class="listen-link" target="_blank" rel="noopener">Spotify</a>
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section class="cream">
-    <span class="section-label">Experience BRIGHT</span>
-    <h2>Watch & Listen</h2>
-    <div class="experience-grid">
-      <div class="experience-card">
-        <h3>Check Out an Episode</h3>
-        <div class="video-embed">
-          <iframe src="https://www.youtube-nocookie.com/embed/OKtqWDfxkzA" title="BRIGHT Podcast Episode" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-      <div class="experience-card">
-        <h3>Listen Everywhere</h3>
-        <p>Watch or listen wherever you prefer:</p>
-        <div class="platform-links">
-          <div class="platform-buttons">
-            <a href="https://www.youtube.com/playlist?app=desktop&list=PLEr3aBYwhAceBqGG7bGg2mED2-Y_-KCYW" target="_blank" class="platform-button">YouTube →</a>
-            <a href="https://podcasts.apple.com/us/podcast/bright-stories-of-hope-innovation-in-michigan-classrooms/id1551347022" target="_blank" class="platform-button">Apple Podcasts →</a>
-            <a href="https://open.spotify.com/show/74FIcFPPtCiVv0vHSsQDpn" target="_blank" class="platform-button">Spotify →</a>
-          </div>
-        </div>
-      </div>
+  <!-- CTA -->
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="https://brandonbautista.github.io/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="https://brandonbautista.github.io/#contact" class="btn btn-primary">Let's Connect</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Quote Section -->
-  <section class="quote-section">
-    <blockquote>"Built for goodwill, not pitches — and it earned Michigan Virtual durable trust across the K-12 community."</blockquote>
-  </section>
+</div>
 
-  <!-- CTA Strip -->
-  <section class="cta-strip">
-    <h2>Ready to see more?</h2>
-    <div class="cta-buttons">
-      <a href="/" class="cta-button cta-button-back">← Back to All Work</a>
-      <a href="/#contact" class="cta-button cta-button-cta">Let's Connect</a>
-    </div>
-  </section>
+<footer>
+  &copy; 2026 Brandon Bautista
+</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Brandon Bautista. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-  </script>
 </body>
 </html>
