@@ -1,952 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michigan Cares Campaign | Brandon Bautista</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --charcoal: #1e1e1e;
-            --charcoal-mid: #2c2c2c;
-            --orange: #e05c2a;
-            --orange-light: #f07040;
-            --cream: #f5f1eb;
-            --cream-dark: #ede8e0;
-            --warm-white: #faf8f5;
-            --text-dark: #1a1a1a;
-            --text-mid: #4a4a4a;
-            --text-light: #888;
-            --border: #e0dbd3;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* NAV */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--charcoal);
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-            border-bottom: 2px solid var(--orange);
-        }
-
-        .nav-brand {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: white;
-            letter-spacing: 0.05em;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--orange);
-        }
-
-        .nav-cta {
-            background-color: var(--orange) !important;
-            color: white !important;
-            padding: 10px 24px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--orange-light) !important;
-            color: white !important;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 6px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 20px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: var(--charcoal);
-                flex-direction: column;
-                gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-
-            .nav-links.active {
-                max-height: 300px;
-            }
-
-            .nav-links a {
-                padding: 16px 40px;
-                border-bottom: 1px solid var(--charcoal-mid);
-            }
-
-            .nav-cta {
-                margin: 16px 40px;
-            }
-        }
-
-        /* HERO */
-        .hero {
-            background-color: var(--charcoal);
-            color: white;
-            padding: 80px 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .hero-eyebrow {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--orange);
-            animation: fadeUp 0.8s ease-out;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            font-weight: 900;
-            line-height: 1.2;
-            color: white;
-            animation: fadeUp 0.8s ease-out 0.1s both;
-        }
-
-        .hero-description {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.8;
-            color: #ccc;
-            max-width: 500px;
-            animation: fadeUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-image-frame {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            animation: fadeUp 0.8s ease-out 0.3s both;
-        }
-
-        .hero-image-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .hero-image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(224, 92, 42, 0.3);
-            pointer-events: none;
-        }
-
-        .hero-image-tag {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 60px 30px;
-                gap: 40px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero-description {
-                font-size: 14px;
-            }
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            background-color: var(--cream);
-            padding: 40px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--orange);
-        }
-
-        .stat-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-mid);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        @media (max-width: 768px) {
-            .stats-bar {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 30px;
-            }
-        }
-
-        /* SECTION LABELS & TITLES */
-        .section-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--orange);
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 40px;
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: 80px 40px;
-        }
-
-        .section.warm-white {
-            background-color: var(--warm-white);
-        }
-
-        .section.cream {
-            background-color: var(--cream);
-        }
-
-        .section.charcoal {
-            background-color: var(--charcoal);
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 20px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-        }
-
-        /* CARDS */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .card {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 32px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-        }
-
-        .card p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--text-mid);
-        }
-
-        @media (max-width: 1024px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ICON CARDS GRID 3x2 */
-        .icon-cards-grid-6 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .icon-card {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 32px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .icon-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon-card-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .icon-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .icon-card p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--text-mid);
-        }
-
-        @media (max-width: 1024px) {
-            .icon-cards-grid-6 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .icon-cards-grid-6 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* PILLS */
-        .pills {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .pill {
-            background-color: var(--cream-dark);
-            color: var(--text-mid);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 4px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-
-        .btn-orange {
-            background-color: var(--orange);
-            color: white;
-        }
-
-        .btn-orange:hover {
-            background-color: var(--orange-light);
-        }
-
-        .btn-white {
-            background-color: white;
-            color: var(--charcoal);
-            border: 2px solid white;
-        }
-
-        .btn-white:hover {
-            background-color: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .btn-outline-white {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-outline-white:hover {
-            background-color: white;
-            color: var(--charcoal);
-        }
-
-        /* VIDEO WRAPPER */
-        .video-wrapper {
-            position: relative;
-            padding-top: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 4px;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* EMAIL SAMPLES */
-        .email-samples {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .email-samples .btn {
-            text-align: center;
-            width: 100%;
-        }
-
-        /* TABLE STYLING */
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            margin-top: 20px;
-        }
-
-        table thead {
-            background-color: var(--cream-dark);
-        }
-
-        table th {
-            padding: 16px;
-            text-align: left;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border: 1px solid var(--border);
-        }
-
-        table td {
-            padding: 16px;
-            font-size: 14px;
-            color: var(--text-mid);
-            border: 1px solid var(--border);
-        }
-
-        table td:first-child {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        table td:nth-child(n+2) {
-            text-align: center;
-        }
-
-        table tbody tr:hover {
-            background-color: var(--warm-white);
-        }
-
-        /* METRICS PILLS */
-        .metrics-pills {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .metrics-pill {
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 20px 28px;
-            text-align: center;
-            min-width: 180px;
-        }
-
-        .metrics-pill-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--orange);
-        }
-
-        .metrics-pill-label {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--text-mid);
-            letter-spacing: 0.05em;
-            margin-top: 8px;
-        }
-
-        /* CTA STRIP */
-        .cta-strip {
-            background-color: var(--orange);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .cta-strip h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 32px;
-        }
-
-        .cta-strip-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .cta-strip {
-                padding: 40px 20px;
-            }
-
-            .cta-strip h2 {
-                font-size: 28px;
-            }
-
-            .cta-strip-buttons {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--charcoal);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* TWO-COL LAYOUT FOR CAMPAIGN SECTION */
-        .campaign-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        @media (max-width: 1024px) {
-            .campaign-section {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        .campaign-section .card {
-            height: auto;
-        }
-
-        /* SECTION 3 TWO COL */
-        .section-3-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        @media (max-width: 1024px) {
-            .section-3-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        .section-3-grid .card {
-            padding: 32px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michigan Cares Campaign | Brandon Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #faf9f7;
+      --paper-warm: #f3f0ea;
+      --charcoal: #1e1e1e;
+      --accent: #c1440e;
+      --rule: #ddd8d0;
+      --text-muted: #6b6560;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: var(--charcoal);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
+    }
+
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--paper-warm);
+      padding: 1.4rem 1.25rem;
+      text-align: center;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .prose-section p {
+      color: #3a3530;
+      margin-bottom: 1rem;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    /* ── CHANNEL GRID ── */
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .channel-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.4rem 1.2rem;
+    }
+    .channel-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .channel-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .channel-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── DATA TABLE ── */
+    .data-table-wrap {
+      margin-top: 1.75rem;
+      overflow-x: auto;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    thead tr {
+      background: var(--charcoal);
+      color: #fff;
+    }
+    thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      font-size: 0.8rem;
+    }
+    tbody tr { border-bottom: 1px solid var(--rule); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: var(--paper-warm); }
+    tbody td {
+      padding: 0.75rem 1rem;
+      color: #3a3530;
+    }
+    .td-strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* ── STAT ROW ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin: 1.75rem 0 0;
+      overflow: hidden;
+    }
+    .stat-cell {
+      background: var(--paper-warm);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ── EMAIL LINKS ── */
+    .email-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .email-link {
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .email-link:hover {
+      border-color: var(--accent);
+      background: var(--paper-warm);
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--paper-warm);
+      border-radius: 0 4px 4px 0;
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    .cta-strip {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #a8380b; }
+    .btn-ghost {
+      border: 1.5px solid var(--rule);
+      color: var(--charcoal);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--charcoal); }
+
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <!-- NAV -->
-    <nav>
-        <div class="nav-brand">Brandon Bautista</div>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/">Work</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#testimonials">Reviews</a></li>
-            <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
-        </ul>
-    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-eyebrow">Multi-Channel · SEL · COVID Response</div>
-            <h1>Michigan Cares: Statewide SEL Awareness Campaign</h1>
-            <p class="hero-description">A statewide multi-channel campaign during COVID to support schools, families, and students with free, evidence-based SEL and mental-health resources. Designed distinct audience tracks for admins, educators, and parents.</p>
-        </div>
-        <div class="hero-image-frame">
-            <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1740&auto=format&fit=crop" alt="Michigan Cares campaign">
-            <div class="hero-image-overlay"></div>
-            <div class="hero-image-tag">Michigan Virtual · COVID Response</div>
-        </div>
-    </section>
+<nav>
+  <div class="nav-inner">
+    <a href="https://brandonbautista.github.io/" class="nav-logo">Brandon Bautista</a>
+    <ul class="nav-links">
+      <li><a href="https://brandonbautista.github.io/#projects">Work</a></li>
+      <li><a href="https://brandonbautista.github.io/#skills">Skills</a></li>
+      <li><a href="https://brandonbautista.github.io/#testimonials">Reviews</a></li>
+      <li><a href="https://brandonbautista.github.io/#contact">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- STATS BAR -->
-    <section class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-number">49K+</div>
-            <div class="stat-label">Emails delivered across segments</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">~36%</div>
-            <div class="stat-label">Weighted avg open rate</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">6 Channels</div>
-            <div class="stat-label">Email · Social · TV/Radio · Press · Toolkits · Content</div>
-        </div>
-    </section>
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=1740&auto=format&fit=crop" alt="Supportive family concept representing SEL resources" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">Multi-Channel</span>
+      <span class="tag">SEL</span>
+      <span class="tag">COVID Response</span>
+    </div>
+    <h1 class="hero-title">Michigan Cares: Statewide SEL Awareness &amp; Adoption</h1>
+  </div>
+</div>
 
-    <!-- SECTION 1: THE CAMPAIGN -->
-    <section class="section warm-white">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-label">Overview</div>
-            <h2 class="section-title">Awareness, enablement, and action</h2>
-            <div class="campaign-section">
-                <div class="card">
-                    <h3>What & Why</h3>
-                    <p>Michigan Cares offered Michigan schools, families, and students a free portal of evidence-based SEL and mental-health resources. Our remit: make every district aware and help them launch quickly. During lockdown, districts needed support for social-emotional wellbeing. We led with service, not sales.</p>
-                    <div class="pills">
-                        <div class="pill">$100,000 state funding</div>
-                        <div class="pill">Free access for all MI districts</div>
-                        <div class="pill">COVID-era community support</div>
-                        <div class="pill">Press outreach & media coverage</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>My Approach</h3>
-                    <p><strong>Serve, don't sell:</strong> lead with help and clarity. Tailor by audience (admins, educators, parents). Blend paid, owned, and earned media for reach + credibility.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="case-body">
 
-    <!-- SECTION 2: THE CHANNEL MIX -->
-    <section class="section cream">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-label">How We Reached Them</div>
-            <h2 class="section-title">Six channels, one message</h2>
-            <div class="icon-cards-grid-6">
-                <div class="icon-card">
-                    <div class="icon-card-icon">✉️</div>
-                    <h3>Email (Segmented)</h3>
-                    <p>Audience-specific messages to admins, educators, and parents with clear paths to request/access their portal. (Blasts + Drips + Webinar Invites + Reminders)</p>
-                </div>
-                <div class="icon-card">
-                    <div class="icon-card-icon">📣</div>
-                    <h3>Facebook Ads</h3>
-                    <p>Paid social to drive awareness and interest among educators and families with supportive, service-forward copy. (Awareness + Remarketing)</p>
-                </div>
-                <div class="icon-card">
-                    <div class="icon-card-icon">📻</div>
-                    <h3>TV & Radio PSAs</h3>
-                    <p>Broadcast placements to reach households statewide — inviting families and schools to explore the free resource. (Statewide Reach + Public Service Announcements)</p>
-                </div>
-                <div class="icon-card">
-                    <div class="icon-card-icon">📰</div>
-                    <h3>Press & Outreach</h3>
-                    <p>Targeted media outreach and press releases to local markets featuring the schools/educators highlighted in communications. (Local News + Community Coverage)</p>
-                </div>
-                <div class="icon-card">
-                    <div class="icon-card-icon">🧰</div>
-                    <h3>District Enablement</h3>
-                    <p>Step-by-step toolkits and FAQs to launch quickly and communicate confidently with their communities. (Toolkit + FAQs + Templates)</p>
-                </div>
-                <div class="icon-card">
-                    <div class="icon-card-icon">🧭</div>
-                    <h3>Inbound Content</h3>
-                    <p>Context-rich blogs aligned to SEL needs that naturally directed readers to Michigan Cares. <a href="https://michiganvirtual.org/blog/cyberbullies-are-everywhere-cyberbullying-signs/" target="_blank" style="color: var(--orange); text-decoration: none; font-weight: 600;">View a sample blog →</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">49K+</div>
+      <div class="glance-label">Emails Delivered</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">~36%</div>
+      <div class="glance-label">Avg Open Rate</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">3</div>
+      <div class="glance-label">Audience Tracks</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">$100K</div>
+      <div class="glance-label">State-Funded Program</div>
+    </div>
+  </div>
 
-    <!-- SECTION 3: CAMPAIGN IN ACTION -->
-    <section class="section warm-white">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-label">See the Work</div>
-            <h2 class="section-title">Webinar & email samples</h2>
-            <div class="section-3-grid">
-                <div class="card">
-                    <h3>Live Webinar to Explain the Offer</h3>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube-nocookie.com/embed/Py9zOlxslwU" title="Michigan Cares Webinar" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Email Samples</h3>
-                    <p style="margin-bottom: 20px;">Representative emails from the series — one track per audience:</p>
-                    <div class="email-samples">
-                        <a href="https://mail.michiganvirtual.org/-temporary-slug-9317230f-3391-420d-973b-1bb7ef25b121?hs_preview=VjnMzJuH-28548303455" target="_blank" class="btn btn-orange">Email to Educators →</a>
-                        <a href="https://mail.michiganvirtual.org/free-mental-health-sel-resources-for-parents" target="_blank" class="btn btn-orange">Email to Parents →</a>
-                        <a href="https://mail.michiganvirtual.org/-temporary-slug-065107d5-aa81-4b57-ac59-ba9c66e61795?hs_preview=LoDvnoCM-33901726406" target="_blank" class="btn btn-orange">Email to Principals →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- THE PROBLEM -->
+  <section class="prose-section">
+    <p class="section-label">The Situation</p>
+    <h2 class="section-title">Schools Were Drowning. The Resource Existed. Nobody Knew.</h2>
+    <p>In the early months of COVID, Michigan schools weren't just managing a remote learning transition. They were navigating a mental health crisis that no one had a playbook for. Students were isolated. Families were overwhelmed. Educators were trying to support everyone while struggling themselves.</p>
+    <p>Michigan Virtual had secured $100,000 in state funding to make a comprehensive portal of evidence-based SEL and mental health resources available at no cost to every Michigan district. The program was real, the resources were ready, and the need was urgent. The problem: almost no one knew it existed.</p>
+    <p>Our job was to change that as fast as possible, for three very different audiences who needed very different messages.</p>
+  </section>
 
-    <!-- SECTION 4: EMAIL PERFORMANCE -->
-    <section class="section cream">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-label">Results</div>
-            <h2 class="section-title">Strong engagement across every segment</h2>
-            
-            <div class="metrics-pills">
-                <div class="metrics-pill">
-                    <div class="metrics-pill-number">49,658+</div>
-                    <div class="metrics-pill-label">Delivered</div>
-                </div>
-                <div class="metrics-pill">
-                    <div class="metrics-pill-number">~36%</div>
-                    <div class="metrics-pill-label">Avg Open Rate</div>
-                </div>
-                <div class="metrics-pill">
-                    <div class="metrics-pill-number">~2.9%</div>
-                    <div class="metrics-pill-label">Avg Click Rate</div>
-                </div>
-            </div>
+  <!-- THE STRATEGY -->
+  <section class="prose-section">
+    <p class="section-label">The Strategy</p>
+    <h2 class="section-title">Two Messages. Three Audiences. One Campaign.</h2>
+    <p>The audience segmentation was our call, and it was the most important strategic decision we made. There were two fundamentally different messages that needed to get out simultaneously.</p>
+    <p>For parents and families: you can reach out to your child's school and ask for access to this resource. You are not alone. Help is available.</p>
+    <p>For school administrators and educators: this program exists, it costs you nothing, and here's exactly how to launch it for your community.</p>
+    <p>Treating those as a single message would have diluted both. We built separate email tracks, separate copy, separate calls to action, all running in parallel. District toolkits and step-by-step FAQs gave administrators everything they needed to communicate confidently with their communities. Paid social and TV/radio PSAs extended awareness to families who weren't on our email lists. Targeted press outreach brought local credibility to each market.</p>
+    <p>We also ran a live webinar specifically to explain the grant opportunity to district leaders, with one of the highest open rates in the campaign.</p>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Email / Segment</th>
-                            <th>Delivered</th>
-                            <th>Open Rate</th>
-                            <th>Click Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Admins (blast)</td>
-                            <td>3,087</td>
-                            <td>41.59%</td>
-                            <td>2.56%</td>
-                        </tr>
-                        <tr>
-                            <td>Parents (blast)</td>
-                            <td>7,459</td>
-                            <td>34.44%</td>
-                            <td>2.68%</td>
-                        </tr>
-                        <tr>
-                            <td>Educators (blast)</td>
-                            <td>27,072</td>
-                            <td>33.51%</td>
-                            <td>3.15%</td>
-                        </tr>
-                        <tr>
-                            <td>Drip emails (educators)</td>
-                            <td>2,831–3,016</td>
-                            <td>~38.5%</td>
-                            <td>1.16–2.04%</td>
-                        </tr>
-                        <tr>
-                            <td>Grant webinar (admins)</td>
-                            <td>3,056</td>
-                            <td>46.5%</td>
-                            <td>4.84%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+    <div class="pullquote">
+      <p>The segmentation wasn't a marketing nicety. It was the whole strategy. A parent and a principal have completely different questions, and answering the wrong one for each of them accomplishes nothing.</p>
+    </div>
+  </section>
 
-    <!-- CTA STRIP -->
-    <section class="cta-strip">
-        <h2>Want to see more of my work?</h2>
-        <div class="cta-strip-buttons">
-            <a href="/" class="btn btn-white">← Back to All Work</a>
-            <a href="/#contact" class="btn btn-outline-white">Get in Touch</a>
-        </div>
-    </section>
+  <!-- CHANNELS -->
+  <section class="prose-section">
+    <p class="section-label">How We Reached Them</p>
+    <h2 class="section-title">A Full-Channel Approach</h2>
+    <div class="channel-grid">
+      <div class="channel-card">
+        <span class="channel-icon">✉️</span>
+        <h3>Segmented Email</h3>
+        <p>Audience-specific messaging for admins, educators, and parents. Separate blasts, drip sequences, and webinar invitations for each track.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-icon">📣</span>
+        <h3>Facebook Ads</h3>
+        <p>Paid social driving awareness and interest among Michigan educators and families, with supportive, service-forward creative.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-icon">📻</span>
+        <h3>TV &amp; Radio PSAs</h3>
+        <p>Broadcast placements reaching households statewide, inviting families and schools to explore the free resource portal.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-icon">📰</span>
+        <h3>Local Press Outreach</h3>
+        <p>Targeted media pitches to local markets featuring the educators and schools highlighted in that cycle's communications.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-icon">🧰</span>
+        <h3>District Enablement Kits</h3>
+        <p>Step-by-step toolkits, FAQs, and templates so district leaders could launch quickly and communicate confidently with no guesswork.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-icon">🧭</span>
+        <h3>Inbound Content</h3>
+        <p>Blog content aligned to real SEL concerns that directed readers naturally toward Michigan Cares, building search traffic and trust in parallel.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Brandon Bautista · East Lansing, MI</p>
-    </footer>
+  <!-- RESULTS -->
+  <section class="prose-section">
+    <p class="section-label">The Results</p>
+    <h2 class="section-title">Meaningful Reach. Measurable Engagement. Portal Adoptions Met.</h2>
+    <p>The campaign reached more than 49,000 contacts across its primary email sends, with a weighted average open rate of roughly 36%, well above typical education benchmarks. The grant webinar for administrators hit a 46.5% open rate. The campaign closed with portal registrations meeting the program's goal.</p>
+    <p>Below is the full breakdown from the email sends across each audience track.</p>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-value">49,658+</div>
+        <div class="stat-label">Emails Delivered</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">~36%</div>
+        <div class="stat-label">Avg Open Rate</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">~2.9%</div>
+        <div class="stat-label">Avg Click Rate</div>
+      </div>
+    </div>
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+    <div class="data-table-wrap" style="margin-top:1.5rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Delivered</th>
+            <th>Open Rate</th>
+            <th>Click Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-strong">Admins (blast)</td>
+            <td>3,087</td>
+            <td>41.59%</td>
+            <td>2.56%</td>
+          </tr>
+          <tr>
+            <td class="td-strong">Parents (blast)</td>
+            <td>7,459</td>
+            <td>34.44%</td>
+            <td>2.68%</td>
+          </tr>
+          <tr>
+            <td class="td-strong">Educators (blast)</td>
+            <td>27,072</td>
+            <td>33.51%</td>
+            <td>3.15%</td>
+          </tr>
+          <tr>
+            <td class="td-strong">Drip emails (educators)</td>
+            <td>2,831&ndash;3,016</td>
+            <td>~38.5%</td>
+            <td>1.16&ndash;2.04%</td>
+          </tr>
+          <tr>
+            <td class="td-strong">Grant webinar (admins)</td>
+            <td>3,056</td>
+            <td>46.5%</td>
+            <td>4.84%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-        navLinks.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    </script>
+    <div style="margin-top:1.5rem;">
+      <p style="font-size:0.85rem;color:var(--text-muted);">View representative sends from the campaign:</p>
+      <div class="email-links">
+        <a href="https://mail.michiganvirtual.org/-temporary-slug-9317230f-3391-420d-973b-1bb7ef25b121?hs_preview=VjnMzJuH-28548303455" class="email-link" target="_blank" rel="noopener">Educators Email #1 &rarr;</a>
+        <a href="https://mail.michiganvirtual.org/free-mental-health-sel-resources-for-parents" class="email-link" target="_blank" rel="noopener">Parents Email #1 &rarr;</a>
+        <a href="https://mail.michiganvirtual.org/-temporary-slug-065107d5-aa81-4b57-ac59-ba9c66e61795?hs_preview=LoDvnoCM-33901726406" class="email-link" target="_blank" rel="noopener">Principals Email #1 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="https://brandonbautista.github.io/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="https://brandonbautista.github.io/#contact" class="btn btn-primary">Let's Connect</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Brandon Bautista
+</footer>
+
 </body>
 </html>
