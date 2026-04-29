@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HubSpot CRM & Marketing Automation | Brandon Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #faf9f7;
+      --paper-warm: #f3f0ea;
+      --charcoal: #1e1e1e;
+      --accent: #c1440e;
+      --rule: #ddd8d0;
+      --text-muted: #6b6560;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: var(--charcoal);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
+    }
+
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--paper-warm);
+      padding: 1.4rem 1.25rem;
+      text-align: center;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .prose-section p { color: #3a3530; margin-bottom: 1rem; }
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .system-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.4rem 1.2rem;
+    }
+    .system-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+    .system-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .system-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+
+    .adoption-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      margin-top: 1.75rem;
+      overflow: hidden;
+    }
+    .adoption-item {
+      background: #fff;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .adoption-item span {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--paper-warm);
+      border-radius: 0 4px 4px 0;
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    .cta-strip {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #a8380b; }
+    .btn-ghost {
+      border: 1.5px solid var(--rule);
+      color: var(--charcoal);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--charcoal); }
+
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Brandon Bautista</a>
+    <ul class="nav-links">
+      <li><a href="/#projects">Work</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#testimonials">Reviews</a></li>
+      <li><a href="/#contact">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1740&auto=format&fit=crop" alt="Marketing analytics dashboard" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">HubSpot</span>
+      <span class="tag">CRM</span>
+      <span class="tag">Marketing Automation</span>
+    </div>
+    <h1 class="hero-title">HubSpot: Building the Intelligence Layer for a 160K-Contact CRM</h1>
+  </div>
+</div>
+
+<div class="case-body">
+
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">160K+</div>
+      <div class="glance-label">Contacts Managed</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">30K+</div>
+      <div class="glance-label">Newsletter Subscribers</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">~20%</div>
+      <div class="glance-label">Annual K-12 Staff Churn</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">Org-Wide</div>
+      <div class="glance-label">Training & Adoption</div>
+    </div>
+  </div>
+
+  <!-- THE SITUATION -->
+  <section class="prose-section">
+    <p class="section-label">The Situation</p>
+    <h2 class="section-title">A Contact Database Is Not a CRM</h2>
+    <p>When Michigan Virtual adopted HubSpot as its marketing automation platform, the organization had something most nonprofits would be happy to have: a large and growing list of contacts. What we didn't yet have was intelligence. We knew who was in the database. We didn't know who was still active, what they cared about, where they were in a buying relationship with us, or how to reach the right person with the right message without burning goodwill in the process.</p>
+    <p>K-12 marketing has a particular complication that makes this harder than it sounds. Roughly 20% of school staff change roles, change schools, or retire every single year. A contact database that isn't actively maintained doesn't just get stale. It gets expensive. HubSpot charges by the number of marketing contacts, and bounced emails hurt sender reputation. List decay is not a passive problem. It is an active cost.</p>
+    <p>My job, as I grew into full ownership of the platform, was to turn HubSpot from a place where contacts lived into a system that actually told us something useful about our audience, our pipeline, and where our attention should go.</p>
+  </section>
+
+  <!-- THE SYSTEM -->
+  <section class="prose-section">
+    <p class="section-label">The System</p>
+    <h2 class="section-title">Six Layers of Infrastructure, Built to Work Together</h2>
+    <p>What I built in HubSpot wasn't a single project. It was a set of interconnected systems, each solving a specific problem, and each feeding the others. Here is what that looked like in practice.</p>
+
+    <div class="system-grid">
+      <div class="system-card">
+        <span class="system-icon">🧹</span>
+        <h3>Database Hygiene Automation</h3>
+        <p>Built workflows to automatically reclassify contacts as non-marketing when they unsubscribed, bounced more than once, or hadn't opened any of the past 12 emails. This kept the database clean, the sender score healthy, and the billing under control. No manual intervention required.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">🏷️</span>
+        <h3>Interest-Based Tagging</h3>
+        <p>Created a custom field taxonomy covering blended learning, artificial intelligence, remote teaching, summer school, research, and more. Automations applied those tags based on pages visited and links clicked. Every interaction taught us something. Contacts self-sorted into warm lists by showing us what they cared about.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">👤</span>
+        <h3>Contact Personas & Segmentation</h3>
+        <p>Built persona definitions for teachers, students, parents, and administrators, anchored to a newsletter signup form added to every page of the site. Custom behavioral fields tracked offline touchpoints too: tradeshow booth visits, in-person trainings, event attendance. The database knew not just who someone was, but how they had engaged.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">⭐</span>
+        <h3>Lead Scoring</h3>
+        <p>Developed a lead scoring model in close collaboration with the sales team, calibrated against what we actually knew about conversion behavior. Scores reflected site engagement, content consumption, and product-line interest so sales could prioritize outreach by signal rather than by gut.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">💼</span>
+        <h3>Sales Pipelines & Customer Classification</h3>
+        <p>Built distinct pipelines for each of Michigan Virtual's revenue-generating business units, with real dollar values attached to each deal stage. When a deal was won, the school or district was marked as a customer and a workflow automatically applied that status to every associated contact. Anyone in the organization could see at a glance whether the person they were talking to came from a customer account.</p>
+      </div>
+      <div class="system-card">
+        <span class="system-icon">📧</span>
+        <h3>Newsletter Infrastructure & Coordination</h3>
+        <p>Owned the monthly newsletter sent to 30,000+ educators, one of the organization's highest-converting marketing channels. Each department competed for placement because newsletter features routinely drove the largest single-month spikes in registrations and sales. Managed the editorial process across the full marketing team, serving as liaison to two departments myself while maintaining final proofing authority.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE INTELLIGENCE LAYER -->
+  <section class="prose-section">
+    <p class="section-label">What It Made Possible</p>
+    <h2 class="section-title">Turning Data Into Decisions</h2>
+    <p>The individual systems mattered less than what they enabled together. Once interest tags, lead scores, and pipeline data were all living in the same place, the conversations with the sales team changed. Instead of "here's a list of schools we haven't worked with," I could say "here are the contacts from that district who have been active on our site in the past 90 days, specifically in the product lines your team is targeting, and here's how warm each of them is."</p>
+
+    <div class="pullquote">
+      <p>The goal was never to have a clean CRM. The goal was to give the sales team an unfair advantage in conversations they were already going to have.</p>
+    </div>
+
+    <p>On the marketing side, the interest-based segmentation meant we could protect our most valuable personas from receiving anything irrelevant. Superintendents and principals had outsized influence over purchasing decisions, and burning them with a misaligned email was a cost we couldn't afford. The tagging system meant we only reached them when what we were sending was genuinely worth their attention.</p>
+    <p>The pipeline visibility worked the same way in reverse. I could surface $80,000 worth of deals sitting idle at the stakeholder approval stage and hand that directly to my sales counterpart, who could then redirect their team's attention before those deals went cold. The customer classification system extended that visibility further: when a deal closed, every contact tied to that school was automatically marked as a customer. Anyone in the organization, from customer care to product teams, could see relationship status without running a report or asking marketing. That kind of real-time intelligence didn't exist before we built it.</p>
+
+    <div class="adoption-grid">
+      <div class="adoption-item"><span>📊</span>Real-time pipeline visibility</div>
+      <div class="adoption-item"><span>🎯</span>Warm lists by interest area</div>
+      <div class="adoption-item"><span>🛡️</span>Protected high-value personas</div>
+      <div class="adoption-item"><span>💰</span>Cost-controlled contact database</div>
+      <div class="adoption-item"><span>🤝</span>Sales & marketing alignment</div>
+    </div>
+  </section>
+
+  <!-- ORG ADOPTION -->
+  <section class="prose-section">
+    <p class="section-label">Adoption & Training</p>
+    <h2 class="section-title">A System Only Works If People Use It</h2>
+    <p>Technical infrastructure is only as valuable as the people who can access and act on it. I developed org-wide HubSpot training and onboarding materials so that staff across departments, not just the marketing team, could pull the data relevant to their role without needing to ask someone to run a report for them. Leaders could check pipeline health directly. Department heads could see how their content was performing. The CRM stopped being a black box that only marketers understood.</p>
+    <p>That kind of democratized access changed how the organization related to its own data. It also meant that HubSpot governance fell on me in a meaningful way. Maintaining the integrity of a system that many people were now touching required clear conventions, workflow logic that could survive human error, and enough automation underneath that the database stayed clean even when individual users didn't think about it.</p>
+  </section>
+
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="/#contact" class="btn btn-primary">Let's Connect</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Brandon Bautista
+</footer>
+
+</body>
+</html>
