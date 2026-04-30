@@ -1,431 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brandon Bautista | Marketing Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Bautista | Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --ink: #1a1a1a;
-      --ink-muted: #555;
-      --ink-faint: #888;
-      --paper: #faf9f7;
-      --paper-warm: #f3f0ea;
-      --charcoal: #1e1e1e;
-      --charcoal-rule: #333;
-      --charcoal-muted: #999;
-      --accent: #c1440e;
-      --rule: #ddd8d0;
-    }
+  :root {
+    --charcoal: #1e1e1e;
+    --charcoal-mid: #2a2a2a;
+    --charcoal-light: #3a3a3a;
+    --orange: #e07030;
+    --orange-light: #f08040;
+    --cream: #f8f5f0;
+    --cream-dark: #e8e2d8;
+    --text-dark: #1e1e1e;
+    --text-mid: #555;
+    --text-light: #888;
+    --white: #fff;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
 
-    html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 16px;
+  }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--charcoal);
-      border-bottom: 1px solid var(--charcoal-rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2.5rem;
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--paper);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--charcoal-muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--paper); }
-    .nav-cta {
-      color: var(--accent) !important;
-      border: 1px solid var(--accent);
-      padding: 0.4rem 1rem;
-      border-radius: 2px;
-    }
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(248,245,240,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: var(--white) !important;
+    padding: 10px 20px !important;
+    border-radius: 8px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--orange) !important; color: var(--white) !important; }
 
-    /* ── HERO ── */
+  /* HERO */
+  .hero {
+    padding: 80px 48px 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 64px;
+    align-items: start;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5.5vw, 4.75rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .hero-name em { font-style: italic; color: var(--orange); }
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--charcoal-light);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .hero-body {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--charcoal);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--charcoal-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* HERO PANEL */
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 8px;
+  }
+  .panel-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .philosophy-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    border: 1.5px solid var(--cream-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .philosophy-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+  }
+  .philosophy-card .icon { font-size: 1.3rem; margin-bottom: 7px; display: block; }
+  .philosophy-card strong {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .philosophy-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
+
+  /* HERO BACKGROUND WRAP */
+  .hero-bg {
+    background:
+      linear-gradient(rgba(248,245,240,0.88), rgba(248,245,240,0.88)),
+      url('https://images.unsplash.com/photo-1501959181532-7d2a3c064642?auto=format&fit=crop&w=1800') center/cover no-repeat;
+  }
+
+  /* PHILOSOPHY CALLOUT */
+  .philosophy-callout {
+    background: var(--charcoal);
+    padding: 72px 48px;
+  }
+  .philosophy-callout-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .callout-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .callout-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .callout-heading em { font-style: italic; color: var(--orange); }
+  .callout-body {
+    font-size: 1rem;
+    color: rgba(248,245,240,0.75);
+    line-height: 1.85;
+  }
+  .callout-body p { margin-bottom: 16px; }
+  .callout-body p:last-child { margin-bottom: 0; }
+  .callout-body strong { color: var(--white); font-weight: 600; }
+
+  /* CONTACT FORM */
+  .contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.65rem, 2.8vw, 2.4rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .contact-left h2 em { font-style: italic; color: var(--orange); }
+  .contact-left p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .contact-alt {
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  .contact-alt a { color: var(--orange); text-decoration: none; }
+  .contact-alt a:hover { text-decoration: underline; }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: var(--white);
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(224,112,48,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .form-note {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: -4px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links li:not(:last-child) { display: none; }
+
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 88vh;
-      border-bottom: 1px solid var(--rule);
-    }
-    .hero-left {
-      padding: 5rem 3rem 4rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--charcoal);
-      border-right: 1px solid var(--charcoal-rule);
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
-      line-height: 1.15;
-      color: var(--paper);
-      margin-bottom: 1.75rem;
-    }
-    .hero-title em { font-style: italic; color: var(--accent); }
-    .hero-body {
-      font-size: 1.05rem;
-      color: var(--charcoal-muted);
-      line-height: 1.75;
-      max-width: 480px;
-      margin-bottom: 2.5rem;
-    }
-    .hero-body strong { color: var(--paper); font-weight: 500; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.8rem 1.75rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .btn-primary:hover { opacity: 0.88; }
-    .btn-secondary {
-      display: inline-block;
-      color: var(--paper);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.8rem 1.75rem;
-      border: 1px solid #555;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: border-color 0.2s;
-    }
-    .btn-secondary:hover { border-color: #aaa; }
-
-    /* ── HERO RIGHT ── */
-    .hero-right {
-      background: #252525;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 3rem 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-right-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0.45;
-    }
-    .hero-right-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(30,30,30,0.2) 0%, rgba(30,30,30,0.75) 55%, rgba(30,30,30,0.97) 100%);
-    }
-    .hero-right > .hero-role,
-    .hero-right > .metrics { position: relative; z-index: 1; }
-    .hero-role {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #666;
-      margin-bottom: 2rem;
-    }
-    .metrics { display: grid; grid-template-columns: 1fr 1fr; }
-    .metric {
-      padding: 1.75rem 1.5rem;
-      border-right: 1px solid var(--charcoal-rule);
-      border-bottom: 1px solid var(--charcoal-rule);
-    }
-    .metric:nth-child(even) { border-right: none; }
-    .metric-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-    .metric-label { font-size: 0.78rem; color: #777; line-height: 1.4; }
-
-    /* ── SECTION CHROME ── */
-    .section-header {
-      padding: 3rem 2.5rem 1.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-    .section-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      color: var(--ink);
-      line-height: 1.25;
-    }
-    .section-sub {
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-      color: var(--ink-muted);
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 48px 20px 40px;
     }
 
-    /* ── PROJECT GRID ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-left: 1px solid var(--rule);
+    .philosophy-callout-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
-    .project-card {
-      border-right: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      transition: background 0.2s;
-    }
-    .project-card:hover { background: var(--paper-warm); }
-    .project-card:hover .project-arrow { transform: translateX(4px); }
-    .project-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(20%);
-      transition: filter 0.3s;
-    }
-    .project-card:hover .project-img { filter: grayscale(0%); }
-    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .project-tags {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .project-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      line-height: 1.3;
-      color: var(--ink);
-      margin-bottom: 0.6rem;
-    }
-    .project-desc { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; flex: 1; }
-    .project-link {
-      margin-top: 1.25rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .project-arrow { display: inline-block; transition: transform 0.2s; }
+    .philosophy-callout { padding: 48px 20px; }
 
-    /* ── SKILLS ── */
-    .skills-section { background: var(--paper-warm); }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.25rem;
-      padding: 2rem 2.5rem 3rem;
-    }
-    .skill-card {
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 2rem 1.5rem;
-      background: var(--paper);
-    }
-    .skill-icon { font-size: 1.5rem; display: block; margin-bottom: 0.75rem; }
-    .skill-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
-    .skill-list li { font-size: 0.82rem; color: var(--ink-muted); }
+    .case-studies { padding: 48px 20px; }
+    .case-grid { grid-template-columns: 1fr; }
 
-    /* ── TESTIMONIALS ── */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-left: 1px solid var(--rule);
-    }
-    .testimonial-card {
-      border-right: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 2.5rem;
-      background: var(--paper);
-    }
-    .testimonial-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-style: italic;
-      line-height: 1.75;
-      color: var(--ink);
-      margin-bottom: 1.75rem;
-      padding-left: 1.25rem;
-      border-left: 2px solid var(--accent);
-    }
-    .testimonial-person { display: flex; align-items: center; gap: 1rem; }
-    .testimonial-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--rule);
-      flex-shrink: 0;
-    }
-    .testimonial-name { font-weight: 500; font-size: 0.9rem; color: var(--ink); }
-    .testimonial-role { font-size: 0.78rem; color: var(--ink-faint); margin-top: 0.15rem; }
+    .skills-section { padding: 48px 20px; }
+    .skills-row--three { grid-template-columns: 1fr 1fr; }
+    .skills-row--two { max-width: 100%; grid-template-columns: 1fr 1fr; }
 
-    /* ── CTA ── */
-    .cta {
-      padding: 5rem 2.5rem;
-      text-align: center;
-      background: var(--ink);
-      color: var(--paper);
-    }
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.25;
-      max-width: 700px;
-      margin: 0 auto 1rem;
-    }
-    .cta h2 em { font-style: italic; color: #e8a080; }
-    .cta p { font-size: 0.95rem; color: #aaa; margin-bottom: 2.5rem; }
-    .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .btn-light {
-      display: inline-block;
-      background: var(--paper);
-      color: var(--ink);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.8rem 1.75rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .btn-light:hover { opacity: 0.88; }
-    .btn-outline-light {
-      display: inline-block;
-      color: var(--paper);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.8rem 1.75rem;
-      border: 1px solid #555;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: border-color 0.2s;
-    }
-    .btn-outline-light:hover { border-color: #999; }
+    .testimonials { padding: 48px 20px; }
+    .testimonial-grid { grid-template-columns: 1fr; }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 1.5rem 2.5rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.78rem;
-      color: var(--ink-faint);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .contact-section {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 48px 20px;
     }
+    .form-row { grid-template-columns: 1fr; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-right { display: none; }
-      .projects-grid { grid-template-columns: 1fr 1fr; }
-      .skills-grid { grid-template-columns: repeat(3, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      nav { padding: 1rem 1.25rem; }
-      .nav-links { display: none; }
-      .hero-left { padding: 3rem 1.25rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr 1fr; padding: 1.5rem 1.25rem 2rem; }
-      .section-header { padding: 2.5rem 1.25rem 1.5rem; }
-    }
-  </style>
+    .cta-footer { padding: 56px 20px; }
+    footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  /* CASE STUDIES */
+  .case-studies {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 48px;
+  }
+  .section-header { margin-bottom: 40px; }
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.65rem, 2.8vw, 2.4rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; }
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .case-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1.5px solid var(--cream-dark);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    cursor: pointer;
+  }
+  .case-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 8px 32px rgba(224,112,48,0.12);
+    transform: translateY(-3px);
+  }
+  .case-img-wrap { position: relative; height: 178px; overflow: hidden; }
+  .case-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .case-card:hover .case-img-wrap img { transform: scale(1.04); }
+  .case-study-label {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--charcoal);
+    color: var(--white);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .case-body { padding: 20px 20px 16px; flex: 1; display: flex; flex-direction: column; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 11px; }
+  .tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--orange);
+    background: rgba(224,112,48,0.08);
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.35;
+    margin-bottom: 9px;
+  }
+  .case-desc {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 14px;
+  }
+  .case-cta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--orange);
+    transition: gap 0.2s;
+  }
+  .case-cta::after { content: '→'; }
+  .case-card:hover .case-cta { gap: 9px; }
+
+  /* SKILLS */
+  .skills-section { background: var(--charcoal); padding: 72px 48px; }
+  .skills-inner { max-width: 1200px; margin: 0 auto; }
+  .skills-section .section-eyebrow { color: var(--orange); }
+  .skills-section .section-title { color: var(--white); }
+  .skills-grid {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .skills-row {
+    display: grid;
+    gap: 14px;
+  }
+  .skills-row--three { grid-template-columns: repeat(3, 1fr); }
+  .skills-row--two {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: calc(66.66% - 5px);
+    margin: 0 auto;
+    width: 100%;
+  }
+  .skill-card {
+    background: var(--charcoal-mid);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    border: 1px solid var(--charcoal-light);
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--orange); }
+  .skill-icon { font-size: 1.4rem; margin-bottom: 10px; display: block; }
+  .skill-name { font-weight: 600; color: var(--white); font-size: 0.85rem; margin-bottom: 10px; }
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 0.76rem;
+    color: var(--text-light);
+    padding: 3px 0;
+    border-bottom: 1px solid var(--charcoal-light);
+    line-height: 1.4;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { max-width: 1200px; margin: 0 auto; padding: 72px 48px; }
+  .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 34px 30px;
+    border: 1.5px solid var(--cream-dark);
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--orange);
+    opacity: 0.12;
+    position: absolute;
+    top: 10px; left: 22px;
+    line-height: 1;
+  }
+  .testimonial-text {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--text-dark);
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial-person { display: flex; align-items: center; gap: 13px; }
+  .testimonial-avatar {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cream-dark);
+  }
+  .testimonial-name { font-weight: 600; font-size: 0.875rem; color: var(--charcoal); }
+  .testimonial-role { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CTA FOOTER */
+  .cta-footer { background: var(--charcoal); padding: 80px 48px; text-align: center; }
+  .cta-footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.65rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    max-width: 680px;
+    margin: 0 auto 12px;
+  }
+  .cta-footer h2 em { font-style: italic; color: var(--orange); }
+  .cta-footer p { color: var(--text-light); font-size: 0.92rem; margin-bottom: 32px; }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: var(--white); color: var(--charcoal);
+    padding: 14px 28px; border-radius: var(--radius-sm);
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-white:hover { background: var(--cream); }
+  .btn-outline-white {
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: var(--radius-sm);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: border-color 0.2s; display: inline-block;
+  }
+  .btn-outline-white:hover { border-color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: #111;
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p { font-size: 0.78rem; color: #555; }
+  footer a { font-size: 0.78rem; color: #555; text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--orange); }
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-brand">Brandon Bautista</a>
+  <a href="#" class="nav-logo">Brandon Bautista</a>
   <ul class="nav-links">
-    <li><a href="#projects">Work</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact" class="nav-cta">Let's Talk &rarr;</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
+<div class="hero-bg">
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Marketing Leader &middot; Storyteller &middot; Builder</p>
-    <h1 class="hero-title">Growth, Goodwill &amp; Revenue Through <em>Storytelling</em></h1>
+    <h1 class="hero-name">Brandon<br><em>Bautista</em></h1>
+    <p class="hero-tagline">Growth, Goodwill &amp; Revenue Through Storytelling</p>
     <p class="hero-body">
-      I believe great marketing isn't about outspending competitors. It's about <strong>out-connecting them</strong>.
-      For 10 years I've led marketing at a public-sector nonprofit competing against well-funded nationals
-      with lean budgets, a small team, and strategies I sometimes had to fight for internally.
-      The ones worth fighting for usually worked.
+      I believe great marketing isn&rsquo;t about outspending competitors &mdash; it&rsquo;s about out-connecting them.
+      For 10 years I led marketing at a public-sector nonprofit competing against well-funded nationals,
+      with lean budgets, a small team, and ideas I had to build the case for carefully.
+      The ones worth building the case for usually worked.
     </p>
     <div class="hero-actions">
       <a href="Bautista_Resume.pdf" class="btn-primary">Download Resume</a>
@@ -433,114 +614,157 @@
     </div>
   </div>
 
-  <div class="hero-right">
-    <img class="hero-right-img" src="https://images.unsplash.com/photo-1501959181532-7d2a3c064642?q=80&w=1400&auto=format&fit=crop" alt="" aria-hidden="true" />
-    <div class="hero-right-overlay"></div>
-    <p class="hero-role">Most Recent Role &middot; Director of Marketing &middot; Michigan Virtual</p>
-    <div class="metrics">
-      <div class="metric">
-        <div class="metric-number">$500K+</div>
-        <div class="metric-label">Revenue built from zero. New product, new funnel, new brand.</div>
-      </div>
-      <div class="metric">
-        <div class="metric-number">2&times;</div>
-        <div class="metric-label">Email open rates vs. education industry average</div>
-      </div>
-      <div class="metric">
-        <div class="metric-number">31K+</div>
-        <div class="metric-label">Social followers built deliberately from zero, starting in 2016</div>
-      </div>
-      <div class="metric">
-        <div class="metric-number">160K+</div>
-        <div class="metric-label">HubSpot contacts managed</div>
-      </div>
-      <div class="metric">
-        <div class="metric-number">217K+</div>
-        <div class="metric-label">Podcast listens &amp; views</div>
-      </div>
-      <div class="metric">
-        <div class="metric-number">10 yrs</div>
-        <div class="metric-label">Leading marketing at Michigan Virtual</div>
-      </div>
+  <div class="hero-panel">
+    <p class="panel-label">My Approach</p>
+    <div class="philosophy-card">
+      <span class="icon">🤝</span>
+      <strong>Trust before pipeline</strong>
+      <p>I build the relationship first. Audiences that trust you convert more and stay longer.</p>
+    </div>
+    <div class="philosophy-card">
+      <span class="icon">📖</span>
+      <strong>Story as strategy</strong>
+      <p>Every campaign starts with a human truth. Data tells me if it worked. Story tells me why it matters.</p>
+    </div>
+    <div class="philosophy-card">
+      <span class="icon">🔧</span>
+      <strong>Full-stack execution</strong>
+      <p>I can write the brief, shoot the video, build the HubSpot flow, and read the report &mdash; and I have.</p>
+    </div>
+    <div class="philosophy-card">
+      <span class="icon">🌱</span>
+      <strong>Lean as a feature</strong>
+      <p>Ten years in a resource-constrained org taught me to treat budget limits as creative constraints.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PHILOSOPHY CALLOUT -->
+<section class="philosophy-callout">
+  <div class="philosophy-callout-inner">
+    <div class="callout-left">
+      <p class="callout-label">Who I Am</p>
+      <h2 class="callout-heading">Putting<br><em>people</em> first.</h2>
+    </div>
+    <div class="callout-body">
+      <p>Marketing is a people business dressed up in data.</p>
+      <p>For 10 years I built campaigns for a public-sector nonprofit — the kind of org where you earn attention rather than buy it, and where the relationship with your audience matters more than any single conversion. That context shaped everything about how I work. I lead with curiosity about the person on the other end. I try to make colleagues feel heard before I push for a decision. I believe the best creative work comes out of <strong>environments where people feel safe enough to say the weird idea out loud.</strong></p>
+      <p>The strategies, the systems, the numbers are real and I'm proud of them. But the thing I care most about is leaving people better than I found them. Audiences, teammates, organizations.</p>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- CASE STUDIES -->
+<section class="case-studies" id="work">
   <div class="section-header">
     <p class="section-eyebrow">Featured Work</p>
-    <h2 class="section-title">Campaigns that moved people and numbers</h2>
+    <h2 class="section-title">Campaigns that moved people <em>and numbers</em></h2>
   </div>
-  <div class="projects-grid">
+  <div class="case-grid">
 
-    <a href="projects/ai/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1674027444636-ce7379d51252?q=80&w=800&auto=format&fit=crop" alt="AI Strategist Consulting" />
-      <div class="project-body">
-        <p class="project-tags">Product Launch &middot; Inbound &middot; Revenue</p>
-        <h3 class="project-title">AI Strategist Consulting: Zero to $500K in Under 2 Years</h3>
-        <p class="project-desc">Built the full growth engine, sales funnel, inbound content, and social amplification, for a brand-new consulting product line. Schools were booking our strategists by name within months.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/ai/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1674027444636-ce7379d51252?q=80&w=800&auto=format&fit=crop" alt="AI Strategist Consulting">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">Product Launch</span><span class="tag">Inbound</span><span class="tag">Revenue</span>
+        </div>
+        <h3 class="case-title">AI Strategist Consulting: Zero to $500K in Under 2 Years</h3>
+        <p class="case-desc">Built the full growth engine &mdash; sales funnel, inbound content, and social amplification &mdash; for a brand-new consulting product line.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
-    <a href="projects/bright/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=800&auto=format&fit=crop" alt="BRIGHT Podcast" />
-      <div class="project-body">
-        <p class="project-tags">Award-Winning &middot; Podcast &middot; Content</p>
-        <h3 class="project-title">BRIGHT: Stories of Hope &amp; Innovation</h3>
-        <p class="project-desc">Award-winning podcast with 217K+ listens/views. Built for goodwill, not pitches, and it earned Michigan Virtual durable trust across the K-12 community.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/bright/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=800&auto=format&fit=crop" alt="BRIGHT Podcast">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">Award-Winning</span><span class="tag">Podcast</span><span class="tag">Content</span>
+        </div>
+        <h3 class="case-title">BRIGHT: Stories of Hope &amp; Innovation</h3>
+        <p class="case-desc">Award-winning podcast with 217K+ listens/views. Built for goodwill, not pitches &mdash; and it earned Michigan Virtual durable trust across the K-12 community.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
-    <a href="projects/hubspot/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="HubSpot CRM" />
-      <div class="project-body">
-        <p class="project-tags">HubSpot &middot; CRM &middot; Marketing Automation</p>
-        <h3 class="project-title">HubSpot: Building the Intelligence Layer for a 160K-Contact CRM</h3>
-        <p class="project-desc">Turned a contact database into a full marketing and sales intelligence system, with lead scoring, interest-based segmentation, automated hygiene, and pipeline visibility across every business unit.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/michigancares/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=800&auto=format&fit=crop" alt="Michigan Cares">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">Multi-Channel</span><span class="tag">SEL</span><span class="tag">COVID Response</span>
+        </div>
+        <h3 class="case-title">Michigan Cares: Statewide SEL Awareness Campaign</h3>
+        <p class="case-desc">Statewide campaign reaching 49K+ across email, paid social, TV/radio PSAs, and press. Distinct audience tracks for admins, educators, and parents.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
-    <a href="projects/michigancares/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=800&auto=format&fit=crop" alt="Michigan Cares Campaign" />
-      <div class="project-body">
-        <p class="project-tags">Multi-Channel &middot; SEL &middot; COVID Response</p>
-        <h3 class="project-title">Michigan Cares: Statewide SEL Awareness Campaign</h3>
-        <p class="project-desc">Statewide campaign reaching 49K+ across email, paid social, TV/radio PSAs, and press. Designed distinct audience tracks for admins, educators, and parents.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/brand/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?q=80&w=800&auto=format&fit=crop" alt="Brand Standards">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">Rebrand</span><span class="tag">Brand Strategy</span><span class="tag">Voice</span>
+        </div>
+        <h3 class="case-title">Michigan Virtual Brand Standards</h3>
+        <p class="case-desc">Led a full organizational rebrand &mdash; new brand guide, voice, visual system, and statewide rollout &mdash; unifying a 25-year-old nonprofit for a new era.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
-    <a href="projects/brand/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?q=80&w=800&auto=format&fit=crop" alt="Brand Standards" />
-      <div class="project-body">
-        <p class="project-tags">Rebrand &middot; Brand Strategy &middot; Voice</p>
-        <h3 class="project-title">Michigan Virtual Brand Standards</h3>
-        <p class="project-desc">Led a full organizational rebrand, new brand guide, voice, visual system, and statewide communications rollout, unifying a 25-year-old nonprofit for a new era.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/enrollment/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Enrollment Campaigns">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">Digital Ads</span><span class="tag">Social</span><span class="tag">CRM</span>
+        </div>
+        <h3 class="case-title">Yearlong Enrollment Cycle Campaigns</h3>
+        <p class="case-desc">Multi-phase digital ad campaigns generating 17.4M+ impressions and 70K+ clicks, while scaling social from zero to 31K+ across five platforms.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
-    <a href="projects/enrollment/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Enrollment Campaigns" />
-      <div class="project-body">
-        <p class="project-tags">Digital Ads &middot; Social &middot; CRM</p>
-        <h3 class="project-title">Yearlong Enrollment Cycle Campaigns</h3>
-        <p class="project-desc">Orchestrated multi-phase digital ad campaigns generating 17.4M+ impressions and 70K+ clicks, while scaling social presence from zero to 31K+ followers across five platforms.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/clearlist/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Clear the List">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">Community</span><span class="tag">Goodwill</span><span class="tag">Organic</span>
+        </div>
+        <h3 class="case-title">Clear the List: Spending the Last $10K Where It Mattered Most</h3>
+        <p class="case-desc">Instead of running one more awareness campaign, I proposed funding Michigan teachers&rsquo; classroom wish lists directly. Fox 17 covered it.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
-    <a href="projects/clearlist/" class="project-card">
-      <img class="project-img" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Clear the List Campaign" />
-      <div class="project-body">
-        <p class="project-tags">Community &middot; Goodwill &middot; Organic</p>
-        <h3 class="project-title">Clear the List: Spending the Last $10K Where It Mattered Most</h3>
-        <p class="project-desc">At the end of our fiscal year, with $10K left in the ad budget and back-to-school season underway, I proposed something unconventional: fund Michigan teachers' classroom wish lists directly instead of running one more awareness campaign.</p>
-        <span class="project-link">View case study <span class="project-arrow">&rarr;</span></span>
+    <a href="projects/hubspot/" class="case-card">
+      <div class="case-img-wrap">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="HubSpot CRM">
+        <span class="case-study-label">Case Study</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag">HubSpot</span><span class="tag">CRM</span><span class="tag">Marketing Automation</span>
+        </div>
+        <h3 class="case-title">HubSpot: Building the Intelligence Layer for a 160K-Contact CRM</h3>
+        <p class="case-desc">Turned a contact database into a full marketing and sales intelligence system, with lead scoring, interest-based segmentation, automated hygiene, and pipeline visibility across every business unit.</p>
+        <span class="case-cta">View case study</span>
       </div>
     </a>
 
@@ -548,109 +772,86 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="skills-section">
-  <div class="section-header">
-    <p class="section-eyebrow">What I Do</p>
-    <h2 class="section-title">A full-stack marketing toolkit</h2>
-    <p class="section-sub">Strategy to execution. From brand positioning to HubSpot pipelines.</p>
-  </div>
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <span class="skill-icon">&#9999;&#65039;</span>
-      <h3>Storytelling &amp; Brand Voice</h3>
-      <ul class="skill-list">
-        <li>Copywriting</li>
-        <li>Brand Voice</li>
-        <li>Narrative Structure</li>
-        <li>Editorial</li>
-      </ul>
+<section class="skills-section" id="skills">
+  <div class="skills-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">What I Do</p>
+      <h2 class="section-title">A full-stack marketing <em>toolkit</em></h2>
     </div>
-
-    <div class="skill-card">
-      <span class="skill-icon">&#128202;</span>
-      <h3>Inbound &amp; CRM</h3>
-      <ul class="skill-list">
-        <li>HubSpot Admin</li>
-        <li>Lead Nurturing</li>
-        <li>Automation</li>
-        <li>Pipelines</li>
-      </ul>
+    <div class="skills-grid">
+      <div class="skills-row skills-row--three">
+        <div class="skill-card">
+          <span class="skill-icon">✏️</span>
+          <div class="skill-name">Storytelling &amp; Brand Voice</div>
+          <ul class="skill-list">
+            <li>Copywriting</li><li>Brand Voice</li><li>Narrative Structure</li><li>Editorial</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">📊</span>
+          <div class="skill-name">Inbound &amp; CRM</div>
+          <ul class="skill-list">
+            <li>HubSpot Admin</li><li>Lead Nurturing</li><li>Automation</li><li>Pipelines</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🎥</span>
+          <div class="skill-name">Content &amp; Video</div>
+          <ul class="skill-list">
+            <li>Video Production</li><li>Podcast</li><li>Scripting</li><li>Voiceover</li>
+          </ul>
+        </div>
+      </div>
+      <div class="skills-row skills-row--two">
+        <div class="skill-card">
+          <span class="skill-icon">📢</span>
+          <div class="skill-name">Social &amp; Paid Media</div>
+          <ul class="skill-list">
+            <li>Instagram</li><li>Facebook Ads</li><li>YouTube</li><li>Analytics</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🧭</span>
+          <div class="skill-name">Strategy &amp; Leadership</div>
+          <ul class="skill-list">
+            <li>Team Leadership</li><li>Brand Strategy</li><li>CX Design</li><li>Project Mgmt</li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <div class="skill-card">
-      <span class="skill-icon">&#127909;</span>
-      <h3>Content &amp; Video</h3>
-      <ul class="skill-list">
-        <li>Video Production</li>
-        <li>Podcast</li>
-        <li>Scripting</li>
-        <li>Voiceover</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <span class="skill-icon">&#128226;</span>
-      <h3>Social &amp; Paid Media</h3>
-      <ul class="skill-list">
-        <li>Instagram</li>
-        <li>Facebook Ads</li>
-        <li>YouTube</li>
-        <li>Analytics</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <span class="skill-icon">&#129517;</span>
-      <h3>Strategy &amp; Leadership</h3>
-      <ul class="skill-list">
-        <li>Team Leadership</li>
-        <li>Brand Strategy</li>
-        <li>CX Design</li>
-        <li>Project Mgmt</li>
-      </ul>
-    </div>
-
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="testimonials">
+<section class="testimonials" id="reviews">
   <div class="section-header">
     <p class="section-eyebrow">Colleague Feedback</p>
-    <h2 class="section-title">What people say</h2>
-    <p class="section-sub">From the people who've seen the work up close.</p>
+    <h2 class="section-title">What people <em>say</em></h2>
   </div>
-  <div class="testimonials-grid">
+  <div class="testimonial-grid">
 
     <div class="testimonial-card">
-      <p class="testimonial-quote">
-        "In addition to being an incredible supervisor, Brandon is one of the kindest people I've ever met.
-        He approaches every situation with empathic listening, creative problem-solving, and deep integrity.
-        He has served as a cornerstone of our company's culture and he is a masterful marketing professional
-        with attention to detail, quality output, and creative flair. Brandon is the real deal."
+      <p class="testimonial-text">
+        In addition to being an incredible supervisor, Brandon is one of the kindest people I&rsquo;ve ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company&rsquo;s culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: Brandon is the real deal, and I&rsquo;m beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon! 🙏
       </p>
       <div class="testimonial-person">
-        <img class="testimonial-avatar" src="images/nikki.jpeg" alt="Nikki Herta" />
+        <img src="images/nikki.jpeg" alt="Nikki Herta" class="testimonial-avatar">
         <div>
           <div class="testimonial-name">Nikki Herta</div>
-          <div class="testimonial-role">Writer / Editor / Marketing Professional</div>
+          <div class="testimonial-role">Writer / Editor / Marketing Professional &middot; Reported to Brandon directly</div>
         </div>
       </div>
     </div>
 
     <div class="testimonial-card">
-      <p class="testimonial-quote">
-        "Brandon is an incredible asset to any organization. I had the privilege of working alongside him
-        for many years and consistently valued his ability to collaborate across departments, listen thoughtfully
-        before offering solutions, and approach challenges with creativity and purpose. His strong follow-through,
-        clear communication, and genuine leadership set him apart."
+      <p class="testimonial-text">
+        Brandon is an incredible asset to any organization. I had the privilege of working alongside him for many years and consistently valued his ability to collaborate across departments, listen thoughtfully before offering solutions, and approach challenges with creativity and purpose. His strong follow-through, clear communication, and genuine leadership set him apart. Although we were not in the same department, Brandon was always someone I appreciated working with because of his friendly demeanor and the care and intention he brought to every project.
       </p>
       <div class="testimonial-person">
-        <img class="testimonial-avatar" src="images/melissa.jpeg" alt="Melissa Graeser" />
+        <img src="images/melissa.jpeg" alt="Melissa Graeser" class="testimonial-avatar">
         <div>
           <div class="testimonial-name">Melissa Graeser</div>
-          <div class="testimonial-role">Research &amp; Innovation Manager</div>
+          <div class="testimonial-role">Research &amp; Innovation Manager &middot; Senior colleague</div>
         </div>
       </div>
     </div>
@@ -658,21 +859,73 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section id="contact">
-  <div class="cta">
-    <h2>If you're looking for someone who builds trust as fast as they build <em>pipelines</em>, let's talk.</h2>
-    <p>Available for full-time roles and select freelance engagements in marketing strategy, content, and brand.</p>
-    <div class="cta-actions">
-      <a href="https://linkedin.com/in/brandonbautista" class="btn-light">Connect on LinkedIn</a>
+<!-- CONTACT -->
+<section id="contact" style="background: var(--cream); border-top: 1px solid var(--cream-dark);">
+  <div class="contact-section">
+    <div class="contact-left">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2>Let's start a <em>conversation</em></h2>
+      <p>Whether you're hiring, exploring a collaboration, or just want to talk through a marketing problem — I'd love to hear from you.</p>
+      <p class="contact-alt">Prefer LinkedIn? <a href="https://linkedin.com/in/brandonbautista" target="_blank">Find me there &rarr;</a></p>
     </div>
+    <form class="contact-form" action="https://formspree.io/f/xgodwnoz" method="POST">
+      <input type="hidden" name="_next" value="https://brandonbautista.com/?sent=true">
+      <input type="hidden" name="_subject" value="New message from brandonbautista.com">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@org.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="reason">What brings you here?</label>
+        <select id="reason" name="reason">
+          <option value="">Select one</option>
+          <option value="hiring">I'm hiring / recruiting</option>
+          <option value="freelance">Freelance or consulting project</option>
+          <option value="collaboration">Collaboration or partnership</option>
+          <option value="other">Just saying hello</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me a little about what you're looking for..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message &rarr;</button>
+      <p class="form-note">Your info is only used to respond to you. No lists, no spam.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Show a thank-you note if redirected back after Formspree submission
+  if (window.location.search.includes('sent=true')) {
+    const note = document.createElement('p');
+    note.textContent = "Thanks! I'll be in touch soon.";
+    note.style.cssText = 'color:var(--orange);font-weight:600;font-size:0.9rem;margin-top:12px;';
+    const form = document.querySelector('.contact-form');
+    if (form) form.insertAdjacentElement('afterend', note);
+  }
+</script>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer">
+  <h2><em>Putting people first.</em> Backed by a decade of results.</h2>
+  <p>Available for full-time roles and select freelance engagements in marketing strategy, content, and brand.</p>
+  <div class="cta-actions">
+    <a href="https://linkedin.com/in/brandonbautista" class="btn-white">Connect on LinkedIn</a>
+    <a href="Bautista_Resume.pdf" class="btn-outline-white">Download Resume</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span>&copy; 2026 Brandon Bautista</span>
-  <span><a href="Bautista_Resume.pdf" style="color: var(--ink-faint); text-decoration: none;">Download Resume</a></span>
+  <p>&copy; 2026 Brandon Bautista</p>
+  <a href="Bautista_Resume.pdf">Download Resume</a>
 </footer>
 
 </body>
