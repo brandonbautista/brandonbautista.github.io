@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communications Craft | Brandon Bautista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal: #1e1e1e;
+      --charcoal-mid: #2a2a2a;
+      --charcoal-light: #3a3a3a;
+      --orange: #e07030;
+      --orange-light: #f08040;
+      --cream: #f8f5f0;
+      --cream-dark: #e8e2d8;
+      --white: #fff;
+      --text-dark: #1e1e1e;
+      --text-mid: #555;
+      --text-light: #888;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248,245,240,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--charcoal) !important;
+      color: var(--white) !important;
+      padding: 10px 20px !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--orange) !important; color: var(--white) !important; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, rgba(30,30,30,0.18) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 2rem 2.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 700px;
+    }
+
+    /* LAYOUT */
+    .case-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* AT A GLANCE */
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--cream-dark);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius);
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .glance-item {
+      background: var(--white);
+      padding: 1.4rem 1.25rem;
+      text-align: center;
+    }
+    .glance-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1.1;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* SECTION HEADINGS */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+
+    /* PROSE SECTIONS */
+    .prose-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .prose-section p {
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    /* WHAT I LED GRID */
+    .led-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+    .led-card {
+      background: var(--white);
+      border: 1.5px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .led-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+    }
+    .led-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+    .led-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+    }
+    .led-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* RESOURCES */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .resource-card {
+      border: 1.5px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      background: var(--white);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .resource-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+    }
+    .resource-icon { font-size: 1.3rem; }
+    .resource-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--charcoal);
+    }
+    .resource-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
+    .resource-cta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
+    }
+
+    /* GUIDEBOOK CARD */
+    .guidebook-card {
+      border: 1.5px solid var(--cream-dark);
+      border-radius: var(--radius);
+      background: var(--white);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      margin-top: 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .guidebook-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+    }
+    .guidebook-cover {
+      width: 140px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--cream-dark);
+    }
+    .guidebook-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .guidebook-card:hover .guidebook-cover img { transform: scale(1.03); }
+    .guidebook-body {
+      padding: 1.5rem 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .guidebook-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+    .guidebook-desc {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+    .guidebook-cta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      margin-top: 0.3rem;
+    }
+    @media (max-width: 500px) {
+      .guidebook-card { flex-direction: column; }
+      .guidebook-cover { width: 100%; height: 180px; }
+    }
+
+    /* PULLQUOTE */
+    .pullquote {
+      border-left: 3px solid var(--orange);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: var(--white);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      border: 1.5px solid var(--cream-dark);
+      border-left: 3px solid var(--orange);
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.55;
+    }
+
+    /* VIDEO THUMBNAIL CARDS */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+    .video-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1.5px solid var(--cream-dark);
+      background: var(--white);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .video-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+    }
+    .video-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--charcoal-light);
+      overflow: hidden;
+    }
+    .video-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .video-card:hover .video-thumb img { transform: scale(1.03); }
+    .video-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.28);
+      transition: background 0.2s;
+    }
+    .video-card:hover .video-play { background: rgba(224,112,48,0.45); }
+    .video-play svg {
+      width: 48px; height: 48px;
+      fill: #fff;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+    }
+    .video-caption {
+      padding: 0.9rem 1.1rem 1rem;
+    }
+    .video-caption strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .video-caption span {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.45;
+    }
+    .video-cta {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* MULTI-FORMAT SUITE */
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .format-card {
+      border: 1.5px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.2rem;
+      background: var(--white);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .format-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+    }
+    .format-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--cream);
+      color: var(--text-light);
+      border: 1px solid var(--cream-dark);
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      margin-bottom: 0.4rem;
+      width: fit-content;
+    }
+    .format-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+    .format-desc {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .format-cta {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      margin-top: 0.4rem;
+    }
+
+    /* SOCIAL GRID */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    /* Placeholder card for social images — swap img src once you have the downloads */
+    .social-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1.5px solid var(--cream-dark);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .social-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(224,112,48,0.08);
+    }
+    .social-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .social-placeholder {
+      font-size: 2rem;
+      color: var(--cream-dark);
+    }
+    .social-caption {
+      padding: 0.8rem 1rem 0.9rem;
+    }
+    .social-caption strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+    .social-caption span {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* GUIDEBOOK STACK */
+    .guidebook-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+
+    /* LIGHTBOX */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(20,20,20,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-img {
+      max-width: min(90vw, 640px);
+      max-height: 90vh;
+      border-radius: var(--radius);
+      object-fit: contain;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      font-family: sans-serif;
+    }
+    .lightbox-close:hover { opacity: 1; }
+
+    /* Social card clickable */
+    .social-card { cursor: zoom-in; }
+    .social-img-wrap img { transition: transform 0.3s; }
+    .social-card:hover .social-img-wrap img { transform: scale(1.04); }
+
+    /* CTA STRIP */
+    .cta-strip {
+      border-top: 1px solid var(--cream-dark);
+      padding: 3rem 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip-left {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-mid);
+    }
+    .btn-set { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-primary { background: var(--orange); color: #fff; }
+    .btn-primary:hover { background: var(--orange-light); }
+    .btn-ghost {
+      border: 1.5px solid var(--cream-dark);
+      color: var(--charcoal);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      padding: 22px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 0.78rem; color: #555; }
+    footer a { font-size: 0.78rem; color: #555; text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--orange); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links li:not(:last-child) { display: none; }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .hero { height: 360px; }
+      .led-grid { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
+      .format-grid { grid-template-columns: 1fr 1fr; }
+      .social-grid { grid-template-columns: 1fr 1fr; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Brandon Bautista</a>
+  <ul class="nav-links">
+    <li><a href="/#work">Work</a></li>
+    <li><a href="/#skills">Skills</a></li>
+    <li><a href="/#reviews">Reviews</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk &rarr;</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1740&auto=format&fit=crop" alt="Abstract light and shadow" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag">Video Production</span>
+      <span class="tag">Social Media</span>
+      <span class="tag">Multi-Format</span>
+      <span class="tag">Visual Storytelling</span>
+    </div>
+    <h1 class="hero-title">Creative: Video, Design, and Visual Communications</h1>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="case-body">
+
+  <!-- AT A GLANCE -->
+  <div class="glance">
+    <div class="glance-item">
+      <div class="glance-value">🎬</div>
+      <div class="glance-label">Video Production</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">📐</div>
+      <div class="glance-label">Collateral Design</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">📱</div>
+      <div class="glance-label">Social Media Assets</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">🌐</div>
+      <div class="glance-label">Web Development</div>
+    </div>
+    <div class="glance-item">
+      <div class="glance-value">✍️</div>
+      <div class="glance-label">Writing &amp; Editing</div>
+    </div>
+  </div>
+
+  <!-- THE SITUATION -->
+  <section class="prose-section">
+    <p class="section-label">The Work</p>
+    <h2 class="section-title">Director and Individual Contributor</h2>
+    <p>Leading a marketing team and doing hands-on creative work are not mutually exclusive. Throughout my time as Director of Marketing at Michigan Virtual, I operated as both. I managed and mentored talented people, and I also made things. Guidebooks, videos, reports, infographics, social graphics, web pages built from scratch. Not <em>just</em> as a workaround for capacity constraints, but because the work was interesting and I was good at it.</p>
+    <p>This page collects representative samples of that individual contributor output: the things I personally conceived, designed, wrote, filmed, or built. They span video production, publication design, social media content, and multi-format audience strategy, produced across a decade for a statewide nonprofit competing for attention against well-funded for-profit edtech brands.</p>
+  </section>
+
+  <!-- SOCIAL MEDIA -->
+  <section class="prose-section">
+    <p class="section-label">Social Media</p>
+    <h2 class="section-title">Visual Content Built to Stop a Scroll</h2>
+    <p>Social content for an educational nonprofit is a harder design problem than it looks. The subject matter is dense, the audiences are skeptical, and the competition for attention includes everything from consumer brands to viral content. Getting a teacher or district administrator to pause while scrolling requires both visual clarity and a reason to care.</p>
+    <p>The posts below represent a range of formats: graphics that communicate a complex idea simply, visual storytelling that centers real people, and content designed to build credibility and connection rather than drive clicks. These were produced personally using Canva and Adobe, not by an agency.</p>
+
+    <div class="social-grid">
+      <div class="social-card" onclick="openLightbox('assets/different.jpg')">
+        <div class="social-img-wrap">
+          <img src="assets/different.jpg" alt="Michigan Virtual Instagram post" />
+        </div>
+        <div class="social-caption">
+          <strong><!-- SWAP: Add post context or caption --></strong>
+          <span>Instagram &mdash; Michigan Virtual</span>
+        </div>
+      </div>
+      <div class="social-card" onclick="openLightbox('assets/coaching.jpg')">
+        <div class="social-img-wrap">
+          <img src="assets/coaching.jpg" alt="Michigan Virtual Instagram post" />
+        </div>
+        <div class="social-caption">
+          <strong><!-- SWAP: Add post context or caption --></strong>
+          <span>Instagram &mdash; Michigan Virtual</span>
+        </div>
+      </div>
+      <div class="social-card" onclick="openLightbox('assets/tovah.jpg')">
+        <div class="social-img-wrap">
+          <img src="assets/tovah.jpg" alt="Michigan Virtual Instagram post" />
+        </div>
+        <div class="social-caption">
+          <strong><!-- SWAP: Add post context or caption --></strong>
+          <span>Instagram &mdash; Michigan Virtual</span>
+        </div>
+      </div>
+      <div class="social-card" onclick="openLightbox('assets/tebo.jpg')">
+        <div class="social-img-wrap">
+          <img src="assets/tebo.jpg" alt="Michigan Virtual Instagram post" />
+        </div>
+        <div class="social-caption">
+          <strong><!-- SWAP: Add post context or caption --></strong>
+          <span>Instagram &mdash; Michigan Virtual</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged social post" onclick="event.stopPropagation()" />
+    </div>
+  </section>
+
+  <!-- VIDEO PRODUCTION -->
+  <section class="prose-section">
+    <p class="section-label">Video Production</p>
+    <h2 class="section-title">From Concept to Published</h2>
+    <p>Each of the videos below is one I personally produced: concept, scripting, filming, editing, and publishing. They span promotional content, educator-focused storytelling, and organizational announcements. Click through to watch on YouTube.</p>
+
+    <div class="video-grid">
+      <a href="https://www.youtube.com/watch?v=SEJShrGkPfw" class="video-card" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/SEJShrGkPfw/hqdefault.jpg" alt="Michigan Virtual video" />
+          <div class="video-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-caption">
+          <strong><!-- SWAP: Add title --></strong>
+          <span>Michigan Virtual &mdash; Video Production</span>
+          <span class="video-cta">Watch on YouTube &rarr;</span>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=NG5THi2U2kk" class="video-card" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/NG5THi2U2kk/hqdefault.jpg" alt="Michigan Virtual video" />
+          <div class="video-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-caption">
+          <strong><!-- SWAP: Add title --></strong>
+          <span>Michigan Virtual &mdash; Video Production</span>
+          <span class="video-cta">Watch on YouTube &rarr;</span>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=PqD1oz0MK3A" class="video-card" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/PqD1oz0MK3A/hqdefault.jpg" alt="Michigan Virtual video" />
+          <div class="video-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-caption">
+          <strong><!-- SWAP: Add title --></strong>
+          <span>Michigan Virtual &mdash; Video Production</span>
+          <span class="video-cta">Watch on YouTube &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MULTI-FORMAT SUITE -->
+  <section class="prose-section">
+    <p class="section-label">Audience Strategy</p>
+    <h2 class="section-title">One Report. Five Formats. Every Audience.</h2>
+    <p>Michigan Virtual is legislatively required to compile and publish an annual <strong>K-12 Virtual Learning Effectiveness Report</strong>. The document is dense, research-heavy, and important. It is also the kind of thing that most people will never read.</p>
+    <p>Rather than publish a PDF and move on, we built a full multi-format communications strategy around these reports. The goal was to make the findings genuinely accessible to every stakeholder who needed them: researchers, district leaders, policymakers, teachers, and parents. Each format was designed for a different context and reading behavior, not as variations on the same content, but as distinct entry points into the same core findings.</p>
+    <p>The suite included a fully accessible web report built in WordPress, a plain-language infographic mailed with a letter to every superintendent in the state, a video presentation for people who learn by watching, and an interactive benchmarking tool that lets users slice the data by demographics, school level, and subject area.</p>
+
+    <div class="pullquote">
+      <p>The question was never "how do we share this report." It was "who needs to know this, and how do they actually consume information?" Different answers for different people, built intentionally.</p>
+    </div>
+
+    <div class="format-grid">
+      <a href="https://michiganvirtual.org/research/publications/michigans-k-12-virtual-learning-effectiveness-report-2023-24/" class="format-card" target="_blank" rel="noopener">
+        <span class="format-badge">Web Report</span>
+        <span class="format-title">Full Effectiveness Report</span>
+        <span class="format-desc">Built in WordPress to WCAG AA 2.1 accessibility standards. Structured for researchers and policy audiences who want full context.</span>
+        <span class="format-cta">View Report &rarr;</span>
+      </a>
+      <a href="https://michiganvirtual.org/wp-content/uploads/2025/03/Effectiveness-Report-At-A-Glance-Infographic.pdf" class="format-card" target="_blank" rel="noopener">
+        <span class="format-badge">Print + Mail</span>
+        <span class="format-title">Superintendent Infographic</span>
+        <span class="format-desc">Designed to communicate core takeaways at a glance. Mailed with a personal letter to every superintendent in Michigan.</span>
+        <span class="format-cta">View Infographic &rarr;</span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=QK5ypTOa6FA" class="format-card" target="_blank" rel="noopener">
+        <span class="format-badge">Video</span>
+        <span class="format-title">Author Presentation</span>
+        <span class="format-desc">A recorded walkthrough of the findings for audiences who prefer watching to reading. Extends shelf life beyond the initial release.</span>
+        <span class="format-cta">Watch Presentation &rarr;</span>
+      </a>
+      <a href="https://michiganvirtual.org/research/effectiveness-reports/benchmarking-tool/" class="format-card" target="_blank" rel="noopener">
+        <span class="format-badge">Interactive Tool</span>
+        <span class="format-title">Data Benchmarking Tool</span>
+        <span class="format-desc">Lets district leaders filter results by demographics, school level, and subject area. Turns static data into a decision-support resource.</span>
+        <span class="format-cta">Explore Tool &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PUBLICATION DESIGN -->
+  <section class="prose-section">
+    <p class="section-label">Web and Print</p>
+    <h2 class="section-title">Publishing Work That Had a Job to Do</h2>
+    <p>Not every piece of content is trying to go viral. Some of it just needs to be clear, credible, and in the right hands at the right time. The two examples below represent different ends of that spectrum: a designed guidebook built to support a consulting practice, and a competitive landing page built to answer a question buyers were already asking.</p>
+
+    <div class="guidebook-stack">
+      <a href="https://3943841.fs1.hubspotusercontent-na1.net/hubfs/3943841/Leading%20Innovation%20Pillars%20of%20System-wide%20School%20Transformation%202.pdf?utm_campaign=Consulting%20Services%20-%20Leadership%20Coaching%20for%20Innovation&utm_source=innovationguidebook" class="guidebook-card" target="_blank" rel="noopener">
+        <div class="guidebook-cover">
+          <img src="assets/pillars.png" alt="Leading Innovation guidebook cover" />
+        </div>
+        <div class="guidebook-body">
+          <div class="guidebook-title">Leading Innovation: Pillars of System-wide School Transformation</div>
+          <div class="guidebook-desc">A designed guidebook for district leaders, produced independently from content strategy through final layout. Used in consulting engagements statewide.</div>
+          <div class="guidebook-cta">Download Guidebook &rarr;</div>
+        </div>
+      </a>
+      <a href="https://michiganvirtual.org/why/our-course-difference/" class="guidebook-card" target="_blank" rel="noopener">
+        <div class="guidebook-cover" style="background: #1e3a5f; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:56px;opacity:0.6;">
+            <rect x="8" y="12" width="64" height="8" rx="4" fill="#fff"/>
+            <rect x="8" y="28" width="48" height="6" rx="3" fill="#fff"/>
+            <rect x="8" y="42" width="56" height="6" rx="3" fill="#fff"/>
+            <rect x="8" y="56" width="40" height="6" rx="3" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="guidebook-body">
+          <div class="guidebook-title">Our Course Difference: A Competitive Landing Page</div>
+          <div class="guidebook-desc">A persuasion page built in WordPress to address a specific buyer objection: why choose Michigan Virtual over other online course providers? Structured as a numbered argument, written and published independently.</div>
+          <div class="guidebook-cta">View Page &rarr;</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SKILLS DEMONSTRATED -->
+  <section class="prose-section">
+    <p class="section-label">Skills Demonstrated</p>
+    <h2 class="section-title">What This Work Reflects</h2>
+    <div class="led-grid">
+      <div class="led-card">
+        <span class="led-icon">🎬</span>
+        <h3>Video Production</h3>
+        <p>End-to-end solo production across multiple formats: promotional, educational, and informational. Filming, editing, and publishing handled independently.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">🌐</span>
+        <h3>Web Content Management</h3>
+        <p>Built and published the annual Effectiveness Report in WordPress to WCAG AA 2.1 accessibility standards, structured for research and policy audiences.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">📐</span>
+        <h3>Print and Digital Design</h3>
+        <p>Produced guidebooks, infographics, and digital collateral independently using Canva and Adobe Creative Suite, at a level of polish that held up against for-profit competition.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">📊</span>
+        <h3>Audience Strategy</h3>
+        <p>Designed multi-format content suites intentionally matched to how different stakeholders actually consume information, not just how organizations prefer to publish it.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">📱</span>
+        <h3>Social Media Content</h3>
+        <p>Created visual content for complex institutional topics that competed for attention in a crowded feed, designed personally rather than delegated to a vendor.</p>
+      </div>
+      <div class="led-card">
+        <span class="led-icon">✍️</span>
+        <h3>Writing and Editing</h3>
+        <p>Wrote across formats: guidebook content, web copy, social captions, superintendent letters, and video scripts. Clear, direct, audience-first in every case.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <span class="cta-strip-left">Ready to see more?</span>
+    <div class="btn-set">
+      <a href="/" class="btn btn-ghost">&larr; All Work</a>
+      <a href="/#contact" class="btn btn-primary">Let's Connect</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Brandon Bautista</p>
+  <a href="../../Bautista_Resume.pdf">Download Resume</a>
+</footer>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>
