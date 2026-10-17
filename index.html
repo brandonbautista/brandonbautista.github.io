@@ -3,698 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brandon Bautista | Marketing Portfolio</title>
+<title>Brandon Bautista | Communications, Craft & Leadership</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta name="description" content="Brandon Bautista is a marketing leader and storyteller with 25 years of experience. Portfolio of brand, digital, and content work that drove growth and goodwill.">
-  <meta property="og:title" content="Brandon Bautista | Marketing Portfolio">
-  <meta property="og:description" content="Marketing leader and storyteller. Portfolio of brand, digital, and content work.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Brandon Bautista leads communications, builds the systems behind it, and stays close to creative work. Selected projects from MSU Anthropology and Michigan Virtual.">
+  <meta property="og:title" content="Brandon Bautista | Communications, Craft & Leadership">
+  <meta property="og:description" content="Communications leadership, hands-on craft, and stories built around people.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://brandonbautista.com/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Brandon Bautista | Marketing Portfolio">
-  <meta name="twitter:description" content="Marketing leader and storyteller. Portfolio of brand, digital, and content work.">
+  <meta name="twitter:title" content="Brandon Bautista | Communications, Craft & Leadership">
+  <meta name="twitter:description" content="Communications leadership, hands-on craft, and stories built around people.">
   <link rel="stylesheet" href="styles.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --charcoal: #1e1e1e;
-    --charcoal-mid: #2a2a2a;
-    --charcoal-light: #3a3a3a;
-    --orange: #e07030;
-    --orange-light: #f08040;
-    --cream: #f8f5f0;
-    --cream-dark: #e8e2d8;
-    --text-dark: #1e1e1e;
-    --text-mid: #555;
-    --text-light: #888;
-    --white: #fff;
-    --radius: 16px;
-    --radius-sm: 10px;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    line-height: 1.6;
-    font-size: 16px;
-  }
-
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(248,245,240,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--cream-dark);
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--charcoal);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text-mid);
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--orange); }
-  .nav-cta {
-    background: var(--charcoal) !important;
-    color: var(--white) !important;
-    padding: 10px 20px !important;
-    border-radius: 8px;
-    font-weight: 600 !important;
-  }
-  .nav-cta:hover { background: var(--orange) !important; color: var(--white) !important; }
-
-  /* HERO */
-  .hero {
-    padding: 80px 48px 64px;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 64px;
-    align-items: start;
-  }
-  .hero-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5.5vw, 4.75rem);
-    font-weight: 900;
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: var(--charcoal);
-    margin-bottom: 20px;
-  }
-  .hero-name em { font-style: italic; color: var(--orange); }
-  .hero-tagline {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--charcoal-light);
-    margin-bottom: 24px;
-    line-height: 1.4;
-  }
-  .hero-body {
-    font-size: 1rem;
-    color: var(--text-mid);
-    line-height: 1.8;
-    max-width: 540px;
-    margin-bottom: 36px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: var(--orange);
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--charcoal);
-    padding: 14px 28px;
-    border-radius: var(--radius-sm);
-    border: 1.5px solid var(--charcoal-light);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: border-color 0.2s, color 0.2s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
-
-  /* HERO PANEL */
-  .hero-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding-top: 8px;
-  }
-  .panel-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 2px;
-  }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  .philosophy-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-    border: 1.5px solid var(--cream-dark);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .philosophy-card:hover {
-    border-color: var(--orange);
-    box-shadow: 0 4px 20px rgba(224,112,48,0.08);
-  }
-  .philosophy-card .icon { font-size: 1.3rem; margin-bottom: 7px; display: block; }
-  .philosophy-card strong {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--charcoal);
-    margin-bottom: 4px;
-  }
-  .philosophy-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
-
-  /* HERO BACKGROUND WRAP */
-  .hero-bg {
-    background:
-      linear-gradient(rgba(248,245,240,0.88), rgba(248,245,240,0.88)),
-      url('https://images.unsplash.com/photo-1501959181532-7d2a3c064642?auto=format&fit=crop&w=1800') center/cover no-repeat;
-  }
-
-  /* PHILOSOPHY CALLOUT */
-  .philosophy-callout {
-    background: var(--charcoal);
-    padding: 72px 48px;
-  }
-  .philosophy-callout-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .callout-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-  .callout-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.2;
-  }
-  .callout-heading em { font-style: italic; color: var(--orange); }
-  .callout-body {
-    font-size: 1rem;
-    color: rgba(248,245,240,0.75);
-    line-height: 1.85;
-  }
-  .callout-body p { margin-bottom: 16px; }
-  .callout-body p:last-child { margin-bottom: 0; }
-  .callout-body strong { color: var(--white); font-weight: 600; }
-
-  /* CONTACT FORM */
-  .contact-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 72px 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .contact-left h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.65rem, 2.8vw, 2.4rem);
-    font-weight: 700;
-    color: var(--charcoal);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .contact-left h2 em { font-style: italic; color: var(--orange); }
-  .contact-left p {
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-  .contact-alt {
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  .contact-alt a { color: var(--orange); text-decoration: none; }
-  .contact-alt a:hover { text-decoration: underline; }
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    letter-spacing: 0.02em;
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    background: var(--white);
-    border: 1.5px solid var(--cream-dark);
-    border-radius: var(--radius-sm);
-    padding: 12px 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    color: var(--text-dark);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-    width: 100%;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    border-color: var(--orange);
-    box-shadow: 0 0 0 3px rgba(224,112,48,0.08);
-  }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-submit {
-    background: var(--orange);
-    color: var(--white);
-    border: none;
-    padding: 14px 28px;
-    border-radius: var(--radius-sm);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    align-self: flex-start;
-  }
-  .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
-  .form-note {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-top: -4px;
-  }
-
-  /* FEATURED PROJECTS */
-  .case-studies {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 72px 48px;
-  }
-  .section-header { margin-bottom: 40px; }
-  .section-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 10px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.65rem, 2.8vw, 2.4rem);
-    font-weight: 700;
-    color: var(--charcoal);
-    line-height: 1.2;
-  }
-  .section-title em { font-style: italic; }
-  .case-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .case-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1.5px solid var(--cream-dark);
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
-    cursor: pointer;
-  }
-  .case-card:hover {
-    border-color: var(--orange);
-    box-shadow: 0 8px 32px rgba(224,112,48,0.12);
-    transform: translateY(-3px);
-  }
-  .case-img-wrap { position: relative; height: 178px; overflow: hidden; }
-  .case-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.4s;
-  }
-  .case-card:hover .case-img-wrap img { transform: scale(1.04); }
-  .case-study-label {
-    position: absolute;
-    top: 12px; left: 12px;
-    background: var(--charcoal);
-    color: var(--white);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 20px;
-  }
-  .case-body { padding: 20px 20px 16px; flex: 1; display: flex; flex-direction: column; }
-  .case-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 11px; }
-  .tag {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: var(--orange);
-    background: rgba(224,112,48,0.08);
-    padding: 3px 9px;
-    border-radius: 20px;
-  }
-  .case-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--charcoal);
-    line-height: 1.35;
-    margin-bottom: 9px;
-  }
-  .case-desc {
-    font-size: 0.8rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 14px;
-  }
-  .case-cta {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--orange);
-    transition: gap 0.2s;
-  }
-  .case-cta::after { content: '→'; }
-  .case-card:hover .case-cta { gap: 9px; }
-
-  /* SKILLS */
-  .skills-section { background: var(--charcoal); padding: 72px 48px; }
-  .skills-inner { max-width: 1200px; margin: 0 auto; }
-  .skills-section .section-eyebrow { color: var(--orange); }
-  .skills-section .section-title { color: var(--white); }
-  .skills-grid {
-    margin-top: 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .skills-row {
-    display: grid;
-    gap: 14px;
-  }
-  .skills-row--three { grid-template-columns: repeat(3, 1fr); }
-  .skills-row--two {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: calc(66.66% - 5px);
-    margin: 0 auto;
-    width: 100%;
-  }
-  .skill-card {
-    background: var(--charcoal-mid);
-    border-radius: var(--radius);
-    padding: 22px 18px;
-    border: 1px solid var(--charcoal-light);
-    transition: border-color 0.2s;
-  }
-  .skill-card:hover { border-color: var(--orange); }
-  .skill-icon { font-size: 1.4rem; margin-bottom: 10px; display: block; }
-  .skill-name { font-weight: 600; color: var(--white); font-size: 0.85rem; margin-bottom: 10px; }
-  .skill-list { list-style: none; }
-  .skill-list li {
-    font-size: 0.76rem;
-    color: var(--text-light);
-    padding: 3px 0;
-    border-bottom: 1px solid var(--charcoal-light);
-    line-height: 1.4;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials { max-width: 1200px; margin: 0 auto; padding: 72px 48px; }
-  .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
-  .testimonial-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 34px 30px;
-    border: 1.5px solid var(--cream-dark);
-    position: relative;
-  }
-  .testimonial-card::before {
-    content: '\201C';
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    color: var(--orange);
-    opacity: 0.12;
-    position: absolute;
-    top: 10px; left: 22px;
-    line-height: 1;
-  }
-  .testimonial-text {
-    font-size: 0.9rem;
-    line-height: 1.85;
-    color: var(--text-dark);
-    margin-bottom: 26px;
-    position: relative;
-    z-index: 1;
-  }
-  .testimonial-person { display: flex; align-items: center; gap: 13px; }
-  .testimonial-avatar {
-    width: 46px; height: 46px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--cream-dark);
-  }
-  .testimonial-name { font-weight: 600; font-size: 0.875rem; color: var(--charcoal); }
-  .testimonial-role { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
-
-  /* CTA FOOTER */
-  .cta-footer { background: var(--charcoal); padding: 80px 48px; text-align: center; }
-  .cta-footer h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.65rem, 3vw, 2.6rem);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.25;
-    max-width: 680px;
-    margin: 0 auto 12px;
-  }
-  .cta-footer h2 em { font-style: italic; color: var(--orange); }
-  .cta-footer p { color: var(--text-light); font-size: 0.92rem; margin-bottom: 32px; }
-  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn-white {
-    background: var(--white); color: var(--charcoal);
-    padding: 14px 28px; border-radius: var(--radius-sm);
-    text-decoration: none; font-weight: 600; font-size: 0.9rem;
-    transition: background 0.2s; display: inline-block;
-  }
-  .btn-white:hover { background: var(--cream); }
-  .btn-outline-white {
-    background: transparent; color: var(--white);
-    padding: 14px 28px; border-radius: var(--radius-sm);
-    border: 1.5px solid rgba(255,255,255,0.3);
-    text-decoration: none; font-weight: 500; font-size: 0.9rem;
-    transition: border-color 0.2s; display: inline-block;
-  }
-  .btn-outline-white:hover { border-color: var(--white); }
-
-  /* FOOTER */
-  footer {
-    background: #111;
-    padding: 22px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  footer p { font-size: 0.78rem; color: #555; }
-  footer a { font-size: 0.78rem; color: #555; text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--orange); }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-links { gap: 16px; }
-    .nav-links li:not(:last-child) { display: none; }
-
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 48px 20px 40px;
-    }
-
-    .philosophy-callout-inner {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-    .philosophy-callout { padding: 48px 20px; }
-
-    .case-studies { padding: 48px 20px; }
-    .case-grid { grid-template-columns: 1fr; }
-    .case-img-wrap { height: 200px; }
-
-    .skills-section { padding: 48px 20px; }
-    .skills-row--three { grid-template-columns: 1fr; }
-    .skills-row--two { max-width: 100%; grid-template-columns: 1fr; }
-
-    .testimonials { padding: 48px 20px; }
-    .testimonial-grid { grid-template-columns: 1fr; }
-    .testimonial-card { padding: 24px 20px; }
-    .testimonial-text { font-size: 0.875rem; }
-
-    .contact-section {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 48px 20px;
-    }
-    .form-row { grid-template-columns: 1fr; }
-
-    .cta-footer { padding: 56px 20px; }
-    footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
-  }
-</style>
 </head>
-<body>
+<body class="home-page">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Brandon Bautista</a>
+<nav aria-label="Main navigation">
+  <a href="/" class="nav-logo">Brandon Bautista</a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#skills">What I Do</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact" class="nav-cta">Let's Talk &rarr;</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
 </nav>
 
+<main id="main">
 <!-- HERO -->
 <div class="hero-bg">
-<section class="hero">
+<section class="hero" aria-labelledby="home-title">
   <div class="hero-left">
-    <p class="hero-eyebrow">Marketing Leader &middot; Storyteller &middot; Builder</p>
-    <h1 class="hero-name">Brandon<br><em>Bautista</em></h1>
-    <p class="hero-tagline">Growth, Goodwill &amp; Revenue Through Storytelling</p>
-    <p class="hero-body">
-      I believe great marketing isn&rsquo;t about outspending competitors &mdash; it&rsquo;s about out-connecting them.
-      For 10 years, I led marketing at a public-sector nonprofit competing against well-funded nationals,
-      with lean budgets, a small team, and ideas I had to build the case for carefully.
-      The ones worth building the case for usually worked.
-    </p>
-    <div class="hero-actions">
-      <a href="Bautista_Resume.pdf" class="btn-primary">Download Resume</a>
-      <a href="https://linkedin.com/in/brandonbautista" class="btn-secondary">Connect on LinkedIn &rarr;</a>
-    </div>
+    <p class="hero-eyebrow">Communications Leader &middot; Working Creative</p>
+    <h1 class="hero-name" id="home-title">I lead the work.<br><em>I make it, too.</em></h1>
+    <p class="hero-tagline">Strategy, craft, and human connection.</p>
+    <p class="hero-body">I’m Brandon Bautista. I build communications that help people understand why an organization’s work matters, then stay close to the writing, design, and delivery that make the plan real. I spent 25 years at Michigan Virtual, most recently as Director of Marketing. Today, I’m the communications manager for Michigan State University’s Department of Anthropology.</p>
+    <div class="hero-actions"><a href="#work" class="btn-primary">Explore the work</a><a href="https://www.linkedin.com/in/brandonbautista/" class="btn-secondary">Connect on LinkedIn &rarr;</a></div>
   </div>
-
   <div class="hero-panel">
-    <p class="panel-label">My Approach</p>
-    <div class="philosophy-card">
-      <span class="icon">🤝</span>
-      <strong>Trust before pipeline</strong>
-      <p>I build the relationship first. Audiences that trust you convert more and stay longer.</p>
-    </div>
-    <div class="philosophy-card">
-      <span class="icon">📖</span>
-      <strong>Story as strategy</strong>
-      <p>Every campaign starts with a human truth. Data tells me if it worked. Story tells me why it matters.</p>
-    </div>
-    <div class="philosophy-card">
-      <span class="icon">🔧</span>
-      <strong>Full-stack execution</strong>
-      <p>I can write the brief, shoot the video, build the HubSpot flow, and read the report &mdash; and I have.</p>
-    </div>
-    <div class="philosophy-card">
-      <span class="icon">🌱</span>
-      <strong>Lean as a feature</strong>
-      <p>Ten years in a resource-constrained org taught me to treat budget limits as creative constraints.</p>
-    </div>
+    <p class="panel-label">The through-line</p>
+    <div class="philosophy-card"><strong>Lead with clarity</strong><p>Set a direction, build the systems, and help a team carry the work forward.</p></div>
+    <div class="philosophy-card"><strong>Keep making</strong><p>Write, design, produce, and solve the details that turn a strategy into something useful.</p></div>
+    <div class="philosophy-card"><strong>Start with people</strong><p>Listen closely to sources, colleagues, and audiences. Specificity earns trust.</p></div>
+    <a class="panel-link" href="projects/msu/">See my current role at MSU Anthropology &rarr;</a>
   </div>
 </section>
 </div>
 
 <!-- PHILOSOPHY CALLOUT -->
-<section class="philosophy-callout">
-  <div class="philosophy-callout-inner">
-    <div class="callout-left">
-      <p class="callout-label">Who I Am</p>
-      <h2 class="callout-heading">Putting<br><em>people</em> first.</h2>
-    </div>
-    <div class="callout-body">
-      <p>Marketing is a people business dressed up in data.</p>
-      <p>For 10 years I built campaigns for a public-sector nonprofit — the kind of org where you earn attention rather than buy it, and where the relationship with your audience matters more than any single conversion. That context shaped everything about how I work. I lead with curiosity about the person on the other end. I try to make colleagues feel heard before I push for a decision. I believe the best creative work comes out of <strong>environments where people feel safe enough to say the weird idea out loud.</strong></p>
-      <p>The strategies, the systems, the numbers are real and I'm proud of them. But the thing I care most about is leaving people better than I found them. Audiences, teammates, organizations.</p>
-    </div>
-  </div>
-</section>
+<section class="philosophy-callout" id="about"><div class="philosophy-callout-inner"><div class="callout-left"><p class="callout-label">The work today</p><h2 class="callout-heading">The same instincts.<br><em>A new setting.</em></h2></div><div class="callout-body"><p>I never stopped being a maker, even while leading a marketing team. At MSU Anthropology, I’m drawing on that leadership experience in a one-person communications role.</p><p>The scope spans stories, newsletters, websites, events, and the operating systems behind them. The most interesting part is still the human part: helping people and their work come through clearly.</p></div></div></section>
 
 <!-- FEATURED PROJECTS -->
 <section class="case-studies" id="work">
   <div class="section-header">
     <p class="section-eyebrow">Featured Work</p>
-    <h2 class="section-title">Campaigns that moved people <em>and numbers</em></h2>
+    <h2 class="section-title">Leadership and craft <em>in practice</em></h2>
   </div>
   <div class="case-grid">
 
 
     <a href="projects/msu/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop" alt="MSU Anthropology Communications">
+        <div class="type-art type-art-msu" aria-hidden="true">ANTHROPOLOGY<br><small>Stories · Systems · People</small></div>
         <span class="case-study-label">Current Role</span>
       </div>
       <div class="case-body">
         <div class="case-tags">
           <span class="tag">Higher Ed</span><span class="tag">Content Strategy</span><span class="tag">Newsletter</span>
         </div>
-        <h3 class="case-title">Building the Communications Function at MSU Anthropology</h3>
-        <p class="case-desc">Solo communicator for an academic department. Systems, newsletter, editorial judgment, and a scope that keeps growing.</p>
+        <h3 class="case-title">Communications at MSU Anthropology</h3>
+        <p class="case-desc">A solo role spanning storytelling, a monthly newsletter, web stewardship, and the systems that help the work hold together.</p>
         <span class="case-cta">View featured project</span>
       </div>
     </a>
 
     <a href="projects/ai/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1674027444636-ce7379d51252?q=80&w=800&auto=format&fit=crop" alt="AI Strategist Consulting">
+        <div class="type-art type-art-ai" aria-hidden="true">AI<br><small>Strategy into practice</small></div>
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -702,14 +90,14 @@
           <span class="tag">Product Launch</span><span class="tag">Inbound</span><span class="tag">Revenue</span>
         </div>
         <h3 class="case-title">AI Strategist Consulting: Zero to $500K in Under 2 Years</h3>
-        <p class="case-desc">Built the full growth engine &mdash; sales funnel, inbound content, and social amplification &mdash; for a brand-new consulting product line.</p>
+        <p class="case-desc">Built the full growth engine, sales funnel, inbound content, and social amplification, for a brand-new consulting product line.</p>
         <span class="case-cta">View featured project</span>
       </div>
     </a>
 
     <a href="projects/creative/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Creative: Video, Design, and Visual Communications">
+        <img src="projects/creative/assets/pillars.png" alt="Cover of the Leading Innovation guidebook" loading="lazy">
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -717,14 +105,14 @@
           <span class="tag">Video Production</span><span class="tag">Design</span><span class="tag">Social Media</span>
         </div>
         <h3 class="case-title">Creative: Video, Design, and Visual Communications</h3>
-        <p class="case-desc">A decade of hands-on creative work alongside team leadership &mdash; videos, guidebooks, social graphics, infographics, and web content produced personally.</p>
+        <p class="case-desc">A decade of hands-on creative work alongside team leadership, videos, guidebooks, social graphics, infographics, and web content produced personally.</p>
         <span class="case-cta">View featured project</span>
       </div>
     </a>
 
     <a href="projects/clearlist/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Clear the List">
+        <div class="type-art type-art-clear" aria-hidden="true">Clear the List</div>
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -739,7 +127,7 @@
 
     <a href="projects/bright/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=800&auto=format&fit=crop" alt="BRIGHT Podcast">
+        <img src="images/bright.jpg" alt="BRIGHT podcast artwork" loading="lazy">
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -747,14 +135,14 @@
           <span class="tag">Award-Winning</span><span class="tag">Podcast</span><span class="tag">Content</span>
         </div>
         <h3 class="case-title">BRIGHT: Stories of Hope &amp; Innovation</h3>
-        <p class="case-desc">Award-winning podcast with 217K+ listens/views. Built for goodwill, not pitches &mdash; and it earned Michigan Virtual durable trust across the K-12 community.</p>
+        <p class="case-desc">Award-winning podcast with 217K+ listens/views. Built for goodwill, not pitches, and it earned Michigan Virtual durable trust across the K-12 community.</p>
         <span class="case-cta">View featured project</span>
       </div>
     </a>
 
     <a href="projects/michigancares/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?q=80&w=800&auto=format&fit=crop" alt="Michigan Cares">
+        <div class="type-art type-art-cares" aria-hidden="true">Michigan Cares</div>
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -769,7 +157,7 @@
 
     <a href="projects/enrollment/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Enrollment Campaigns">
+        <div class="type-art type-art-enrollment" aria-hidden="true">Enrollment</div>
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -784,7 +172,7 @@
 
     <a href="projects/brand/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?q=80&w=800&auto=format&fit=crop" alt="Brand Standards">
+        <div class="type-art type-art-brand" aria-hidden="true">Brand</div>
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -792,14 +180,14 @@
           <span class="tag">Rebrand</span><span class="tag">Brand Strategy</span><span class="tag">Voice</span>
         </div>
         <h3 class="case-title">Michigan Virtual Brand Standards</h3>
-        <p class="case-desc">Led a full organizational rebrand &mdash; new brand guide, voice, visual system, and statewide rollout &mdash; unifying a 25-year-old nonprofit for a new era.</p>
+        <p class="case-desc">Led a full organizational rebrand, new brand guide, voice, visual system, and statewide rollout, unifying a 25-year-old nonprofit for a new era.</p>
         <span class="case-cta">View featured project</span>
       </div>
     </a>
 
     <a href="projects/hubspot/" class="case-card">
       <div class="case-img-wrap">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="HubSpot CRM">
+        <div class="type-art type-art-hubspot" aria-hidden="true">HubSpot</div>
         <span class="case-study-label">Featured Project</span>
       </div>
       <div class="case-body">
@@ -820,7 +208,7 @@
   <div class="skills-inner">
     <div class="section-header">
       <p class="section-eyebrow">What I Do</p>
-      <h2 class="section-title">A full-stack marketing <em>toolkit</em></h2>
+      <h2 class="section-title">What I bring <em>to the work</em></h2>
     </div>
     <div class="skills-grid">
       <div class="skills-row skills-row--three">
@@ -879,7 +267,7 @@
         In addition to being an incredible supervisor, Brandon is one of the kindest people I&rsquo;ve ever met. He approaches every situation with empathic listening, creative problem-solving, light-hearted humor, and deep integrity. He has served as a cornerstone of our company&rsquo;s culture with personal, humanizing relationships extending across departments that consistently break down siloed ways of thinking. In addition to this, he is a masterful marketing professional with attention to detail, quality output, and creative flair. I could go on and on, but suffice it to say: Brandon is the real deal, and I&rsquo;m beyond grateful to have had the opportunity to learn from him personally and professionally during my tenure at Michigan Virtual. Thank you, Brandon! 🙏
       </p>
       <div class="testimonial-person">
-        <img src="images/nikki.jpeg" alt="Nikki Herta" class="testimonial-avatar">
+        <img src="images/nikki.jpeg" alt="Nikki Herta" class="testimonial-avatar" loading="lazy">
         <div>
           <div class="testimonial-name">Nikki Herta</div>
           <div class="testimonial-role">Writer / Editor / Marketing Professional &middot; Reported to Brandon directly</div>
@@ -892,7 +280,7 @@
         Brandon is an incredible asset to any organization. I had the privilege of working alongside him for many years and consistently valued his ability to collaborate across departments, listen thoughtfully before offering solutions, and approach challenges with creativity and purpose. His strong follow-through, clear communication, and genuine leadership set him apart. Although we were not in the same department, Brandon was always someone I appreciated working with because of his friendly demeanor and the care and intention he brought to every project.
       </p>
       <div class="testimonial-person">
-        <img src="images/melissa.jpeg" alt="Melissa Graeser" class="testimonial-avatar">
+        <img src="images/melissa.jpeg" alt="Melissa Graeser" class="testimonial-avatar" loading="lazy">
         <div>
           <div class="testimonial-name">Melissa Graeser</div>
           <div class="testimonial-role">Research &amp; Innovation Manager &middot; Senior colleague</div>
@@ -910,7 +298,7 @@
       <p class="section-eyebrow">Get In Touch</p>
       <h2>Let's start a <em>conversation</em></h2>
       <p>Whether you're hiring, exploring a collaboration, or just want to talk through a marketing problem — I'd love to hear from you.</p>
-      <p class="contact-alt">Prefer LinkedIn? <a href="https://linkedin.com/in/brandonbautista" target="_blank">Find me there &rarr;</a></p>
+      <p class="contact-alt">Prefer LinkedIn? <a href="https://www.linkedin.com/in/brandonbautista/" target="_blank">Find me there &rarr;</a></p>
     </div>
     <form class="contact-form" action="https://formspree.io/f/xgodwnoz" method="POST">
       <input type="hidden" name="_next" value="https://brandonbautista.com/?sent=true">
@@ -958,18 +346,19 @@
 
 <!-- CTA FOOTER -->
 <section class="cta-footer">
-  <h2><em>Putting people first.</em> Backed by a decade of results.</h2>
-  <p>Available for full-time roles and select freelance engagements in marketing strategy, content, and brand.</p>
+  <h2><em>Leading with people.</em> Staying close to the work.</h2>
+  <p>Interested in communications leadership, creative work, or a conversation about what comes next?</p>
   <div class="cta-actions">
-    <a href="https://linkedin.com/in/brandonbautista" class="btn-white">Connect on LinkedIn</a>
-    <a href="Bautista_Resume.pdf" class="btn-outline-white">Download Resume</a>
+    <a href="https://www.linkedin.com/in/brandonbautista/" class="btn-white">Connect on LinkedIn</a>
+    <a href="#work" class="btn-outline-white">Explore the work</a>
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2026 Brandon Bautista</p>
-  <a href="Bautista_Resume.pdf">Download Resume</a>
+  <a href="https://www.linkedin.com/in/brandonbautista/">Connect on LinkedIn</a>
 </footer>
 
 </body>
