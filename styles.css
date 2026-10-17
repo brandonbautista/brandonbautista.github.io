@@ -609,5 +609,6 @@ footer a:hover { color: var(--orange); }
 .msu-page .social-art-card figcaption { padding: .9rem 1.1rem 1rem; }
 .msu-page .social-art-card figcaption a { color: var(--charcoal); font-weight: 600; line-height: 1.4; text-decoration-thickness: 1px; text-underline-offset: .18em; }
 .msu-page .social-art-card figcaption a:hover { color: var(--orange); }
+@media (min-width: 701px) { .msu-page .social-art-card:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc((100% - 1.25rem) / 2); } }
 @media (max-width: 700px) { .msu-page .social-art-gallery { grid-template-columns: 1fr; } }
 
