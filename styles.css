@@ -525,46 +525,25 @@ footer a:hover { color: var(--orange); }
   .home-page footer a{ font-size: 0.78rem; color: #d6d0c8; text-decoration: none; transition: color 0.2s; }
   .home-page footer a:hover{ color: var(--orange); }
 
-  /* MOBILE */
-  @media (max-width: 768px){
-    nav { padding: 0 20px; }
-    .nav-links { gap: 16px; }
-    .nav-links li:not(:last-child) { display: none; }
-
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 48px 20px 40px;
-    }
-
-    .philosophy-callout-inner {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-    .philosophy-callout { padding: 48px 20px; }
-
-    .case-studies { padding: 48px 20px; }
-    .case-grid { grid-template-columns: 1fr; }
-    .case-img-wrap { height: 200px; }
-
-    .skills-section { padding: 48px 20px; }
-    .skills-row--three { grid-template-columns: 1fr; }
-    .skills-row--two { max-width: 100%; grid-template-columns: 1fr; }
-
-    .testimonials { padding: 48px 20px; }
-    .testimonial-grid { grid-template-columns: 1fr; }
-    .testimonial-card { padding: 24px 20px; }
-    .testimonial-text { font-size: 0.875rem; }
-
-    .contact-section {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 48px 20px;
-    }
-    .form-row { grid-template-columns: 1fr; }
-
-    .cta-footer { padding: 56px 20px; }
-    footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+  /* Homepage layout on smaller screens */
+  @media (max-width: 768px) {
+    .home-page .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 40px; }
+    .home-page .philosophy-callout-inner { grid-template-columns: 1fr; gap: 32px; }
+    .home-page .philosophy-callout { padding: 48px 20px; }
+    .home-page .case-studies { padding: 48px 20px; }
+    .home-page .case-grid { grid-template-columns: 1fr; }
+    .home-page .case-img-wrap { height: 200px; }
+    .home-page .skills-section { padding: 48px 20px; }
+    .home-page .skills-row--three { grid-template-columns: 1fr; }
+    .home-page .skills-row--two { max-width: 100%; grid-template-columns: 1fr; }
+    .home-page .testimonials { padding: 48px 20px; }
+    .home-page .testimonial-grid { grid-template-columns: 1fr; }
+    .home-page .testimonial-card { padding: 24px 20px; }
+    .home-page .testimonial-text { font-size: .875rem; }
+    .home-page .contact-section { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px; }
+    .home-page .form-row { grid-template-columns: 1fr; }
+    .home-page .cta-footer { padding: 56px 20px; }
+    .home-page footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
   }
 
 /* Shared accessibility and responsive navigation */
