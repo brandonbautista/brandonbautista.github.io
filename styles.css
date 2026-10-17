@@ -594,3 +594,12 @@ footer a:hover { color: var(--orange); }
 .type-art-enrollment { background: #d7e0e0; color: #273e49; }
 .type-art-brand { background: #e3c9ba; color: #533327; }
 .type-art-hubspot { background: #dcd7e7; color: #403452; }
+
+/* Text-only published work links on the MSU role page */
+.msu-page .story-links { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: 1.5rem; }
+.msu-page .story-links li { min-width: 0; }
+.msu-page .story-links a { display: flex; flex-direction: column; height: 100%; gap: .35rem; padding: 1.1rem 1.2rem; background: var(--white); border: 1.5px solid var(--cream-dark); border-radius: var(--radius-sm); color: var(--charcoal); text-decoration: none; }
+.msu-page .story-links a:hover { border-color: var(--orange); }
+.msu-page .story-links time { color: var(--text-mid); font-size: .78rem; font-weight: 600; }
+.msu-page .story-links span { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; line-height: 1.35; }
+@media (max-width: 600px) { .msu-page .story-links { grid-template-columns: 1fr; } }
